@@ -1,0 +1,60 @@
+To install the Subversion server.
+
+1. Grab the latest Nixpkgs:
+
+     svn co https://svn.cs.uu.nl:12443/repos/trace/nixpkgs/trunk/pkgs
+
+   (Or create a symlink `pkgs' to the `pkgs' subdirectory of some
+   Nixpkgs installation you already have.)
+
+2. To speed up building of the server:
+
+     nix-pull http://catamaran.labs.cs.uu.nl/dist/nix/channels-v3/nixpkgs-unstable/MANIFEST
+
+3. Modify `svn-server-conf.nix' to set site-specific settings.  To set
+   up a https server, create a server certificate and key (see ssl/README).
+
+4. Build the test instance of the server:
+
+     ./upgrade-server test
+
+   If succesful, the server will run on port 12081 by default.
+
+5. Set a password for the `root' user:
+
+     /nix/var/nix/profiles/svn-test-server/bin/resetpw.pl root PASSWORD
+
+6. If the test server works, build the production instance:
+
+     ./upgrade-server production
+
+   The production instance will run op port 12080 by default.
+
+
+Anytime you make a configuration change, you should first upgrade the
+test server instance, then the production server instance
+(`./upgrade-server (test|production)').
+
+
+To stop the server:
+
+  /nix/var/nix/profiles/svn-(test|production)-server/bin/ctl stop
+
+To start the server:
+
+  /nix/var/nix/profiles/svn-(test|production)-server/bin/ctl start
+
+(This is done automatically by `./upgrade-server'.)
+
+
+There are some utility commands in
+/nix/var/nix/profiles/svn-(test|production)-server/bin:
+
+* `resetpw.pl USERNAME PASSWORD' resets a user's password.
+
+* `delete-repo.pl TRASH REPONAMES...' moves the specified repositories
+  to the directory TRASH.
+
+* `delete-user.pl USERNAME' deletes a user, after checking that the
+  user no longer is the owner of any repository and does not occur in
+  any ACL.

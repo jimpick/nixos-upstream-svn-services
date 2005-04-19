@@ -1,0 +1,9 @@
+#! @SHELL@
+
+cd @REPOS@
+
+for i in $(ls); do
+  echo $i
+  @SVN@/bin/db_checkpoint -1 -h $i/db
+  rm -fv `@SVN@/bin/svnadmin list-unused-dblogs $i`
+done

@@ -1,0 +1,35 @@
+#! @SHELL@ -e
+
+# Make sure that the environment is deterministic.
+export PATH=@DEFAULTPATH@
+
+if test "$2" = "start"; then
+
+    echo "creating missing files / tables..."
+
+    # Create missing state directories.
+    mkdir -p "@LOGS@"
+    mkdir -p "@REPOS@"
+    mkdir -p "@REPODB@"
+    mkdir -p "@distsDir@"
+    mkdir -p "@backupsDir@"
+
+    # Create missing database tables.
+    echo | @db4@/bin/db_load -t hash -T "@REPODB@/svn-readers"
+    echo | @db4@/bin/db_load -t hash -T "@REPODB@/svn-writers"
+    echo | @db4@/bin/db_load -t hash -T "@REPODB@/svn-users"
+
+    # Create a root account with an impossible password (if the
+    # account doesn't exist already).
+    (echo root; echo "*") | @db4@/bin/db_load -n -t hash -T "@REPODB@/svn-users" 2> /dev/null || true
+    (echo root; echo "Subversion Server Admin") | @db4@/bin/db_load -n -t hash -T "@REPODB@/svn-fullnames" 2> /dev/null || true
+
+fi
+
+if test "@enableSSL@" = "1"; then
+    sslFlag="-DSSL"
+fi
+
+# Start the server.
+env - PATH=$PATH \
+ @APACHE@/bin/apachectl -f @PREFIX@/conf/httpd.conf $sslFlag $*

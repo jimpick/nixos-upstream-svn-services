@@ -1,0 +1,8 @@
+#! /bin/sh
+#if test -n "$POST_COMMIT_HOOK"; then
+#    exec $POST_COMMIT_HOOK $*
+#else
+#    echo '$POST_COMMIT_HOOK not set!' >&2
+#    exit 1
+#fi
+exec /nix/var/nix/profiles/svn-production-server/hooks/post-commit $*

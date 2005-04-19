@@ -1,0 +1,38 @@
+#! @SHELL@
+
+# POST-COMMIT HOOK
+#
+# The post-commit hook is invoked after a commit. Subversion runs
+# this hook by invoking a program (script, executable, binary,
+# etc.) named `post-commit' (for which this file is a template),
+# with the following ordered arguments:
+#
+#   [1] REPOS-PATH   (the path to this repository)
+#   [2] REV          (the number of the revision just committed)
+#
+# Because the commit has already completed and cannot be undone,
+# the exit code of the hook program is ignored.  The hook program
+# can use the `svnlook' utility to help it examine the
+# newly-committed tree.
+
+REPOS="$1"
+REV="$2"
+
+REPO=`basename "$REPOS"`
+
+echo `date`: "$REPOS" "$REV" >> @LOGS@/commits
+
+ERRLOG=@LOGS@/post-commit
+
+echo "=========================" >> $ERRLOG
+echo "`date`: $REPOS $REV" >> $ERRLOG
+
+@PREFIX@/hooks/commit-email.pl \
+ -s "SVN commit: $REPO -" "$REPOS" "$REV" \
+ >> $ERRLOG 2>&1
+
+@PREFIX@/hooks/hot-backup.pl $REPO >> $ERRLOG 2>&1 &
+
+@PREFIX@/hooks/create-tarballs.pl $REPO >> $ERRLOG 2>&1 &
+
+echo "post commit done" >> $ERRLOG

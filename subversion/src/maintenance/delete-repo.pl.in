@@ -1,0 +1,42 @@
+#! @PERL@ -w @PERLFLAGS@
+
+use strict;
+use BerkeleyDB;
+
+my $svndir = "@SVN@";
+my $repodir = "@REPOS@";
+my $userdb = "@REPODB@/svn-users";
+my $ownerdb = "@REPODB@/svn-owners";
+my $readerdb = "@REPODB@/svn-readers";
+my $writerdb = "@REPODB@/svn-writers";
+my $watcherdb = "@REPODB@/svn-watchers";
+my $descrdb = "@REPODB@/svn-descriptions";
+
+my $deldir = shift @ARGV;
+$deldir || die "trashcan not set";
+
+sub del_db {
+    my $dbname = shift;
+    my $name = shift;
+    
+    my $db = new BerkeleyDB::Hash
+        -Filename => $dbname,
+        -Flags    => DB_CREATE
+        -Mode     => 0600
+        or die "Cannot open database $dbname: $! $BerkeleyDB::Error\n";
+
+    $db->db_del($name);
+}
+
+foreach my $repo (@ARGV) {
+    print "deleting $repo\n";
+
+    del_db($ownerdb, $repo);
+    del_db($readerdb, $repo);
+    del_db($writerdb, $repo);
+    del_db($watcherdb, $repo);
+    del_db($descrdb, $repo);
+
+    system "mv $repodir/$repo $deldir";
+    die "cannot move $repodir/$repo" if ($? != 0);
+}
