@@ -1,0 +1,51 @@
+<Files "manage*">
+       require valid-user
+</Files>
+
+<Files "edit*">
+       require valid-user
+</Files>
+
+<Files "preview*">
+       require valid-user
+</Files>
+
+<Files "viewauth*">
+       require valid-user
+</Files>
+
+<Files "save*">
+       require valid-user
+</Files>
+
+<Files "attach*">
+       require valid-user
+</Files>
+
+<Files "upload*">
+       require valid-user
+</Files>
+
+<Files "rename*">
+       require valid-user
+</Files>
+
+<Files "installpasswd*">
+       require valid-user
+</Files>
+
+<Files "cache*">
+       require valid-user
+</Files>
+
+<Files "flush*">
+       require valid-user
+</Files>
+
+<Files "testenv*">
+       require valid-user
+</Files>
+
+<Files "rdiffauth">
+       require valid-user
+</Files>
