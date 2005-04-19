@@ -1,0 +1,20 @@
+#! @SHELL@ -e
+
+# Make sure that the environment is deterministic.
+export PATH=@defaultPath@
+
+if test "$2" = "start"; then
+
+    # Create necessary directories.
+    mkdir -p @logDir@
+    mkdir -p @stateDir@
+    
+fi
+
+if test "@enableSSL@" = "1"; then
+    sslFlag="-DSSL"
+fi
+
+# Start the server.
+env - PATH=$PATH \
+ @apacheHttpd@/bin/apachectl -f @out@/conf/httpd.conf $sslFlag $*
