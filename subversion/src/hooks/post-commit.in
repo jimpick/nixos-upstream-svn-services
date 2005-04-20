@@ -20,19 +20,19 @@ REV="$2"
 
 REPO=`basename "$REPOS"`
 
-echo `date`: "$REPOS" "$REV" >> @LOGS@/commits
+echo `date`: "$REPOS" "$REV" >> @logDir@/commits
 
-ERRLOG=@LOGS@/post-commit
+ERRLOG=@logDir@/post-commit
 
 echo "=========================" >> $ERRLOG
 echo "`date`: $REPOS $REV" >> $ERRLOG
 
-@PREFIX@/hooks/commit-email.pl \
+@out@/hooks/commit-email.pl \
  -s "SVN commit: $REPO -" "$REPOS" "$REV" \
  >> $ERRLOG 2>&1
 
-@PREFIX@/hooks/hot-backup.pl $REPO >> $ERRLOG 2>&1 &
+@out@/hooks/hot-backup.pl $REPO >> $ERRLOG 2>&1 &
 
-@PREFIX@/hooks/create-tarballs.pl $REPO >> $ERRLOG 2>&1 &
+@out@/hooks/create-tarballs.pl $REPO >> $ERRLOG 2>&1 &
 
 echo "post commit done" >> $ERRLOG

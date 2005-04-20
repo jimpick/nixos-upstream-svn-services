@@ -3,7 +3,7 @@
 echo "creating missing files / tables..."
 
 # Create missing state directories.
-mkdir -p "@logsDir@"
+mkdir -p "@logDir@"
 mkdir -p "@reposDir@"
 mkdir -p "@dbDir@"
 mkdir -p "@distsDir@"

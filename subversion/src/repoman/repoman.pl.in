@@ -1,4 +1,4 @@
-#! @PERL@ -w -T @PERLFLAGS@
+#! @perl@ -w -T @perlFlags@
 
 # SVN Server Repository Manager.
 
@@ -7,10 +7,10 @@ use strict;
 use CGI qw(:standard :html3 escape escapeHTML self_uri *ul *li);
 use BerkeleyDB;
 
-#$ENV{'PATH'} = "@DEFAULTPATH@";
+$ENV{'PATH'} = "@defaultPath@";
 
 my $admin = '@adminAddr@';
-my $svndir = "@SVN@";
+my $svndir = "@subversion@";
 my $repodir = "@reposDir@";
 my $repobase = "/repos";
 my $dbdir = "@dbDir@";

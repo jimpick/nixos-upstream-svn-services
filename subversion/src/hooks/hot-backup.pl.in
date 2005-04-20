@@ -1,11 +1,11 @@
-#! @PERL@ -w
+#! @perl@ -w
 
 use strict;
 
-my $svnlook = "@SVN@/bin/svnlook";
-my $svnadmin = "@SVN@/bin/svnadmin";
+my $svnlook = "@subversion@/bin/svnlook";
+my $svnadmin = "@subversion@/bin/svnadmin";
 
-my $repodir = "@REPOS@";
+my $repodir = "@reposDir@";
 my $backupdir = "@backupsDir@";
 
 my $reponame = $ARGV[0];

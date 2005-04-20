@@ -16,6 +16,7 @@ let {
     builder = ./builder.sh;
     
     conf = ./subversion.conf;
+    confPre = ./subversion-pre.conf;
     
     scripts = [
       "=>/types/apache-httpd"

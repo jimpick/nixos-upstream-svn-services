@@ -37,7 +37,7 @@ let {
     # Evaluation semantics should be lazier.
     # inherit (webServer) canonicalName adminAddr;
 
-    canonicalName = "http://itchy.cs.uu.nl:8080";
+    canonicalName = "http://itchy.labs.cs.uu.nl:8080"; # !!! ugly
     inherit adminAddr;
 
     notificationSender = "svn@svn.cs.uu.nl";

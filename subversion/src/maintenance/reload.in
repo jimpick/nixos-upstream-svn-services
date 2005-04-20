@@ -1,14 +1,14 @@
-#! @PERL@ -w
+#! @perl@ -w
 
 my $reponame = $ARGV[0];
 die unless defined($reponame);
-my $repopath = "@REPOS@/$reponame";
+my $repopath = "@reposDir@/$reponame";
 
 print "reloading $reponame\n";
 
 if (! -d $repopath) {
     print "creating repo\n";
-    system "@SVN@/bin/svnadmin create $repopath";
+    system "@subversion@/bin/svnadmin create $repopath";
     die "svnadmin create" if ($?);
 } else {
     print "repo already exists\n";
@@ -19,12 +19,12 @@ print "resetting hooks\n";
 system "rm -f $repopath/hooks/*";
 die "removing hooks" if ($?);
 
-system "cp -p @PREFIX@/hooks/post-commit-link $repopath/hooks/post-commit";
+system "cp -p @out@/hooks/post-commit-link $repopath/hooks/post-commit";
 die "setting post-commit hook" if ($?);
 
 print "reloading\n";
 
-my $last=`@SVN@/bin/svnlook youngest $repopath`;
+my $last=`@subversion@/bin/svnlook youngest $repopath`;
 die "svnlook youngest" if ($?);
 chomp $last;
 
@@ -45,7 +45,7 @@ if (scalar @revs > 0) {
     @revs = sort {$a <=> $b} @revs;
     print "loading missing revisions @revs\n";
 
-    system "cd @backupsDir@/$reponame && bzcat @revs | @SVN@/bin/svnadmin load --force-uuid $repopath";
+    system "cd @backupsDir@/$reponame && bzcat @revs | @subversion@/bin/svnadmin load --force-uuid $repopath";
     die "reloading" if ($?);
 
 }

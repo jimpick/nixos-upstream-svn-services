@@ -56,7 +56,10 @@ ensureDir $out/root
 
 for i in $subServices; do
     for j in $i/types/apache-httpd/conf/*; do
-        echo "Include $j" >> $out/conf/httpd.conf
+        echo "Include $j" >> $out/conf/subservices.conf
+    done
+    for j in $i/types/apache-httpd/conf-pre/*; do
+        echo "Include $j" >> $out/conf/subservices-pre.conf
     done
     for j in $i/types/apache-httpd/root/*; do
         ln -s $j $out/root/$(basename $j) 

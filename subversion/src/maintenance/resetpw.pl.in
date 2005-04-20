@@ -1,10 +1,10 @@
-#! @PERL@ -w -T @PERLFLAGS@
+#! @perl@ -w -T @perlFlags@
 
 use strict;
 use BerkeleyDB;
 
-my $svndir = "@SVN@";
-my $dbdir = "@REPODB@";
+my $svndir = "@subversion@";
+my $dbdir = "@dbDir@";
 my $userdb = "$dbdir/svn-users";
 
 my $user = shift @ARGV;

@@ -1,16 +1,16 @@
-#! @PERL@ -w @PERLFLAGS@
+#! @perl@ -w @perlFlags@
 
 use strict;
 use BerkeleyDB;
 
-my $svndir = "@SVN@";
-my $repodir = "@REPOS@";
-my $userdb = "@REPODB@/svn-users";
-my $ownerdb = "@REPODB@/svn-owners";
-my $readerdb = "@REPODB@/svn-readers";
-my $writerdb = "@REPODB@/svn-writers";
-my $watcherdb = "@REPODB@/svn-watchers";
-my $descrdb = "@REPODB@/svn-descriptions";
+my $svndir = "@subversion@";
+my $repodir = "@reposDir@";
+my $userdb = "@dbDir@/svn-users";
+my $ownerdb = "@dbDir@/svn-owners";
+my $readerdb = "@dbDir@/svn-readers";
+my $writerdb = "@dbDir@/svn-writers";
+my $watcherdb = "@dbDir@/svn-watchers";
+my $descrdb = "@dbDir@/svn-descriptions";
 
 my $deldir = shift @ARGV;
 $deldir || die "trashcan not set";

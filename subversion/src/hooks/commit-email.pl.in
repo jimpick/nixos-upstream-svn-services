@@ -1,4 +1,4 @@
-#! @PERL@ -w @PERLFLAGS@
+#! @perl@ -w @perlFlags@
 
 # Hacked by Eelco Dolstra <eelco@cs.uu.nl>.
 
@@ -65,7 +65,7 @@ sub getDB {
 my $sendmail = "/usr/sbin/sendmail";
 
 # Svnlook path.
-my $svnlook = "@SVN@/bin/svnlook";
+my $svnlook = "@subversion@/bin/svnlook";
 
 # Since the path to svnlook depends upon the local installation
 # preferences, check that the required programs exist to insure that
@@ -415,15 +415,15 @@ foreach my $project (@project_settings_list)
     my $repo = `basename $repos`;
     chomp $repo;
 
-    my $userlist = getDB("@REPODB@/svn-watchers", $repo);
+    my $userlist = getDB("@dbDir@/svn-watchers", $repo);
 
     unless (defined($userlist) && $userlist =~ /\w/) {
 	print "No watchers for $repo.\n";
 	exit;
     };
 
-    my $authorAddress = getDB("@REPODB@/svn-contact", $author);
-    my $authorFullName = getDB("@REPODB@/svn-fullnames", $author);
+    my $authorAddress = getDB("@dbDir@/svn-contact", $author);
+    my $authorFullName = getDB("@dbDir@/svn-fullnames", $author);
 
     my $fromAddress = $mail_sender;
     my $replyToAddress;

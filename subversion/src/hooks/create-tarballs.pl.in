@@ -1,13 +1,13 @@
-#! @PERL@ -w @PERLFLAGS@
+#! @perl@ -w @perlFlags@
 
 use strict;
 use BerkeleyDB;
 use IO::File;
 use Fcntl ':flock';
 
-my $svn = "@SVN@/bin/svn";
+my $svn = "@subversion@/bin/svn";
 
-my $repodir = "@REPOS@";
+my $repodir = "@reposDir@";
 my $distdir = "@distsDir@";
 my $tmpdir = "@tmpDir@";
 
@@ -17,7 +17,7 @@ my $repopath = "$repodir/$reponame";
 
 print "creating tarballs for $reponame\n";
 
-my $dbname = "@REPODB@/svn-tarballs";
+my $dbname = "@dbDir@/svn-tarballs";
 my %db;
 tie %db, "BerkeleyDB::Hash",
     -Filename => $dbname,
@@ -55,7 +55,7 @@ foreach my $dir (split(/,/, $tardirs)) {
     print "tarring $reponame/$dir into $tarname\n";
 
     my $lastrev = 
-        `$svn log --xml "file://$repopath/$dir" | @libxslt@/bin/xsltproc @PREFIX@/hooks/query-head-revision.xsl -`;
+        `$svn log --xml "file://$repopath/$dir" | @libxslt@/bin/xsltproc @out@/hooks/query-head-revision.xsl -`;
     die "svn log" if ($?);
     chomp $lastrev;
     die unless $lastrev =~ /^[0-9]*$/;

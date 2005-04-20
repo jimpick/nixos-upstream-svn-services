@@ -11,6 +11,7 @@ doSub() {
         --subst-var canonicalName \
         --subst-var adminAddr \
         --subst-var notificationSender \
+        --subst-var logDir \
         --subst-var reposDir \
         --subst-var dbDir \
         --subst-var distsDir \
@@ -21,14 +22,20 @@ doSub() {
         --subst-var viewcvs \
         --subst-var db4 \
         --subst-var libxslt \
-        --subst-var-by SVN "$subversion" \
-        --subst-var-by SHELL "$SHELL" \
-        --subst-var-by PERL "$perl/bin/perl" \
-        --subst-var-by PERLFLAGS "-I$perlBerkeleyDB/lib/site_perl" \
+        --subst-var subversion \
+        --subst-var SHELL \
+        --subst-var-by perl "$perl/bin/perl" \
+        --subst-var-by perlFlags "-I$perlBerkeleyDB/lib/site_perl" \
+        --subst-var defaultPath \
         # end
 
-#        --subst-var-by DEFAULTPATH "$coreutils/bin:$gnutar/bin:$gzip/bin:$bzip2/bin:$diffutils/bin:$enscript/bin:$gnused/bin" \
 }
+
+
+defaultPath="$enscript/bin"
+for i in ls tar gzip bzip2 diff sed; do
+    defaultPath="$defaultPath:$(dirname $(type -tP $i))"
+done
 
 
 serviceDir=$out/types/apache-httpd
@@ -36,6 +43,7 @@ ensureDir $serviceDir
 
 
 doSub $conf $serviceDir/conf/subversion.conf
+doSub $confPre $serviceDir/conf-pre/subversion.conf
         
 subDir=/
 for i in $scripts; do
