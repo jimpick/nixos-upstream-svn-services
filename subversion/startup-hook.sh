@@ -1,5 +1,3 @@
-#! @SHELL@ -e
-
 echo "creating missing files / tables..."
 
 # Create missing state directories.

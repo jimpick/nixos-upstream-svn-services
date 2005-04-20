@@ -1,6 +1,6 @@
 { stdenv, fetchurl, substituter, apacheHttpd, openssl, db4, expat, swig, zlib
 , perl, perlBerkeleyDB, python, libxslt, enscript
-, reposDir, dbDir, logsDir, distsDir, backupsDir
+, reposDir, dbDir, logDir, distsDir, backupsDir
 , canonicalName
 , adminAddr, notificationSender
 }:
@@ -44,7 +44,7 @@ let {
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
       
-    inherit reposDir dbDir logsDir distsDir backupsDir canonicalName
+    inherit reposDir dbDir logDir distsDir backupsDir canonicalName
       adminAddr notificationSender subversion authModules viewcvs;
     inherit perl perlBerkeleyDB
       python apacheHttpd libxslt

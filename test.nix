@@ -1,5 +1,6 @@
 let {
 
+#  body = twikiService;
   body = webServer;
 
   pkgs = import pkgs/system/all-packages.nix {system = __currentSystem;};
@@ -8,6 +9,8 @@ let {
 
   adminAddr = "eelco@cs.uu.nl";
 
+  canonicalName = "http://itchy.labs.cs.uu.nl:8080"; # !!! ugly
+  
     
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
@@ -19,6 +22,7 @@ let {
 
     subServices = [
       subversionService
+      twikiService
     ];
   };
 
@@ -30,17 +34,31 @@ let {
 
     reposDir = instanceRootDir + "/repos";
     dbDir = instanceRootDir + "/db";
-    logsDir = instanceRootDir + "/logs";
+    logDir = instanceRootDir + "/log";
     distsDir = instanceRootDir + "/dist";
     backupsDir = instanceRootDir + "/backup";
 
     # Evaluation semantics should be lazier.
     # inherit (webServer) canonicalName adminAddr;
 
-    canonicalName = "http://itchy.labs.cs.uu.nl:8080"; # !!! ugly
-    inherit adminAddr;
+    inherit adminAddr canonicalName;
 
     notificationSender = "svn@svn.cs.uu.nl";
+  };
+
+
+  twikiService = (import ./twiki/twiki-instance.nix).twiki {
+    defaultUrlHost = canonicalName;
+    rcs = "/usr";
+
+    name = "test-wiki";
+    
+    pubdir = instanceRootDir + "/twiki-pub";
+    datadir = instanceRootDir + "/twiki-data";
+
+    twikiName = "Test Wiki";
+    scriptUrlPath = "/twiki/test/bin";
+    pubUrlPath = "/twiki/test/pub";
   };
 
 }

@@ -14,7 +14,7 @@ if test "$2" = "start"; then
         fn=$i/types/apache-httpd/startup-hook.sh
         if test -f "$fn"; then
             echo "running $fn..."
-            source $fn
+            @SHELL@ -e $fn
         fi
     done
 

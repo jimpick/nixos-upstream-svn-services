@@ -1,4 +1,5 @@
 . $stdenv/setup
+. $substituter
 
 set -e
 
@@ -19,35 +20,8 @@ mv twiki/templates $out/templates
 
 patch $out/lib/TWiki/UI/View.pm $viewModulePatch
 
-if test -d $datadir; then
-  echo "Datadir $datadir exists. Adding new files ..."
-  cp -R -i --reply=no twiki/data/* $datadir/
-else
-  echo "Copying fresh TWiki data to datadir ..."  
-  mv twiki/data $datadir
-fi
-
-echo "Setting permissions, owner and group of datadir ... "
-find $datadir -type f | xargs -i chmod 664 "{}"
-find $datadir -type d | xargs chmod 775
-
-find $datadir | xargs -i chown $user "{}"
-find $datadir | xargs -i chgrp $group "{}"
-
-if test -d $pubdir; then
-  echo "Pubdir $pubdir exists. Adding new files ..."
-  cp -R -i --reply=no twiki/pub/* $pubdir/
-else
-  echo "Copying fresh TWiki pub files to pubdir ..."  
-  mv twiki/pub $pubdir
-fi
-
-echo "Setting permissions and owner of pubdir ... "
-find $pubdir -type f | xargs -i chmod 664 "{}"
-
 for skin in $skins
 do
-  cp -R $skin/pub/* $pubdir
   cp -R $skin/templates/* $out/templates
 done
 
@@ -55,15 +29,8 @@ echo "Setting plugins: $plugins"
 for plugin in $plugins
 do
   cp -R $plugin/bp* $out
-  cp -R $plugin/data/* $datadir
   cp -R $plugin/lib $out
 done
-
-echo "Setting permissions and owner of pubdir ... "
-find $pubdir -type f | xargs -i chmod 664 "{}"
-find $pubdir -type d | xargs -i chmod 775 "{}"
-find $pubdir -type d | xargs -i chown $user "{}"
-find $pubdir -type d | xargs -i chgrp $group "{}"
 
 # todo: testenv script should be removed if this is a production server.
 echo "Removing unnecessary scripts ..."
@@ -73,9 +40,14 @@ echo "Removing unnecessary scripts ..."
 # Wiki and its dependencies with Nix.
 
 echo "Installing htaccess files ..."
-cp ./twiki/subdir-htaccess.txt $datadir/.htaccess
 cp ./twiki/subdir-htaccess.txt $out/lib/.htaccess
 cp ./twiki/subdir-htaccess.txt $out/templates/.htaccess
+
+echo "Copying initial files ..."
+ensureDir $out/init
+cp ./twiki/subdir-htaccess.txt $out/init/
+cp -R ./twiki/data $out/init/data
+cp -R ./twiki/pub $out/init/pub
 
 echo "Creating .htaccess file"
 cat > $out/bin/.htaccess <<EOF
@@ -181,33 +153,28 @@ EOF
 
 cat $staticTWikiCfg >> $out/lib/TWiki.cfg
 
-echo "Creating Apache httpd.conf helper ..."
 
-cat > $out/example-httpd.conf <<EOF
-ScriptAlias $scriptUrlPath "$twikiroot/bin"
-Alias $pubUrlPath "$pubdir"
+echo "Creating Apache httpd.conf fragment ..."
+ensureDir $out/types/apache-httpd/conf
+substitute $conf $out/types/apache-httpd/conf/twiki.conf \
+    --subst-var twikiroot \
+    --subst-var pubdir \
+    --subst-var datadir \
+    --subst-var scriptUrlPath \
+    --subst-var pubUrlPath
 
-<Directory "$twikiroot/bin">
-   Options +ExecCGI
-   SetHandler cgi-script
-   AllowOverride All
-   Allow from all
-</Directory>
-<Directory "$twikiroot/templates">
-   deny from all
-</Directory>
-<Directory "$twikiroot/lib">
-   deny from all
-</Directory>
-<Directory "$pubdir">
-   Options FollowSymLinks +Includes
-   AllowOverride None
-   Allow from all
-</Directory>
-<Directory "$datadir">
-   deny from all
-</Directory>
-EOF
+
+echo "Creating startup hook ..."
+ensureDir $out/types/apache-httpd
+substitute $startupHook $out/types/apache-httpd/startup-hook.sh \
+    --subst-var pubdir \
+    --subst-var datadir \
+    --subst-var user \
+    --subst-var group \
+    --subst-var skins \
+    --subst-var plugins \
+    --subst-var out \
+    --subst-var-by initialPath "$(dirname $(type -tP find))"
 
 
 cat > $out/DONT_EDIT_WARNING.txt <<EOF

@@ -54,14 +54,21 @@ ln -s $out/conf/httpd-basics.conf $out/conf/httpd.conf
 ensureDir $out/root
 
 
+shopt -s nullglob
 for i in $subServices; do
+
+    touch $out/conf/subservices.conf
     for j in $i/types/apache-httpd/conf/*; do
         echo "Include $j" >> $out/conf/subservices.conf
     done
+    
+    touch $out/conf/subservices-pre.conf
     for j in $i/types/apache-httpd/conf-pre/*; do
         echo "Include $j" >> $out/conf/subservices-pre.conf
     done
+    
     for j in $i/types/apache-httpd/root/*; do
         ln -s $j $out/root/$(basename $j) 
     done
+    
 done

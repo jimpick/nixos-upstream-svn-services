@@ -2,11 +2,11 @@
 
 rec {
   pkgs =
-    import pkgs/system/i686-linux.nix;
+    import ../pkgs/system/i686-linux.nix;
 
   twiki = config :
     (import ./server-pkgs/twiki.nix) ({
-      inherit (pkgs) stdenv fetchurl;
+      inherit (pkgs) stdenv fetchurl substituter;
 
       grep = pkgs.gnugrep;
       rcs = pkgs.rcs;
@@ -14,10 +14,11 @@ rec {
 
       skins = [
         plugins.BlueBoxSkin
-        plugins.FlexPatternSkin
+#        plugins.FlexPatternSkin
       ];
       
-      plugins = [ plugins.BibTexPlugin
+      plugins = [
+#        plugins.BibTexPlugin
       ];
 
     } // config);

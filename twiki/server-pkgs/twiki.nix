@@ -1,12 +1,13 @@
 { name
 , stdenv
 , fetchurl
+, substituter
 , rcs
 , grep
 , perl
 , twikiroot ? null
-, user
-, group
+, user ? ""
+, group ? ""
 , datadir
 , pubdir
 , defaultUrlHost
@@ -29,11 +30,15 @@ stdenv.mkDerivation {
     md5 = "d04b2041d83dc6c97905faa1c6b9116d";
   };
 
-  inherit rcs grep perl;
+  inherit substituter rcs grep perl;
   inherit user group;
   inherit twikiroot datadir pubdir;
   inherit skins;
   inherit plugins;
+
+  conf = ./twiki.conf;
+
+  startupHook = ./startup-hook.sh;
 
   viewModulePatch = ./View.pm.patch;
 
