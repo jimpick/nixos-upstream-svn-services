@@ -1,4 +1,4 @@
-{stdenv, python, substitute, reposDir, adminAddr}:
+{stdenv, python, substituter, reposDir, adminAddr}:
 
 stdenv.mkDerivation {
   name = "viewcvs";
@@ -8,5 +8,5 @@ stdenv.mkDerivation {
   conf = ./viewcvs.conf.in;
 
   buildInputs = [python];
-  inherit substitute reposDir adminAddr;
+  inherit substituter reposDir adminAddr;
 }

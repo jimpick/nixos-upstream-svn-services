@@ -28,6 +28,9 @@
 , sslServerCert ? ""
 , sslServerKey ? ""
 
+# Subservices.  This is what it's all about.
+, subServices ? []
+
 }:
 
 assert enableSSL -> sslServerCert != "" && sslServerKey != "" && httpsPort != 0;
@@ -55,5 +58,6 @@ stdenv.mkDerivation {
     substituter apacheHttpd
     logDir stateDir
     adminAddr hostName httpPort enableSSL httpsPort
-    sslServerCert sslServerKey;
+    sslServerCert sslServerKey
+    subServices;
 }

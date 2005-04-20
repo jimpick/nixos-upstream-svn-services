@@ -7,15 +7,13 @@ use strict;
 use CGI qw(:standard :html3 escape escapeHTML self_uri *ul *li);
 use BerkeleyDB;
 
-$ENV{'PATH'} = "@DEFAULTPATH@";
+#$ENV{'PATH'} = "@DEFAULTPATH@";
 
-my $admin = '@ADMIN@';
+my $admin = '@adminAddr@';
 my $svndir = "@SVN@";
-my $repodir = "@REPOS@";
+my $repodir = "@reposDir@";
 my $repobase = "/repos";
-my $dbdir = "@REPODB@";
-
-my $enableSSL = "@enableSSL@" eq "1";
+my $dbdir = "@dbDir@";
 
 my $userdb = "$dbdir/svn-users";
 my $ownerdb = "$dbdir/svn-owners";
@@ -60,8 +58,7 @@ sub begin {
 sub end {
     #print br;
     print hr;
-    print a({href => $base}, "Start"), " / ";
-    print "@hostName@ / " . $admin;
+    print a({href => $base}, "Start"), " / Admin: ", $admin;
     print end_html;
     exit;
 }
@@ -158,16 +155,7 @@ sub checkDescription {
 # Print a partial page that gives information about the repository
 # $repo.
 sub printRepoInfo {
-    my $uport = @httpPort@;
-    my $uroot = "http://@hostName@" . 
-	($uport == 80 ? "" : ":" . $uport);
-
-    my $sport = @httpsPort@;
-    my $sroot = "https://@hostName@" . 
-	($sport == 443 ? "" : ":" . $sport);
-
-    my $root = $enableSSL ? $sroot : $uroot;
-
+    my $root = "@canonicalName@";
     my $url = $root . $repobase . "/" . $repo . "/";
 
     print p, "The URL of the repository is ";
@@ -176,7 +164,6 @@ sub printRepoInfo {
     print blockquote(pre("svn checkout " . escapeHTML($url)));
     print "although typically you'll want to do a checkout of just a subdirectory ";
     print "(e.g., the ", tt("trunk/"), "). ";
-    print "Note that your Subversion client must be compiled with SSL support to do this." if $enableSSL;
 
     my $viewurl = "/viewcvs/" . $repo . "/";
     my $xmlurl = "/repos-xml/" . $repo . "/";
@@ -453,7 +440,7 @@ elsif ($action eq "create" && defined($repo)) {
     } else {
 
 	system("cp", "-p",
-	       "@PREFIX@/hooks/post-commit-link",
+	       "@out@/hooks/post-commit-link",
 	       $repodir . "/" . $repo . "/hooks/post-commit");
 
 	# By default, allow read/write access to the owner and 
@@ -522,7 +509,7 @@ elsif ($action eq "update" && defined(param("readers"))) {
 
     # Asynchronously start building tarballs (if any).
     if ($tardirs ne "") {
-	system "@PREFIX@/hooks/create-tarballs.pl $repo >&2 &";
+	system "@out@/hooks/create-tarballs.pl $repo >&2 &";
     }
 
     print h1("Repository updated!");

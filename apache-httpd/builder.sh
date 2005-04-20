@@ -21,6 +21,7 @@ doSub() {
         --subst-var enableSSL \
         --subst-var sslServerCert \
         --subst-var sslServerKey \
+        --subst-var subServices \
         # end
 }
 
@@ -51,3 +52,13 @@ done
 ln -s $out/conf/httpd-basics.conf $out/conf/httpd.conf
 
 ensureDir $out/root
+
+
+for i in $subServices; do
+    for j in $i/types/apache-httpd/conf/*; do
+        echo "Include $j" >> $out/conf/httpd.conf
+    done
+    for j in $i/types/apache-httpd/root/*; do
+        ln -s $j $out/root/$(basename $j) 
+    done
+done
