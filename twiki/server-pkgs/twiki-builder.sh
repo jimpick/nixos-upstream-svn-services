@@ -36,8 +36,12 @@ done
 echo "Removing unnecessary scripts ..."
 
 
-# todo: scripts should refer to a Nix Perl if we are going to deploy the entire
-# Wiki and its dependencies with Nix.
+echo "Patching Perl interpreter path ..."
+for i in $out/bin/*; do
+    sed "s^/usr/bin/perl^$perl/bin/perl^" < $i > $i.tmp
+    mv $i.tmp $i
+done    
+
 
 echo "Installing htaccess files ..."
 cp ./twiki/subdir-htaccess.txt $out/lib/.htaccess
@@ -131,9 +135,8 @@ cat > $out/lib/TWiki.cfg <<EOF
 \$OS                = 'UNIX';
 \$scriptSuffix      = "";
 \$uploadFilter      = "^(\.htaccess|.*\.(?:php[0-9s]?|phtm[l]?|pl|py|cgi))\\$";
-\$safeEnvPath       = "/bin:/usr/bin";
-# this option will not be used: Net::SMTP is preferred.
-\$mailProgram       = "/usr/sbin/sendmail -t -oi -oeq";
+\$safeEnvPath       = "/no-path";
+\$mailProgram       = "false";
 \$noSpamPadding     = "";
 \$mimeTypesFilename = "\$dataDir/mime.types";
 
@@ -144,9 +147,9 @@ cat > $out/lib/TWiki.cfg <<EOF
 \$endRcsCmd         = " 2>&1";
 \$cmdQuote          = "'";
 \$storeTopicImpl    = "RcsWrap"; 
-\$lsCmd             = "/bin/ls";
-\$egrepCmd          = "$grep/bin/egrep";
-\$fgrepCmd          = "$grep/bin/fgrep";
+\$lsCmd             = "$(type -tP ls)";
+\$egrepCmd          = "$(type -tP egrep)";
+\$fgrepCmd          = "$(type -tP fgrep)";
 \$displayTimeValues = "gmtime";
 
 EOF

@@ -8,7 +8,6 @@ rec {
     (import ./server-pkgs/twiki.nix) ({
       inherit (pkgs) stdenv fetchurl substituter;
 
-      grep = pkgs.gnugrep;
       rcs = pkgs.rcs;
       perl = pkgs.perl;
 

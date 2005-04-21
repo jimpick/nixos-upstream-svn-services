@@ -49,7 +49,6 @@ let {
 
   twikiService = (import ./twiki/twiki-instance.nix).twiki {
     defaultUrlHost = canonicalName;
-    rcs = "/usr";
 
     name = "test-wiki";
     

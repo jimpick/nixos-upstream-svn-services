@@ -45,6 +45,5 @@ rec {
       defaultUrlHost = "http://catamaran.labs.cs.uu.nl";
       user = "apache";
       group = "daemon";
-      rcs = "/usr";
     } // config);
 }

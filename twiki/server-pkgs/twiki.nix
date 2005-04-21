@@ -3,7 +3,6 @@
 , fetchurl
 , substituter
 , rcs
-, grep
 , perl
 , twikiroot ? null
 , user ? ""
@@ -30,7 +29,7 @@ stdenv.mkDerivation {
     md5 = "d04b2041d83dc6c97905faa1c6b9116d";
   };
 
-  inherit substituter rcs grep perl;
+  inherit substituter rcs perl;
   inherit user group;
   inherit twikiroot datadir pubdir;
   inherit skins;
