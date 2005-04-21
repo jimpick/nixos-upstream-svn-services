@@ -135,7 +135,7 @@ cat > $out/lib/TWiki.cfg <<EOF
 \$OS                = 'UNIX';
 \$scriptSuffix      = "";
 \$uploadFilter      = "^(\.htaccess|.*\.(?:php[0-9s]?|phtm[l]?|pl|py|cgi))\\$";
-\$safeEnvPath       = "/no-path";
+\$safeEnvPath       = "$(dirname $(type -tP grep))";
 \$mailProgram       = "false";
 \$noSpamPadding     = "";
 \$mimeTypesFilename = "\$dataDir/mime.types";
