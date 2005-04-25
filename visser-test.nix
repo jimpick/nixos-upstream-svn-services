@@ -21,11 +21,11 @@ let {
 
     subServices = [
       minWiki
-#      testWiki
-#      visserWiki
-#      ptWiki
-#      stWiki
-#      stIntraWiki
+      testWiki
+      visserWiki
+      ptWiki
+      stWiki
+      stIntraWiki
     ];
   };
 
