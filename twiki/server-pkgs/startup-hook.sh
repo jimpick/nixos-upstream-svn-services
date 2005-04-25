@@ -4,8 +4,9 @@ if test -d @datadir@; then
   echo "Datadir @datadir@ exists. Adding new files ..."
   cp -R -i --reply=no @out@/init/data/* @datadir@/
 else
-  echo "Copying fresh TWiki data to datadir ..."  
-  cp -R @out@/init/data @datadir@
+  echo "Copying fresh TWiki data to datadir ..."
+  mkdir -p @datadir@
+  cp -R @out@/init/data/* @datadir@/
 fi
 
 echo "Setting permissions, owner and group of datadir ... "
@@ -22,7 +23,8 @@ if test -d @pubdir@; then
   cp -R -i --reply=no @out@/init/pub/* @pubdir@/
 else
   echo "Copying fresh TWiki pub files to pubdir ..."  
-  cp -R @out@/init/pub @pubdir@
+  mkdir -p @pubdir@
+  cp -R @out@/init/pub/* @pubdir@/
 fi
 
 echo "Setting permissions and owner of pubdir ... "
