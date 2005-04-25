@@ -13,7 +13,7 @@ rec {
 
       skins = [
         plugins.BlueBoxSkin
-#        plugins.FlexPatternSkin
+        plugins.FlexPatternSkin
       ];
       
       plugins = [
