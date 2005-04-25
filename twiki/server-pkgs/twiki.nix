@@ -18,6 +18,9 @@
 , skins ? []
 , plugins ? []
 , alwaysLogin ? false
+, pubDataPatch ? ""
+, sed
+, htpasswd
 }:
 
 stdenv.mkDerivation {
@@ -34,6 +37,8 @@ stdenv.mkDerivation {
   inherit twikiroot datadir pubdir;
   inherit skins;
   inherit plugins;
+  inherit sed;
+  inherit htpasswd;
 
   conf = ./twiki.conf;
 
@@ -45,6 +50,7 @@ stdenv.mkDerivation {
     if dispScriptUrlPath != null then dispScriptUrlPath else scriptUrlPath;
 
   inherit 
+    pubDataPatch
     alwaysLogin
     defaultUrlHost
     scriptUrlPath

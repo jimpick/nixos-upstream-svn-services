@@ -53,6 +53,14 @@ cp ./twiki/subdir-htaccess.txt $out/init/
 cp -R ./twiki/data $out/init/data
 cp -R ./twiki/pub $out/init/pub
 
+cp $htpasswd $out/init/data/.htpasswd
+
+echo "Patching initial files ..."
+if test "x$pubDataPatch" != "x"
+then
+  (cd $out/init; patch -p1 < $pubDataPatch)
+fi
+
 echo "Creating .htaccess file"
 cat > $out/bin/.htaccess <<EOF
 AuthUserFile $datadir/.htpasswd
@@ -177,6 +185,7 @@ substitute $startupHook $out/types/apache-httpd/startup-hook.sh \
     --subst-var skins \
     --subst-var plugins \
     --subst-var out \
+    --subst-var sed \
     --subst-var-by initialPath "$(dirname $(type -tP find))"
 
 

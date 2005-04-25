@@ -13,10 +13,24 @@ echo "Setting permissions, owner and group of datadir ... "
 find @datadir@ -type f | xargs -i chmod 664 "{}"
 find @datadir@ -type d | xargs chmod 775
 
+echo "Patching RCS locks ..."
+for file in `find @datadir@ -name \*.txt,v`
+do
+  @sed@/bin/sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
+  chmod +w $file
+  mv $file.copy $file
+done
+
+echo "Touching default web topics ..."
+for dir in `find @datadir@ -type d`
+do
+  touch $dir/WebCustomMenus.txt $dir/WebNews.txt
+done
+
 if test -n "@user@" -a -n "@group@"; then
     find @datadir@ | xargs -i chown @user@ "{}"
     find @datadir@ | xargs -i chgrp @group@ "{}"
-fi    
+fi
 
 if test -d @pubdir@; then
   echo "Pubdir @pubdir@ exists. Adding new files ..."

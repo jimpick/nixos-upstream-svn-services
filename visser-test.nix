@@ -20,11 +20,12 @@ let {
     inherit adminAddr;
 
     subServices = [
-      testWiki
-      visserWiki
-      ptWiki
-      stWiki
-      stIntraWiki
+      minWiki
+#      testWiki
+#      visserWiki
+#      ptWiki
+#      stWiki
+#      stIntraWiki
     ];
   };
 
@@ -40,6 +41,20 @@ let {
     twikiName     = "Test Wiki";
     scriptUrlPath = "/test/bin";
     pubUrlPath    = "/test/pub";
+  };
+
+  minWiki = (import ./twiki/twiki-instance.nix).twiki {
+
+    defaultUrlHost = canonicalName;
+
+    name          = "min-wiki";
+    
+    pubdir        = instanceRootDir + "/min-wiki/pub";
+    datadir       = instanceRootDir + "/min-wiki/data";
+
+    twikiName     = "Minimal Wiki";
+    scriptUrlPath = "/min/bin";
+    pubUrlPath    = "/min/pub";
   };
 
   visserWiki = (import ./twiki/twiki-instance.nix).twiki {

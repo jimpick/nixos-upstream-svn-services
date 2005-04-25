@@ -10,6 +10,7 @@ rec {
 
       rcs = pkgs.rcs;
       perl = pkgs.perl;
+      sed = pkgs.gnused;
 
       skins = [
         plugins.BlueBoxSkin
@@ -19,6 +20,10 @@ rec {
       plugins = [
 #        plugins.BibTexPlugin
       ];
+
+      pubDataPatch = ./min-wiki.patch;
+
+      htpasswd = ./htpasswd;
 
     } // config);
 

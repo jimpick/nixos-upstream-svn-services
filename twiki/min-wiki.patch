@@ -1,0 +1,3918 @@
+diff -Naur min-wiki.org/data/_default/WebHome.lock min-wiki/data/_default/WebHome.lock
+--- min-wiki.org/data/_default/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/_default/WebHome.lock	2005-04-26 00:05:07.347729960 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114462601
+\ No newline at end of file
+diff -Naur min-wiki.org/data/_default/WebIndex.lock min-wiki/data/_default/WebIndex.lock
+--- min-wiki.org/data/_default/WebIndex.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/_default/WebIndex.lock	2005-04-26 00:05:07.347729960 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114462703
+\ No newline at end of file
+diff -Naur min-wiki.org/data/_default/WebIndex.txt min-wiki/data/_default/WebIndex.txt
+--- min-wiki.org/data/_default/WebIndex.txt	2005-04-25 21:20:06.041957232 +0200
++++ min-wiki/data/_default/WebIndex.txt	2005-04-26 00:05:07.345730264 +0200
+@@ -1,5 +1,6 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1006602069" format="1.0" version="1.2"}%
++%META:TOPICINFO{author="EelcoVisser" date="1114462703" format="1.0" version="1.3"}%
+ %META:TOPICPARENT{name="WebHome"}%
+-%SEARCH{"\.*" scope="topic" regex="on" nosearch="on"}%
+-
+-See also the faster WebTopicList
++%SEARCH{"\.*" scope="topic" regex="on" nosearch="on"}%
++
++See also the faster WebTopicList
++
+diff -Naur min-wiki.org/data/_default/WebIndex.txt,v min-wiki/data/_default/WebIndex.txt,v
+--- min-wiki.org/data/_default/WebIndex.txt,v	2005-04-25 21:20:06.044956776 +0200
++++ min-wiki/data/_default/WebIndex.txt,v	2005-04-26 00:28:00.569968448 +0200
+@@ -2,7 +2,7 @@
+ access;
+ symbols;
+ locks
+-	nobody:1.2; strict;
++	visser:1.2; strict;
+ comment	@# @;
+ 
+ 
+diff -Naur min-wiki.org/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd min-wiki/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd
+--- min-wiki.org/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd	2005-04-26 00:27:59.658107072 +0200
+@@ -0,0 +1,2 @@
++WikiMaster:/7sWIyc3bkwkE
++TWikiGuest:zK.G.uuPi39Qg
+diff -Naur min-wiki.org/data/.htpasswd min-wiki/data/.htpasswd
+--- min-wiki.org/data/.htpasswd	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/.htpasswd	2005-04-26 00:14:43.475145280 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser:ouVqgWEGQocso
++WikiMaster:/7sWIyc3bkwkE
+diff -Naur min-wiki.org/data/log200504.txt min-wiki/data/log200504.txt
+--- min-wiki.org/data/log200504.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/log200504.txt	2005-04-26 00:30:27.084694824 +0200
+@@ -0,0 +1,210 @@
++| 25 Apr 2005 - 19:20 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:21 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:23 | Main.EelcoVisser | edit | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:23 | Main.EelcoVisser | save | TWiki.TWikiPreferences | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:23 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:31 | Main.TWikiGuest | view | TWiki.CustomSiteMenus |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:32 | Main.EelcoVisser | view | TWiki.CustomSiteMenus |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:32 | Main.EelcoVisser | edit | TWiki.CustomSiteMenus | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:33 | Main.EelcoVisser | save | TWiki.CustomSiteMenus | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:33 | Main.TWikiGuest | view | TWiki.CustomSiteMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:34 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:34 | Main.EelcoVisser | view | TWiki.CustomWebMenus |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:34 | Main.EelcoVisser | edit | TWiki.CustomWebMenus | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:35 | Main.EelcoVisser | save | TWiki.CustomWebMenus | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:35 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.EelcoVisser | save | TWiki.CustomWebMenus | repRev 1.1 Main.EelcoVisser 2005/04/25 19:36:36 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.TWikiGuest | view | TWiki.CustomSiteMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.EelcoVisser | edit | TWiki.CustomSiteMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.EelcoVisser | save | TWiki.CustomSiteMenus | repRev 1.1 Main.EelcoVisser 2005/04/25 19:34:50 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.TWikiGuest | view | TWiki.CustomSiteMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:36 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.EelcoVisser | save | TWiki.CustomSiteMenus | repRev 1.1 Main.EelcoVisser 2005/04/25 19:35:50 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.TWikiGuest | view | TWiki.CustomSiteMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.EelcoVisser | edit | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.EelcoVisser | save | TWiki.CustomWebMenus | repRev 1.1 Main.EelcoVisser 2005/04/25 19:37:36 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:37 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:38 | Main.EelcoVisser | edit | TWiki.WebContents | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:38 | Main.EelcoVisser | save | TWiki.WebContents | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:38 | Main.TWikiGuest | view | TWiki.WebContents |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:38 | Main.TWikiGuest | view | TWiki.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:40 | Main.EelcoVisser | edit | TWiki.WebNews | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:40 | Main.EelcoVisser | save | TWiki.WebNews | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:40 | Main.TWikiGuest | view | TWiki.WebNews |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:41 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:41 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:43 | Main.EelcoVisser | edit | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.EelcoVisser | save | Main.TWikiPreferences | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.EelcoVisser | edit | Main.WebContents | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.EelcoVisser | save | Main.WebContents | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.TWikiGuest | view | Main.WebContents |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.EelcoVisser | edit | Main.CustomWebMenus | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.EelcoVisser | save | Main.CustomWebMenus | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:44 | Main.TWikiGuest | view | Main.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.EelcoVisser | edit | Main.WebNews | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.EelcoVisser | save | Main.WebNews | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.TWikiGuest | view | Main.WebNews |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.EelcoVisser | edit | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.EelcoVisser | save | Main.TWikiPreferences | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:45 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:55 | Main.EelcoVisser | edit | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:56 | Main.EelcoVisser | save | TWiki.TWikiPreferences | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:56 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:57 | Main.EelcoVisser | edit | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:57 | Main.EelcoVisser | save | TWiki.TWikiPreferences | repRev 1.74 Main.EelcoVisser 2005/04/25 19:57:58 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 19:57 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 19:57 | Main.EelcoVisser | edit | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:03 | Main.EelcoVisser | save | TWiki.TWikiPreferences | repRev 1.74 Main.EelcoVisser 2005/04/25 19:58:58 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 20:03 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:05 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:05 | Main.EelcoVisser | edit | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:05 | Main.EelcoVisser | save | Main.TWikiPreferences | repRev 1.2 Main.EelcoVisser 2005/04/25 19:46:43 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 20:05 | Main.TWikiGuest | view | Main.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:05 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:06 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:06 | Main.EelcoVisser | edit | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:06 | Main.TWikiGuest | view | TWiki.TWikiRegistrationPub |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:07 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:08 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:09 | Main.TWikiGuest | view | TWiki.WelcomeGuest |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:11 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:22 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:24 | Main.TWikiGuest | view | TWiki.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:25 | Main.TWikiGuest | view | TWiki.FileAttachment |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:25 | Main.TWikiGuest | view | TWiki.FileAttachment |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:25 | Main.TWikiGuest | view | TWiki.TWikiVariables |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:26 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:29 | Main.TWikiGuest | view | _default.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:32 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:32 | Main.EelcoVisser | edit | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:49 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:50 | Main.EelcoVisser | edit | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:50 | Main.EelcoVisser | save | Main.WebLeftBar | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 20:50 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:50 | Main.EelcoVisser | save | Main.WebLeftBar | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 20:50 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:52 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:52 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:52 | Main.TWikiGuest | view | TWiki.WelcomeGuest |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:52 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:53 | Main.TWikiGuest | view | TWiki.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:53 | Main.TWikiGuest | view | TWiki.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:54 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:56 | Main.TWikiGuest | view | _default.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:56 | Main.EelcoVisser | edit | _default.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:57 | Main.TWikiGuest | view | _default.WebIndex |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:58 | Main.EelcoVisser | edit | _default.WebIndex |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:58 | Main.EelcoVisser | save | _default.WebIndex | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 20:58 | Main.TWikiGuest | view | _default.WebIndex |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:58 | Main.TWikiGuest | view | _default.WebTopicList |  | 127.0.0.2 |
++| 25 Apr 2005 - 20:58 | Main.TWikiGuest | view | _default.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:03 | Main.EelcoVisser | edit | _default.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:03 | Main.TWikiGuest | view | _default.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:03 | Main.TWikiGuest | view | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:03 | Main.EelcoVisser | edit | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:04 | Main.EelcoVisser | save | TWiki.WebChanges | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:04 | Main.TWikiGuest | view | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:05 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:06 | Main.EelcoVisser | save | Main.EelcoVisser |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:06 | Main.EelcoVisser | save | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:06 | Main.EelcoVisser | register | Main.EelcoVisser | visser@cs.uu.nl | 127.0.0.2 |
++| 25 Apr 2005 - 21:06 | Main.TWikiGuest | view | Main.EelcoVisser |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:07 | Main.EelcoVisser | edit | Main.EelcoVisser |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:07 | Main.EelcoVisser | save | Main.EelcoVisser | repRev 1.1 Main.EelcoVisser 2005/04/25 21:07:24 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:07 | Main.TWikiGuest | view | Main.EelcoVisser |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:07 | Main.TWikiGuest | view | Main.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:08 | Main.EelcoVisser | edit | Main.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:08 | Main.TWikiGuest | view | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:08 | Main.EelcoVisser | edit | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:09 | Main.EelcoVisser | save | TWiki.WebChanges | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:09 | Main.TWikiGuest | view | TWiki.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:09 | Main.TWikiGuest | view | Main.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:10 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:10 | Main.EelcoVisser | edit | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:10 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:10 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:10 | Main.EelcoVisser | edit | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:11 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:11 | Main.TWikiGuest | view | Main.WebManageGroup |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 21:11 | Main.EelcoVisser | view | Main.WebManageGroup |  (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 21:11 | Main.EelcoVisser | edit | Main.WebManageGroup | (not exist) | 127.0.0.2 |
++| 25 Apr 2005 - 21:12 | Main.EelcoVisser | save | Main.WebManageGroup | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:12 | Main.TWikiGuest | view | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:12 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:12 | Main.EelcoVisser | edit | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.EelcoVisser | save | Main.WebHome | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.TWikiGuest | changes | Main |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.TWikiGuest | view | Main.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:13 | Main.TWikiGuest | view | Main.WebIndex |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.EelcoVisser | edit | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.EelcoVisser | save | Main.WebLeftBar | repRev 1.2 Main.EelcoVisser 2005/04/25 20:51:39 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.TWikiGuest | view | Main.WebTopicList |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.TWikiGuest | view | Main.WebChanges |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:14 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:17 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 21:18 | Main.TWikiGuest | view | TWiki.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:06 | Main.TWikiGuest | view | TWiki.CustomWebMenus |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:06 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:06 | Main.TWikiGuest | view | Sandbox.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:06 | Main.TWikiGuest | view | Sandbox.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:07 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:08 | Main.EelcoVisser | edit | Sandbox.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:08 | Main.EelcoVisser | save | Sandbox.WebHome | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:08 | Main.TWikiGuest | view | Sandbox.WebHome |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:08 | Main.TWikiGuest | view | Sandbox.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:08 | Main.EelcoVisser | edit | Sandbox.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.EelcoVisser | save | Sandbox.WebLeftBar | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.TWikiGuest | view | Sandbox.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.EelcoVisser | edit | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.EelcoVisser | save | Main.WebLeftBar | repRev 1.2 Main.EelcoVisser 2005/04/25 20:52:39 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.TWikiGuest | view | Main.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.TWikiGuest | view | TWiki.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.EelcoVisser | edit | TWiki.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:09 | Main.EelcoVisser | save | TWiki.WebLeftBar | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:10 | Main.TWikiGuest | view | TWiki.WebLeftBar |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:13 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:14 | Main.WikiMaster | save | Main.WikiMaster |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:14 | Main.WikiMaster | save | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:14 | Main.WikiMaster | register | Main.WikiMaster | wiki-master@cs.uu.nl | 127.0.0.2 |
++| 25 Apr 2005 - 22:14 | Main.TWikiGuest | view | Main.WikiMaster |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.EelcoVisser | edit | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.EelcoVisser | save | Main.TWikiAdminGroup | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:15 | Main.TWikiGuest | view | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:16 | Main.EelcoVisser | edit | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:16 | Main.EelcoVisser | save | Main.WebManageGroup | repRev 1.1 Main.EelcoVisser 2005/04/25 21:13:09 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:16 | Main.TWikiGuest | view | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:16 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.EelcoVisser | edit | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.EelcoVisser | save | Main.TWikiAdminGroup | dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.TWikiAdminGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.EelcoVisser | edit | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.EelcoVisser | save | Main.WebManageGroup | repRev 1.1 Main.EelcoVisser 2005/04/25 21:14:09 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:19 | Main.TWikiGuest | view | Main.WebManageGroup |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:20 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:28 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:28 | Main.TWikiGuest | view | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:29 | Main.TWikiGuest | view | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:29 | Main.WikiMaster | edit | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:30 | Main.WikiMaster | save | Main.TWikiUsers | repRev 1.20 Main.WikiMaster 2005/04/25 22:15:43 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:30 | Main.TWikiGuest | view | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:30 | Main.WikiMaster | save | Main.TWikiUsers | repRev 1.20 Main.WikiMaster 2005/04/25 22:16:43 dontNotify | 127.0.0.2 |
++| 25 Apr 2005 - 22:30 | Main.TWikiGuest | view | Main.TWikiUsers |  | 127.0.0.2 |
++| 25 Apr 2005 - 22:30 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
+diff -Naur min-wiki.org/data/Main/.changes min-wiki/data/Main/.changes
+--- min-wiki.org/data/Main/.changes	2005-04-25 21:20:06.065953584 +0200
++++ min-wiki/data/Main/.changes	2005-04-26 00:14:43.789097552 +0200
+@@ -1,7 +1,3 @@
+-FileAttachment	PeterThoeny	967427740
+-NicholasLee	NicholasLee	967449413
+-TWikiUsers	NicholasLee	967449413
+-WebHome	PeterThoeny	968533102
+ WebHome	PeterThoeny	968976441
+ TWikiAdminGroup	PeterThoeny	972799024
+ WebPreferences	PeterThoeny	972799190
+@@ -100,3 +96,7 @@
+ PeterThoeny	PeterThoeny	1093932788	9
+ WebLeftBar	PeterThoeny	1093932868	1
+ TWikiAdminGroup	PeterThoeny	1093969962	9
++EelcoVisser	EelcoVisser	1114463184	1
++TWikiUsers	EelcoVisser	1114463184	19
++WikiMaster	WikiMaster	1114467283	1
++TWikiUsers	WikiMaster	1114467283	20
+diff -Naur min-wiki.org/data/Main/FileAttachment.txt min-wiki/data/Main/FileAttachment.txt
+--- min-wiki.org/data/Main/FileAttachment.txt	2005-04-25 21:20:06.062954040 +0200
++++ min-wiki/data/Main/FileAttachment.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,2 +0,0 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1071644520" format="1.0" version="1.4"}%
+-See [[%TWIKIWEB%.FileAttachment]]
+diff -Naur min-wiki.org/data/Main/FileAttachment.txt,v min-wiki/data/Main/FileAttachment.txt,v
+--- min-wiki.org/data/Main/FileAttachment.txt,v	2005-04-25 21:20:06.069952976 +0200
++++ min-wiki/data/Main/FileAttachment.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,77 +0,0 @@
+-head	1.4;
+-access;
+-symbols;
+-locks
+-	nobody:1.4; strict;
+-comment	@# @;
+-
+-
+-1.4
+-date	2003.12.17.07.02.00;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.3;
+-
+-1.3
+-date	2000.11.11.06.32.55;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.08.28.01.55.40;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	99.06.13.07.51.57;	author thoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.4
+-log
+-@none
+-@
+-text
+-@%META:TOPICINFO{author="PeterThoeny" date="1071644520" format="1.0" version="1.4"}%
+-See [[%TWIKIWEB%.FileAttachment]]
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@d1 2
+-a2 3
+-<!-- Include from TWiki web to avoid broken links. -->
+-<!-- To edit, edit the FileAttachment topic in the TWiki web. -->
+-%INCLUDE{"%TWIKIWEB%.FileAttachment"}%
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d3 1
+-a3 1
+-%INCLUDE{"TWiki.FileAttachment"}%
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d1 2
+-a2 1
+-<!-- include from TWiki web to prevent broken links -->
+-@
+diff -Naur min-wiki.org/data/Main/LondonOffice.txt min-wiki/data/Main/LondonOffice.txt
+--- min-wiki.org/data/Main/LondonOffice.txt	2005-04-25 21:20:06.063953888 +0200
++++ min-wiki/data/Main/LondonOffice.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,8 +0,0 @@
+-Here would stand the information about the London office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+diff -Naur min-wiki.org/data/Main/LondonOffice.txt,v min-wiki/data/Main/LondonOffice.txt,v
+--- min-wiki.org/data/Main/LondonOffice.txt,v	2005-04-25 21:20:06.067953280 +0200
++++ min-wiki/data/Main/LondonOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,66 +0,0 @@
+-head	1.3;
+-access;
+-symbols;
+-locks
+-	nobody:1.3; strict;
+-comment	@# @;
+-
+-
+-1.3
+-date	2000.12.15.18.00.54;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.08.19.00.23.17;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	2000.04.29.07.01.07;	author PeterThoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@Here would stand the information about the London office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d6 1
+-d8 1
+-a8 1
+-%INCLUDE{"OfficeLocations"}%
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-%INCLUDE{"OfficeLocations.txt"}%
+-@
+diff -Naur min-wiki.org/data/Main/OfficeLocations.txt min-wiki/data/Main/OfficeLocations.txt
+--- min-wiki.org/data/Main/OfficeLocations.txt	2005-04-25 21:20:06.066953432 +0200
++++ min-wiki/data/Main/OfficeLocations.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,9 +0,0 @@
+-The <nop>OfficeLocations topic has a list of all your offices.
+-
+-	* SanJoseOffice
+-	* LondonOffice
+-	* TokyoOffice
+-
+-(This is an example of corporate intranet use and is for demonstration purposes only: %TWIKIWEB%.TWikiRegistration asks for an office location. To add/remove an office edit this OfficeLocations topic and the %TWIKIWEB%.TWikiRegistration topic)
+-
+-__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups
+diff -Naur min-wiki.org/data/Main/OfficeLocations.txt,v min-wiki/data/Main/OfficeLocations.txt,v
+--- min-wiki.org/data/Main/OfficeLocations.txt,v	2005-04-25 21:20:06.061954192 +0200
++++ min-wiki/data/Main/OfficeLocations.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,86 +0,0 @@
+-head	1.4;
+-access;
+-symbols;
+-locks
+-	nobody:1.4; strict;
+-comment	@# @;
+-
+-
+-1.4
+-date	2000.12.14.02.50.31;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.3;
+-
+-1.3
+-date	2000.11.08.09.07.30;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.08.19.00.19.34;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	2000.04.29.07.11.36;	author PeterThoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.4
+-log
+-@none
+-@
+-text
+-@The <nop>OfficeLocations topic has a list of all your offices.
+-
+-	* SanJoseOffice
+-	* LondonOffice
+-	* TokyoOffice
+-
+-(This is an example of corporate intranet use and is for demonstration purposes only: %TWIKIWEB%.TWikiRegistration asks for an office location. To add/remove an office edit this OfficeLocations topic and the %TWIKIWEB%.TWikiRegistration topic)
+-
+-__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-(This is an example of corporate intranet use and is for demonstration purposes only: %TWIKIWEB%.TWikiRegistration asks for an office location. To add/remove an office edit the OfficeLocations topic and the %TWIKIWEB%.TWikiRegistration topic)
+-d9 1
+-a9 1
+-__Related topics:__ TWikiUsers, TWikiGroups
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-The OfficeLocations topic has a list of all your offices.
+-d8 2
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-(This is an example of corporate intranet use and is for demonstration purposes only: TWikiRegistration asks for an office location. To add/remove an office edit the OfficeLocations and TWikiRegistration topics)
+-@
+diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt min-wiki/data/Main/SanJoseOffice.txt
+--- min-wiki.org/data/Main/SanJoseOffice.txt	2005-04-25 21:20:06.066953432 +0200
++++ min-wiki/data/Main/SanJoseOffice.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,8 +0,0 @@
+-Here would stand the information about the San Jose office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt,v min-wiki/data/Main/SanJoseOffice.txt,v
+--- min-wiki.org/data/Main/SanJoseOffice.txt,v	2005-04-25 21:20:06.064953736 +0200
++++ min-wiki/data/Main/SanJoseOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,66 +0,0 @@
+-head	1.3;
+-access;
+-symbols;
+-locks
+-	nobody:1.3; strict;
+-comment	@# @;
+-
+-
+-1.3
+-date	2000.12.15.18.00.34;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.08.19.00.23.05;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	2000.04.29.07.00.33;	author PeterThoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@Here would stand the information about the San Jose office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d6 1
+-d8 1
+-a8 1
+-%INCLUDE{"OfficeLocations"}%
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-%INCLUDE{"OfficeLocations.txt"}%
+-@
+diff -Naur min-wiki.org/data/Main/TokyoOffice.txt min-wiki/data/Main/TokyoOffice.txt
+--- min-wiki.org/data/Main/TokyoOffice.txt	2005-04-25 21:20:06.063953888 +0200
++++ min-wiki/data/Main/TokyoOffice.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,8 +0,0 @@
+-Here would stand the information about the Tokyo office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+diff -Naur min-wiki.org/data/Main/TokyoOffice.txt,v min-wiki/data/Main/TokyoOffice.txt,v
+--- min-wiki.org/data/Main/TokyoOffice.txt,v	2005-04-25 21:20:06.067953280 +0200
++++ min-wiki/data/Main/TokyoOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,66 +0,0 @@
+-head	1.3;
+-access;
+-symbols;
+-locks
+-	nobody:1.3; strict;
+-comment	@# @;
+-
+-
+-1.3
+-date	2000.12.15.18.01.05;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.08.19.00.22.55;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	2000.04.29.07.01.38;	author PeterThoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@Here would stand the information about the Tokyo office:
+-
+-	* Address:
+-	* Phone:
+-	* Fax:
+-	* <a href="%SCRIPTURL%/search%SCRIPTSUFFIX%/%WEB%/?scope=text&search=Location:%20%TOPIC%">List</a> of employees at <nop>%TOPIC%.
+-
+-__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d6 1
+-d8 1
+-a8 1
+-%INCLUDE{"OfficeLocations"}%
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-%INCLUDE{"OfficeLocations.txt"}%
+-@
+diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.lock min-wiki/data/Main/TWikiAdminGroup.lock
+--- min-wiki.org/data/Main/TWikiAdminGroup.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/TWikiAdminGroup.lock	2005-04-26 00:19:40.352013136 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114467580
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt min-wiki/data/Main/TWikiAdminGroup.txt
+--- min-wiki.org/data/Main/TWikiAdminGroup.txt	2005-04-25 21:20:06.062954040 +0200
++++ min-wiki/data/Main/TWikiAdminGroup.txt	2005-04-26 00:19:40.338015264 +0200
+@@ -1,7 +1,7 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1093970022" format="1.0" version="1.9"}%
++%META:TOPICINFO{author="EelcoVisser" date="1114467580" format="1.0" version="1.10"}%
+ *TWiki Administrator Group*
+ 
+-	* Set GROUP = PeterThoeny
++	* Set GROUP = WikiMaster
+ 	* #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+ 
+ (Setup Note: (a) Verify that user authentication is working, (b) set the members of TWiki Administrator Group in GROUP, (c) enable the ALLOWTOPICCHANGE variable by removing # sign, (d) set the ALLOWTOPICHANGE in TWiki.TWikiPreferences to this group (e) remove this note after you have done the setup)
+diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt,v min-wiki/data/Main/TWikiAdminGroup.txt,v
+--- min-wiki.org/data/Main/TWikiAdminGroup.txt,v	2005-04-25 21:20:06.062954040 +0200
++++ min-wiki/data/Main/TWikiAdminGroup.txt,v	2005-04-26 00:28:00.618961000 +0200
+@@ -1,11 +1,16 @@
+-head	1.9;
++head	1.10;
+ access;
+ symbols;
+ locks
+-	nobody:1.9; strict;
++	visser:1.10; strict;
+ comment	@# @;
+ 
+ 
++1.10
++date	2005.04.25.22.19.40;	author EelcoVisser;	state Exp;
++branches;
++next	1.9;
++
+ 1.9
+ date	2004.08.31.16.33.42;	author PeterThoeny;	state Exp;
+ branches;
+@@ -57,15 +62,15 @@
+ @
+ 
+ 
+-1.9
++1.10
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1093970022" format="1.0" version="1.9"}%
++@%META:TOPICINFO{author="EelcoVisser" date="1114467580" format="1.0" version="1.10"}%
+ *TWiki Administrator Group*
+ 
+-	* Set GROUP = PeterThoeny
++	* Set GROUP = WikiMaster
+ 	* #Set ALLOWTOPICCHANGE = TWikiAdminGroup
+ 
+ (Setup Note: (a) Verify that user authentication is working, (b) set the members of TWiki Administrator Group in GROUP, (c) enable the ALLOWTOPICCHANGE variable by removing # sign, (d) set the ALLOWTOPICHANGE in TWiki.TWikiPreferences to this group (e) remove this note after you have done the setup)
+@@ -77,6 +82,20 @@
+ @
+ 
+ 
++1.9
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="PeterThoeny" date="1093970022" format="1.0" version="1.9"}%
++d4 1
++a4 1
++	* Set GROUP = PeterThoeny
++@
++
++
+ 1.8
+ log
+ @none
+diff -Naur min-wiki.org/data/Main/TWikiPreferences.lock min-wiki/data/Main/TWikiPreferences.lock
+--- min-wiki.org/data/Main/TWikiPreferences.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/TWikiPreferences.lock	2005-04-26 00:05:07.371726312 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114459548
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt min-wiki/data/Main/TWikiPreferences.txt
+--- min-wiki.org/data/Main/TWikiPreferences.txt	2005-04-25 21:20:06.065953584 +0200
++++ min-wiki/data/Main/TWikiPreferences.txt	2005-04-26 00:05:07.349729656 +0200
+@@ -1,9 +1,13 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1071955740" format="1.0" version="1.1"}%
+-The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
+-<!-- keep this as a security measure:
+-	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
+-	* Set ALLOWTOPICRENAME = TWikiAdminGroup
+--->
+-
+-
+--- Main.PeterThoeny - 20 Dec 2003
++%META:TOPICINFO{author="EelcoVisser" date="1114458403" format="1.0" version="1.2"}%
++The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
++<!-- keep this as a security measure:
++	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
++	* Set ALLOWTOPICRENAME = TWikiAdminGroup
++-->
++
++	* WEBTITLE = 
++	* SHORTWEBTITLE = 
++
++
++-- Main.PeterThoeny - 20 Dec 2003
++
+diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt,v min-wiki/data/Main/TWikiPreferences.txt,v
+--- min-wiki.org/data/Main/TWikiPreferences.txt,v	2005-04-25 21:20:06.063953888 +0200
++++ min-wiki/data/Main/TWikiPreferences.txt,v	2005-04-26 00:28:00.670953096 +0200
+@@ -1,11 +1,16 @@
+-head	1.1;
++head	1.2;
+ access;
+ symbols;
+ locks
+-	nobody:1.1; strict;
++	visser:1.2; strict;
+ comment	@# @;
+ 
+ 
++1.2
++date	2005.04.25.19.46.43;	author EelcoVisser;	state Exp;
++branches;
++next	1.1;
++
+ 1.1
+ date	2003.12.20.21.29.00;	author PeterThoeny;	state Exp;
+ branches;
+@@ -17,12 +22,35 @@
+ @
+ 
+ 
++1.2
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114458403" format="1.0" version="1.2"}%
++The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
++<!-- keep this as a security measure:
++	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
++	* Set ALLOWTOPICRENAME = TWikiAdminGroup
++-->
++
++	* WEBTITLE = 
++	* SHORTWEBTITLE = 
++
++
++-- Main.PeterThoeny - 20 Dec 2003
++
++@
++
++
+ 1.1
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1071955740" format="1.0" version="1.1"}%
++@d1 13
++a13 9
++%META:TOPICINFO{author="PeterThoeny" date="1071955740" format="1.0" version="1.1"}%
+ The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
+ <!-- keep this as a security measure:
+ 	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
+diff -Naur min-wiki.org/data/Main/TWikiUsers.lock min-wiki/data/Main/TWikiUsers.lock
+--- min-wiki.org/data/Main/TWikiUsers.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/TWikiUsers.lock	2005-04-26 00:30:22.532386880 +0200
+@@ -0,0 +1,2 @@
++WikiMaster
++1114468222
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/TWikiUsers.txt min-wiki/data/Main/TWikiUsers.txt
+--- min-wiki.org/data/Main/TWikiUsers.txt	2005-04-25 21:20:06.061954192 +0200
++++ min-wiki/data/Main/TWikiUsers.txt	2005-04-26 00:30:22.517389160 +0200
+@@ -1,41 +1,43 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1077314023" format="1.0" version="1.19"}%
+----+ List of %WIKITOOLNAME% users
+-
+-Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
+-
+-#ListStart
+-[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
+-
+-	* A - <a name="A">- - - -</a>
+-	* B - <a name="B">- - - -</a>
+-	* C - <a name="C">- - - -</a>
+-	* D - <a name="D">- - - -</a>
+-	* E - <a name="E">- - - -</a>
+-	* F - <a name="F">- - - -</a>
+-	* G - <a name="G">- - - -</a>
+-	* H - <a name="H">- - - -</a>
+-	* I - <a name="I">- - - -</a>
+-	* J - <a name="J">- - - -</a>
+-	* K - <a name="K">- - - -</a>
+-	* L - <a name="L">- - - -</a>
+-	* M - <a name="M">- - - -</a>
+-	* N - <a name="N">- - - -</a>
+-	* O - <a name="O">- - - -</a>
+-	* P - <a name="P">- - - -</a>
+-	* Q - <a name="Q">- - - -</a>
+-	* R - <a name="R">- - - -</a>
+-	* S - <a name="S">- - - -</a>
+-	* T - <a name="T">- - - -</a>
+-	* TWikiGuest - guest - 10 Feb 1999
+-	* U - <a name="U">- - - -</a>
+-	* V - <a name="V">- - - -</a>
+-	* W - <a name="W">- - - -</a>
+-	* X - <a name="X">- - - -</a>
+-	* Y - <a name="Y">- - - -</a>
+-	* Z - <a name="Z">- - - -</a>
+-
+-[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
+-
+-	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
+-
+-__Related topics:__ OfficeLocations, TWikiGroups
++%META:TOPICINFO{author="WikiMaster" date="1114467403" format="1.0" version="1.20"}%
++---+ List of %WIKITOOLNAME% users
++
++Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
++
++#ListStart
++[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
++
++	* A - <a name="A">- - - -</a>
++	* B - <a name="B">- - - -</a>
++	* C - <a name="C">- - - -</a>
++	* D - <a name="D">- - - -</a>
++	* E - <a name="E">- - - -</a>
++	* F - <a name="F">- - - -</a>
++	* G - <a name="G">- - - -</a>
++	* H - <a name="H">- - - -</a>
++	* I - <a name="I">- - - -</a>
++	* J - <a name="J">- - - -</a>
++	* K - <a name="K">- - - -</a>
++	* L - <a name="L">- - - -</a>
++	* M - <a name="M">- - - -</a>
++	* N - <a name="N">- - - -</a>
++	* O - <a name="O">- - - -</a>
++	* P - <a name="P">- - - -</a>
++	* Q - <a name="Q">- - - -</a>
++	* R - <a name="R">- - - -</a>
++	* S - <a name="S">- - - -</a>
++	* T - <a name="T">- - - -</a>
++	* TWikiGuest - guest - 10 Feb 1999
++	* U - <a name="U">- - - -</a>
++	* V - <a name="V">- - - -</a>
++	* W - <a name="W">- - - -</a>
++	* WikiMaster - 25 Apr 2005
++	* X - <a name="X">- - - -</a>
++	* Y - <a name="Y">- - - -</a>
++	* Z - <a name="Z">- - - -</a>
++
++[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
++
++	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
++
++__Related topics:__ TWikiGroups
++
+diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers.txt,v
+--- min-wiki.org/data/Main/TWikiUsers.txt,v	2005-04-25 21:20:06.067953280 +0200
++++ min-wiki/data/Main/TWikiUsers.txt,v	2005-04-26 00:30:22.530387184 +0200
+@@ -1,11 +1,16 @@
+-head	1.19;
++head	1.20;
+ access;
+ symbols;
+ locks
+-	nobody:1.19; strict;
++	visser:1.20; strict;
+ comment	@# @;
+ 
+ 
++1.20
++date	2005.04.25.22.16.43;	author WikiMaster;	state Exp;
++branches;
++next	1.19;
++
+ 1.19
+ date	2004.02.20.21.53.43;	author PeterThoeny;	state Exp;
+ branches;
+@@ -107,12 +112,65 @@
+ @
+ 
+ 
++1.20
++log
++@none
++@
++text
++@%META:TOPICINFO{author="WikiMaster" date="1114467403" format="1.0" version="1.20"}%
++---+ List of %WIKITOOLNAME% users
++
++Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
++
++#ListStart
++[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
++
++	* A - <a name="A">- - - -</a>
++	* B - <a name="B">- - - -</a>
++	* C - <a name="C">- - - -</a>
++	* D - <a name="D">- - - -</a>
++	* E - <a name="E">- - - -</a>
++	* F - <a name="F">- - - -</a>
++	* G - <a name="G">- - - -</a>
++	* H - <a name="H">- - - -</a>
++	* I - <a name="I">- - - -</a>
++	* J - <a name="J">- - - -</a>
++	* K - <a name="K">- - - -</a>
++	* L - <a name="L">- - - -</a>
++	* M - <a name="M">- - - -</a>
++	* N - <a name="N">- - - -</a>
++	* O - <a name="O">- - - -</a>
++	* P - <a name="P">- - - -</a>
++	* Q - <a name="Q">- - - -</a>
++	* R - <a name="R">- - - -</a>
++	* S - <a name="S">- - - -</a>
++	* T - <a name="T">- - - -</a>
++	* TWikiGuest - guest - 10 Feb 1999
++	* U - <a name="U">- - - -</a>
++	* V - <a name="V">- - - -</a>
++	* W - <a name="W">- - - -</a>
++	* WikiMaster - 25 Apr 2005
++	* X - <a name="X">- - - -</a>
++	* Y - <a name="Y">- - - -</a>
++	* Z - <a name="Z">- - - -</a>
++
++[[#A][A]] [[#B][B]] [[#C][C]] [[#D][D]] [[#E][E]] [[#F][F]] [[#G][G]] [[#H][H]] [[#I][I]] [[#J][J]] [[#K][K]] [[#L][L]] [[#M][M]] [[#N][N]] [[#O][O]] [[#P][P]] [[#Q][Q]] [[#R][R]] [[#S][S]] [[#T][T]] [[#U][U]] [[#V][V]] [[#W][W]] [[#X][X]] [[#Y][Y]] [[#Z][Z]]
++
++	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
++
++__Related topics:__ TWikiGroups
++
++@
++
++
+ 1.19
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1077314023" format="1.0" version="1.19"}%
++@d1 43
++a43 41
++%META:TOPICINFO{author="PeterThoeny" date="1077314023" format="1.0" version="1.19"}%
+ ---+ List of %WIKITOOLNAME% users
+ 
+ Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
+diff -Naur min-wiki.org/data/Main/WebChanges.lock min-wiki/data/Main/WebChanges.lock
+--- min-wiki.org/data/Main/WebChanges.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebChanges.lock	2005-04-26 00:05:07.349729656 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114463305
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/WebHome.lock min-wiki/data/Main/WebHome.lock
+--- min-wiki.org/data/Main/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebHome.lock	2005-04-26 00:05:07.350729504 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114463589
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/WebHome.txt min-wiki/data/Main/WebHome.txt
+--- min-wiki.org/data/Main/WebHome.txt	2005-04-25 21:20:06.063953888 +0200
++++ min-wiki/data/Main/WebHome.txt	2005-04-26 00:05:07.349729656 +0200
+@@ -1,35 +1,3 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1044153791" format="1.0" version="1.20"}%
+-<table><tr><td>
+-*<font size="+1"> %TWIKIWEB%.WelcomeGuest: </font>* TWiki is a flexible, powerful, secure, yet simple web-based collaboration platform. Use TWiki to run a project development space, a document management system, a knowledge base or any other groupware tool on either on an intranet or on the Internet. You can edit any TWiki page.
+-</td><td>
+-<a href="http://TWiki.org/"><img src="%PUBURL%/%TWIKIWEB%/TWikiLogos/twikiRobot131x64.gif" width="131" height="64" alt="Powered by TWiki" border="0" /></a>
+-</td><td>
+-<b>The TWiki <sup>TM</sup> home is <br> at http://TWiki.org/ </b>
+-</td></tr>
+-</table>
+-
+-%INCLUDE{"%TWIKIWEB%.SiteMap"}%
+-
+-*%WIKITOOLNAME%.%WEB% Web:*
+-	* <b> %WIKIUSERSTOPIC%: </b> List of users of this %WIKITOOLNAME% web.
+-	* TWikiGroups: List of groups.
+-	* OfficeLocations: Corporate offices.
+-
+-%INCLUDE{"%TWIKIWEB%.WebSiteTools"}%
+-
+-*%WIKITOOLNAME%.%TWIKIWEB% Web:*
+-	* <b> %TWIKIWEB%.WelcomeGuest: </b> Look here first to get you rolling on %WIKITOOLNAME%.
+-	* %TWIKIWEB%.TWikiSite: Explains what a %WIKITOOLNAME% site is.
+-	* %TWIKIWEB%.TWikiRegistration: Create your account in order to edit topics.
+-	* Documentation:
+-		* %TWIKIWEB%.TWikiFAQ has a list of frequently asked questions.
+-		* %TWIKIWEB%.TWikiDocumentation is the implementation documentation of TWiki. 
+-		* %TWIKIWEB%.TWikiHistory shows TWiki's implementation history. 
+-	* How to edit text:
+-		* %TWIKIWEB%.GoodStyle: Things to consider when changing text.
+-		* %TWIKIWEB%.TextFormattingRules: Easy to learn rules for editing text.
+-		* %TWIKIWEB%.TextFormattingFAQ: Answers to frequently asked questions about text formatting.
+-	* %TWIKIWEB%.%WIKIPREFSTOPIC%: %WIKITOOLNAME% site-level preferences 
+-
+-*Notes:*
+-%INCLUDE{"%TWIKIWEB%.YouAreHere"}%
++%META:TOPICINFO{author="EelcoVisser" date="1114463589" format="1.0" version="1.21"}%
++See %TWIKIWEB%.WelcomeGuest for documentation.
++
+diff -Naur min-wiki.org/data/Main/WebHome.txt,v min-wiki/data/Main/WebHome.txt,v
+--- min-wiki.org/data/Main/WebHome.txt,v	2005-04-25 21:20:06.064953736 +0200
++++ min-wiki/data/Main/WebHome.txt,v	2005-04-26 00:28:00.711946864 +0200
+@@ -2,7 +2,7 @@
+ access;
+ symbols;
+ locks
+-	nobody:1.20; strict;
++	visser:1.20; strict;
+ comment	@# @;
+ 
+ 
+diff -Naur min-wiki.org/data/Main/WebLeftBar.lock min-wiki/data/Main/WebLeftBar.lock
+--- min-wiki.org/data/Main/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebLeftBar.lock	2005-04-26 00:09:40.276238520 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114466980
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/WebLeftBar.txt min-wiki/data/Main/WebLeftBar.txt
+--- min-wiki.org/data/Main/WebLeftBar.txt	2005-04-25 21:20:06.064953736 +0200
++++ min-wiki/data/Main/WebLeftBar.txt	2005-04-26 00:09:40.262240648 +0200
+@@ -1,6 +1,5 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1093932928" format="1.0" version="1.1"}%
+-	* *[[%WIKILOGOURL%][TWiki.org]]*
+-
++%META:TOPICINFO{author="EelcoVisser" date="1114462359" format="1.0" version="1.2"}%
++*[[%WIKILOGOURL%][TWiki.org]]*
+ 	* *[[%TWIKIWEB%.WelcomeGuest][Welcome]]*
+ 	* *[[%TWIKIWEB%.TWikiRegistration][Register]]*
+ ---
+@@ -8,10 +7,9 @@
+ 	* [[%HOMETOPIC%][%WEB% Web Home]]
+ 	* [[TWikiUsers][Users]]
+ 	* [[TWikiGroups][Groups]]
+-	* [[OfficeLocations][Offices]]
+ 	* [[%SCRIPTURL%/changes/%WEB%][Changes]]
+ 	* [[WebChanges][Changes detailed]]
+-	* [[WebIndex][Topic list]]
++	* [[WebTopicList][Topic list]]
+ 	* [[%INCLUDINGWEB%.WebSearch][Search]]
+ ---
+ 	* *TWiki Webs*
+diff -Naur min-wiki.org/data/Main/WebLeftBar.txt,v min-wiki/data/Main/WebLeftBar.txt,v
+--- min-wiki.org/data/Main/WebLeftBar.txt,v	2005-04-25 21:20:06.060954344 +0200
++++ min-wiki/data/Main/WebLeftBar.txt,v	2005-04-26 00:28:00.581966624 +0200
+@@ -1,11 +1,16 @@
+-head	1.1;
++head	1.2;
+ access;
+ symbols;
+ locks
+-	nobody:1.1; strict;
++	visser:1.2; strict;
+ comment	@# @;
+ 
+ 
++1.2
++date	2005.04.25.20.52.39;	author EelcoVisser;	state Exp;
++branches;
++next	1.1;
++
+ 1.1
+ date	2004.08.31.06.15.28;	author PeterThoeny;	state Exp;
+ branches;
+@@ -17,14 +22,13 @@
+ @
+ 
+ 
+-1.1
++1.2
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1093932928" format="1.0" version="1.1"}%
+-	* *[[%WIKILOGOURL%][TWiki.org]]*
+-
++@%META:TOPICINFO{author="EelcoVisser" date="1114462359" format="1.0" version="1.2"}%
++*[[%WIKILOGOURL%][TWiki.org]]*
+ 	* *[[%TWIKIWEB%.WelcomeGuest][Welcome]]*
+ 	* *[[%TWIKIWEB%.TWikiRegistration][Register]]*
+ ---
+@@ -32,10 +36,9 @@
+ 	* [[%HOMETOPIC%][%WEB% Web Home]]
+ 	* [[TWikiUsers][Users]]
+ 	* [[TWikiGroups][Groups]]
+-	* [[OfficeLocations][Offices]]
+ 	* [[%SCRIPTURL%/changes/%WEB%][Changes]]
+ 	* [[WebChanges][Changes detailed]]
+-	* [[WebIndex][Topic list]]
++	* [[WebTopicList][Topic list]]
+ 	* [[%INCLUDINGWEB%.WebSearch][Search]]
+ ---
+ 	* *TWiki Webs*
+@@ -45,3 +48,21 @@
+ </div>
+ 
+ @
++
++
++1.1
++log
++@none
++@
++text
++@d1 2
++a2 3
++%META:TOPICINFO{author="PeterThoeny" date="1093932928" format="1.0" version="1.1"}%
++	* *[[%WIKILOGOURL%][TWiki.org]]*
++
++a9 1
++	* [[OfficeLocations][Offices]]
++d12 1
++a12 1
++	* [[WebIndex][Topic list]]
++@
+diff -Naur min-wiki.org/data/Main/WebManageGroup.lock min-wiki/data/Main/WebManageGroup.lock
+--- min-wiki.org/data/Main/WebManageGroup.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebManageGroup.lock	2005-04-26 00:19:55.764670056 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114467595
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/WebManageGroup.txt min-wiki/data/Main/WebManageGroup.txt
+--- min-wiki.org/data/Main/WebManageGroup.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebManageGroup.txt	2005-04-26 00:19:55.753671728 +0200
+@@ -0,0 +1,10 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114463649" format="1.0" version="1.1"}%
++*Web Managers Group*
++
++	* Set GROUP = WikiMaster
++	* Set ALLOWTOPICCHANGE = WebManageGroup
++
++__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
++
++-- Main.EelcoVisser - 25 Apr 2005
++
+diff -Naur min-wiki.org/data/Main/WebManageGroup.txt,v min-wiki/data/Main/WebManageGroup.txt,v
+--- min-wiki.org/data/Main/WebManageGroup.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebManageGroup.txt,v	2005-04-26 00:28:00.851925584 +0200
+@@ -0,0 +1,35 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.21.14.09;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114463649" format="1.0" version="1.1"}%
++*Web Managers Group*
++
++	* Set GROUP = WikiMaster
++	* Set ALLOWTOPICCHANGE = WebManageGroup
++
++__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl
++
++-- Main.EelcoVisser - 25 Apr 2005
++
++@
+diff -Naur min-wiki.org/data/Main/WebNews.lock min-wiki/data/Main/WebNews.lock
+--- min-wiki.org/data/Main/WebNews.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebNews.lock	2005-04-26 00:05:07.371726312 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114458312
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Main/WebNews.txt min-wiki/data/Main/WebNews.txt
+--- min-wiki.org/data/Main/WebNews.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebNews.txt	2005-04-26 00:28:04.041440704 +0200
+@@ -0,0 +1,4 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114458312" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="CustomWebMenus"}%
++ 
++
+diff -Naur min-wiki.org/data/Main/WebNews.txt,v min-wiki/data/Main/WebNews.txt,v
+--- min-wiki.org/data/Main/WebNews.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WebNews.txt,v	2005-04-26 00:28:00.840927256 +0200
+@@ -0,0 +1,29 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.19.45.12;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114458312" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="CustomWebMenus"}%
++ 
++
++@
+diff -Naur min-wiki.org/data/Main/WikiMaster.txt min-wiki/data/Main/WikiMaster.txt
+--- min-wiki.org/data/Main/WikiMaster.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WikiMaster.txt	2005-04-26 00:14:43.705110320 +0200
+@@ -0,0 +1,35 @@
++%META:TOPICINFO{author="WikiMaster" date="1114467283" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="TWikiUsers"}%
++
++	* Name: Wiki Master
++	* Email: wiki-master@cs.uu.nl
++	* Company Name: 
++	* Company URL: 
++	* Country: Netherlands
++	* Comment: 
++
++__My Links__
++	* %TWIKIWEB%.WelcomeGuest to learn TWiki
++	* Sandbox.WebHome web to try out TWiki
++	* Sandbox.%TOPIC%Sandbox just for me
++	* 
++	* 
++
++__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
++	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off: (see details in %TWIKIWEB%.%WIKIPREFSTOPIC%)
++		* Set LINKTOOLTIPINFO = off
++	* Horizontal size of text edit box:
++		* Set EDITBOXWIDTH = 70
++	* Vertical size of text edit box:
++		* Set EDITBOXHEIGHT = 22
++	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
++		* Set EDITBOXSTYLE = width: 99%
++	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
++		* Set ALLOWTOPICCHANGE =
++
++__Related topics__
++	* ChangePassword
++	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
++	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
++	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
++
+diff -Naur min-wiki.org/data/Main/WikiMaster.txt,v min-wiki/data/Main/WikiMaster.txt,v
+--- min-wiki.org/data/Main/WikiMaster.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/WikiMaster.txt,v	2005-04-26 00:28:00.863923760 +0200
+@@ -0,0 +1,60 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.22.14.43;	author WikiMaster;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="WikiMaster" date="1114467283" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="TWikiUsers"}%
++
++	* Name: Wiki Master
++	* Email: wiki-master@@cs.uu.nl
++	* Company Name: 
++	* Company URL: 
++	* Country: Netherlands
++	* Comment: 
++
++__My Links__
++	* %TWIKIWEB%.WelcomeGuest to learn TWiki
++	* Sandbox.WebHome web to try out TWiki
++	* Sandbox.%TOPIC%Sandbox just for me
++	* 
++	* 
++
++__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
++	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off: (see details in %TWIKIWEB%.%WIKIPREFSTOPIC%)
++		* Set LINKTOOLTIPINFO = off
++	* Horizontal size of text edit box:
++		* Set EDITBOXWIDTH = 70
++	* Vertical size of text edit box:
++		* Set EDITBOXHEIGHT = 22
++	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
++		* Set EDITBOXSTYLE = width: 99%
++	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
++		* Set ALLOWTOPICCHANGE =
++
++__Related topics__
++	* ChangePassword
++	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
++	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
++	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
++
++@
+diff -Naur min-wiki.org/data/Sandbox/WebHome.lock min-wiki/data/Sandbox/WebHome.lock
+--- min-wiki.org/data/Sandbox/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Sandbox/WebHome.lock	2005-04-26 00:08:44.835666768 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114466924
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Sandbox/WebHome.txt min-wiki/data/Sandbox/WebHome.txt
+--- min-wiki.org/data/Sandbox/WebHome.txt	2005-04-25 21:20:06.090949784 +0200
++++ min-wiki/data/Sandbox/WebHome.txt	2005-04-26 00:08:44.795672848 +0200
+@@ -1,14 +1,3 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1018765129" format="1.0" version="1.7"}%
+-The <b>%WIKITOOLNAME%.%WEB%</b> web is the sandbox you can use for testing. Everybody is welcome to add or delete some stuff. It is recommended to walk through the %TWIKIWEB%.TWikiTutorial to get a jumpstart on the %WIKITOOLNAME% tool. A good rule of thumb is to add at the end of the page and sign & date it with your %TWIKIWEB%.WikiName.
+-
+-	* TestTopic1, TestTopic2, TestTopic3, TestTopic4 
+-	* TestTopic5, TestTopic6, TestTopic7, TestTopic8
+-
+----++ Site Tools of the %WEB% Web
+-
+-%INCLUDE{"%TWIKIWEB%.WebSiteTools"}%
+-
+-*Notes:*
+-%INCLUDE{"%TWIKIWEB%.YouAreHere"}%
+-
+-%INCLUDE{"%TWIKIWEB%.SiteMap"}%
++%META:TOPICINFO{author="EelcoVisser" date="1114466924" format="1.0" version="1.8"}%
++Have a ball
++
+diff -Naur min-wiki.org/data/Sandbox/WebHome.txt,v min-wiki/data/Sandbox/WebHome.txt,v
+--- min-wiki.org/data/Sandbox/WebHome.txt,v	2005-04-25 21:20:06.091949632 +0200
++++ min-wiki/data/Sandbox/WebHome.txt,v	2005-04-26 00:28:00.914916008 +0200
+@@ -2,7 +2,7 @@
+ access;
+ symbols;
+ locks
+-	nobody:1.7; strict;
++	visser:1.7; strict;
+ comment	@# @;
+ 
+ 
+diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.lock min-wiki/data/Sandbox/WebLeftBar.lock
+--- min-wiki.org/data/Sandbox/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Sandbox/WebLeftBar.lock	2005-04-26 00:09:09.448924984 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114466949
+\ No newline at end of file
+diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt min-wiki/data/Sandbox/WebLeftBar.txt
+--- min-wiki.org/data/Sandbox/WebLeftBar.txt	2005-04-25 21:20:06.092949480 +0200
++++ min-wiki/data/Sandbox/WebLeftBar.txt	2005-04-26 00:09:09.408931064 +0200
+@@ -1,5 +1,5 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1093968259" format="1.0" version="1.1"}%
+-	* <b>%INCLUDINGWEB% Web</b>
++%META:TOPICINFO{author="EelcoVisser" date="1114466949" format="1.0" version="1.2"}%
++<b>%INCLUDINGWEB% Web</b>
+ 	* [[%HOMETOPIC%][%INCLUDINGWEB% Web Home]]
+ 	* [[WebChanges][Changes]] 
+ 	* [[WebIndex][Index]]
+diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt,v min-wiki/data/Sandbox/WebLeftBar.txt,v
+--- min-wiki.org/data/Sandbox/WebLeftBar.txt,v	2005-04-25 21:20:06.087950240 +0200
++++ min-wiki/data/Sandbox/WebLeftBar.txt,v	2005-04-26 00:28:00.875921936 +0200
+@@ -2,7 +2,7 @@
+ access;
+ symbols;
+ locks
+-	nobody:1.1; strict;
++	visser:1.1; strict;
+ comment	@# @;
+ 
+ 
+diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.lock min-wiki/data/TWiki/CustomSiteMenus.lock
+--- min-wiki.org/data/TWiki/CustomSiteMenus.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/CustomSiteMenus.lock	2005-04-26 00:05:07.449714456 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114457834
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt min-wiki/data/TWiki/CustomSiteMenus.txt
+--- min-wiki.org/data/TWiki/CustomSiteMenus.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/CustomSiteMenus.txt	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,10 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114457750" format="1.0" version="1.1"}%
++<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
++  <p>SiteMenus</p>
++  <div id="flexMenuContent50" class="flexMenuContent" style="width: 22em">
++
++	* TWiki.CustomSiteMenus
++	
++  </div>
++</div>
++
+diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt,v min-wiki/data/TWiki/CustomSiteMenus.txt,v
+--- min-wiki.org/data/TWiki/CustomSiteMenus.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/CustomSiteMenus.txt,v	2005-04-26 00:28:03.966452104 +0200
+@@ -0,0 +1,35 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.19.35.50;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114457750" format="1.0" version="1.1"}%
++<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
++  <p>SiteMenus</p>
++  <div id="flexMenuContent50" class="flexMenuContent" style="width: 22em">
++
++	* TWiki.CustomSiteMenus
++	
++  </div>
++</div>
++
++@
+diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt min-wiki/data/TWiki/CustomWebMenus.txt
+--- min-wiki.org/data/TWiki/CustomWebMenus.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/CustomWebMenus.txt	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,10 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114457856" format="1.0" version="1.1"}%
++<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
++  <p>WebMenus</p>
++  <div id="flexMenuContent50" class="flexMenuContent" style="width: 22em">
++
++	* CustomWebMenus
++  
++  </div>
++</div>
++
+diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt,v min-wiki/data/TWiki/CustomWebMenus.txt,v
+--- min-wiki.org/data/TWiki/CustomWebMenus.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/CustomWebMenus.txt,v	2005-04-26 00:28:03.979450128 +0200
+@@ -0,0 +1,35 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.19.37.36;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114457856" format="1.0" version="1.1"}%
++<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
++  <p>WebMenus</p>
++  <div id="flexMenuContent50" class="flexMenuContent" style="width: 22em">
++
++	* CustomWebMenus
++  
++  </div>
++</div>
++
++@
+diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.lock min-wiki/data/TWiki/TWikiPreferences.lock
+--- min-wiki.org/data/TWiki/TWikiPreferences.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/TWikiPreferences.lock	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114459428
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt min-wiki/data/TWiki/TWikiPreferences.txt
+--- min-wiki.org/data/TWiki/TWikiPreferences.txt	2005-04-25 21:20:06.193934128 +0200
++++ min-wiki/data/TWiki/TWikiPreferences.txt	2005-04-26 00:05:07.423718408 +0200
+@@ -1,10 +1,16 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1093932738" format="1.0" version="1.73"}%
++%META:TOPICINFO{author="EelcoVisser" date="1114459138" format="1.0" version="1.74"}%
+ ---+!! %WIKITOOLNAME% Site-Level Preferences
+ 
+ The following are __site-level__ settings that affect all users in all webs on this TWikiSite. They can be selectively overwritten on the __individual web level__ (see %WEBPREFSTOPIC% in each web), __topic level__ (the topic being rendered), and on the __user level__ (create preferences in your user account topic in the %MAINWEB% web, ex: %WIKIUSERNAME%).
+ 	* %X% *NOTE:* You can lock individual settings at the site or web levels using User & Group Access Control - see section below.
+ %TOC%
+ 
++---++ Extra Default Web Preferences
++
++	* Set CS = http://www.cs.uu.nl
++	* Set WEBICON = http://www.cs.uu.nl/favicon.ico
++	* Set WEBTITLE = %INCLUDINGWEB%
++	* Set SHORTWEBTITLE = %INCLUDINGWEB%
+ 
+ ---++ Default Web Preferences
+ 
+@@ -45,7 +51,7 @@
+ 		* Set EDITBOXWIDTH = 70
+ 
+ 	* Vertical size of text edit box: (can be overwritten by user preferences)
+-		* Set EDITBOXHEIGHT = 15
++		* Set EDITBOXHEIGHT = 35
+ 
+ 	* Style of text edit box. Set to =width: 99%= for full window width (default; this will overwrite the EDITBOXWIDTH setting), or =width: auto= to disable. This setting works for IE and some other recent browsers. (can be overwritten by user preferences)
+ 		* Set EDITBOXSTYLE = width: 99%
+@@ -109,13 +115,13 @@
+ ---+++ Email and Proxy Server Settings
+ 
+ 	* TWiki webmaster email address:
+-		* Set WIKIWEBMASTER = webmaster@your.company
++		* Set WIKIWEBMASTER = wiki-master@cs.uu.nl
+ 
+ 	* TWiki webmaster name (first name and last name, e.g. =Fred Smith=):
+ 		* Set WIKIWEBMASTERNAME = TWiki Administrator
+ 
+ 	* Mail host for outgoing mail. This is used for WebChangesAlert if Perl module ==Net::SMTP== is installed. If not, or if =SMTPMAILHOST= is empty, the external sendmail program is used instead (defined by ==$mailProgram== in ==TWiki.cfg==). Examples: ==mail.your.company== or ==localhost==
+-		* Set SMTPMAILHOST = mail
++		* Set SMTPMAILHOST = smtp.cs.uu.nl
+ 
+ 	* Mail domain sending mail. SMTP requires that you identify the TWiki server sending mail. If not set, ==Net::SMTP== will guess it for you. Ex: ==twiki.your.company==
+ 		* Set SMTPSENDERHOST = 
+@@ -161,7 +167,7 @@
+ ---++ Skin Settings
+ 
+ 	* Skin overriding the default TWiki templates: (can be overwritten by WebPreferences and user preferences) 
+-		* Set SKIN = pattern
++		* Set SKIN = flexpattern
+ 
+ 	* __Note:__ See TWikiSkinBrowser for currently installed skins
+ 
+@@ -278,11 +284,11 @@
+ ---++ Access Control Settings
+ 
+ 	* Users or groups allowed to change or rename this <nop>%TOPIC% topic: (ex: %MAINWEB%.TWikiAdminGroup)
+-		* Set ALLOWTOPICCHANGE = 
++		* Set ALLOWTOPICCHANGE = %MAINWEB%.TWikiAdminGroup
+ 		* Set ALLOWTOPICRENAME = %MAINWEB%.TWikiAdminGroup
+ 
+ 	* Users or groups allowed to [[%TWIKIWEB%.ManagingWebs][create new webs]]: (ex: %MAINWEB%.TWikiAdminGroup)
+-		* Set ALLOWWEBMANAGE = %MAINWEB%.TWikiAdminGroup
++		* Set ALLOWWEBMANAGE = %MAINWEB%.WebManageGroup
+ 
+ ---++ Preferences Control Settings
+ 
+diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt,v min-wiki/data/TWiki/TWikiPreferences.txt,v
+--- min-wiki.org/data/TWiki/TWikiPreferences.txt,v	2005-04-25 21:20:06.176936712 +0200
++++ min-wiki/data/TWiki/TWikiPreferences.txt,v	2005-04-26 00:28:02.065741056 +0200
+@@ -1,11 +1,16 @@
+-head	1.73;
++head	1.74;
+ access;
+ symbols;
+ locks
+-	nobody:1.73; strict;
++	visser:1.74; strict;
+ comment	@# @;
+ 
+ 
++1.74
++date	2005.04.25.19.58.58;	author EelcoVisser;	state Exp;
++branches;
++next	1.73;
++
+ 1.73
+ date	2004.08.31.06.12.18;	author PeterThoeny;	state Exp;
+ branches;
+@@ -377,18 +382,24 @@
+ @
+ 
+ 
+-1.73
++1.74
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1093932738" format="1.0" version="1.73"}%
++@%META:TOPICINFO{author="EelcoVisser" date="1114459138" format="1.0" version="1.74"}%
+ ---+!! %WIKITOOLNAME% Site-Level Preferences
+ 
+ The following are __site-level__ settings that affect all users in all webs on this TWikiSite. They can be selectively overwritten on the __individual web level__ (see %WEBPREFSTOPIC% in each web), __topic level__ (the topic being rendered), and on the __user level__ (create preferences in your user account topic in the %MAINWEB% web, ex: %WIKIUSERNAME%).
+ 	* %X% *NOTE:* You can lock individual settings at the site or web levels using User & Group Access Control - see section below.
+ %TOC%
+ 
++---++ Extra Default Web Preferences
++
++	* Set CS = http://www.cs.uu.nl
++	* Set WEBICON = http://www.cs.uu.nl/favicon.ico
++	* Set WEBTITLE = %INCLUDINGWEB%
++	* Set SHORTWEBTITLE = %INCLUDINGWEB%
+ 
+ ---++ Default Web Preferences
+ 
+@@ -429,7 +440,7 @@
+ 		* Set EDITBOXWIDTH = 70
+ 
+ 	* Vertical size of text edit box: (can be overwritten by user preferences)
+-		* Set EDITBOXHEIGHT = 15
++		* Set EDITBOXHEIGHT = 35
+ 
+ 	* Style of text edit box. Set to =width: 99%= for full window width (default; this will overwrite the EDITBOXWIDTH setting), or =width: auto= to disable. This setting works for IE and some other recent browsers. (can be overwritten by user preferences)
+ 		* Set EDITBOXSTYLE = width: 99%
+@@ -493,13 +504,13 @@
+ ---+++ Email and Proxy Server Settings
+ 
+ 	* TWiki webmaster email address:
+-		* Set WIKIWEBMASTER = webmaster@@your.company
++		* Set WIKIWEBMASTER = wiki-master@@cs.uu.nl
+ 
+ 	* TWiki webmaster name (first name and last name, e.g. =Fred Smith=):
+ 		* Set WIKIWEBMASTERNAME = TWiki Administrator
+ 
+ 	* Mail host for outgoing mail. This is used for WebChangesAlert if Perl module ==Net::SMTP== is installed. If not, or if =SMTPMAILHOST= is empty, the external sendmail program is used instead (defined by ==$mailProgram== in ==TWiki.cfg==). Examples: ==mail.your.company== or ==localhost==
+-		* Set SMTPMAILHOST = mail
++		* Set SMTPMAILHOST = smtp.cs.uu.nl
+ 
+ 	* Mail domain sending mail. SMTP requires that you identify the TWiki server sending mail. If not set, ==Net::SMTP== will guess it for you. Ex: ==twiki.your.company==
+ 		* Set SMTPSENDERHOST = 
+@@ -545,7 +556,7 @@
+ ---++ Skin Settings
+ 
+ 	* Skin overriding the default TWiki templates: (can be overwritten by WebPreferences and user preferences) 
+-		* Set SKIN = pattern
++		* Set SKIN = flexpattern
+ 
+ 	* __Note:__ See TWikiSkinBrowser for currently installed skins
+ 
+@@ -662,11 +673,11 @@
+ ---++ Access Control Settings
+ 
+ 	* Users or groups allowed to change or rename this <nop>%TOPIC% topic: (ex: %MAINWEB%.TWikiAdminGroup)
+-		* Set ALLOWTOPICCHANGE = 
++		* Set ALLOWTOPICCHANGE = %MAINWEB%.TWikiAdminGroup
+ 		* Set ALLOWTOPICRENAME = %MAINWEB%.TWikiAdminGroup
+ 
+ 	* Users or groups allowed to [[%TWIKIWEB%.ManagingWebs][create new webs]]: (ex: %MAINWEB%.TWikiAdminGroup)
+-		* Set ALLOWWEBMANAGE = %MAINWEB%.TWikiAdminGroup
++		* Set ALLOWWEBMANAGE = %MAINWEB%.WebManageGroup
+ 
+ ---++ Preferences Control Settings
+ 
+@@ -704,6 +715,36 @@
+ @
+ 
+ 
++1.73
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="PeterThoeny" date="1093932738" format="1.0" version="1.73"}%
++d8 6
++d54 1
++a54 1
++		* Set EDITBOXHEIGHT = 15
++d118 1
++a118 1
++		* Set WIKIWEBMASTER = webmaster@@your.company
++d124 1
++a124 1
++		* Set SMTPMAILHOST = mail
++d170 1
++a170 1
++		* Set SKIN = pattern
++d287 1
++a287 1
++		* Set ALLOWTOPICCHANGE = 
++d291 1
++a291 1
++		* Set ALLOWWEBMANAGE = %MAINWEB%.TWikiAdminGroup
++@
++
++
+ 1.72
+ log
+ @none
+diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.lock min-wiki/data/TWiki/TWikiRegistration.lock
+--- min-wiki.org/data/TWiki/TWikiRegistration.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/TWikiRegistration.lock	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114459574
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt min-wiki/data/TWiki/TWikiRegistrationPub.txt
+--- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt	2005-04-25 21:20:06.181935952 +0200
++++ min-wiki/data/TWiki/TWikiRegistrationPub.txt	1970-01-01 01:00:00.000000000 +0100
+@@ -1,199 +0,0 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1090790707" format="1.0" version="1.12"}%
+-To edit pages on this TWikiSite, you must have a registered user name and password. 
+-
+-	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
+-	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
+-
+-To register as a new user, simply fill out this form:
+-
+-<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
+-
+-<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
+-<table border="1">
+-<tr>
+-  <td align="right"> First & last name: </td>
+-  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your WikiName: </td>
+-  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Email address: </td>
+-  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your password: </td>
+-  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Retype password: </td>
+-  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Company name: </td>
+-  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
+-</tr><tr>
+-  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
+-  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
+-</tr><tr>
+-  <td align="right"> Country: </td>
+-  <td>
+-  <select name="Twk1Country" size="1">
+-  <option selected value="">Select...</option>
+-  <option>USA</option>
+-  <option>Albania</option>
+-  <option>Algeria</option>
+-  <option>Andorra</option>
+-  <option>Angola</option>
+-  <option>Argentina</option>
+-  <option>Armenia</option>
+-  <option>Aruba</option>
+-  <option>Australia</option>
+-  <option>Austria</option>
+-  <option>Azerbaijan</option>
+-  <option>Bahrain</option>
+-  <option>Bangladesh</option>
+-  <option>Belarus</option>
+-  <option>Belgium</option>
+-  <option>Belize</option>
+-  <option>Benin</option>
+-  <option>Bolivia</option>
+-  <option>Bosnia and Hercegovina</option>
+-  <option>Brazil</option>
+-  <option>Bulgaria</option>
+-  <option>Burundi</option>
+-  <option>Cambodia</option>
+-  <option>Cameroon</option>
+-  <option>Canada</option>
+-  <option>Central African Republic</option>
+-  <option>Chile</option>
+-  <option>China</option>
+-  <option>Colombia</option>
+-  <option>Congo</option>
+-  <option>Costa Rica</option>
+-  <option>Croatia</option>
+-  <option>Cuba</option>
+-  <option>Cyprus</option>
+-  <option>Czech Republic</option>
+-  <option>Denmark</option>
+-  <option>Ecuador</option>
+-  <option>Egypt</option>
+-  <option>El Salvador</option>
+-  <option>Estonia</option>
+-  <option>Ethiopia</option>
+-  <option>Fiji</option>
+-  <option>Finland</option>
+-  <option>France</option>
+-  <option>Georgia</option>
+-  <option>Germany</option>
+-  <option>Gibraltar</option>
+-  <option>Greece</option>
+-  <option>Guam</option>
+-  <option>Guatemala</option>
+-  <option>Haiti</option>
+-  <option>Hong Kong</option>
+-  <option>Hungary</option>
+-  <option>Iceland</option>
+-  <option>India</option>
+-  <option>Indonesia</option>
+-  <option>Iran</option>
+-  <option>Iraq</option>
+-  <option>Ireland</option>
+-  <option>Israel</option>
+-  <option>Italy</option>
+-  <option>Japan</option>
+-  <option>Jordan</option>
+-  <option>Kazakstan</option>
+-  <option>Kenya</option>
+-  <option>Korea</option>
+-  <option>Kuwait</option>
+-  <option>Kyrgyz Rebublic</option>
+-  <option>Laos</option>
+-  <option>Latvia</option>
+-  <option>Lebanon</option>
+-  <option>Liberia</option>
+-  <option>Liechtenstein</option>
+-  <option>Lithuania</option>
+-  <option>Luxembourg</option>
+-  <option>Libya</option>
+-  <option>Macao</option>
+-  <option>Macedonia</option>
+-  <option>Malaysia</option>
+-  <option>Malawi</option>
+-  <option>Malta</option>
+-  <option>Mexico</option>
+-  <option>Moldova</option>
+-  <option>Monaco</option>
+-  <option>Morocco</option>
+-  <option>Mozambique</option>
+-  <option>Namibia</option>
+-  <option>Nepal</option>
+-  <option>Netherlands</option>
+-  <option>New Zealand</option>
+-  <option>Nicaragua</option>
+-  <option>Nigeria</option>
+-  <option>Norway</option>
+-  <option>Oman</option>
+-  <option>Pakistan</option>
+-  <option>Panama</option>
+-  <option>Paraguay</option>
+-  <option>Peru</option>
+-  <option>Philippines</option>
+-  <option>Poland</option>
+-  <option>Portugal</option>
+-  <option>Romania</option>
+-  <option>Russia</option>
+-  <option>Saudi Arabia</option>
+-  <option>Senegal</option>
+-  <option>Singapore</option>
+-  <option>Slovakia</option>
+-  <option>Slovenia</option>
+-  <option>South Africa</option>
+-  <option>Spain</option>
+-  <option>Sri Lanka</option>
+-  <option>Suriname</option>
+-  <option>Sweden</option>
+-  <option>Switzerland</option>
+-  <option>Syria</option>
+-  <option>Taiwan</option>
+-  <option>Tanzania</option>
+-  <option>Thailand</option>
+-  <option>Tajikistan</option>
+-  <option>Tunisia</option>
+-  <option>Turkey</option>
+-  <option>Turkmenistan</option>
+-  <option>Uganda</option>
+-  <option>Ukraine</option>
+-  <option>United Arab Emirates</option>
+-  <option>United Kingdom</option>
+-  <option>Uruguay</option>
+-  <option>USA</option>
+-  <option>Uzbekistan</option>
+-  <option>Vatican City</option>
+-  <option>Venezuela</option>
+-  <option>Vietnam</option>
+-  <option>Yemen</option>
+-  <option>Yugoslavia</option>
+-  <option>Zaire</option>
+-  <option>Zambia</option>
+-  <option>Zimbabwe</option>
+-  <option value="Other Country">Other Country</option>
+-  </select> =<font color="red">**</font>=
+-  </td>
+-</tr><tr>
+-  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
+-  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
+-</tr><tr>
+-  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
+-  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+-</tr>
+-</table>
+-</form>
+-
+-__Submitting the form will automatically:__ 
+-
+-	* Create an account for you, so that you can start editing pages using your WikiName.
+-	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
+-	* Send you a confirmation of your registration by email.
+-
+-Once registered you can login using your WikiName and password.
+-
+-If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
+-
+diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v min-wiki/data/TWiki/TWikiRegistrationPub.txt,v
+--- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v	2005-04-25 21:20:06.211931392 +0200
++++ min-wiki/data/TWiki/TWikiRegistrationPub.txt,v	1970-01-01 01:00:00.000000000 +0100
+@@ -1,664 +0,0 @@
+-head	1.12;
+-access;
+-symbols;
+-locks
+-	nobody:1.12; strict;
+-comment	@# @;
+-
+-
+-1.12
+-date	2004.07.25.21.25.07;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.11;
+-
+-1.11
+-date	2003.10.17.05.15.55;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.10;
+-
+-1.10
+-date	2003.02.15.22.22.01;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.9;
+-
+-1.9
+-date	2003.01.30.08.56.03;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.8;
+-
+-1.8
+-date	2002.12.02.17.04.00;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.7;
+-
+-1.7
+-date	2002.08.12.05.12.52;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.6;
+-
+-1.6
+-date	2001.10.25.07.28.30;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.5;
+-
+-1.5
+-date	2001.08.11.17.33.20;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.4;
+-
+-1.4
+-date	2001.08.06.05.27.25;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.3;
+-
+-1.3
+-date	2000.08.18.07.20.36;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.2;
+-
+-1.2
+-date	2000.05.24.22.57.45;	author PeterThoeny;	state Exp;
+-branches;
+-next	1.1;
+-
+-1.1
+-date	99.08.02.06.35.08;	author PeterThoeny;	state Exp;
+-branches;
+-next	;
+-
+-
+-desc
+-@none
+-@
+-
+-
+-1.12
+-log
+-@none
+-@
+-text
+-@%META:TOPICINFO{author="PeterThoeny" date="1090790707" format="1.0" version="1.12"}%
+-To edit pages on this TWikiSite, you must have a registered user name and password. 
+-
+-	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
+-	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
+-
+-To register as a new user, simply fill out this form:
+-
+-<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
+-
+-<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
+-<table border="1">
+-<tr>
+-  <td align="right"> First & last name: </td>
+-  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your WikiName: </td>
+-  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Email address: </td>
+-  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your password: </td>
+-  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Retype password: </td>
+-  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Company name: </td>
+-  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
+-</tr><tr>
+-  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
+-  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
+-</tr><tr>
+-  <td align="right"> Country: </td>
+-  <td>
+-  <select name="Twk1Country" size="1">
+-  <option selected value="">Select...</option>
+-  <option>USA</option>
+-  <option>Albania</option>
+-  <option>Algeria</option>
+-  <option>Andorra</option>
+-  <option>Angola</option>
+-  <option>Argentina</option>
+-  <option>Armenia</option>
+-  <option>Aruba</option>
+-  <option>Australia</option>
+-  <option>Austria</option>
+-  <option>Azerbaijan</option>
+-  <option>Bahrain</option>
+-  <option>Bangladesh</option>
+-  <option>Belarus</option>
+-  <option>Belgium</option>
+-  <option>Belize</option>
+-  <option>Benin</option>
+-  <option>Bolivia</option>
+-  <option>Bosnia and Hercegovina</option>
+-  <option>Brazil</option>
+-  <option>Bulgaria</option>
+-  <option>Burundi</option>
+-  <option>Cambodia</option>
+-  <option>Cameroon</option>
+-  <option>Canada</option>
+-  <option>Central African Republic</option>
+-  <option>Chile</option>
+-  <option>China</option>
+-  <option>Colombia</option>
+-  <option>Congo</option>
+-  <option>Costa Rica</option>
+-  <option>Croatia</option>
+-  <option>Cuba</option>
+-  <option>Cyprus</option>
+-  <option>Czech Republic</option>
+-  <option>Denmark</option>
+-  <option>Ecuador</option>
+-  <option>Egypt</option>
+-  <option>El Salvador</option>
+-  <option>Estonia</option>
+-  <option>Ethiopia</option>
+-  <option>Fiji</option>
+-  <option>Finland</option>
+-  <option>France</option>
+-  <option>Georgia</option>
+-  <option>Germany</option>
+-  <option>Gibraltar</option>
+-  <option>Greece</option>
+-  <option>Guam</option>
+-  <option>Guatemala</option>
+-  <option>Haiti</option>
+-  <option>Hong Kong</option>
+-  <option>Hungary</option>
+-  <option>Iceland</option>
+-  <option>India</option>
+-  <option>Indonesia</option>
+-  <option>Iran</option>
+-  <option>Iraq</option>
+-  <option>Ireland</option>
+-  <option>Israel</option>
+-  <option>Italy</option>
+-  <option>Japan</option>
+-  <option>Jordan</option>
+-  <option>Kazakstan</option>
+-  <option>Kenya</option>
+-  <option>Korea</option>
+-  <option>Kuwait</option>
+-  <option>Kyrgyz Rebublic</option>
+-  <option>Laos</option>
+-  <option>Latvia</option>
+-  <option>Lebanon</option>
+-  <option>Liberia</option>
+-  <option>Liechtenstein</option>
+-  <option>Lithuania</option>
+-  <option>Luxembourg</option>
+-  <option>Libya</option>
+-  <option>Macao</option>
+-  <option>Macedonia</option>
+-  <option>Malaysia</option>
+-  <option>Malawi</option>
+-  <option>Malta</option>
+-  <option>Mexico</option>
+-  <option>Moldova</option>
+-  <option>Monaco</option>
+-  <option>Morocco</option>
+-  <option>Mozambique</option>
+-  <option>Namibia</option>
+-  <option>Nepal</option>
+-  <option>Netherlands</option>
+-  <option>New Zealand</option>
+-  <option>Nicaragua</option>
+-  <option>Nigeria</option>
+-  <option>Norway</option>
+-  <option>Oman</option>
+-  <option>Pakistan</option>
+-  <option>Panama</option>
+-  <option>Paraguay</option>
+-  <option>Peru</option>
+-  <option>Philippines</option>
+-  <option>Poland</option>
+-  <option>Portugal</option>
+-  <option>Romania</option>
+-  <option>Russia</option>
+-  <option>Saudi Arabia</option>
+-  <option>Senegal</option>
+-  <option>Singapore</option>
+-  <option>Slovakia</option>
+-  <option>Slovenia</option>
+-  <option>South Africa</option>
+-  <option>Spain</option>
+-  <option>Sri Lanka</option>
+-  <option>Suriname</option>
+-  <option>Sweden</option>
+-  <option>Switzerland</option>
+-  <option>Syria</option>
+-  <option>Taiwan</option>
+-  <option>Tanzania</option>
+-  <option>Thailand</option>
+-  <option>Tajikistan</option>
+-  <option>Tunisia</option>
+-  <option>Turkey</option>
+-  <option>Turkmenistan</option>
+-  <option>Uganda</option>
+-  <option>Ukraine</option>
+-  <option>United Arab Emirates</option>
+-  <option>United Kingdom</option>
+-  <option>Uruguay</option>
+-  <option>USA</option>
+-  <option>Uzbekistan</option>
+-  <option>Vatican City</option>
+-  <option>Venezuela</option>
+-  <option>Vietnam</option>
+-  <option>Yemen</option>
+-  <option>Yugoslavia</option>
+-  <option>Zaire</option>
+-  <option>Zambia</option>
+-  <option>Zimbabwe</option>
+-  <option value="Other Country">Other Country</option>
+-  </select> =<font color="red">**</font>=
+-  </td>
+-</tr><tr>
+-  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
+-  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
+-</tr><tr>
+-  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
+-  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+-</tr>
+-</table>
+-</form>
+-
+-__Submitting the form will automatically:__ 
+-
+-	* Create an account for you, so that you can start editing pages using your WikiName.
+-	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
+-	* Send you a confirmation of your registration by email.
+-
+-Once registered you can login using your WikiName and password.
+-
+-If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
+-
+-@
+-
+-
+-1.11
+-log
+-@none
+-@
+-text
+-@d1 199
+-a199 209
+-%META:TOPICINFO{author="PeterThoeny" date="1066367755" format="1.0" version="1.11"}%
+-To edit pages on this TWikiSite, you must have a registered user name and password. 
+-
+-	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
+-	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
+-
+-To register as a new user, simply fill out this form:
+-
+-<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
+-
+-<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
+-<table border="1">
+-<tr>
+-  <td align="right"> First & last name: </td>
+-  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your WikiName: </td>
+-  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Email address: </td>
+-  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your password: </td>
+-  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Retype password: </td>
+-  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Company name: </td>
+-  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
+-</tr><tr>
+-  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
+-  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
+-</tr><tr>
+-  <td align="right"> Office location: </td>
+-  <td>
+-  <select name="Twk1Location" size="1">
+-  <option selected value="">Select...</option>
+-  <option>SanJoseOffice</option>
+-  <option>LondonOffice</option>
+-  <option>TokyoOffice</option>
+-  <option value="(Please specify office location)">Other</option>
+-  </select> =<font color="red">**</font>=
+-  </td>
+-</tr><tr>
+-  <td align="right"> Country: </td>
+-  <td>
+-  <select name="Twk1Country" size="1">
+-  <option selected value="">Select...</option>
+-  <option>USA</option>
+-  <option>Albania</option>
+-  <option>Algeria</option>
+-  <option>Andorra</option>
+-  <option>Angola</option>
+-  <option>Argentina</option>
+-  <option>Armenia</option>
+-  <option>Aruba</option>
+-  <option>Australia</option>
+-  <option>Austria</option>
+-  <option>Azerbaijan</option>
+-  <option>Bahrain</option>
+-  <option>Bangladesh</option>
+-  <option>Belarus</option>
+-  <option>Belgium</option>
+-  <option>Belize</option>
+-  <option>Benin</option>
+-  <option>Bolivia</option>
+-  <option>Bosnia and Hercegovina</option>
+-  <option>Brazil</option>
+-  <option>Bulgaria</option>
+-  <option>Burundi</option>
+-  <option>Cambodia</option>
+-  <option>Cameroon</option>
+-  <option>Canada</option>
+-  <option>Central African Republic</option>
+-  <option>Chile</option>
+-  <option>China</option>
+-  <option>Colombia</option>
+-  <option>Congo</option>
+-  <option>Costa Rica</option>
+-  <option>Croatia</option>
+-  <option>Cuba</option>
+-  <option>Cyprus</option>
+-  <option>Czech Republic</option>
+-  <option>Denmark</option>
+-  <option>Ecuador</option>
+-  <option>Egypt</option>
+-  <option>El Salvador</option>
+-  <option>Estonia</option>
+-  <option>Ethiopia</option>
+-  <option>Fiji</option>
+-  <option>Finland</option>
+-  <option>France</option>
+-  <option>Georgia</option>
+-  <option>Germany</option>
+-  <option>Gibraltar</option>
+-  <option>Greece</option>
+-  <option>Guam</option>
+-  <option>Guatemala</option>
+-  <option>Haiti</option>
+-  <option>Hong Kong</option>
+-  <option>Hungary</option>
+-  <option>Iceland</option>
+-  <option>India</option>
+-  <option>Indonesia</option>
+-  <option>Iran</option>
+-  <option>Iraq</option>
+-  <option>Ireland</option>
+-  <option>Israel</option>
+-  <option>Italy</option>
+-  <option>Japan</option>
+-  <option>Jordan</option>
+-  <option>Kazakstan</option>
+-  <option>Kenya</option>
+-  <option>Korea</option>
+-  <option>Kuwait</option>
+-  <option>Kyrgyz Rebublic</option>
+-  <option>Laos</option>
+-  <option>Latvia</option>
+-  <option>Lebanon</option>
+-  <option>Liberia</option>
+-  <option>Liechtenstein</option>
+-  <option>Lithuania</option>
+-  <option>Luxembourg</option>
+-  <option>Libya</option>
+-  <option>Macao</option>
+-  <option>Macedonia</option>
+-  <option>Malaysia</option>
+-  <option>Malawi</option>
+-  <option>Malta</option>
+-  <option>Mexico</option>
+-  <option>Moldova</option>
+-  <option>Monaco</option>
+-  <option>Morocco</option>
+-  <option>Mozambique</option>
+-  <option>Namibia</option>
+-  <option>Nepal</option>
+-  <option>Netherlands</option>
+-  <option>New Zealand</option>
+-  <option>Nicaragua</option>
+-  <option>Nigeria</option>
+-  <option>Norway</option>
+-  <option>Oman</option>
+-  <option>Pakistan</option>
+-  <option>Panama</option>
+-  <option>Paraguay</option>
+-  <option>Peru</option>
+-  <option>Philippines</option>
+-  <option>Poland</option>
+-  <option>Portugal</option>
+-  <option>Romania</option>
+-  <option>Russia</option>
+-  <option>Saudi Arabia</option>
+-  <option>Senegal</option>
+-  <option>Singapore</option>
+-  <option>Slovakia</option>
+-  <option>Slovenia</option>
+-  <option>South Africa</option>
+-  <option>Spain</option>
+-  <option>Sri Lanka</option>
+-  <option>Suriname</option>
+-  <option>Sweden</option>
+-  <option>Switzerland</option>
+-  <option>Syria</option>
+-  <option>Taiwan</option>
+-  <option>Tanzania</option>
+-  <option>Thailand</option>
+-  <option>Tajikistan</option>
+-  <option>Tunisia</option>
+-  <option>Turkey</option>
+-  <option>Turkmenistan</option>
+-  <option>Uganda</option>
+-  <option>Ukraine</option>
+-  <option>United Arab Emirates</option>
+-  <option>United Kingdom</option>
+-  <option>Uruguay</option>
+-  <option>USA</option>
+-  <option>Uzbekistan</option>
+-  <option>Vatican City</option>
+-  <option>Venezuela</option>
+-  <option>Vietnam</option>
+-  <option>Yemen</option>
+-  <option>Yugoslavia</option>
+-  <option>Zaire</option>
+-  <option>Zambia</option>
+-  <option>Zimbabwe</option>
+-  <option value="Other Country">Other Country</option>
+-  </select> =<font color="red">**</font>=
+-  </td>
+-</tr><tr>
+-  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
+-  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
+-</tr><tr>
+-  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
+-  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+-</tr>
+-</table>
+-</form>
+-
+-__Submitting the form will automatically:__ 
+-
+-	* Create an account for you, so that you can start editing pages using your WikiName.
+-	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
+-	* Send you a confirmation of your registration by email.
+-
+-Once registered you can login using your WikiName and password.
+-
+-If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
+-@
+-
+-
+-1.10
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="1045347721" format="1.0" version="1.10"}%
+-d82 1
+-@
+-
+-
+-1.9
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="1043916963" format="1.0" version="1.9"}%
+-d63 1
+-@
+-
+-
+-1.8
+-log
+-@none
+-@
+-text
+-@d1 5
+-a5 2
+-%META:TOPICINFO{author="PeterThoeny" date="1038848640" format="1.0" version="1.8"}%
+-To edit pages on this %WIKITOOLNAME% Collaborative Web, you must have a registered user name and password. <br> __Note:__ You can also login anonymously as user *TWikiGuest* with password *guest*
+-d15 1
+-a15 1
+-  <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-a204 1
+-
+-d207 1
+-a207 1
+-If you have any questions about registration, send an email to <A href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</A>.
+-@
+-
+-
+-1.7
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="1029129172" format="1.0" version="1.7"}%
+-d50 1
+-@
+-
+-
+-1.6
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="1003994910" format="1.0" version="1.6"}%
+-d126 1
+-@
+-
+-
+-1.5
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="997551200" format="1.0beta2" version="1.5"}%
+-d12 1
+-a12 1
+-  <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if( (ch=='à')||(ch=='á')||(ch=='â')||(ch=='ã')||(ch=='å') ) { ch = 'a'; } if( (ch=='è')||(ch=='é')||(ch=='ê') ) { ch = 'e'; } if( ch=='ç') { ch = 'c'; } if( ch=='ó') { ch = 'o'; } if( ch=='ä') { ch = 'a'; ch2 = 'e'; } if( ch=='ö') { ch = 'o'; ch2 = 'e'; } if( ch=='ü') { ch = 'u'; ch2 = 'e'; } if( ch=='Ä') { ch = 'A'; ch2 = 'e'; } if( ch=='Ö') { ch = 'O'; ch2 = 'e'; } if( ch=='Ü') { ch = 'U'; ch2 = 'e'; } if( ch=='ß') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-@
+-
+-
+-1.4
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="997076292" format="1.0beta2" version="1.4"}%
+-d31 11
+-@
+-
+-
+-1.3
+-log
+-@none
+-@
+-text
+-@d1 1
+-a1 4
+-<font color="red" size="+2">Authorization Failed</font>
+-
+-Did you type in your WikiName and password correctly?
+-
+-d12 1
+-a12 1
+-  <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if( (ch=='à')||(ch=='á')||(ch=='â')||(ch=='ã')||(ch=='å') ) { ch = 'a'; } if( (ch=='è')||(ch=='é')||(ch=='ê') ) { ch = 'e'; } if( ch=='ç') { ch = 'c'; } if( ch=='ó') { ch = 'o'; } if( ch=='ä') { ch = 'a'; ch2 = 'e'; } if( ch=='ö') { ch = 'o'; ch2 = 'e'; } if( ch=='ü') { ch = 'u'; ch2 = 'e'; } if( ch=='Ä') { ch = 'A'; ch2 = 'e'; } if( ch=='Ö') { ch = 'O'; ch2 = 'e'; } if( ch=='Ü') { ch = 'U'; ch2 = 'e'; } if( ch=='ß') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" > =<font color="red">**</font>= </td>
+-d15 1
+-a15 1
+-  <td><input type="text" name="Twk1WikiName" size="40" value="" > =<font color="red">**</font>= </td>
+-d18 1
+-a18 1
+-  <td><input type="text" name="Twk1Email" size="40" value="" > =<font color="red">**</font>= </td>
+-d21 1
+-a21 1
+-  <td><input type="password" name="Twk1Password" size="40" value="" > =<font color="red">**</font>= </td>
+-d24 1
+-a24 1
+-  <td><input type="password" name="Twk1Confirm" size="40" value="" > =<font color="red">**</font>= </td>
+-d27 1
+-a27 1
+-  <td><input type="text" name="Twk0CompanyName" size="40" value="" ></td>
+-d30 1
+-a30 1
+-  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }"></td>
+-d173 1
+-a173 1
+-  <td valign="top" align="right"> Comments : <br> (optional) &nbsp; </td>
+-d176 2
+-a177 2
+-  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%"></td>
+-  <td> <input type="submit" value=" Submit "> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+-d183 1
+-d192 1
+-a192 1
+-If you have any questions about registration, send an email to <A href="mailto:%WIKIWEBMASTER%?subject=%TOPIC% Question">%WIKIWEBMASTER%</A>.
+-@
+-
+-
+-1.2
+-log
+-@none
+-@
+-text
+-@d11 1
+-a11 1
+-<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%" method="post">
+-d187 2
+-a188 2
+-	* Create your personal TWiki topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the TWikiUsers topic.
+-@
+-
+-
+-1.1
+-log
+-@none
+-@
+-text
+-@d11 1
+-a11 1
+-<form action="%SCRIPTURL%/register" method="post">
+-@
+diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt min-wiki/data/TWiki/TWikiRegistration.txt
+--- min-wiki.org/data/TWiki/TWikiRegistration.txt	2005-04-25 21:20:06.202932760 +0200
++++ min-wiki/data/TWiki/TWikiRegistration.txt	2005-04-26 00:05:07.415719624 +0200
+@@ -1,59 +1,199 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1043916483" format="1.0" version="1.8"}%
+-To edit pages on this %WIKITOOLNAME% Collaborative Web, you must have a registered user name in WikiNotation.
+-
+-To register as a new user, simply fill out this form:
+-
+-<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
+-
+-<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
+-<table border="1">
+-<tr>
+-  <td align="right"> First & last name: </td>
+-  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Your WikiName: </td>
+-  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Intranet login name: </td>
+-  <td><input type="text" name="Twk1LoginName" size="40" value="%REMOTE_USER%" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Email address: </td>
+-  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+-  <td align="right"> Phone: </td>
+-  <td><input type="text" name="Twk0Phone" size="40" value="" /></td>
+-</tr><tr>
+-  <td align="right"> Department: </td>
+-  <td><input type="text" name="Twk0Department" size="40" value="" />
+-</tr><tr>
+-  <td align="right"> Office location: </td>
+-  <td>
+-  <select name="Twk1Location" size="1">
+-  <option selected value="">Select...</option>
+-  <option>SanJoseOffice</option>
+-  <option>LondonOffice</option>
+-  <option>TokyoOffice</option>
+-  <option value="(Please specify office location)">Other</option>
+-  </select> =<font color="red">**</font>=
+-  </td>
+-</tr><tr>
+-  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
+-  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
+-</tr><tr>
+-  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
+-  <td> <input type="submit" value=" Submit "> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+-</tr>
+-</table>
+-</form>
+-
+-__Submitting the form will automatically:__ 
+-
+-	* Create an account for you, so that you can start editing pages using your WikiName.
+-	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %MAINWEB% web.
+-	* Send you a confirmation of your registration by email.
+-
+-
+-Once registered you can login using your WikiName and password.
+-
+-If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
++%META:TOPICINFO{author="PeterThoeny" date="1090790707" format="1.0" version="1.12"}%
++To edit pages on this TWikiSite, you must have a registered user name and password. 
++
++	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
++	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
++
++To register as a new user, simply fill out this form:
++
++<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
++
++<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
++<table border="1">
++<tr>
++  <td align="right"> First & last name: </td>
++  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Your WikiName: </td>
++  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Email address: </td>
++  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Your password: </td>
++  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Retype password: </td>
++  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Company name: </td>
++  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
++</tr><tr>
++  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
++  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
++</tr><tr>
++  <td align="right"> Country: </td>
++  <td>
++  <select name="Twk1Country" size="1">
++  <option selected value="">Select...</option>
++  <option>USA</option>
++  <option>Albania</option>
++  <option>Algeria</option>
++  <option>Andorra</option>
++  <option>Angola</option>
++  <option>Argentina</option>
++  <option>Armenia</option>
++  <option>Aruba</option>
++  <option>Australia</option>
++  <option>Austria</option>
++  <option>Azerbaijan</option>
++  <option>Bahrain</option>
++  <option>Bangladesh</option>
++  <option>Belarus</option>
++  <option>Belgium</option>
++  <option>Belize</option>
++  <option>Benin</option>
++  <option>Bolivia</option>
++  <option>Bosnia and Hercegovina</option>
++  <option>Brazil</option>
++  <option>Bulgaria</option>
++  <option>Burundi</option>
++  <option>Cambodia</option>
++  <option>Cameroon</option>
++  <option>Canada</option>
++  <option>Central African Republic</option>
++  <option>Chile</option>
++  <option>China</option>
++  <option>Colombia</option>
++  <option>Congo</option>
++  <option>Costa Rica</option>
++  <option>Croatia</option>
++  <option>Cuba</option>
++  <option>Cyprus</option>
++  <option>Czech Republic</option>
++  <option>Denmark</option>
++  <option>Ecuador</option>
++  <option>Egypt</option>
++  <option>El Salvador</option>
++  <option>Estonia</option>
++  <option>Ethiopia</option>
++  <option>Fiji</option>
++  <option>Finland</option>
++  <option>France</option>
++  <option>Georgia</option>
++  <option>Germany</option>
++  <option>Gibraltar</option>
++  <option>Greece</option>
++  <option>Guam</option>
++  <option>Guatemala</option>
++  <option>Haiti</option>
++  <option>Hong Kong</option>
++  <option>Hungary</option>
++  <option>Iceland</option>
++  <option>India</option>
++  <option>Indonesia</option>
++  <option>Iran</option>
++  <option>Iraq</option>
++  <option>Ireland</option>
++  <option>Israel</option>
++  <option>Italy</option>
++  <option>Japan</option>
++  <option>Jordan</option>
++  <option>Kazakstan</option>
++  <option>Kenya</option>
++  <option>Korea</option>
++  <option>Kuwait</option>
++  <option>Kyrgyz Rebublic</option>
++  <option>Laos</option>
++  <option>Latvia</option>
++  <option>Lebanon</option>
++  <option>Liberia</option>
++  <option>Liechtenstein</option>
++  <option>Lithuania</option>
++  <option>Luxembourg</option>
++  <option>Libya</option>
++  <option>Macao</option>
++  <option>Macedonia</option>
++  <option>Malaysia</option>
++  <option>Malawi</option>
++  <option>Malta</option>
++  <option>Mexico</option>
++  <option>Moldova</option>
++  <option>Monaco</option>
++  <option>Morocco</option>
++  <option>Mozambique</option>
++  <option>Namibia</option>
++  <option>Nepal</option>
++  <option>Netherlands</option>
++  <option>New Zealand</option>
++  <option>Nicaragua</option>
++  <option>Nigeria</option>
++  <option>Norway</option>
++  <option>Oman</option>
++  <option>Pakistan</option>
++  <option>Panama</option>
++  <option>Paraguay</option>
++  <option>Peru</option>
++  <option>Philippines</option>
++  <option>Poland</option>
++  <option>Portugal</option>
++  <option>Romania</option>
++  <option>Russia</option>
++  <option>Saudi Arabia</option>
++  <option>Senegal</option>
++  <option>Singapore</option>
++  <option>Slovakia</option>
++  <option>Slovenia</option>
++  <option>South Africa</option>
++  <option>Spain</option>
++  <option>Sri Lanka</option>
++  <option>Suriname</option>
++  <option>Sweden</option>
++  <option>Switzerland</option>
++  <option>Syria</option>
++  <option>Taiwan</option>
++  <option>Tanzania</option>
++  <option>Thailand</option>
++  <option>Tajikistan</option>
++  <option>Tunisia</option>
++  <option>Turkey</option>
++  <option>Turkmenistan</option>
++  <option>Uganda</option>
++  <option>Ukraine</option>
++  <option>United Arab Emirates</option>
++  <option>United Kingdom</option>
++  <option>Uruguay</option>
++  <option>USA</option>
++  <option>Uzbekistan</option>
++  <option>Vatican City</option>
++  <option>Venezuela</option>
++  <option>Vietnam</option>
++  <option>Yemen</option>
++  <option>Yugoslavia</option>
++  <option>Zaire</option>
++  <option>Zambia</option>
++  <option>Zimbabwe</option>
++  <option value="Other Country">Other Country</option>
++  </select> =<font color="red">**</font>=
++  </td>
++</tr><tr>
++  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
++  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
++</tr><tr>
++  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
++  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
++</tr>
++</table>
++</form>
++
++__Submitting the form will automatically:__ 
++
++	* Create an account for you, so that you can start editing pages using your WikiName.
++	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
++	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
++	* Send you a confirmation of your registration by email.
++
++Once registered you can login using your WikiName and password.
++
++If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
++
+diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt,v min-wiki/data/TWiki/TWikiRegistration.txt,v
+--- min-wiki.org/data/TWiki/TWikiRegistration.txt,v	2005-04-25 21:20:06.202932760 +0200
++++ min-wiki/data/TWiki/TWikiRegistration.txt,v	2005-04-26 00:28:02.841623104 +0200
+@@ -1,48 +1,68 @@
+-head	1.8;
++head	1.12;
+ access;
+ symbols;
+ locks
+-	nobody:1.8; strict;
++	nobody:1.12; strict;
+ comment	@# @;
+ 
+ 
++1.12
++date	2004.07.25.21.25.07;	author PeterThoeny;	state Exp;
++branches;
++next	1.11;
++
++1.11
++date	2003.10.17.05.15.55;	author PeterThoeny;	state Exp;
++branches;
++next	1.10;
++
++1.10
++date	2003.02.15.22.22.01;	author PeterThoeny;	state Exp;
++branches;
++next	1.9;
++
++1.9
++date	2003.01.30.08.56.03;	author PeterThoeny;	state Exp;
++branches;
++next	1.8;
++
+ 1.8
+-date	2003.01.30.08.48.03;	author PeterThoeny;	state Exp;
++date	2002.12.02.17.04.00;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.7;
+ 
+ 1.7
+-date	2001.10.25.07.22.41;	author PeterThoeny;	state Exp;
++date	2002.08.12.05.12.52;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.6;
+ 
+ 1.6
+-date	2001.08.11.17.31.06;	author PeterThoeny;	state Exp;
++date	2001.10.25.07.28.30;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.5;
+ 
+ 1.5
+-date	2001.08.06.05.30.55;	author PeterThoeny;	state Exp;
++date	2001.08.11.17.33.20;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.4;
+ 
+ 1.4
+-date	2000.08.18.07.23.22;	author PeterThoeny;	state Exp;
++date	2001.08.06.05.27.25;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.3;
+ 
+ 1.3
+-date	2000.05.24.22.58.29;	author PeterThoeny;	state Exp;
++date	2000.08.18.07.20.36;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.2;
+ 
+ 1.2
+-date	2000.04.29.06.55.58;	author PeterThoeny;	state Exp;
++date	2000.05.24.22.57.45;	author PeterThoeny;	state Exp;
+ branches;
+ next	1.1;
+ 
+ 1.1
+-date	2000.04.21.23.24.57;	author PeterThoeny;	state Exp;
++date	99.08.02.06.35.08;	author PeterThoeny;	state Exp;
+ branches;
+ next	;
+ 
+@@ -52,13 +72,225 @@
+ @
+ 
+ 
+-1.8
++1.12
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="1043916483" format="1.0" version="1.8"}%
+-To edit pages on this %WIKITOOLNAME% Collaborative Web, you must have a registered user name in WikiNotation.
++@%META:TOPICINFO{author="PeterThoeny" date="1090790707" format="1.0" version="1.12"}%
++To edit pages on this TWikiSite, you must have a registered user name and password. 
++
++	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
++	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
++
++To register as a new user, simply fill out this form:
++
++<!-- IMPORTANT NOTE if you want to customize this form: You can delete or add new input variables in this form. Use the topic TWikiRegistrationPub in case this installation is on a public server (just copy the content over to the TWikiRegistration topic). The name="" parameter of the input tags must start with: "Twk0..." (if this is an optional entry), "Twk1..." (if this is a required entry). This will ensure that the fields are processed correctly. -->
++
++<form action="%SCRIPTURL%/register%SCRIPTSUFFIX%/%MAINWEB%/%HOMETOPIC%" method="post">
++<table border="1">
++<tr>
++  <td align="right"> First & last name: </td>
++  <td><input type="text" name="Twk1Name" size="40" value="" onblur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Your WikiName: </td>
++  <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Email address: </td>
++  <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Your password: </td>
++  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Retype password: </td>
++  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Company name: </td>
++  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
++</tr><tr>
++  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
++  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
++</tr><tr>
++  <td align="right"> Country: </td>
++  <td>
++  <select name="Twk1Country" size="1">
++  <option selected value="">Select...</option>
++  <option>USA</option>
++  <option>Albania</option>
++  <option>Algeria</option>
++  <option>Andorra</option>
++  <option>Angola</option>
++  <option>Argentina</option>
++  <option>Armenia</option>
++  <option>Aruba</option>
++  <option>Australia</option>
++  <option>Austria</option>
++  <option>Azerbaijan</option>
++  <option>Bahrain</option>
++  <option>Bangladesh</option>
++  <option>Belarus</option>
++  <option>Belgium</option>
++  <option>Belize</option>
++  <option>Benin</option>
++  <option>Bolivia</option>
++  <option>Bosnia and Hercegovina</option>
++  <option>Brazil</option>
++  <option>Bulgaria</option>
++  <option>Burundi</option>
++  <option>Cambodia</option>
++  <option>Cameroon</option>
++  <option>Canada</option>
++  <option>Central African Republic</option>
++  <option>Chile</option>
++  <option>China</option>
++  <option>Colombia</option>
++  <option>Congo</option>
++  <option>Costa Rica</option>
++  <option>Croatia</option>
++  <option>Cuba</option>
++  <option>Cyprus</option>
++  <option>Czech Republic</option>
++  <option>Denmark</option>
++  <option>Ecuador</option>
++  <option>Egypt</option>
++  <option>El Salvador</option>
++  <option>Estonia</option>
++  <option>Ethiopia</option>
++  <option>Fiji</option>
++  <option>Finland</option>
++  <option>France</option>
++  <option>Georgia</option>
++  <option>Germany</option>
++  <option>Gibraltar</option>
++  <option>Greece</option>
++  <option>Guam</option>
++  <option>Guatemala</option>
++  <option>Haiti</option>
++  <option>Hong Kong</option>
++  <option>Hungary</option>
++  <option>Iceland</option>
++  <option>India</option>
++  <option>Indonesia</option>
++  <option>Iran</option>
++  <option>Iraq</option>
++  <option>Ireland</option>
++  <option>Israel</option>
++  <option>Italy</option>
++  <option>Japan</option>
++  <option>Jordan</option>
++  <option>Kazakstan</option>
++  <option>Kenya</option>
++  <option>Korea</option>
++  <option>Kuwait</option>
++  <option>Kyrgyz Rebublic</option>
++  <option>Laos</option>
++  <option>Latvia</option>
++  <option>Lebanon</option>
++  <option>Liberia</option>
++  <option>Liechtenstein</option>
++  <option>Lithuania</option>
++  <option>Luxembourg</option>
++  <option>Libya</option>
++  <option>Macao</option>
++  <option>Macedonia</option>
++  <option>Malaysia</option>
++  <option>Malawi</option>
++  <option>Malta</option>
++  <option>Mexico</option>
++  <option>Moldova</option>
++  <option>Monaco</option>
++  <option>Morocco</option>
++  <option>Mozambique</option>
++  <option>Namibia</option>
++  <option>Nepal</option>
++  <option>Netherlands</option>
++  <option>New Zealand</option>
++  <option>Nicaragua</option>
++  <option>Nigeria</option>
++  <option>Norway</option>
++  <option>Oman</option>
++  <option>Pakistan</option>
++  <option>Panama</option>
++  <option>Paraguay</option>
++  <option>Peru</option>
++  <option>Philippines</option>
++  <option>Poland</option>
++  <option>Portugal</option>
++  <option>Romania</option>
++  <option>Russia</option>
++  <option>Saudi Arabia</option>
++  <option>Senegal</option>
++  <option>Singapore</option>
++  <option>Slovakia</option>
++  <option>Slovenia</option>
++  <option>South Africa</option>
++  <option>Spain</option>
++  <option>Sri Lanka</option>
++  <option>Suriname</option>
++  <option>Sweden</option>
++  <option>Switzerland</option>
++  <option>Syria</option>
++  <option>Taiwan</option>
++  <option>Tanzania</option>
++  <option>Thailand</option>
++  <option>Tajikistan</option>
++  <option>Tunisia</option>
++  <option>Turkey</option>
++  <option>Turkmenistan</option>
++  <option>Uganda</option>
++  <option>Ukraine</option>
++  <option>United Arab Emirates</option>
++  <option>United Kingdom</option>
++  <option>Uruguay</option>
++  <option>USA</option>
++  <option>Uzbekistan</option>
++  <option>Vatican City</option>
++  <option>Venezuela</option>
++  <option>Vietnam</option>
++  <option>Yemen</option>
++  <option>Yugoslavia</option>
++  <option>Zaire</option>
++  <option>Zambia</option>
++  <option>Zimbabwe</option>
++  <option value="Other Country">Other Country</option>
++  </select> =<font color="red">**</font>=
++  </td>
++</tr><tr>
++  <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
++  <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
++</tr><tr>
++  <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
++  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
++</tr>
++</table>
++</form>
++
++__Submitting the form will automatically:__ 
++
++	* Create an account for you, so that you can start editing pages using your WikiName.
++	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
++	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
++	* Send you a confirmation of your registration by email.
++
++Once registered you can login using your WikiName and password.
++
++If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
++
++@
++
++
++1.11
++log
++@none
++@
++text
++@d1 199
++a199 209
++%META:TOPICINFO{author="PeterThoeny" date="1066367755" format="1.0" version="1.11"}%
++To edit pages on this TWikiSite, you must have a registered user name and password. 
++
++	* %H% *NOTE:* You can also login anonymously as user *TWikiGuest* with password *guest*. 
++	* %H% *NOTE:* Registered users can ChangePasswords and ResetPasswords.
+ 
+ To register as a new user, simply fill out this form:
+ 
+@@ -73,17 +305,20 @@
+   <td align="right"> Your WikiName: </td>
+   <td><input type="text" name="Twk1WikiName" size="40" value="" /> =<font color="red">**</font>= </td>
+ </tr><tr>
+-  <td align="right"> Intranet login name: </td>
+-  <td><input type="text" name="Twk1LoginName" size="40" value="%REMOTE_USER%" /> =<font color="red">**</font>= </td>
+-</tr><tr>
+   <td align="right"> Email address: </td>
+   <td><input type="text" name="Twk1Email" size="40" value="" /> =<font color="red">**</font>= </td>
+ </tr><tr>
+-  <td align="right"> Phone: </td>
+-  <td><input type="text" name="Twk0Phone" size="40" value="" /></td>
++  <td align="right"> Your password: </td>
++  <td><input type="password" name="Twk1Password" size="40" value="" /> =<font color="red">**</font>= </td>
++</tr><tr>
++  <td align="right"> Retype password: </td>
++  <td><input type="password" name="Twk1Confirm" size="40" value="" /> =<font color="red">**</font>= </td>
+ </tr><tr>
+-  <td align="right"> Department: </td>
+-  <td><input type="text" name="Twk0Department" size="40" value="" />
++  <td align="right"> Company name: </td>
++  <td><input type="text" name="Twk0CompanyName" size="40" value="" /></td>
++</tr><tr>
++  <td align="right"> Company URL: <br> (or department URL) &nbsp; </td>
++  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }" /></td>
+ </tr><tr>
+   <td align="right"> Office location: </td>
+   <td>
+@@ -96,11 +331,156 @@
+   </select> =<font color="red">**</font>=
+   </td>
+ </tr><tr>
++  <td align="right"> Country: </td>
++  <td>
++  <select name="Twk1Country" size="1">
++  <option selected value="">Select...</option>
++  <option>USA</option>
++  <option>Albania</option>
++  <option>Algeria</option>
++  <option>Andorra</option>
++  <option>Angola</option>
++  <option>Argentina</option>
++  <option>Armenia</option>
++  <option>Aruba</option>
++  <option>Australia</option>
++  <option>Austria</option>
++  <option>Azerbaijan</option>
++  <option>Bahrain</option>
++  <option>Bangladesh</option>
++  <option>Belarus</option>
++  <option>Belgium</option>
++  <option>Belize</option>
++  <option>Benin</option>
++  <option>Bolivia</option>
++  <option>Bosnia and Hercegovina</option>
++  <option>Brazil</option>
++  <option>Bulgaria</option>
++  <option>Burundi</option>
++  <option>Cambodia</option>
++  <option>Cameroon</option>
++  <option>Canada</option>
++  <option>Central African Republic</option>
++  <option>Chile</option>
++  <option>China</option>
++  <option>Colombia</option>
++  <option>Congo</option>
++  <option>Costa Rica</option>
++  <option>Croatia</option>
++  <option>Cuba</option>
++  <option>Cyprus</option>
++  <option>Czech Republic</option>
++  <option>Denmark</option>
++  <option>Ecuador</option>
++  <option>Egypt</option>
++  <option>El Salvador</option>
++  <option>Estonia</option>
++  <option>Ethiopia</option>
++  <option>Fiji</option>
++  <option>Finland</option>
++  <option>France</option>
++  <option>Georgia</option>
++  <option>Germany</option>
++  <option>Gibraltar</option>
++  <option>Greece</option>
++  <option>Guam</option>
++  <option>Guatemala</option>
++  <option>Haiti</option>
++  <option>Hong Kong</option>
++  <option>Hungary</option>
++  <option>Iceland</option>
++  <option>India</option>
++  <option>Indonesia</option>
++  <option>Iran</option>
++  <option>Iraq</option>
++  <option>Ireland</option>
++  <option>Israel</option>
++  <option>Italy</option>
++  <option>Japan</option>
++  <option>Jordan</option>
++  <option>Kazakstan</option>
++  <option>Kenya</option>
++  <option>Korea</option>
++  <option>Kuwait</option>
++  <option>Kyrgyz Rebublic</option>
++  <option>Laos</option>
++  <option>Latvia</option>
++  <option>Lebanon</option>
++  <option>Liberia</option>
++  <option>Liechtenstein</option>
++  <option>Lithuania</option>
++  <option>Luxembourg</option>
++  <option>Libya</option>
++  <option>Macao</option>
++  <option>Macedonia</option>
++  <option>Malaysia</option>
++  <option>Malawi</option>
++  <option>Malta</option>
++  <option>Mexico</option>
++  <option>Moldova</option>
++  <option>Monaco</option>
++  <option>Morocco</option>
++  <option>Mozambique</option>
++  <option>Namibia</option>
++  <option>Nepal</option>
++  <option>Netherlands</option>
++  <option>New Zealand</option>
++  <option>Nicaragua</option>
++  <option>Nigeria</option>
++  <option>Norway</option>
++  <option>Oman</option>
++  <option>Pakistan</option>
++  <option>Panama</option>
++  <option>Paraguay</option>
++  <option>Peru</option>
++  <option>Philippines</option>
++  <option>Poland</option>
++  <option>Portugal</option>
++  <option>Romania</option>
++  <option>Russia</option>
++  <option>Saudi Arabia</option>
++  <option>Senegal</option>
++  <option>Singapore</option>
++  <option>Slovakia</option>
++  <option>Slovenia</option>
++  <option>South Africa</option>
++  <option>Spain</option>
++  <option>Sri Lanka</option>
++  <option>Suriname</option>
++  <option>Sweden</option>
++  <option>Switzerland</option>
++  <option>Syria</option>
++  <option>Taiwan</option>
++  <option>Tanzania</option>
++  <option>Thailand</option>
++  <option>Tajikistan</option>
++  <option>Tunisia</option>
++  <option>Turkey</option>
++  <option>Turkmenistan</option>
++  <option>Uganda</option>
++  <option>Ukraine</option>
++  <option>United Arab Emirates</option>
++  <option>United Kingdom</option>
++  <option>Uruguay</option>
++  <option>USA</option>
++  <option>Uzbekistan</option>
++  <option>Vatican City</option>
++  <option>Venezuela</option>
++  <option>Vietnam</option>
++  <option>Yemen</option>
++  <option>Yugoslavia</option>
++  <option>Zaire</option>
++  <option>Zambia</option>
++  <option>Zimbabwe</option>
++  <option value="Other Country">Other Country</option>
++  </select> =<font color="red">**</font>=
++  </td>
++</tr><tr>
+   <td valign="top" align="right"> Comments : <br /> (optional) &nbsp; </td>
+   <td><textarea name="Twk0Comment" wrap="virtual" rows="4" cols="38"></textarea></td>
+ </tr><tr>
+   <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%" /></td>
+-  <td> <input type="submit" value=" Submit "> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
++  <td> <input type="submit" value=" Submit " /> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
+ </tr>
+ </table>
+ </form>
+@@ -109,36 +489,71 @@
+ 
+ 	* Create an account for you, so that you can start editing pages using your WikiName.
+ 	* Create your personal %WIKITOOLNAME% topic using your WikiName as topic name, and add the data you submitted to the topic.
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %MAINWEB% web.
++	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
+ 	* Send you a confirmation of your registration by email.
+ 
+-
+ Once registered you can login using your WikiName and password.
+ 
+ If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
+ @
+ 
+ 
+-1.7
++1.10
+ log
+ @none
+ @
+ text
+ @d1 1
+ a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="1003994561" format="1.0" version="1.7"}%
+-d12 1
+-a12 1
++%META:TOPICINFO{author="PeterThoeny" date="1045347721" format="1.0" version="1.10"}%
++d82 1
++@
++
++
++1.9
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="PeterThoeny" date="1043916963" format="1.0" version="1.9"}%
++d63 1
++@
++
++
++1.8
++log
++@none
++@
++text
++@d1 5
++a5 2
++%META:TOPICINFO{author="PeterThoeny" date="1038848640" format="1.0" version="1.8"}%
++To edit pages on this %WIKITOOLNAME% Collaborative Web, you must have a registered user name and password. <br> __Note:__ You can also login anonymously as user *TWikiGuest* with password *guest*
++d15 1
++a15 1
+   <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if((ch=='&#224;')||(ch=='&#225;')||(ch=='&#226;')||(ch=='&#227;')||(ch=='&#229;') ) { ch = 'a'; } if( (ch=='&#232;')||(ch=='&#233;')||(ch=='&#234;') ) { ch = 'e'; } if( ch=='&#231;') { ch = 'c'; } if( ch=='&#241;') { ch = 'n'; } if( (ch=='&#242;')||(ch=='&#243;')||(ch=='&#244;') ) { ch = 'o'; } if( ch=='&#228;') { ch = 'a'; ch2 = 'e'; } if( ch=='&#246;') { ch = 'o'; ch2 = 'e'; } if( (ch=='&#249;')||(ch=='&#250;')||(ch=='&#251;') ) { ch = 'o'; } if( ch=='&#252;') { ch = 'u'; ch2 = 'e'; } if( ch=='&#196;') { ch = 'A'; ch2 = 'e'; } if( ch=='&#214;') { ch = 'O'; ch2 = 'e'; } if( ch=='&#220;') { ch = 'U'; ch2 = 'e'; } if( ch=='&#223;') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+-d53 1
+-a53 1
+-	* Add your name to the list of users in the %MAINWEB%.%WIKIUSERSTOPIC% topic in the %WIKITOOLNAME%.%MAINWEB% web.
+-d59 1
+-a59 1
++a204 1
++
++d207 1
++a207 1
+ If you have any questions about registration, send an email to <A href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</A>.
+ @
+ 
+ 
++1.7
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="PeterThoeny" date="1029129172" format="1.0" version="1.7"}%
++d50 1
++@
++
++
+ 1.6
+ log
+ @none
+@@ -146,33 +561,48 @@
+ text
+ @d1 1
+ a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="997551066" format="1.0beta2" version="1.6"}%
++%META:TOPICINFO{author="PeterThoeny" date="1003994910" format="1.0" version="1.6"}%
++d126 1
++@
++
++
++1.5
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="PeterThoeny" date="997551200" format="1.0beta2" version="1.5"}%
+ d12 1
+ a12 1
+   <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if( (ch=='à')||(ch=='á')||(ch=='â')||(ch=='ã')||(ch=='å') ) { ch = 'a'; } if( (ch=='è')||(ch=='é')||(ch=='ê') ) { ch = 'e'; } if( ch=='ç') { ch = 'c'; } if( ch=='ó') { ch = 'o'; } if( ch=='ä') { ch = 'a'; ch2 = 'e'; } if( ch=='ö') { ch = 'o'; ch2 = 'e'; } if( ch=='ü') { ch = 'u'; ch2 = 'e'; } if( ch=='Ä') { ch = 'A'; ch2 = 'e'; } if( ch=='Ö') { ch = 'O'; ch2 = 'e'; } if( ch=='Ü') { ch = 'U'; ch2 = 'e'; } if( ch=='ß') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" /> =<font color="red">**</font>= </td>
+ @
+ 
+ 
+-1.5
++1.4
+ log
+ @none
+ @
+ text
+ @d1 1
+ a1 1
+-%META:TOPICINFO{author="PeterThoeny" date="997076248" format="1.0beta2" version="1.5"}%
+-d27 2
+-a28 1
+-  <td><input type="text" name="Twk0Department" size="40" value="" /></tr><tr>
++%META:TOPICINFO{author="PeterThoeny" date="997076292" format="1.0beta2" version="1.4"}%
++d31 11
+ @
+ 
+ 
+-1.4
++1.3
+ log
+ @none
+ @
+ text
+ @d1 1
++a1 4
++<font color="red" size="+2">Authorization Failed</font>
++
++Did you type in your WikiName and password correctly?
++
+ d12 1
+ a12 1
+   <td><input type="text" name="Twk1Name" size="40" value="" onBlur="var sIn = this.value; var sOut = ''; var chgUpper = true; for ( var i = 0; i < sIn.length; i++ ) { var ch = sIn.charAt( i ); var ch2 = ''; if( (ch=='à')||(ch=='á')||(ch=='â')||(ch=='ã')||(ch=='å') ) { ch = 'a'; } if( (ch=='è')||(ch=='é')||(ch=='ê') ) { ch = 'e'; } if( ch=='ç') { ch = 'c'; } if( ch=='ó') { ch = 'o'; } if( ch=='ä') { ch = 'a'; ch2 = 'e'; } if( ch=='ö') { ch = 'o'; ch2 = 'e'; } if( ch=='ü') { ch = 'u'; ch2 = 'e'; } if( ch=='Ä') { ch = 'A'; ch2 = 'e'; } if( ch=='Ö') { ch = 'O'; ch2 = 'e'; } if( ch=='Ü') { ch = 'U'; ch2 = 'e'; } if( ch=='ß') { ch = 's'; ch2 = 's'; } if( ((ch>='a')&&(ch<='z')) || ((ch>='A')&&(ch<='Z')) ) { if( chgUpper ) { ch = ch.toUpperCase(); chgUpper = false; } sOut+=ch; if( ch2!='') { sOut+=ch2; } } else { if( ch==' ' ) { chgUpper = true; } } } this.form.Twk1WikiName.value=sOut;" > =<font color="red">**</font>= </td>
+@@ -181,61 +611,54 @@
+   <td><input type="text" name="Twk1WikiName" size="40" value="" > =<font color="red">**</font>= </td>
+ d18 1
+ a18 1
+-  <td><input type="text" name="Twk1LoginName" size="40" value="%REMOTE_USER%" > =<font color="red">**</font>= </td>
++  <td><input type="text" name="Twk1Email" size="40" value="" > =<font color="red">**</font>= </td>
+ d21 1
+ a21 1
+-  <td><input type="text" name="Twk1Email" size="40" value="" > =<font color="red">**</font>= </td>
++  <td><input type="password" name="Twk1Password" size="40" value="" > =<font color="red">**</font>= </td>
+ d24 1
+ a24 1
+-  <td><input type="text" name="Twk0Phone" size="40" value="" ></td>
++  <td><input type="password" name="Twk1Confirm" size="40" value="" > =<font color="red">**</font>= </td>
+ d27 1
+ a27 1
+-  <td><input type="text" name="Twk0Department" size="40" value="" </tr><tr>
+-d39 1
+-a39 1
++  <td><input type="text" name="Twk0CompanyName" size="40" value="" ></td>
++d30 1
++a30 1
++  <td><input type="text" name="Twk0CompanyURL" size="40" onBlur="if(this.value=='http://') { this.value='' }" onFocus="if(this.value=='') { this.value='http://' }"></td>
++d173 1
++a173 1
+   <td valign="top" align="right"> Comments : <br> (optional) &nbsp; </td>
+-d42 1
+-a42 1
++d176 2
++a177 2
+   <td valign="top" align="right"> &nbsp; <input type="hidden" name="TopicName" value="%TOPIC%"></td>
+-d49 1
+-d58 1
+-a58 1
++  <td> <input type="submit" value=" Submit "> &nbsp;&nbsp; (Fields marked =<Font color="red">**</font>= are required) </td>
++d183 1
++d192 1
++a192 1
+ If you have any questions about registration, send an email to <A href="mailto:%WIKIWEBMASTER%?subject=%TOPIC% Question">%WIKIWEBMASTER%</A>.
+ @
+ 
+ 
+-1.3
++1.2
+ log
+ @none
+ @
+ text
+-@d7 1
+-a7 1
++@d11 1
++a11 1
+ <form action="%SCRIPTURL%/register%SCRIPTSUFFIX%" method="post">
+-d49 2
+-a50 2
++d187 2
++a188 2
+ 	* Create your personal TWiki topic using your WikiName as topic name, and add the data you submitted to the topic.
+ 	* Add your name to the list of users in the TWikiUsers topic.
+ @
+ 
+ 
+-1.2
+-log
+-@none
+-@
+-text
+-@d7 1
+-a7 1
+-<form action="%SCRIPTURL%/register" method="post">
+-@
+-
+-
+ 1.1
+ log
+ @none
+ @
+ text
+-@d26 11
+-a36 1
+-  <td><input type="text" name="Twk0Department" size="40" value="" ></td>
++@d11 1
++a11 1
++<form action="%SCRIPTURL%/register" method="post">
+ @
+diff -Naur min-wiki.org/data/TWiki/WebChanges.lock min-wiki/data/TWiki/WebChanges.lock
+--- min-wiki.org/data/TWiki/WebChanges.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebChanges.lock	2005-04-26 00:05:07.429717496 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114463371
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/WebChanges.txt min-wiki/data/TWiki/WebChanges.txt
+--- min-wiki.org/data/TWiki/WebChanges.txt	2005-04-25 21:20:06.166938232 +0200
++++ min-wiki/data/TWiki/WebChanges.txt	2005-04-26 00:05:07.405721144 +0200
+@@ -1,5 +1,6 @@
+-%META:TOPICINFO{author="PeterThoeny" date="997991998" format="1.0beta2" version="1.3"}%
+-%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50"}%
+-
+-	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
+-	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/SearchResult?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on][all]] changes
++%META:TOPICINFO{author="EelcoVisser" date="1114463371" format="1.0" version="1.4"}%
++%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50" format="| [[%INCLUDINGWEB%.$topic][$topic(30,...)]] | $date | $wikiusername |"}%
++
++	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
++	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/SearchResult?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on][all]] changes
++
+diff -Naur min-wiki.org/data/TWiki/WebChanges.txt,v min-wiki/data/TWiki/WebChanges.txt,v
+--- min-wiki.org/data/TWiki/WebChanges.txt,v	2005-04-25 21:20:06.155939904 +0200
++++ min-wiki/data/TWiki/WebChanges.txt,v	2005-04-26 00:28:01.352849432 +0200
+@@ -1,11 +1,16 @@
+-head	1.3;
++head	1.4;
+ access;
+ symbols;
+ locks
+-	nobody:1.3; strict;
++	visser:1.4; strict;
+ comment	@# @;
+ 
+ 
++1.4
++date	2005.04.25.21.09.31;	author EelcoVisser;	state Exp;
++branches;
++next	1.3;
++
+ 1.3
+ date	2001.08.16.19.59.58;	author PeterThoeny;	state Exp;
+ branches;
+@@ -27,12 +32,28 @@
+ @
+ 
+ 
++1.4
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114463371" format="1.0" version="1.4"}%
++%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50" format="| [[%INCLUDINGWEB%.$topic][$topic(30,...)]] | $date | $wikiusername |"}%
++
++	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
++	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/SearchResult?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on][all]] changes
++
++@
++
++
+ 1.3
+ log
+ @none
+ @
+ text
+-@%META:TOPICINFO{author="PeterThoeny" date="997991998" format="1.0beta2" version="1.3"}%
++@d1 6
++a6 5
++%META:TOPICINFO{author="PeterThoeny" date="997991998" format="1.0beta2" version="1.3"}%
+ %SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50"}%
+ 
+ 	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
+diff -Naur min-wiki.org/data/TWiki/WebContents.lock min-wiki/data/TWiki/WebContents.lock
+--- min-wiki.org/data/TWiki/WebContents.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebContents.lock	2005-04-26 00:05:07.433716888 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114457905
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/WebContents.txt min-wiki/data/TWiki/WebContents.txt
+--- min-wiki.org/data/TWiki/WebContents.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebContents.txt	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,4 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114457905" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="CustomWebMenus"}%
++*[[WebHome]]*
++
+diff -Naur min-wiki.org/data/TWiki/WebContents.txt,v min-wiki/data/TWiki/WebContents.txt,v
+--- min-wiki.org/data/TWiki/WebContents.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebContents.txt,v	2005-04-26 00:28:03.990448456 +0200
+@@ -0,0 +1,29 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.19.38.25;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114457905" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="CustomWebMenus"}%
++*[[WebHome]]*
++
++@
+diff -Naur min-wiki.org/data/TWiki/WebLeftBar.lock min-wiki/data/TWiki/WebLeftBar.lock
+--- min-wiki.org/data/TWiki/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebLeftBar.lock	2005-04-26 00:09:59.669290328 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114466999
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt min-wiki/data/TWiki/WebLeftBar.txt
+--- min-wiki.org/data/TWiki/WebLeftBar.txt	2005-04-25 21:20:06.187935040 +0200
++++ min-wiki/data/TWiki/WebLeftBar.txt	2005-04-26 00:09:59.628296560 +0200
+@@ -1,6 +1,5 @@
+-%META:TOPICINFO{author="PeterThoeny" date="1092718938" format="1.0" version="1.2"}%
+-	* *[[%WIKILOGOURL%][TWiki]]*
+-
++%META:TOPICINFO{author="EelcoVisser" date="1114466999" format="1.0" version="1.3"}%
++*[[%WIKILOGOURL%][TWiki]]*
+ 	* *[[%TWIKIWEB%.WelcomeGuest][Welcome]]*
+ 	* *[[%TWIKIWEB%.TWikiRegistration][Register]]*
+ ---
+diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt,v min-wiki/data/TWiki/WebLeftBar.txt,v
+--- min-wiki.org/data/TWiki/WebLeftBar.txt,v	2005-04-25 21:20:06.137942640 +0200
++++ min-wiki/data/TWiki/WebLeftBar.txt,v	2005-04-26 00:28:01.150880136 +0200
+@@ -2,7 +2,7 @@
+ access;
+ symbols;
+ locks
+-	nobody:1.2; strict;
++	visser:1.2; strict;
+ comment	@# @;
+ 
+ 
+diff -Naur min-wiki.org/data/TWiki/WebNews.lock min-wiki/data/TWiki/WebNews.lock
+--- min-wiki.org/data/TWiki/WebNews.lock	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebNews.lock	2005-04-26 00:05:07.450714304 +0200
+@@ -0,0 +1,2 @@
++EelcoVisser
++1114458054
+\ No newline at end of file
+diff -Naur min-wiki.org/data/TWiki/WebNews.txt min-wiki/data/TWiki/WebNews.txt
+--- min-wiki.org/data/TWiki/WebNews.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebNews.txt	2005-04-26 00:28:04.047439792 +0200
+@@ -0,0 +1,4 @@
++%META:TOPICINFO{author="EelcoVisser" date="1114458054" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="WebHome"}%
++no news
++
+diff -Naur min-wiki.org/data/TWiki/WebNews.txt,v min-wiki/data/TWiki/WebNews.txt,v
+--- min-wiki.org/data/TWiki/WebNews.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/TWiki/WebNews.txt,v	2005-04-26 00:28:04.003446480 +0200
+@@ -0,0 +1,29 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.25.19.40.54;	author EelcoVisser;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="EelcoVisser" date="1114458054" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="WebHome"}%
++no news
++
++@
