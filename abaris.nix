@@ -104,8 +104,8 @@ let {
 
     name          = "beta-wiki";
     
-    pubdir        = instanceRootDir + "/cs-wiki/pub";
-    datadir       = instanceRootDir + "/cs-wiki/data";
+    pubdir        = instanceRootDir + "/beta-wiki/pub";
+    datadir       = instanceRootDir + "/beta-wiki/data";
 
     twikiName     = "Beta Wiki";
     scriptUrlPath = "/beta/bin";
