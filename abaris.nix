@@ -24,6 +24,7 @@ let {
       ptWiki
       icsWiki
       stIntraWiki
+      betaWiki
     ];
   };
 
@@ -75,8 +76,8 @@ let {
 
     name          = "ics-wiki";
     
-    pubdir        = instanceRootDir + "/cs-wiki/pub";
-    datadir       = instanceRootDir + "/cs-wiki/data";
+    pubdir        = instanceRootDir + "/ics-wiki/pub";
+    datadir       = instanceRootDir + "/ics-wiki/data";
 
     twikiName     = "ICS Wiki";
     scriptUrlPath = "/wiki/bin";
@@ -95,6 +96,20 @@ let {
     twikiName     = "ST IntraWiki";
     scriptUrlPath = "/st-intra/bin";
     pubUrlPath    = "/st-intra/pub";
+  };
+
+  betaWiki = (import ./twiki/twiki-instance.nix).twiki {
+
+    defaultUrlHost = canonicalName;
+
+    name          = "beta-wiki";
+    
+    pubdir        = instanceRootDir + "/cs-wiki/pub";
+    datadir       = instanceRootDir + "/cs-wiki/data";
+
+    twikiName     = "Beta Wiki";
+    scriptUrlPath = "/beta/bin";
+    pubUrlPath    = "/beta/pub";
   };
 
 }

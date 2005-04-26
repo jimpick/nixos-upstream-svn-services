@@ -26,6 +26,7 @@ let {
       ptWiki
       stWiki
       stIntraWiki
+      betaWiki
     ];
   };
 
