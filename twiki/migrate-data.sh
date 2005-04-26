@@ -16,5 +16,5 @@ cp -r --reply=yes $old/data/TWiki/CustomSiteMenus* $new/data/TWiki/
 
 cp -r --reply=yes $old/pub/* $new/pub/
 
-cp --reply=yes $old/data/.htpassword $new/data/
+cp --reply=yes $old/data/.htpasswd $new/data/
 
