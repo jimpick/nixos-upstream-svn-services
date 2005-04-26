@@ -3,7 +3,7 @@
 stdenv.mkDerivation {
   name = "FlexPatternSkin-0.2";
   builder = ./unzip-builder.sh;
-  src = /home/visser/FlexPatternSkin-0.2.zip;
+  src = ./FlexPatternSkin-0.2.zip;
 
   foobar = fetchurl {
     url = http://catamaran.labs.cs.uu.nl/dist/tarballs/FlexPatternSkin-0.1.zip;
