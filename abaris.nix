@@ -9,7 +9,7 @@ let {
 
   adminAddr = "wiki-master@cs.uu.nl";
 
-  canonicalName = "http://abaris.zoo.cs.uu.nl"; # !!! ugly
+  canonicalName = "http://abaris.zoo.cs.uu.nl:8080"; # !!! ugly
   
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
@@ -21,10 +21,9 @@ let {
 
     subServices = [
       minWiki
-#      testWiki
-#      ptWiki
-#      stWiki
-#      stIntraWiki
+      ptWiki
+      icsWiki
+      stIntraWiki
     ];
   };
 
@@ -70,18 +69,18 @@ let {
     pubUrlPath    = "/pt/pub";
   };
 
-  stWiki = (import ./twiki/twiki-instance.nix).twiki {
+  icsWiki = (import ./twiki/twiki-instance.nix).twiki {
 
     defaultUrlHost = canonicalName;
 
-    name          = "st-wiki";
+    name          = "ICS Wiki (formerly ST Wiki)";
     
-    pubdir        = instanceRootDir + "/st-wiki/pub";
-    datadir       = instanceRootDir + "/st-wiki/data";
+    pubdir        = instanceRootDir + "/cs-wiki/pub";
+    datadir       = instanceRootDir + "/cs-wiki/data";
 
-    twikiName     = "ST Wiki";
-    scriptUrlPath = "/st/bin";
-    pubUrlPath    = "/st/pub";
+    twikiName     = "ICS Wiki";
+    scriptUrlPath = "/wiki/bin";
+    pubUrlPath    = "/wiki/pub";
   };
 
   stIntraWiki = (import ./twiki/twiki-instance.nix).twiki {
