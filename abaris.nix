@@ -73,7 +73,7 @@ let {
 
     defaultUrlHost = canonicalName;
 
-    name          = "ICS Wiki (formerly ST Wiki)";
+    name          = "ICS Wiki";
     
     pubdir        = instanceRootDir + "/cs-wiki/pub";
     datadir       = instanceRootDir + "/cs-wiki/data";
