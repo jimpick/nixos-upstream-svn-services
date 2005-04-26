@@ -49,3 +49,8 @@
 <Files "rdiffauth">
        require valid-user
 </Files>
+
+<Files "register*">
+	allow from @registrationDomain@
+        deny from all
+</Files>

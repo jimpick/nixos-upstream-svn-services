@@ -11,7 +11,7 @@
 , pubdir
 , defaultUrlHost
 , scriptUrlPath ? "/twiki/bin"
-, dispScriptUrlPath ? null      
+, dispScriptUrlPath ? null   
 , dispViewPath ? "/view"
 , pubUrlPath ? "/twiki/pub"
 , twikiName ? "TWiki"
@@ -21,6 +21,7 @@
 , pubDataPatch ? ""
 , sed
 , htpasswd
+, registrationDomain ? "all"
 }:
 
 stdenv.mkDerivation {
@@ -56,7 +57,8 @@ stdenv.mkDerivation {
     scriptUrlPath
     dispViewPath
     pubUrlPath
-    twikiName;
+    twikiName
+    registrationDomain;
 
   # Local helper files to make builder more compact.
   staticTWikiCfg = ./TWiki.nochange.cfg;

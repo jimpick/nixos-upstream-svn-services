@@ -23,7 +23,7 @@ let {
       minWiki
       ptWiki
       icsWiki
-      stIntraWiki
+      intraWiki
       betaWiki
     ];
   };
@@ -40,6 +40,8 @@ let {
     twikiName     = "Test Wiki";
     scriptUrlPath = "/test/bin";
     pubUrlPath    = "/test/pub";
+    dispScriptUrlPath = "/test";
+    dispViewPath  = "";
   };
 
   minWiki = (import ./twiki/twiki-instance.nix).twiki {
@@ -54,6 +56,10 @@ let {
     twikiName     = "Minimal Wiki";
     scriptUrlPath = "/min/bin";
     pubUrlPath    = "/min/pub";
+    dispScriptUrlPath = "/min";
+    dispViewPath  = "";
+
+    registrationDomain = ".uu.nl";
   };
 
   ptWiki = (import ./twiki/twiki-instance.nix).twiki {
@@ -68,6 +74,8 @@ let {
     twikiName     = "Program Transformation Wiki";
     scriptUrlPath = "/pt/bin";
     pubUrlPath    = "/pt/pub";
+    dispScriptUrlPath = "/pt";
+    dispViewPath  = "";
   };
 
   icsWiki = (import ./twiki/twiki-instance.nix).twiki {
@@ -82,9 +90,13 @@ let {
     twikiName     = "ICS Wiki";
     scriptUrlPath = "/wiki/bin";
     pubUrlPath    = "/wiki/pub";
+    dispScriptUrlPath = "/wiki";
+    dispViewPath  = "";
+
+    registrationDomain = ".uu.nl";
   };
 
-  stIntraWiki = (import ./twiki/twiki-instance.nix).twiki {
+  intraWiki = (import ./twiki/twiki-instance.nix).twiki {
 
     defaultUrlHost = canonicalName;
 
@@ -93,9 +105,13 @@ let {
     pubdir        = instanceRootDir + "/st-intra-wiki/pub";
     datadir       = instanceRootDir + "/st-intra-wiki/data";
 
-    twikiName     = "ST IntraWiki";
-    scriptUrlPath = "/st-intra/bin";
-    pubUrlPath    = "/st-intra/pub";
+    twikiName     = "Intra Wiki";
+    scriptUrlPath = "/intra/bin";
+    pubUrlPath    = "/intra/pub";
+    dispScriptUrlPath = "/intra";
+    dispViewPath  = "";
+
+    registrationDomain = ".uu.nl";
   };
 
   betaWiki = (import ./twiki/twiki-instance.nix).twiki {
@@ -110,6 +126,10 @@ let {
     twikiName     = "Beta Wiki";
     scriptUrlPath = "/beta/bin";
     pubUrlPath    = "/beta/pub";
+    dispScriptUrlPath = "/beta";
+    dispViewPath  = "";
+
+    registrationDomain = ".uu.nl";
   };
 
 }

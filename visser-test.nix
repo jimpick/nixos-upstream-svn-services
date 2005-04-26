@@ -22,11 +22,11 @@ let {
     subServices = [
       minWiki
       testWiki
-      visserWiki
-      ptWiki
-      stWiki
-      stIntraWiki
-      betaWiki
+#      visserWiki
+#      ptWiki
+#      stWiki
+#      stIntraWiki
+#      betaWiki
     ];
   };
 
@@ -42,6 +42,8 @@ let {
     twikiName     = "Test Wiki";
     scriptUrlPath = "/test/bin";
     pubUrlPath    = "/test/pub";
+    dispScriptUrlPath = "/test";
+    dispViewPath  = "";
   };
 
   minWiki = (import ./twiki/twiki-instance.nix).twiki {
@@ -56,6 +58,10 @@ let {
     twikiName     = "Minimal Wiki";
     scriptUrlPath = "/min/bin";
     pubUrlPath    = "/min/pub";
+    dispScriptUrlPath = "/min";
+    dispViewPath  = "";
+
+    registrationDomain = "127.0.0.2";
   };
 
   visserWiki = (import ./twiki/twiki-instance.nix).twiki {

@@ -80,7 +80,7 @@ cat >> $out/bin/.htaccess <<EOF
 ErrorDocument 401 $scriptUrlPath/oops/TWiki/TWikiRegistration?template=oopsauth
 
 EOF
-cat $binHtaccess >> $out/bin/.htaccess
+cat $binHtaccess | sed s/@registrationDomain@/$registrationDomain/ >> $out/bin/.htaccess
 
 fi
 
@@ -172,7 +172,8 @@ substitute $conf $out/types/apache-httpd/conf/twiki.conf \
     --subst-var pubdir \
     --subst-var datadir \
     --subst-var scriptUrlPath \
-    --subst-var pubUrlPath
+    --subst-var pubUrlPath \
+    --subst-var dispScriptUrlPath
 
 
 echo "Creating startup hook ..."
