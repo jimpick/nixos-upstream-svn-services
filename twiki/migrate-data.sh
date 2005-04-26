@@ -5,7 +5,7 @@ new=$2
 
 for source in `find $old/data/* -type d -and -not -name TWiki`
 do
-  target=$new/data/`basename $dir`
+  target="$new/data/`basename $source`"
   echo "Copying files from $source to $target"
   mkdir -p $target
   cp -r --reply=yes $source/* $target
