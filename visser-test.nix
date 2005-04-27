@@ -22,7 +22,7 @@ let {
     subServices = [
       minWiki
       testWiki
-#      visserWiki
+      visserWiki
 #      ptWiki
 #      stWiki
 #      stIntraWiki
@@ -76,6 +76,8 @@ let {
     twikiName     = "Eelco Visser's Personal Wiki";
     scriptUrlPath = "/visser/bin";
     pubUrlPath    = "/visser/pub";
+    dispScriptUrlPath = "/visser";
+    dispViewPath  = "";
   };
 
   ptWiki = (import ./twiki/twiki-instance.nix).twiki {

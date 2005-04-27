@@ -53,6 +53,14 @@ cp ./twiki/subdir-htaccess.txt $out/init/
 cp -R ./twiki/data $out/init/data
 cp -R ./twiki/pub $out/init/pub
 
+echo "Patching RCS locks ..."
+for file in `find $out/init/data -name \*.txt,v`
+do
+  @sed@/bin/sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
+  chmod +w $file
+  mv $file.copy $file
+done
+
 cp $htpasswd $out/init/data/.htpasswd
 
 echo "Patching initial files ..."

@@ -1,20 +1,20 @@
 diff -Naur min-wiki.org/data/_default/WebHome.lock min-wiki/data/_default/WebHome.lock
 --- min-wiki.org/data/_default/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/_default/WebHome.lock	2005-04-26 00:05:07.347729960 +0200
++++ min-wiki/data/_default/WebHome.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114462601
 \ No newline at end of file
 diff -Naur min-wiki.org/data/_default/WebIndex.lock min-wiki/data/_default/WebIndex.lock
 --- min-wiki.org/data/_default/WebIndex.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/_default/WebIndex.lock	2005-04-26 00:05:07.347729960 +0200
++++ min-wiki/data/_default/WebIndex.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114462703
 \ No newline at end of file
 diff -Naur min-wiki.org/data/_default/WebIndex.txt min-wiki/data/_default/WebIndex.txt
---- min-wiki.org/data/_default/WebIndex.txt	2005-04-25 21:20:06.041957232 +0200
-+++ min-wiki/data/_default/WebIndex.txt	2005-04-26 00:05:07.345730264 +0200
+--- min-wiki.org/data/_default/WebIndex.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/_default/WebIndex.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,5 +1,6 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1006602069" format="1.0" version="1.2"}%
 +%META:TOPICINFO{author="EelcoVisser" date="1114462703" format="1.0" version="1.3"}%
@@ -27,8 +27,8 @@ diff -Naur min-wiki.org/data/_default/WebIndex.txt min-wiki/data/_default/WebInd
 +See also the faster WebTopicList
 +
 diff -Naur min-wiki.org/data/_default/WebIndex.txt,v min-wiki/data/_default/WebIndex.txt,v
---- min-wiki.org/data/_default/WebIndex.txt,v	2005-04-25 21:20:06.044956776 +0200
-+++ min-wiki/data/_default/WebIndex.txt,v	2005-04-26 00:28:00.569968448 +0200
+--- min-wiki.org/data/_default/WebIndex.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/_default/WebIndex.txt,v	2005-04-27 22:16:54.000000000 +0200
 @@ -2,7 +2,7 @@
  access;
  symbols;
@@ -38,22 +38,17 @@ diff -Naur min-wiki.org/data/_default/WebIndex.txt,v min-wiki/data/_default/WebI
  comment	@# @;
  
  
-diff -Naur min-wiki.org/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd min-wiki/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd
---- min-wiki.org/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/f0mcr05qzc2smkr321adlblghispz41j-htpasswd	2005-04-26 00:27:59.658107072 +0200
-@@ -0,0 +1,2 @@
-+WikiMaster:/7sWIyc3bkwkE
-+TWikiGuest:zK.G.uuPi39Qg
 diff -Naur min-wiki.org/data/.htpasswd min-wiki/data/.htpasswd
 --- min-wiki.org/data/.htpasswd	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/.htpasswd	2005-04-26 00:14:43.475145280 +0200
-@@ -0,0 +1,2 @@
++++ min-wiki/data/.htpasswd	2005-04-26 23:01:14.000000000 +0200
+@@ -0,0 +1,3 @@
 +EelcoVisser:ouVqgWEGQocso
 +WikiMaster:/7sWIyc3bkwkE
++FooBar:aT7Y19oJL/Ggk
 diff -Naur min-wiki.org/data/log200504.txt min-wiki/data/log200504.txt
 --- min-wiki.org/data/log200504.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/log200504.txt	2005-04-26 00:30:27.084694824 +0200
-@@ -0,0 +1,210 @@
++++ min-wiki/data/log200504.txt	2005-04-26 23:25:37.000000000 +0200
+@@ -0,0 +1,220 @@
 +| 25 Apr 2005 - 19:20 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
 +| 25 Apr 2005 - 19:21 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
 +| 25 Apr 2005 - 19:23 | Main.EelcoVisser | edit | TWiki.TWikiPreferences |  | 127.0.0.2 |
@@ -264,18 +259,30 @@ diff -Naur min-wiki.org/data/log200504.txt min-wiki/data/log200504.txt
 +| 25 Apr 2005 - 22:30 | Main.WikiMaster | save | Main.TWikiUsers | repRev 1.20 Main.WikiMaster 2005/04/25 22:16:43 dontNotify | 127.0.0.2 |
 +| 25 Apr 2005 - 22:30 | Main.TWikiGuest | view | Main.TWikiUsers |  | 127.0.0.2 |
 +| 25 Apr 2005 - 22:30 | Main.TWikiGuest | view | Main.TWikiGroups |  | 127.0.0.2 |
++| 26 Apr 2005 - 20:58 | Main.TWikiGuest | view | Main.WebHome |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:00 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:01 | Main.FooBar | save | Main.FooBar |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:01 | Main.FooBar | save | Main.TWikiUsers |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:01 | Main.FooBar | register | Main.FooBar | bar@foo | 127.0.0.2 |
++| 26 Apr 2005 - 21:11 | Main.TWikiGuest | view | TWiki.TWikiPreferences |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:12 | Main.TWikiGuest | view | TWiki.WebIndex |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:12 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:12 | Main.TWikiGuest | view | TWiki.WikiName |  | 127.0.0.2 |
++| 26 Apr 2005 - 21:25 | Main.TWikiGuest | view | TWiki.TWikiRegistration |  | 127.0.0.2 |
 diff -Naur min-wiki.org/data/Main/.changes min-wiki/data/Main/.changes
---- min-wiki.org/data/Main/.changes	2005-04-25 21:20:06.065953584 +0200
-+++ min-wiki/data/Main/.changes	2005-04-26 00:14:43.789097552 +0200
-@@ -1,7 +1,3 @@
+--- min-wiki.org/data/Main/.changes	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/.changes	2005-04-26 23:01:14.000000000 +0200
+@@ -1,9 +1,3 @@
 -FileAttachment	PeterThoeny	967427740
 -NicholasLee	NicholasLee	967449413
 -TWikiUsers	NicholasLee	967449413
 -WebHome	PeterThoeny	968533102
- WebHome	PeterThoeny	968976441
- TWikiAdminGroup	PeterThoeny	972799024
+-WebHome	PeterThoeny	968976441
+-TWikiAdminGroup	PeterThoeny	972799024
  WebPreferences	PeterThoeny	972799190
-@@ -100,3 +96,7 @@
+ WebPreferences	PeterThoeny	973657730
+ WebHome	PeterThoeny	973670140
+@@ -100,3 +94,9 @@
  PeterThoeny	PeterThoeny	1093932788	9
  WebLeftBar	PeterThoeny	1093932868	1
  TWikiAdminGroup	PeterThoeny	1093969962	9
@@ -283,14 +290,16 @@ diff -Naur min-wiki.org/data/Main/.changes min-wiki/data/Main/.changes
 +TWikiUsers	EelcoVisser	1114463184	19
 +WikiMaster	WikiMaster	1114467283	1
 +TWikiUsers	WikiMaster	1114467283	20
++FooBar	FooBar	1114549274	1
++TWikiUsers	FooBar	1114549274	21
 diff -Naur min-wiki.org/data/Main/FileAttachment.txt min-wiki/data/Main/FileAttachment.txt
---- min-wiki.org/data/Main/FileAttachment.txt	2005-04-25 21:20:06.062954040 +0200
+--- min-wiki.org/data/Main/FileAttachment.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/FileAttachment.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,2 +0,0 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1071644520" format="1.0" version="1.4"}%
 -See [[%TWIKIWEB%.FileAttachment]]
 diff -Naur min-wiki.org/data/Main/FileAttachment.txt,v min-wiki/data/Main/FileAttachment.txt,v
---- min-wiki.org/data/Main/FileAttachment.txt,v	2005-04-25 21:20:06.069952976 +0200
+--- min-wiki.org/data/Main/FileAttachment.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/FileAttachment.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,77 +0,0 @@
 -head	1.4;
@@ -370,8 +379,111 @@ diff -Naur min-wiki.org/data/Main/FileAttachment.txt,v min-wiki/data/Main/FileAt
 -a2 1
 -<!-- include from TWiki web to prevent broken links -->
 -@
+diff -Naur min-wiki.org/data/Main/FooBar.txt min-wiki/data/Main/FooBar.txt
+--- min-wiki.org/data/Main/FooBar.txt	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/FooBar.txt	2005-04-26 23:01:14.000000000 +0200
+@@ -0,0 +1,35 @@
++%META:TOPICINFO{author="FooBar" date="1114549274" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="TWikiUsers"}%
++
++	* Name: foo bar
++	* Email: bar@foo
++	* Company Name: 
++	* Company URL: 
++	* Country: Austria
++	* Comment: 
++
++__My Links__
++	* %TWIKIWEB%.WelcomeGuest to learn TWiki
++	* Sandbox.WebHome web to try out TWiki
++	* Sandbox.%TOPIC%Sandbox just for me
++	* 
++	* 
++
++__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
++	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off: (see details in %TWIKIWEB%.%WIKIPREFSTOPIC%)
++		* Set LINKTOOLTIPINFO = off
++	* Horizontal size of text edit box:
++		* Set EDITBOXWIDTH = 70
++	* Vertical size of text edit box:
++		* Set EDITBOXHEIGHT = 22
++	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
++		* Set EDITBOXSTYLE = width: 99%
++	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
++		* Set ALLOWTOPICCHANGE =
++
++__Related topics__
++	* ChangePassword
++	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
++	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
++	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
++
+diff -Naur min-wiki.org/data/Main/FooBar.txt,v min-wiki/data/Main/FooBar.txt,v
+--- min-wiki.org/data/Main/FooBar.txt,v	1970-01-01 01:00:00.000000000 +0100
++++ min-wiki/data/Main/FooBar.txt,v	2005-04-27 22:16:55.000000000 +0200
+@@ -0,0 +1,60 @@
++head	1.1;
++access;
++symbols;
++locks
++	visser:1.1; strict;
++comment	@# @;
++
++
++1.1
++date	2005.04.26.21.01.14;	author FooBar;	state Exp;
++branches;
++next	;
++
++
++desc
++@none
++@
++
++
++1.1
++log
++@none
++@
++text
++@%META:TOPICINFO{author="FooBar" date="1114549274" format="1.0" version="1.1"}%
++%META:TOPICPARENT{name="TWikiUsers"}%
++
++	* Name: foo bar
++	* Email: bar@@foo
++	* Company Name: 
++	* Company URL: 
++	* Country: Austria
++	* Comment: 
++
++__My Links__
++	* %TWIKIWEB%.WelcomeGuest to learn TWiki
++	* Sandbox.WebHome web to try out TWiki
++	* Sandbox.%TOPIC%Sandbox just for me
++	* 
++	* 
++
++__Personal Preferences (details in %TWIKIWEB%.TWikiVariables)__
++	* Show tool-tip topic info on mouse-over of %TWIKIWEB%.WikiWord links, on or off: (see details in %TWIKIWEB%.%WIKIPREFSTOPIC%)
++		* Set LINKTOOLTIPINFO = off
++	* Horizontal size of text edit box:
++		* Set EDITBOXWIDTH = 70
++	* Vertical size of text edit box:
++		* Set EDITBOXHEIGHT = 22
++	* Style of text edit box. =width: 99%= for full window width (default), =width: auto= to disable.
++		* Set EDITBOXSTYLE = width: 99%
++	* Optionally write protect your home page: (set it to your %TWIKIWEB%.WikiName)
++		* Set ALLOWTOPICCHANGE =
++
++__Related topics__
++	* ChangePassword
++	* %TWIKIWEB%.%WIKIPREFSTOPIC% has site-level preferences of %WIKITOOLNAME%.
++	* %WEBPREFSTOPIC% has preferences of the %WIKITOOLNAME%.%WEB% web.
++	* %MAINWEB%.%WIKIUSERSTOPIC% has a list of other TWiki users.
++
++@
 diff -Naur min-wiki.org/data/Main/LondonOffice.txt min-wiki/data/Main/LondonOffice.txt
---- min-wiki.org/data/Main/LondonOffice.txt	2005-04-25 21:20:06.063953888 +0200
+--- min-wiki.org/data/Main/LondonOffice.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/LondonOffice.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,8 +0,0 @@
 -Here would stand the information about the London office:
@@ -383,7 +495,7 @@ diff -Naur min-wiki.org/data/Main/LondonOffice.txt min-wiki/data/Main/LondonOffi
 -
 -__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
 diff -Naur min-wiki.org/data/Main/LondonOffice.txt,v min-wiki/data/Main/LondonOffice.txt,v
---- min-wiki.org/data/Main/LondonOffice.txt,v	2005-04-25 21:20:06.067953280 +0200
+--- min-wiki.org/data/Main/LondonOffice.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/LondonOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,66 +0,0 @@
 -head	1.3;
@@ -453,7 +565,7 @@ diff -Naur min-wiki.org/data/Main/LondonOffice.txt,v min-wiki/data/Main/LondonOf
 -%INCLUDE{"OfficeLocations.txt"}%
 -@
 diff -Naur min-wiki.org/data/Main/OfficeLocations.txt min-wiki/data/Main/OfficeLocations.txt
---- min-wiki.org/data/Main/OfficeLocations.txt	2005-04-25 21:20:06.066953432 +0200
+--- min-wiki.org/data/Main/OfficeLocations.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/OfficeLocations.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,9 +0,0 @@
 -The <nop>OfficeLocations topic has a list of all your offices.
@@ -466,7 +578,7 @@ diff -Naur min-wiki.org/data/Main/OfficeLocations.txt min-wiki/data/Main/OfficeL
 -
 -__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups
 diff -Naur min-wiki.org/data/Main/OfficeLocations.txt,v min-wiki/data/Main/OfficeLocations.txt,v
---- min-wiki.org/data/Main/OfficeLocations.txt,v	2005-04-25 21:20:06.061954192 +0200
+--- min-wiki.org/data/Main/OfficeLocations.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/OfficeLocations.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,86 +0,0 @@
 -head	1.4;
@@ -556,7 +668,7 @@ diff -Naur min-wiki.org/data/Main/OfficeLocations.txt,v min-wiki/data/Main/Offic
 -(This is an example of corporate intranet use and is for demonstration purposes only: TWikiRegistration asks for an office location. To add/remove an office edit the OfficeLocations and TWikiRegistration topics)
 -@
 diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt min-wiki/data/Main/SanJoseOffice.txt
---- min-wiki.org/data/Main/SanJoseOffice.txt	2005-04-25 21:20:06.066953432 +0200
+--- min-wiki.org/data/Main/SanJoseOffice.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/SanJoseOffice.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,8 +0,0 @@
 -Here would stand the information about the San Jose office:
@@ -568,7 +680,7 @@ diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt min-wiki/data/Main/SanJoseOf
 -
 -__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
 diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt,v min-wiki/data/Main/SanJoseOffice.txt,v
---- min-wiki.org/data/Main/SanJoseOffice.txt,v	2005-04-25 21:20:06.064953736 +0200
+--- min-wiki.org/data/Main/SanJoseOffice.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/SanJoseOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,66 +0,0 @@
 -head	1.3;
@@ -638,7 +750,7 @@ diff -Naur min-wiki.org/data/Main/SanJoseOffice.txt,v min-wiki/data/Main/SanJose
 -%INCLUDE{"OfficeLocations.txt"}%
 -@
 diff -Naur min-wiki.org/data/Main/TokyoOffice.txt min-wiki/data/Main/TokyoOffice.txt
---- min-wiki.org/data/Main/TokyoOffice.txt	2005-04-25 21:20:06.063953888 +0200
+--- min-wiki.org/data/Main/TokyoOffice.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/TokyoOffice.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,8 +0,0 @@
 -Here would stand the information about the Tokyo office:
@@ -650,7 +762,7 @@ diff -Naur min-wiki.org/data/Main/TokyoOffice.txt min-wiki/data/Main/TokyoOffice
 -
 -__Related topic:__ OfficeLocations, %WIKIUSERSTOPIC%
 diff -Naur min-wiki.org/data/Main/TokyoOffice.txt,v min-wiki/data/Main/TokyoOffice.txt,v
---- min-wiki.org/data/Main/TokyoOffice.txt,v	2005-04-25 21:20:06.067953280 +0200
+--- min-wiki.org/data/Main/TokyoOffice.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/Main/TokyoOffice.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,66 +0,0 @@
 -head	1.3;
@@ -721,14 +833,14 @@ diff -Naur min-wiki.org/data/Main/TokyoOffice.txt,v min-wiki/data/Main/TokyoOffi
 -@
 diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.lock min-wiki/data/Main/TWikiAdminGroup.lock
 --- min-wiki.org/data/Main/TWikiAdminGroup.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/TWikiAdminGroup.lock	2005-04-26 00:19:40.352013136 +0200
++++ min-wiki/data/Main/TWikiAdminGroup.lock	2005-04-26 00:19:40.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114467580
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt min-wiki/data/Main/TWikiAdminGroup.txt
---- min-wiki.org/data/Main/TWikiAdminGroup.txt	2005-04-25 21:20:06.062954040 +0200
-+++ min-wiki/data/Main/TWikiAdminGroup.txt	2005-04-26 00:19:40.338015264 +0200
+--- min-wiki.org/data/Main/TWikiAdminGroup.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiAdminGroup.txt	2005-04-26 00:19:40.000000000 +0200
 @@ -1,7 +1,7 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1093970022" format="1.0" version="1.9"}%
 +%META:TOPICINFO{author="EelcoVisser" date="1114467580" format="1.0" version="1.10"}%
@@ -740,8 +852,8 @@ diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt min-wiki/data/Main/TWikiAd
  
  (Setup Note: (a) Verify that user authentication is working, (b) set the members of TWiki Administrator Group in GROUP, (c) enable the ALLOWTOPICCHANGE variable by removing # sign, (d) set the ALLOWTOPICHANGE in TWiki.TWikiPreferences to this group (e) remove this note after you have done the setup)
 diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt,v min-wiki/data/Main/TWikiAdminGroup.txt,v
---- min-wiki.org/data/Main/TWikiAdminGroup.txt,v	2005-04-25 21:20:06.062954040 +0200
-+++ min-wiki/data/Main/TWikiAdminGroup.txt,v	2005-04-26 00:28:00.618961000 +0200
+--- min-wiki.org/data/Main/TWikiAdminGroup.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiAdminGroup.txt,v	2005-04-27 22:16:54.000000000 +0200
 @@ -1,11 +1,16 @@
 -head	1.9;
 +head	1.10;
@@ -803,14 +915,14 @@ diff -Naur min-wiki.org/data/Main/TWikiAdminGroup.txt,v min-wiki/data/Main/TWiki
  @none
 diff -Naur min-wiki.org/data/Main/TWikiPreferences.lock min-wiki/data/Main/TWikiPreferences.lock
 --- min-wiki.org/data/Main/TWikiPreferences.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/TWikiPreferences.lock	2005-04-26 00:05:07.371726312 +0200
++++ min-wiki/data/Main/TWikiPreferences.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114459548
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt min-wiki/data/Main/TWikiPreferences.txt
---- min-wiki.org/data/Main/TWikiPreferences.txt	2005-04-25 21:20:06.065953584 +0200
-+++ min-wiki/data/Main/TWikiPreferences.txt	2005-04-26 00:05:07.349729656 +0200
+--- min-wiki.org/data/Main/TWikiPreferences.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiPreferences.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,9 +1,13 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1071955740" format="1.0" version="1.1"}%
 -The site-level preferences are located in [[%TWIKIWEB%.%TOPIC%]]
@@ -835,8 +947,8 @@ diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt min-wiki/data/Main/TWikiP
 +-- Main.PeterThoeny - 20 Dec 2003
 +
 diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt,v min-wiki/data/Main/TWikiPreferences.txt,v
---- min-wiki.org/data/Main/TWikiPreferences.txt,v	2005-04-25 21:20:06.063953888 +0200
-+++ min-wiki/data/Main/TWikiPreferences.txt,v	2005-04-26 00:28:00.670953096 +0200
+--- min-wiki.org/data/Main/TWikiPreferences.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiPreferences.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -1,11 +1,16 @@
 -head	1.1;
 +head	1.2;
@@ -895,15 +1007,15 @@ diff -Naur min-wiki.org/data/Main/TWikiPreferences.txt,v min-wiki/data/Main/TWik
  	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
 diff -Naur min-wiki.org/data/Main/TWikiUsers.lock min-wiki/data/Main/TWikiUsers.lock
 --- min-wiki.org/data/Main/TWikiUsers.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/TWikiUsers.lock	2005-04-26 00:30:22.532386880 +0200
++++ min-wiki/data/Main/TWikiUsers.lock	2005-04-26 23:11:01.000000000 +0200
 @@ -0,0 +1,2 @@
 +WikiMaster
 +1114468222
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/TWikiUsers.txt min-wiki/data/Main/TWikiUsers.txt
---- min-wiki.org/data/Main/TWikiUsers.txt	2005-04-25 21:20:06.061954192 +0200
-+++ min-wiki/data/Main/TWikiUsers.txt	2005-04-26 00:30:22.517389160 +0200
-@@ -1,41 +1,43 @@
+--- min-wiki.org/data/Main/TWikiUsers.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiUsers.txt	2005-04-26 23:01:14.000000000 +0200
+@@ -1,41 +1,44 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1077314023" format="1.0" version="1.19"}%
 ----+ List of %WIKITOOLNAME% users
 -
@@ -945,7 +1057,7 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt min-wiki/data/Main/TWikiUsers.t
 -	* Set ALLOWTOPICCHANGE = TWikiAdminGroup
 -
 -__Related topics:__ OfficeLocations, TWikiGroups
-+%META:TOPICINFO{author="WikiMaster" date="1114467403" format="1.0" version="1.20"}%
++%META:TOPICINFO{author="FooBar" date="1114549274" format="1.0" version="1.21"}%
 +---+ List of %WIKITOOLNAME% users
 +
 +Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
@@ -959,6 +1071,7 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt min-wiki/data/Main/TWikiUsers.t
 +	* D - <a name="D">- - - -</a>
 +	* E - <a name="E">- - - -</a>
 +	* F - <a name="F">- - - -</a>
++	* FooBar - 26 Apr 2005
 +	* G - <a name="G">- - - -</a>
 +	* H - <a name="H">- - - -</a>
 +	* I - <a name="I">- - - -</a>
@@ -989,19 +1102,24 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt min-wiki/data/Main/TWikiUsers.t
 +__Related topics:__ TWikiGroups
 +
 diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers.txt,v
---- min-wiki.org/data/Main/TWikiUsers.txt,v	2005-04-25 21:20:06.067953280 +0200
-+++ min-wiki/data/Main/TWikiUsers.txt,v	2005-04-26 00:30:22.530387184 +0200
-@@ -1,11 +1,16 @@
+--- min-wiki.org/data/Main/TWikiUsers.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/TWikiUsers.txt,v	2005-04-27 22:16:54.000000000 +0200
+@@ -1,11 +1,21 @@
 -head	1.19;
-+head	1.20;
++head	1.21;
  access;
  symbols;
  locks
 -	nobody:1.19; strict;
-+	visser:1.20; strict;
++	visser:1.21; strict;
  comment	@# @;
  
  
++1.21
++date	2005.04.26.21.01.14;	author FooBar;	state Exp;
++branches;
++next	1.20;
++
 +1.20
 +date	2005.04.25.22.16.43;	author WikiMaster;	state Exp;
 +branches;
@@ -1010,16 +1128,16 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers
  1.19
  date	2004.02.20.21.53.43;	author PeterThoeny;	state Exp;
  branches;
-@@ -107,12 +112,65 @@
+@@ -107,12 +117,78 @@
  @
  
  
-+1.20
++1.21
 +log
 +@none
 +@
 +text
-+@%META:TOPICINFO{author="WikiMaster" date="1114467403" format="1.0" version="1.20"}%
++@%META:TOPICINFO{author="FooBar" date="1114549274" format="1.0" version="1.21"}%
 +---+ List of %WIKITOOLNAME% users
 +
 +Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
@@ -1033,6 +1151,7 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers
 +	* D - <a name="D">- - - -</a>
 +	* E - <a name="E">- - - -</a>
 +	* F - <a name="F">- - - -</a>
++	* FooBar - 26 Apr 2005
 +	* G - <a name="G">- - - -</a>
 +	* H - <a name="H">- - - -</a>
 +	* I - <a name="I">- - - -</a>
@@ -1065,6 +1184,18 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers
 +@
 +
 +
++1.20
++log
++@none
++@
++text
++@d1 1
++a1 1
++%META:TOPICINFO{author="WikiMaster" date="1114467403" format="1.0" version="1.20"}%
++d15 1
++@
++
++
  1.19
  log
  @none
@@ -1079,21 +1210,21 @@ diff -Naur min-wiki.org/data/Main/TWikiUsers.txt,v min-wiki/data/Main/TWikiUsers
  Please take the time and add yourself to the list. To do that fill out the form in %TWIKIWEB%.TWikiRegistration. This will create an account for you which allows you to edit topics. 
 diff -Naur min-wiki.org/data/Main/WebChanges.lock min-wiki/data/Main/WebChanges.lock
 --- min-wiki.org/data/Main/WebChanges.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebChanges.lock	2005-04-26 00:05:07.349729656 +0200
++++ min-wiki/data/Main/WebChanges.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114463305
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/WebHome.lock min-wiki/data/Main/WebHome.lock
 --- min-wiki.org/data/Main/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebHome.lock	2005-04-26 00:05:07.350729504 +0200
++++ min-wiki/data/Main/WebHome.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114463589
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/WebHome.txt min-wiki/data/Main/WebHome.txt
---- min-wiki.org/data/Main/WebHome.txt	2005-04-25 21:20:06.063953888 +0200
-+++ min-wiki/data/Main/WebHome.txt	2005-04-26 00:05:07.349729656 +0200
+--- min-wiki.org/data/Main/WebHome.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/WebHome.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,35 +1,3 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1044153791" format="1.0" version="1.20"}%
 -<table><tr><td>
@@ -1134,8 +1265,8 @@ diff -Naur min-wiki.org/data/Main/WebHome.txt min-wiki/data/Main/WebHome.txt
 +See %TWIKIWEB%.WelcomeGuest for documentation.
 +
 diff -Naur min-wiki.org/data/Main/WebHome.txt,v min-wiki/data/Main/WebHome.txt,v
---- min-wiki.org/data/Main/WebHome.txt,v	2005-04-25 21:20:06.064953736 +0200
-+++ min-wiki/data/Main/WebHome.txt,v	2005-04-26 00:28:00.711946864 +0200
+--- min-wiki.org/data/Main/WebHome.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/WebHome.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -2,7 +2,7 @@
  access;
  symbols;
@@ -1147,14 +1278,14 @@ diff -Naur min-wiki.org/data/Main/WebHome.txt,v min-wiki/data/Main/WebHome.txt,v
  
 diff -Naur min-wiki.org/data/Main/WebLeftBar.lock min-wiki/data/Main/WebLeftBar.lock
 --- min-wiki.org/data/Main/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebLeftBar.lock	2005-04-26 00:09:40.276238520 +0200
++++ min-wiki/data/Main/WebLeftBar.lock	2005-04-26 00:09:40.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114466980
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/WebLeftBar.txt min-wiki/data/Main/WebLeftBar.txt
---- min-wiki.org/data/Main/WebLeftBar.txt	2005-04-25 21:20:06.064953736 +0200
-+++ min-wiki/data/Main/WebLeftBar.txt	2005-04-26 00:09:40.262240648 +0200
+--- min-wiki.org/data/Main/WebLeftBar.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/WebLeftBar.txt	2005-04-26 00:09:40.000000000 +0200
 @@ -1,6 +1,5 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1093932928" format="1.0" version="1.1"}%
 -	* *[[%WIKILOGOURL%][TWiki.org]]*
@@ -1177,8 +1308,8 @@ diff -Naur min-wiki.org/data/Main/WebLeftBar.txt min-wiki/data/Main/WebLeftBar.t
  ---
  	* *TWiki Webs*
 diff -Naur min-wiki.org/data/Main/WebLeftBar.txt,v min-wiki/data/Main/WebLeftBar.txt,v
---- min-wiki.org/data/Main/WebLeftBar.txt,v	2005-04-25 21:20:06.060954344 +0200
-+++ min-wiki/data/Main/WebLeftBar.txt,v	2005-04-26 00:28:00.581966624 +0200
+--- min-wiki.org/data/Main/WebLeftBar.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Main/WebLeftBar.txt,v	2005-04-27 22:16:54.000000000 +0200
 @@ -1,11 +1,16 @@
 -head	1.1;
 +head	1.2;
@@ -1252,14 +1383,14 @@ diff -Naur min-wiki.org/data/Main/WebLeftBar.txt,v min-wiki/data/Main/WebLeftBar
 +@
 diff -Naur min-wiki.org/data/Main/WebManageGroup.lock min-wiki/data/Main/WebManageGroup.lock
 --- min-wiki.org/data/Main/WebManageGroup.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebManageGroup.lock	2005-04-26 00:19:55.764670056 +0200
++++ min-wiki/data/Main/WebManageGroup.lock	2005-04-26 00:19:55.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114467595
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/WebManageGroup.txt min-wiki/data/Main/WebManageGroup.txt
 --- min-wiki.org/data/Main/WebManageGroup.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebManageGroup.txt	2005-04-26 00:19:55.753671728 +0200
++++ min-wiki/data/Main/WebManageGroup.txt	2005-04-26 00:19:55.000000000 +0200
 @@ -0,0 +1,10 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114463649" format="1.0" version="1.1"}%
 +*Web Managers Group*
@@ -1273,7 +1404,7 @@ diff -Naur min-wiki.org/data/Main/WebManageGroup.txt min-wiki/data/Main/WebManag
 +
 diff -Naur min-wiki.org/data/Main/WebManageGroup.txt,v min-wiki/data/Main/WebManageGroup.txt,v
 --- min-wiki.org/data/Main/WebManageGroup.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebManageGroup.txt,v	2005-04-26 00:28:00.851925584 +0200
++++ min-wiki/data/Main/WebManageGroup.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -0,0 +1,35 @@
 +head	1.1;
 +access;
@@ -1312,14 +1443,14 @@ diff -Naur min-wiki.org/data/Main/WebManageGroup.txt,v min-wiki/data/Main/WebMan
 +@
 diff -Naur min-wiki.org/data/Main/WebNews.lock min-wiki/data/Main/WebNews.lock
 --- min-wiki.org/data/Main/WebNews.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebNews.lock	2005-04-26 00:05:07.371726312 +0200
++++ min-wiki/data/Main/WebNews.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114458312
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Main/WebNews.txt min-wiki/data/Main/WebNews.txt
 --- min-wiki.org/data/Main/WebNews.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebNews.txt	2005-04-26 00:28:04.041440704 +0200
++++ min-wiki/data/Main/WebNews.txt	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,4 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114458312" format="1.0" version="1.1"}%
 +%META:TOPICPARENT{name="CustomWebMenus"}%
@@ -1327,7 +1458,7 @@ diff -Naur min-wiki.org/data/Main/WebNews.txt min-wiki/data/Main/WebNews.txt
 +
 diff -Naur min-wiki.org/data/Main/WebNews.txt,v min-wiki/data/Main/WebNews.txt,v
 --- min-wiki.org/data/Main/WebNews.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WebNews.txt,v	2005-04-26 00:28:00.840927256 +0200
++++ min-wiki/data/Main/WebNews.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -0,0 +1,29 @@
 +head	1.1;
 +access;
@@ -1360,7 +1491,7 @@ diff -Naur min-wiki.org/data/Main/WebNews.txt,v min-wiki/data/Main/WebNews.txt,v
 +@
 diff -Naur min-wiki.org/data/Main/WikiMaster.txt min-wiki/data/Main/WikiMaster.txt
 --- min-wiki.org/data/Main/WikiMaster.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WikiMaster.txt	2005-04-26 00:14:43.705110320 +0200
++++ min-wiki/data/Main/WikiMaster.txt	2005-04-26 00:14:43.000000000 +0200
 @@ -0,0 +1,35 @@
 +%META:TOPICINFO{author="WikiMaster" date="1114467283" format="1.0" version="1.1"}%
 +%META:TOPICPARENT{name="TWikiUsers"}%
@@ -1399,7 +1530,7 @@ diff -Naur min-wiki.org/data/Main/WikiMaster.txt min-wiki/data/Main/WikiMaster.t
 +
 diff -Naur min-wiki.org/data/Main/WikiMaster.txt,v min-wiki/data/Main/WikiMaster.txt,v
 --- min-wiki.org/data/Main/WikiMaster.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Main/WikiMaster.txt,v	2005-04-26 00:28:00.863923760 +0200
++++ min-wiki/data/Main/WikiMaster.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -0,0 +1,60 @@
 +head	1.1;
 +access;
@@ -1463,14 +1594,14 @@ diff -Naur min-wiki.org/data/Main/WikiMaster.txt,v min-wiki/data/Main/WikiMaster
 +@
 diff -Naur min-wiki.org/data/Sandbox/WebHome.lock min-wiki/data/Sandbox/WebHome.lock
 --- min-wiki.org/data/Sandbox/WebHome.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Sandbox/WebHome.lock	2005-04-26 00:08:44.835666768 +0200
++++ min-wiki/data/Sandbox/WebHome.lock	2005-04-26 00:08:44.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114466924
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Sandbox/WebHome.txt min-wiki/data/Sandbox/WebHome.txt
---- min-wiki.org/data/Sandbox/WebHome.txt	2005-04-25 21:20:06.090949784 +0200
-+++ min-wiki/data/Sandbox/WebHome.txt	2005-04-26 00:08:44.795672848 +0200
+--- min-wiki.org/data/Sandbox/WebHome.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Sandbox/WebHome.txt	2005-04-26 00:08:44.000000000 +0200
 @@ -1,14 +1,3 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1018765129" format="1.0" version="1.7"}%
 -The <b>%WIKITOOLNAME%.%WEB%</b> web is the sandbox you can use for testing. Everybody is welcome to add or delete some stuff. It is recommended to walk through the %TWIKIWEB%.TWikiTutorial to get a jumpstart on the %WIKITOOLNAME% tool. A good rule of thumb is to add at the end of the page and sign & date it with your %TWIKIWEB%.WikiName.
@@ -1490,8 +1621,8 @@ diff -Naur min-wiki.org/data/Sandbox/WebHome.txt min-wiki/data/Sandbox/WebHome.t
 +Have a ball
 +
 diff -Naur min-wiki.org/data/Sandbox/WebHome.txt,v min-wiki/data/Sandbox/WebHome.txt,v
---- min-wiki.org/data/Sandbox/WebHome.txt,v	2005-04-25 21:20:06.091949632 +0200
-+++ min-wiki/data/Sandbox/WebHome.txt,v	2005-04-26 00:28:00.914916008 +0200
+--- min-wiki.org/data/Sandbox/WebHome.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Sandbox/WebHome.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -2,7 +2,7 @@
  access;
  symbols;
@@ -1503,14 +1634,14 @@ diff -Naur min-wiki.org/data/Sandbox/WebHome.txt,v min-wiki/data/Sandbox/WebHome
  
 diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.lock min-wiki/data/Sandbox/WebLeftBar.lock
 --- min-wiki.org/data/Sandbox/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/Sandbox/WebLeftBar.lock	2005-04-26 00:09:09.448924984 +0200
++++ min-wiki/data/Sandbox/WebLeftBar.lock	2005-04-26 00:09:09.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114466949
 \ No newline at end of file
 diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt min-wiki/data/Sandbox/WebLeftBar.txt
---- min-wiki.org/data/Sandbox/WebLeftBar.txt	2005-04-25 21:20:06.092949480 +0200
-+++ min-wiki/data/Sandbox/WebLeftBar.txt	2005-04-26 00:09:09.408931064 +0200
+--- min-wiki.org/data/Sandbox/WebLeftBar.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Sandbox/WebLeftBar.txt	2005-04-26 00:09:09.000000000 +0200
 @@ -1,5 +1,5 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1093968259" format="1.0" version="1.1"}%
 -	* <b>%INCLUDINGWEB% Web</b>
@@ -1520,8 +1651,8 @@ diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt min-wiki/data/Sandbox/WebLef
  	* [[WebChanges][Changes]] 
  	* [[WebIndex][Index]]
 diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt,v min-wiki/data/Sandbox/WebLeftBar.txt,v
---- min-wiki.org/data/Sandbox/WebLeftBar.txt,v	2005-04-25 21:20:06.087950240 +0200
-+++ min-wiki/data/Sandbox/WebLeftBar.txt,v	2005-04-26 00:28:00.875921936 +0200
+--- min-wiki.org/data/Sandbox/WebLeftBar.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/Sandbox/WebLeftBar.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -2,7 +2,7 @@
  access;
  symbols;
@@ -1533,14 +1664,14 @@ diff -Naur min-wiki.org/data/Sandbox/WebLeftBar.txt,v min-wiki/data/Sandbox/WebL
  
 diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.lock min-wiki/data/TWiki/CustomSiteMenus.lock
 --- min-wiki.org/data/TWiki/CustomSiteMenus.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/CustomSiteMenus.lock	2005-04-26 00:05:07.449714456 +0200
++++ min-wiki/data/TWiki/CustomSiteMenus.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114457834
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt min-wiki/data/TWiki/CustomSiteMenus.txt
 --- min-wiki.org/data/TWiki/CustomSiteMenus.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/CustomSiteMenus.txt	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/CustomSiteMenus.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,10 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114457750" format="1.0" version="1.1"}%
 +<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
@@ -1554,7 +1685,7 @@ diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt min-wiki/data/TWiki/Custo
 +
 diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt,v min-wiki/data/TWiki/CustomSiteMenus.txt,v
 --- min-wiki.org/data/TWiki/CustomSiteMenus.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/CustomSiteMenus.txt,v	2005-04-26 00:28:03.966452104 +0200
++++ min-wiki/data/TWiki/CustomSiteMenus.txt,v	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,35 @@
 +head	1.1;
 +access;
@@ -1593,7 +1724,7 @@ diff -Naur min-wiki.org/data/TWiki/CustomSiteMenus.txt,v min-wiki/data/TWiki/Cus
 +@
 diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt min-wiki/data/TWiki/CustomWebMenus.txt
 --- min-wiki.org/data/TWiki/CustomWebMenus.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/CustomWebMenus.txt	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/CustomWebMenus.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,10 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114457856" format="1.0" version="1.1"}%
 +<div class="flexMenu" onmouseover="return !showMenu(event, 50);" onmouseout="return !hideMenu(event, 50);">
@@ -1607,7 +1738,7 @@ diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt min-wiki/data/TWiki/Custom
 +
 diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt,v min-wiki/data/TWiki/CustomWebMenus.txt,v
 --- min-wiki.org/data/TWiki/CustomWebMenus.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/CustomWebMenus.txt,v	2005-04-26 00:28:03.979450128 +0200
++++ min-wiki/data/TWiki/CustomWebMenus.txt,v	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,35 @@
 +head	1.1;
 +access;
@@ -1646,14 +1777,14 @@ diff -Naur min-wiki.org/data/TWiki/CustomWebMenus.txt,v min-wiki/data/TWiki/Cust
 +@
 diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.lock min-wiki/data/TWiki/TWikiPreferences.lock
 --- min-wiki.org/data/TWiki/TWikiPreferences.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/TWikiPreferences.lock	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/TWikiPreferences.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114459428
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt min-wiki/data/TWiki/TWikiPreferences.txt
---- min-wiki.org/data/TWiki/TWikiPreferences.txt	2005-04-25 21:20:06.193934128 +0200
-+++ min-wiki/data/TWiki/TWikiPreferences.txt	2005-04-26 00:05:07.423718408 +0200
+--- min-wiki.org/data/TWiki/TWikiPreferences.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/TWikiPreferences.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,10 +1,16 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1093932738" format="1.0" version="1.73"}%
 +%META:TOPICINFO{author="EelcoVisser" date="1114459138" format="1.0" version="1.74"}%
@@ -1721,8 +1852,8 @@ diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt min-wiki/data/TWiki/TWik
  ---++ Preferences Control Settings
  
 diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt,v min-wiki/data/TWiki/TWikiPreferences.txt,v
---- min-wiki.org/data/TWiki/TWikiPreferences.txt,v	2005-04-25 21:20:06.176936712 +0200
-+++ min-wiki/data/TWiki/TWikiPreferences.txt,v	2005-04-26 00:28:02.065741056 +0200
+--- min-wiki.org/data/TWiki/TWikiPreferences.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/TWikiPreferences.txt,v	2005-04-27 22:16:56.000000000 +0200
 @@ -1,11 +1,16 @@
 -head	1.73;
 +head	1.74;
@@ -1856,13 +1987,13 @@ diff -Naur min-wiki.org/data/TWiki/TWikiPreferences.txt,v min-wiki/data/TWiki/TW
  @none
 diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.lock min-wiki/data/TWiki/TWikiRegistration.lock
 --- min-wiki.org/data/TWiki/TWikiRegistration.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/TWikiRegistration.lock	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/TWikiRegistration.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114459574
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt min-wiki/data/TWiki/TWikiRegistrationPub.txt
---- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt	2005-04-25 21:20:06.181935952 +0200
+--- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/TWiki/TWikiRegistrationPub.txt	1970-01-01 01:00:00.000000000 +0100
 @@ -1,199 +0,0 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1090790707" format="1.0" version="1.12"}%
@@ -2065,7 +2196,7 @@ diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt min-wiki/data/TWiki/
 -If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
 -
 diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v min-wiki/data/TWiki/TWikiRegistrationPub.txt,v
---- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v	2005-04-25 21:20:06.211931392 +0200
+--- min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v	2005-04-25 21:20:06.000000000 +0200
 +++ min-wiki/data/TWiki/TWikiRegistrationPub.txt,v	1970-01-01 01:00:00.000000000 +0100
 @@ -1,664 +0,0 @@
 -head	1.12;
@@ -2733,8 +2864,8 @@ diff -Naur min-wiki.org/data/TWiki/TWikiRegistrationPub.txt,v min-wiki/data/TWik
 -<form action="%SCRIPTURL%/register" method="post">
 -@
 diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt min-wiki/data/TWiki/TWikiRegistration.txt
---- min-wiki.org/data/TWiki/TWikiRegistration.txt	2005-04-25 21:20:06.202932760 +0200
-+++ min-wiki/data/TWiki/TWikiRegistration.txt	2005-04-26 00:05:07.415719624 +0200
+--- min-wiki.org/data/TWiki/TWikiRegistration.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/TWikiRegistration.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,59 +1,199 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1043916483" format="1.0" version="1.8"}%
 -To edit pages on this %WIKITOOLNAME% Collaborative Web, you must have a registered user name in WikiNotation.
@@ -2995,8 +3126,8 @@ diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt min-wiki/data/TWiki/TWi
 +If you have any questions about registration, send an email to <a href="mailto:%WIKIWEBMASTER%?subject=%TOPIC%&#32;Question">%WIKIWEBMASTER%</a>.
 +
 diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt,v min-wiki/data/TWiki/TWikiRegistration.txt,v
---- min-wiki.org/data/TWiki/TWikiRegistration.txt,v	2005-04-25 21:20:06.202932760 +0200
-+++ min-wiki/data/TWiki/TWikiRegistration.txt,v	2005-04-26 00:28:02.841623104 +0200
+--- min-wiki.org/data/TWiki/TWikiRegistration.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/TWikiRegistration.txt,v	2005-04-27 22:16:57.000000000 +0200
 @@ -1,48 +1,68 @@
 -head	1.8;
 +head	1.12;
@@ -3717,14 +3848,14 @@ diff -Naur min-wiki.org/data/TWiki/TWikiRegistration.txt,v min-wiki/data/TWiki/T
  @
 diff -Naur min-wiki.org/data/TWiki/WebChanges.lock min-wiki/data/TWiki/WebChanges.lock
 --- min-wiki.org/data/TWiki/WebChanges.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebChanges.lock	2005-04-26 00:05:07.429717496 +0200
++++ min-wiki/data/TWiki/WebChanges.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114463371
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/WebChanges.txt min-wiki/data/TWiki/WebChanges.txt
---- min-wiki.org/data/TWiki/WebChanges.txt	2005-04-25 21:20:06.166938232 +0200
-+++ min-wiki/data/TWiki/WebChanges.txt	2005-04-26 00:05:07.405721144 +0200
+--- min-wiki.org/data/TWiki/WebChanges.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/WebChanges.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -1,5 +1,6 @@
 -%META:TOPICINFO{author="PeterThoeny" date="997991998" format="1.0beta2" version="1.3"}%
 -%SEARCH{".*" web="%INCLUDINGWEB%" regex="on" nosearch="on" order="modified" reverse="on" limit="50"}%
@@ -3738,8 +3869,8 @@ diff -Naur min-wiki.org/data/TWiki/WebChanges.txt min-wiki/data/TWiki/WebChanges
 +	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/SearchResult?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on][all]] changes
 +
 diff -Naur min-wiki.org/data/TWiki/WebChanges.txt,v min-wiki/data/TWiki/WebChanges.txt,v
---- min-wiki.org/data/TWiki/WebChanges.txt,v	2005-04-25 21:20:06.155939904 +0200
-+++ min-wiki/data/TWiki/WebChanges.txt,v	2005-04-26 00:28:01.352849432 +0200
+--- min-wiki.org/data/TWiki/WebChanges.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/WebChanges.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -1,11 +1,16 @@
 -head	1.3;
 +head	1.4;
@@ -3791,14 +3922,14 @@ diff -Naur min-wiki.org/data/TWiki/WebChanges.txt,v min-wiki/data/TWiki/WebChang
  	* See [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=100][100]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=200][200]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=400][400]], [[%SCRIPTURL%/search%SCRIPTSUFFIX%/%INCLUDINGWEB%/?search=%5C.*&amp;scope=topic&amp;order=modified&amp;reverse=on&amp;regex=on&amp;nosearch=on&amp;limit=800][800]] most recent changes
 diff -Naur min-wiki.org/data/TWiki/WebContents.lock min-wiki/data/TWiki/WebContents.lock
 --- min-wiki.org/data/TWiki/WebContents.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebContents.lock	2005-04-26 00:05:07.433716888 +0200
++++ min-wiki/data/TWiki/WebContents.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114457905
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/WebContents.txt min-wiki/data/TWiki/WebContents.txt
 --- min-wiki.org/data/TWiki/WebContents.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebContents.txt	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/WebContents.txt	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,4 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114457905" format="1.0" version="1.1"}%
 +%META:TOPICPARENT{name="CustomWebMenus"}%
@@ -3806,7 +3937,7 @@ diff -Naur min-wiki.org/data/TWiki/WebContents.txt min-wiki/data/TWiki/WebConten
 +
 diff -Naur min-wiki.org/data/TWiki/WebContents.txt,v min-wiki/data/TWiki/WebContents.txt,v
 --- min-wiki.org/data/TWiki/WebContents.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebContents.txt,v	2005-04-26 00:28:03.990448456 +0200
++++ min-wiki/data/TWiki/WebContents.txt,v	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,29 @@
 +head	1.1;
 +access;
@@ -3839,14 +3970,14 @@ diff -Naur min-wiki.org/data/TWiki/WebContents.txt,v min-wiki/data/TWiki/WebCont
 +@
 diff -Naur min-wiki.org/data/TWiki/WebLeftBar.lock min-wiki/data/TWiki/WebLeftBar.lock
 --- min-wiki.org/data/TWiki/WebLeftBar.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebLeftBar.lock	2005-04-26 00:09:59.669290328 +0200
++++ min-wiki/data/TWiki/WebLeftBar.lock	2005-04-26 00:09:59.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114466999
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt min-wiki/data/TWiki/WebLeftBar.txt
---- min-wiki.org/data/TWiki/WebLeftBar.txt	2005-04-25 21:20:06.187935040 +0200
-+++ min-wiki/data/TWiki/WebLeftBar.txt	2005-04-26 00:09:59.628296560 +0200
+--- min-wiki.org/data/TWiki/WebLeftBar.txt	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/WebLeftBar.txt	2005-04-26 00:09:59.000000000 +0200
 @@ -1,6 +1,5 @@
 -%META:TOPICINFO{author="PeterThoeny" date="1092718938" format="1.0" version="1.2"}%
 -	* *[[%WIKILOGOURL%][TWiki]]*
@@ -3857,8 +3988,8 @@ diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt min-wiki/data/TWiki/WebLeftBar
  	* *[[%TWIKIWEB%.TWikiRegistration][Register]]*
  ---
 diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt,v min-wiki/data/TWiki/WebLeftBar.txt,v
---- min-wiki.org/data/TWiki/WebLeftBar.txt,v	2005-04-25 21:20:06.137942640 +0200
-+++ min-wiki/data/TWiki/WebLeftBar.txt,v	2005-04-26 00:28:01.150880136 +0200
+--- min-wiki.org/data/TWiki/WebLeftBar.txt,v	2005-04-25 21:20:06.000000000 +0200
++++ min-wiki/data/TWiki/WebLeftBar.txt,v	2005-04-27 22:16:55.000000000 +0200
 @@ -2,7 +2,7 @@
  access;
  symbols;
@@ -3870,14 +4001,14 @@ diff -Naur min-wiki.org/data/TWiki/WebLeftBar.txt,v min-wiki/data/TWiki/WebLeftB
  
 diff -Naur min-wiki.org/data/TWiki/WebNews.lock min-wiki/data/TWiki/WebNews.lock
 --- min-wiki.org/data/TWiki/WebNews.lock	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebNews.lock	2005-04-26 00:05:07.450714304 +0200
++++ min-wiki/data/TWiki/WebNews.lock	2005-04-26 00:05:07.000000000 +0200
 @@ -0,0 +1,2 @@
 +EelcoVisser
 +1114458054
 \ No newline at end of file
 diff -Naur min-wiki.org/data/TWiki/WebNews.txt min-wiki/data/TWiki/WebNews.txt
 --- min-wiki.org/data/TWiki/WebNews.txt	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebNews.txt	2005-04-26 00:28:04.047439792 +0200
++++ min-wiki/data/TWiki/WebNews.txt	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,4 @@
 +%META:TOPICINFO{author="EelcoVisser" date="1114458054" format="1.0" version="1.1"}%
 +%META:TOPICPARENT{name="WebHome"}%
@@ -3885,7 +4016,7 @@ diff -Naur min-wiki.org/data/TWiki/WebNews.txt min-wiki/data/TWiki/WebNews.txt
 +
 diff -Naur min-wiki.org/data/TWiki/WebNews.txt,v min-wiki/data/TWiki/WebNews.txt,v
 --- min-wiki.org/data/TWiki/WebNews.txt,v	1970-01-01 01:00:00.000000000 +0100
-+++ min-wiki/data/TWiki/WebNews.txt,v	2005-04-26 00:28:04.003446480 +0200
++++ min-wiki/data/TWiki/WebNews.txt,v	2005-04-27 22:16:58.000000000 +0200
 @@ -0,0 +1,29 @@
 +head	1.1;
 +access;
