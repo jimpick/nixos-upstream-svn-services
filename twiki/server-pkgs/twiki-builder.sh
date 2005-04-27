@@ -56,7 +56,7 @@ cp -R ./twiki/pub $out/init/pub
 echo "Patching RCS locks ..."
 for file in `find $out/init/data -name \*.txt,v`
 do
-  @sed@/bin/sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
+  sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
   chmod +w $file
   mv $file.copy $file
 done

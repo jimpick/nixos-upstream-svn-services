@@ -22,7 +22,7 @@ cp --reply=yes $old/data/.htpasswd $new/data/
 echo "Patching RCS locks ..."
 for file in `find $new/data -name \*.txt,v`
 do
-  @sed@/bin/sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
+  sed "s/www:/nobody:/;s/apache:/nobody:/" < $file > $file.copy
   chmod +w $file
   mv $file.copy $file
 done
