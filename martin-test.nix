@@ -20,13 +20,7 @@ let {
     inherit adminAddr;
 
     subServices = [
-      minWiki
       testWiki
-#      visserWiki
-#      ptWiki
-#      stWiki
-#      stIntraWiki
-#      betaWiki
     ];
   };
 
@@ -61,7 +55,7 @@ let {
     dispScriptUrlPath = "/min";
     dispViewPath  = "";
 
-    registrationDomain = "127.0.0.2";
+    registrationDomain = "127.0.0.1";
   };
 
   visserWiki = (import ./twiki/twiki-instance.nix).twiki {

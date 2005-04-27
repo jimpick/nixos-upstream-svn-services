@@ -42,6 +42,7 @@ stdenv.mkDerivation {
   inherit htpasswd;
 
   conf = ./twiki.conf;
+  preconf = ./twiki-pre.conf;
 
   startupHook = ./startup-hook.sh;
 

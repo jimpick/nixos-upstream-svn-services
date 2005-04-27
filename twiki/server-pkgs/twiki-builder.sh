@@ -175,6 +175,18 @@ substitute $conf $out/types/apache-httpd/conf/twiki.conf \
     --subst-var pubUrlPath \
     --subst-var dispScriptUrlPath
 
+echo "Creating Apache pre httpd.conf fragment ..."
+ensureDir $out/types/apache-httpd/conf-pre
+substitute $preconf $out/types/apache-httpd/conf-pre/twiki.conf \
+    --subst-var twikiroot \
+    --subst-var pubdir \
+    --subst-var datadir \
+    --subst-var scriptUrlPath \
+    --subst-var pubUrlPath \
+    --subst-var dispScriptUrlPath
+
+# dirty hack for allowing rewrite rules
+ensureDir $out/rewritestub
 
 echo "Creating startup hook ..."
 ensureDir $out/types/apache-httpd
