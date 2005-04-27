@@ -8,7 +8,10 @@ do
   target="$new/data/`basename $source`"
   echo "Copying files from $source to $target"
   mkdir -p $target
-  cp -r --reply=yes $source/* $target
+  for file in $source/*
+  do 
+     cp -r --reply=yes $file $target
+  done
   mv $target/WebContents.txt   $target/WebLeftBar.txt
   mv $target/WebContents.txt,v $target/WebLeftBar.txt,v
 done
