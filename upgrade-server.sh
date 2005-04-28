@@ -24,6 +24,19 @@ echo "building new server..."
 nix-env -K -p $profiles/$profileName -f "$nixExpr" \
     -i -E "f: f {productionServer = $isProduction;}"
 
+echo "creating start and stop scripts"
+cat > start-$profileName <<EOF
+#! /bin/sh
+$profiles/$profileName/ctl -k start
+EOF
+chmod +x start-$profileName
+
+cat > stop-$profileName <<EOF
+#! /bin/sh
+$profiles/$profileName/ctl -k stop
+EOF
+chmod +x start-$profileName
+
 # Stop the old server.
 if test -n "$oldServer"; then
     echo "stopping old server..."
