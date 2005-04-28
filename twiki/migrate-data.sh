@@ -10,6 +10,7 @@ do
   mkdir -p $target
   for file in `find $source/* -type f`
   do 
+     echo "Copy $file to $target"
      cp -r --reply=yes $file $target
   done
   cp $source/.changes $source/.mailnotify $target
@@ -44,4 +45,5 @@ do
 done
 
 echo "Copying pub/ ..."
+mkdir -p $new/pub
 cp -r --reply=yes $old/pub/* $new/pub/

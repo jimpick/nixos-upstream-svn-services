@@ -1,3 +1,3 @@
 #! /bin/sh
 
-nix-build $1
+./upgrade-server.sh $1 ./$1.nix production

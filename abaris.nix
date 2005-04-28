@@ -106,10 +106,10 @@ let {
 
     defaultUrlHost = canonicalName;
 
-    name          = "st-intra-wiki";
+    name          = "intra-wiki";
     
-    pubdir        = instanceRootDir + "/st-intra-wiki/pub";
-    datadir       = instanceRootDir + "/st-intra-wiki/data";
+    pubdir        = instanceRootDir + "/intra-wiki/pub";
+    datadir       = instanceRootDir + "/intra-wiki/data";
 
     twikiName     = "Intra Wiki";
     scriptUrlPath = "/intra/bin";
