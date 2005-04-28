@@ -1,3 +1,5 @@
+{productionServer}:
+
 let {
 
 #  body = twikiService;
@@ -5,18 +7,20 @@ let {
 
   pkgs = import pkgs/system/all-packages.nix {system = __currentSystem;};
 
-  instanceRootDir = "/home/wiki/web-server";
+  instanceRootDir = "/home/eelco/web-server";
 
   adminAddr = "wiki-master@cs.uu.nl";
 
-  canonicalName = "http://abaris.zoo.cs.uu.nl:8080"; # !!! ugly
+  httpPort = if productionServer then "8080" else "8081";  # !!! ugly
+  
+  canonicalName = "http://itchy.labs.cs.uu.nl:" + httpPort;
   
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
     
     logDir = instanceRootDir + "/log";
     stateDir = instanceRootDir + "/state";
-    hostName = "abaris.zoo.cs.uu.nl";
+    hostName = "itchy.labs..cs.uu.nl";
     inherit adminAddr;
 
     subServices = [
@@ -26,6 +30,8 @@ let {
       intraWiki
       betaWiki
     ];
+
+    inherit httpPort;
   };
 
   testWiki = (import ./twiki/twiki-instance.nix).twiki {

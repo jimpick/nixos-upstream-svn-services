@@ -1,15 +1,15 @@
 #! /bin/sh -e
 
-set -x
-
-type=$1
+serverName=$1
+nixExpr=$2
+type=$3
 if test "$type" != "test" -a "$type" != "production"; then
-    echo "syntax: $0 {test | production}"
+    echo "syntax: $0 TYPE NIX-EXPR {test | production}"
     exit 1
 fi
 
 profiles=/nix/var/nix/profiles
-profileName=svn-$type-server
+profileName=$serverName-$type-server
 
 if test "$type" = "test"; then
     isProduction=false
@@ -21,15 +21,15 @@ fi
 oldServer=$(readlink -f $profiles/$profileName || true)
 
 echo "building new server..."
-nix-env -K -p $profiles/$profileName -f ./svn-server-conf.nix \
+nix-env -K -p $profiles/$profileName -f "$nixExpr" \
     -i -E "f: f {productionServer = $isProduction;}"
 
 # Stop the old server.
 if test -n "$oldServer"; then
     echo "stopping old server..."
-    $oldServer/bin/ctl -k stop || true
+    $oldServer/ctl -k stop || true
 fi
 
 # Start the new server.
 echo "starting new server..."
-$profiles/$profileName/bin/ctl -k start
+$profiles/$profileName/ctl -k start
