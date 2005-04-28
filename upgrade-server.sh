@@ -35,7 +35,7 @@ cat > stop-$profileName <<EOF
 #! /bin/sh
 $profiles/$profileName/ctl -k stop
 EOF
-chmod +x start-$profileName
+chmod +x stop-$profileName
 
 # Stop the old server.
 if test -n "$oldServer"; then
