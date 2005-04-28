@@ -7,21 +7,23 @@ let {
 
   pkgs = import pkgs/system/all-packages.nix {system = __currentSystem;};
 
-  instanceRootDir = "/home/eelco/web-server";
+  instanceRootDir = "/home/wiki/web-server";
 
   adminAddr = "wiki-master@cs.uu.nl";
 
   httpPort = if productionServer then "8080" else "8081";  # !!! ugly
+
+  hostName = "abaris.zoo.cs.uu.nl";
   
-  canonicalName = "http://itchy.labs.cs.uu.nl:" + httpPort;
+  canonicalName = "http://" + hostName + ":" + httpPort;
+
   
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
     
     logDir = instanceRootDir + "/log";
     stateDir = instanceRootDir + "/state";
-    hostName = "itchy.labs..cs.uu.nl";
-    inherit adminAddr;
+    inherit hostName httpPort adminAddr;
 
     subServices = [
       minWiki
@@ -30,8 +32,6 @@ let {
       intraWiki
       betaWiki
     ];
-
-    inherit httpPort;
   };
 
   testWiki = (import ./twiki/twiki-instance.nix).twiki {
