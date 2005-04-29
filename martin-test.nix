@@ -1,3 +1,5 @@
+{productionServer} :
+
 let {
 
 #  body = twikiService;
@@ -36,82 +38,8 @@ let {
     twikiName     = "Test Wiki";
     scriptUrlPath = "/test/bin";
     pubUrlPath    = "/test/pub";
-    dispScriptUrlPath = "/test";
+    dispScriptUrlPath = "";
     dispViewPath  = "";
+    absHostPath   = "/test";
   };
-
-  minWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "min-wiki";
-    
-    pubdir        = instanceRootDir + "/min-wiki/pub";
-    datadir       = instanceRootDir + "/min-wiki/data";
-
-    twikiName     = "Minimal Wiki";
-    scriptUrlPath = "/min/bin";
-    pubUrlPath    = "/min/pub";
-    dispScriptUrlPath = "/min";
-    dispViewPath  = "";
-
-    registrationDomain = "127.0.0.1";
-  };
-
-  visserWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "visser-wiki";
-    
-    pubdir        = instanceRootDir + "/visser-wiki/pub";
-    datadir       = instanceRootDir + "/visser-wiki/data";
-
-    twikiName     = "Eelco Visser's Personal Wiki";
-    scriptUrlPath = "/visser/bin";
-    pubUrlPath    = "/visser/pub";
-  };
-
-  ptWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "pt-wiki";
-    
-    pubdir        = instanceRootDir + "/pt-wiki/pub";
-    datadir       = instanceRootDir + "/pt-wiki/data";
-
-    twikiName     = "Program Transformation Wiki";
-    scriptUrlPath = "/pt/bin";
-    pubUrlPath    = "/pt/pub";
-  };
-
-  stWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "st-wiki";
-    
-    pubdir        = instanceRootDir + "/st-wiki/pub";
-    datadir       = instanceRootDir + "/st-wiki/data";
-
-    twikiName     = "ST Wiki";
-    scriptUrlPath = "/st/bin";
-    pubUrlPath    = "/st/pub";
-  };
-
-  stIntraWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "st-intra-wiki";
-    
-    pubdir        = instanceRootDir + "/st-intra-wiki/pub";
-    datadir       = instanceRootDir + "/st-intra-wiki/data";
-
-    twikiName     = "ST IntraWiki";
-    scriptUrlPath = "/st-intra/bin";
-    pubUrlPath    = "/st-intra/pub";
-  };
-
 }

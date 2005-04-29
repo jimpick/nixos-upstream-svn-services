@@ -11,6 +11,7 @@
 , pubdir
 , defaultUrlHost
 , scriptUrlPath ? "/twiki/bin"
+, absHostPath ? "/twiki"
 , dispScriptUrlPath ? null   
 , dispViewPath ? "/view"
 , pubUrlPath ? "/twiki/pub"
@@ -57,6 +58,7 @@ stdenv.mkDerivation {
     alwaysLogin
     defaultUrlHost
     scriptUrlPath
+    absHostPath
     dispViewPath
     pubUrlPath
     twikiName
