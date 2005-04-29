@@ -31,6 +31,9 @@
 # Subservices.  This is what it's all about.
 , subServices ? []
 
+# Site-local extensions to httpd.conf.
+, siteConf ? ""
+
 }:
 
 assert enableSSL -> sslServerCert != "" && sslServerKey != "" && httpsPort != 0;
@@ -59,5 +62,5 @@ stdenv.mkDerivation {
     logDir stateDir
     adminAddr hostName httpPort enableSSL httpsPort
     sslServerCert sslServerKey
-    subServices;
+    subServices siteConf;
 }

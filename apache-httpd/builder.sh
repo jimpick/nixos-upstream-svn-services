@@ -54,15 +54,16 @@ ln -s $out/conf/httpd-basics.conf $out/conf/httpd.conf
 ensureDir $out/root
 
 
+touch $out/conf/subservices.conf
+touch $out/conf/subservices-pre.conf
+
 shopt -s nullglob
 for i in $subServices; do
 
-    touch $out/conf/subservices.conf
     for j in $i/types/apache-httpd/conf/*; do
         echo "Include $j" >> $out/conf/subservices.conf
     done
     
-    touch $out/conf/subservices-pre.conf
     for j in $i/types/apache-httpd/conf-pre/*; do
         echo "Include $j" >> $out/conf/subservices-pre.conf
     done
@@ -72,3 +73,7 @@ for i in $subServices; do
     done
     
 done
+
+if test -n "$siteConf"; then
+    echo "Include $siteConf" >> $out/conf/subservices.conf
+fi
