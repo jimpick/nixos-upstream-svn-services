@@ -42,9 +42,12 @@ let {
     twikiName     = "Program Transformation Wiki";
     scriptUrlPath = "/pt/bin";
     pubUrlPath    = "/pt/pub";
-    dispScriptUrlPath = "";
-    dispViewPath  = "";
     absHostPath   = "/pt";
+
+    # Hacks for proxying and rewriting
+    dispPubUrlPath    = "/pub";
+    dispScriptUrlPath = "";
+    dispViewPath      = "";
 
     startWeb = "Transform/WebHome";
   };
