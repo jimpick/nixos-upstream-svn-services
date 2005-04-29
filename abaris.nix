@@ -27,7 +27,7 @@ let {
 
     subServices = [
 #      minWiki
-      ptWiki
+#      ptWiki # staat in abaris-pt
       icsWiki
       intraWiki
       betaWiki
