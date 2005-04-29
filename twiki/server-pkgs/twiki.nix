@@ -12,9 +12,10 @@
 , defaultUrlHost
 , scriptUrlPath ? "/twiki/bin"
 , absHostPath ? "/twiki"
-, dispScriptUrlPath ? null   
+, dispScriptUrlPath ? null   # defaults to scriptUrlPath
 , dispViewPath ? "/view"
 , pubUrlPath ? "/twiki/pub"
+, dispPubUrlPath ? null      # defaults to pubUrlPath
 , twikiName ? "TWiki"
 , startWeb ? "Main/WebHome"
 , skins ? []
@@ -52,6 +53,9 @@ stdenv.mkDerivation {
 
   dispScriptUrlPath =
     if dispScriptUrlPath != null then dispScriptUrlPath else scriptUrlPath;
+
+  dispPubUrlPath =
+    if dispPubUrlPath != null then dispPubUrlPath else pubUrlPath;
 
   inherit 
     pubDataPatch

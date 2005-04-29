@@ -35,11 +35,14 @@ let {
     pubdir        = instanceRootDir + "/test-wiki/pub";
     datadir       = instanceRootDir + "/test-wiki/data";
 
-    twikiName     = "Test Wiki";
-    scriptUrlPath = "/test/bin";
-    pubUrlPath    = "/test/pub";
+    twikiName      = "Test Wiki";
+    scriptUrlPath  = "/test/bin";
+    pubUrlPath     = "/test/pub";
+    absHostPath    = "/test";
+
+    # Hacks for proxying and rewriting
+    dispPubUrlPath    = "/pub";
     dispScriptUrlPath = "";
-    dispViewPath  = "";
-    absHostPath   = "/test";
+    dispViewPath      = "";
   };
 }

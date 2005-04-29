@@ -142,7 +142,7 @@ cat > $out/lib/TWiki.cfg <<EOF
 \$scriptUrlPath     = "$scriptUrlPath";
 \$dispScriptUrlPath = "$dispScriptUrlPath";
 \$dispViewPath      = "$dispViewPath";
-\$pubUrlPath        = "$pubUrlPath";
+\$pubUrlPath        = "$dispPubUrlPath";
 \$pubDir            = "$pubdir";
 \$templateDir       = "$twikiroot/templates";
 \$dataDir           = "$datadir";
