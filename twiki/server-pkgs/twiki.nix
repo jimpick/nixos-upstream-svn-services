@@ -15,6 +15,7 @@
 , dispViewPath ? "/view"
 , pubUrlPath ? "/twiki/pub"
 , twikiName ? "TWiki"
+, startWeb ? "Main/WebHome"
 , skins ? []
 , plugins ? []
 , alwaysLogin ? false

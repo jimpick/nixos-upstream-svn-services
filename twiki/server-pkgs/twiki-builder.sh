@@ -181,7 +181,8 @@ substitute $conf $out/types/apache-httpd/conf/twiki.conf \
     --subst-var datadir \
     --subst-var scriptUrlPath \
     --subst-var pubUrlPath \
-    --subst-var dispScriptUrlPath
+    --subst-var dispScriptUrlPath \
+    --subst-var startWeb
 
 echo "Creating Apache pre httpd.conf fragment ..."
 ensureDir $out/types/apache-httpd/conf-pre
@@ -191,7 +192,8 @@ substitute $preconf $out/types/apache-httpd/conf-pre/twiki.conf \
     --subst-var datadir \
     --subst-var scriptUrlPath \
     --subst-var pubUrlPath \
-    --subst-var dispScriptUrlPath
+    --subst-var dispScriptUrlPath \
+    --subst-var startWeb
 
 # dirty hack for allowing rewrite rules
 ensureDir $out/rewritestub
