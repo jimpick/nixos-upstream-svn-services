@@ -83,7 +83,7 @@ let {
     dispScriptUrlPath = "/pt";
     dispViewPath  = "";
 
-    mainWeb = "Transform/WebHome";
+    startWeb = "Transform/WebHome";
   };
 
   icsWiki = (import ./twiki/twiki-instance.nix).twiki {
