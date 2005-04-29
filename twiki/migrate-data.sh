@@ -8,7 +8,7 @@ do
   target="$new/data/`basename $source`"
   echo "Copying files from $source to $target"
   mkdir -p $target
-  for file in `find $source/* -type f`
+  for file in `find $source -type f`
   do 
      echo "Copy $file to $target"
      cp -r --reply=yes $file $target

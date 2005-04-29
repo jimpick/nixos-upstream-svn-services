@@ -26,7 +26,7 @@ let {
     inherit hostName httpPort adminAddr;
 
     subServices = [
-      minWiki
+#      minWiki
       ptWiki
       icsWiki
       intraWiki
