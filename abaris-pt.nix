@@ -42,8 +42,9 @@ let {
     twikiName     = "Program Transformation Wiki";
     scriptUrlPath = "/pt/bin";
     pubUrlPath    = "/pt/pub";
-    dispScriptUrlPath = "/";
+    dispScriptUrlPath = "";
     dispViewPath  = "";
+    absHostPath   = "/pt";
 
     startWeb = "Transform/WebHome";
   };
