@@ -34,58 +34,6 @@ let {
     ];
   };
 
-  testWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "test-wiki";
-    
-    pubdir        = instanceRootDir + "/test-wiki/pub";
-    datadir       = instanceRootDir + "/test-wiki/data";
-
-    twikiName     = "Test Wiki";
-    scriptUrlPath = "/test/bin";
-    pubUrlPath    = "/test/pub";
-    dispScriptUrlPath = "/test";
-    dispViewPath  = "";
-  };
-
-  minWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "min-wiki";
-    
-    pubdir        = instanceRootDir + "/min-wiki/pub";
-    datadir       = instanceRootDir + "/min-wiki/data";
-
-    twikiName     = "Minimal Wiki";
-    scriptUrlPath = "/min/bin";
-    pubUrlPath    = "/min/pub";
-    dispScriptUrlPath = "/min";
-    dispViewPath  = "";
-
-    registrationDomain = ".uu.nl";
-  };
-
-  ptWiki = (import ./twiki/twiki-instance.nix).twiki {
-
-    defaultUrlHost = canonicalName;
-
-    name          = "pt-wiki";
-    
-    pubdir        = instanceRootDir + "/pt-wiki/pub";
-    datadir       = instanceRootDir + "/pt-wiki/data";
-
-    twikiName     = "Program Transformation Wiki";
-    scriptUrlPath = "/pt/bin";
-    pubUrlPath    = "/pt/pub";
-    dispScriptUrlPath = "/pt";
-    dispViewPath  = "";
-
-    startWeb = "Transform/WebHome";
-  };
-
   icsWiki = (import ./twiki/twiki-instance.nix).twiki {
 
     defaultUrlHost = canonicalName;
@@ -98,8 +46,11 @@ let {
     twikiName     = "ICS Wiki";
     scriptUrlPath = "/wiki/bin";
     pubUrlPath    = "/wiki/pub";
+    absHostPath   = "/wiki";
+
+    dispPubUrlPath    = "/wiki/pub";
     dispScriptUrlPath = "/wiki";
-    dispViewPath  = "";
+    dispViewPath      = "";
 
     registrationDomain = ".uu.nl";
   };
@@ -116,6 +67,9 @@ let {
     twikiName     = "Intra Wiki";
     scriptUrlPath = "/intra/bin";
     pubUrlPath    = "/intra/pub";
+    absHostPath   = "/intra";
+
+    dispPubUrlPath    = "/intra/pub";
     dispScriptUrlPath = "/intra";
     dispViewPath  = "";
 
@@ -134,10 +88,70 @@ let {
     twikiName     = "Beta Wiki";
     scriptUrlPath = "/beta/bin";
     pubUrlPath    = "/beta/pub";
+    absHostPath   = "/beta";
+
     dispScriptUrlPath = "/beta";
+    dispViewPath      = "";
+
+    registrationDomain = ".uu.nl";
+  };
+
+  testWiki = (import ./twiki/twiki-instance.nix).twiki {
+
+    defaultUrlHost = canonicalName;
+
+    name          = "test-wiki";
+    
+    pubdir        = instanceRootDir + "/test-wiki/pub";
+    datadir       = instanceRootDir + "/test-wiki/data";
+
+    twikiName     = "Test Wiki";
+    scriptUrlPath = "/test/bin";
+    pubUrlPath    = "/test/pub";
+    absHostPath   = "/test";
+
+    dispScriptUrlPath = "/test";
+    dispViewPath  = "";
+  };
+
+  minWiki = (import ./twiki/twiki-instance.nix).twiki {
+
+    defaultUrlHost = canonicalName;
+
+    name          = "min-wiki";
+    
+    pubdir        = instanceRootDir + "/min-wiki/pub";
+    datadir       = instanceRootDir + "/min-wiki/data";
+
+    twikiName     = "Minimal Wiki";
+    scriptUrlPath = "/min/bin";
+    pubUrlPath    = "/min/pub";
+    absHostPath   = "/min";
+
+    dispScriptUrlPath = "/min";
     dispViewPath  = "";
 
     registrationDomain = ".uu.nl";
+  };
+
+  ptWiki = (import ./twiki/twiki-instance.nix).twiki {
+
+    defaultUrlHost = canonicalName;
+
+    name          = "pt-wiki";
+    
+    pubdir        = instanceRootDir + "/pt-wiki/pub";
+    datadir       = instanceRootDir + "/pt-wiki/data";
+
+    twikiName     = "Program Transformation Wiki";
+    scriptUrlPath = "/pt/bin";
+    pubUrlPath    = "/pt/pub";
+    absHostPath   = "/pt";
+
+    dispScriptUrlPath = "/pt";
+    dispViewPath  = "";
+
+    startWeb = "Transform/WebHome";
   };
 
 }
