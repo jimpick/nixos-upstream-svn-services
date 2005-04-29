@@ -21,8 +21,8 @@ let {
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
     
-    logDir = instanceRootDir + "/log";
-    stateDir = instanceRootDir + "/state";
+    logDir = instanceRootDir + "/pt-log";
+    stateDir = instanceRootDir + "/pt-state";
     inherit hostName httpPort adminAddr;
 
     subServices = [
