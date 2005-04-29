@@ -14,10 +14,9 @@ let {
   httpPort = if productionServer then "8090" else "8091";  # !!! ugly
 
   hostName = "abaris.zoo.cs.uu.nl";
-  
+
   canonicalName = "http://" + hostName + ":" + httpPort;
 
-  
   webServer = import ./apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
     
@@ -32,7 +31,9 @@ let {
 
   ptWiki = (import ./twiki/twiki-instance.nix).twiki {
 
-    defaultUrlHost = canonicalName;
+#    defaultUrlHost = canonicalName;
+
+    defaultUrlHost = "";
 
     name          = "pt-wiki";
     
