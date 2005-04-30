@@ -31,7 +31,6 @@ let {
       "=>/hooks"
       ./src/hooks/commit-email.pl.in
       ./src/hooks/post-commit.in
-      ./src/hooks/post-commit-link.in
       ./src/hooks/hot-backup.pl.in
       ./src/hooks/create-tarballs.pl.in
       ./src/hooks/query-head-revision.xsl # !!! not actually an executable

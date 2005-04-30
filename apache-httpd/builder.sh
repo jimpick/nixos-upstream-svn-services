@@ -57,6 +57,8 @@ ensureDir $out/root
 touch $out/conf/subservices.conf
 touch $out/conf/subservices-pre.conf
 
+ensureDir $out/bin
+
 shopt -s nullglob
 for i in $subServices; do
 
@@ -70,6 +72,10 @@ for i in $subServices; do
     
     for j in $i/types/apache-httpd/root/*; do
         ln -s $j $out/root/$(basename $j) 
+    done
+
+    for j in $i/bin/*; do
+        ln -s $j $out/bin/$(basename $j) 
     done
     
 done

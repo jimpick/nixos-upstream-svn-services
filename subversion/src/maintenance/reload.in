@@ -19,8 +19,12 @@ print "resetting hooks\n";
 system "rm -f $repopath/hooks/*";
 die "removing hooks" if ($?);
 
-system "cp -p @out@/hooks/post-commit-link $repopath/hooks/post-commit";
-die "setting post-commit hook" if ($?);
+my $hookName = "$repopath/hooks/post-commit";
+open HOOK, ">$hookName";
+print HOOK "#! /bin/sh -e\n";
+print HOOK "exec /nix/var/nix/profiles/svn-production-server/bin/post-commit-hook \$*\n"; # !!! ugly
+close HOOK;
+chmod 0755, $hookName or die;
 
 print "reloading\n";
 

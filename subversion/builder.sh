@@ -64,3 +64,6 @@ for i in $staticPages; do
         cp $i $out/$subDir/$(stripHash $i; echo $strippedName)
     fi
 done
+
+# !!! hack
+ln -s $out/hooks/post-commit $out/bin/post-commit-hook
