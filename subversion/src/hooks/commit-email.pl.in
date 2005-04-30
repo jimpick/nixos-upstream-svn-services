@@ -405,7 +405,7 @@ foreach my $project (@project_settings_list)
 #    my $mail_sender = $author;
     my $myhostname = `hostname`;
     chomp $myhostname;
-    my $mail_sender = '"Subversion Server" <@NSENDER@>';
+    my $mail_sender = '"Subversion Server" <@notificationSender@>';
 
     if ($hostname =~ /\w/)
       {
