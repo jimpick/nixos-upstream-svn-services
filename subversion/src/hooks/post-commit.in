@@ -15,14 +15,18 @@
 # can use the `svnlook' utility to help it examine the
 # newly-committed tree.
 
+ERRLOG=@logDir@/post-commit
+
+export PATH=@defaultPath@
+
+export TZ=UTC
+
 REPOS="$1"
 REV="$2"
 
 REPO=`basename "$REPOS"`
 
 echo `date`: "$REPOS" "$REV" >> @logDir@/commits
-
-ERRLOG=@logDir@/post-commit
 
 echo "=========================" >> $ERRLOG
 echo "`date`: $REPOS $REV" >> $ERRLOG
