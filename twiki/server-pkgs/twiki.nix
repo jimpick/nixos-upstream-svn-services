@@ -18,6 +18,7 @@
 , dispPubUrlPath ? null      # defaults to pubUrlPath
 , twikiName ? "TWiki"
 , startWeb ? "Main/WebHome"
+, customRewriteRules ? ""
 , skins ? []
 , plugins ? []
 , alwaysLogin ? false
