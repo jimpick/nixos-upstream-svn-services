@@ -74,6 +74,7 @@ let {
     dispViewPath  = "";
 
     registrationDomain = ".uu.nl";
+    alwaysLogin = true;
   };
 
   betaWiki = (import ./twiki/twiki-instance.nix).twiki {

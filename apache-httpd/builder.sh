@@ -71,11 +71,11 @@ for i in $subServices; do
     done
     
     for j in $i/types/apache-httpd/root/*; do
-        ln -s $j $out/root/$(basename $j) 
+        ln -sf $j $out/root/$(basename $j) 
     done
 
     for j in $i/bin/*; do
-        ln -s $j $out/bin/$(basename $j) 
+        ln -sf $j $out/bin/$(basename $j) 
     done
     
 done
