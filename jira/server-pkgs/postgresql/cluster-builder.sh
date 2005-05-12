@@ -2,14 +2,6 @@ set -e
 
 . $stdenv/setup
 
-if ( cat /etc/passwd | grep $serveruser > /dev/null )
-then
-  echo "User $serveruser exists. Great."
-else
-  echo "User $serveruser does not exist. Please create this user first. (useradd)"
-  exit 1
-fi
-
 mkdir -p $out/bin
 
 echo "Creating cluster init script."
@@ -35,6 +27,8 @@ EOF
 echo "Creating cluster ctl script."
 cat >> $out/bin/pg_cluster_ctl <<EOF
 #! /bin/sh
+
+mkdir -p $logdir # !!! hack, should happen as $serveruser
 
 EXTRAOPTS=""
 if test "\$1" = "start"
