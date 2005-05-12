@@ -19,6 +19,7 @@ print "resetting hooks\n";
 system "rm -f $repopath/hooks/*";
 die "removing hooks" if ($?);
 
+# !!! ugly: cut/paste from repoman.pl.in.
 my $hookName = "$repopath/hooks/post-commit";
 open HOOK, ">$hookName";
 print HOOK "#! /bin/sh -e\n";

@@ -439,9 +439,13 @@ elsif ($action eq "create" && defined($repo)) {
 
     } else {
 
-	system("cp", "-p",
-	       "@out@/hooks/post-commit-link",
-	       $repodir . "/" . $repo . "/hooks/post-commit");
+	# !!! ugly: cut/paste from reload.in.
+	my $hookName = "$repodir/$repo/hooks/post-commit";
+	open HOOK, ">$hookName";
+	print HOOK "#! /bin/sh -e\n";
+	print HOOK "exec /nix/var/nix/profiles/svn-production-server/bin/post-commit-hook \$*\n"; # !!! ugly
+	close HOOK;
+	chmod 0755, $hookName or die;
 
 	# By default, allow read/write access to the owner and 
 	# nobody else.
