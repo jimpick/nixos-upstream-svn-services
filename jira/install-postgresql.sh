@@ -1,4 +1,3 @@
 #! /bin/sh
 
-mkdir -p ./server-profiles
-nix-env -i -p ./server-profiles/profile -f postgresql-instance.nix postgresql-cluster
+nix-env -i -p /nix/var/nix/profiles/jira-server -f postgresql-instance.nix postgresql-cluster
