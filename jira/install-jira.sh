@@ -1,5 +1,4 @@
 #! /bin/sh
 
-mkdir -p ./server-profiles
-nix-env -i -p ./server-profiles/profile -f jira-instance.nix jira-instance
-nix-env -i -p ./server-profiles/profile -f jira-instance.nix jetty-instance
+nix-env -i -p /nix/var/nix/profiles/jira-server -f jira-instance.nix jira-instance
+nix-env -i -p /nix/var/nix/profiles/jira-server -f jira-instance.nix jetty-instance
