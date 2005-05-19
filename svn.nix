@@ -49,6 +49,7 @@ let {
     dbDir = instanceRootDir + "/db";
     distsDir = instanceRootDir + "/dist";
     backupsDir = instanceRootDir + "/backup";
+    tmpDir = instanceRootDir + "/tmp";
     inherit logDir;
 
     # Evaluation semantics should be lazier.

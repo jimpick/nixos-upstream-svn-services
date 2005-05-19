@@ -6,6 +6,7 @@ mkdir -p "@reposDir@"
 mkdir -p "@dbDir@"
 mkdir -p "@distsDir@"
 mkdir -p "@backupsDir@"
+mkdir -p "@tmpDir@"
 
 # Create missing database tables.
 echo | @db4@/bin/db_load -t hash -T "@dbDir@/svn-readers"
