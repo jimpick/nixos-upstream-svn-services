@@ -7,7 +7,7 @@ let {
       inherit (pkgs) stdenv postgresql;
       port    = (import ./database-account.nix).port;
       serveruser = (import ./database-account.nix).username;
-      logdir  = "/home/eelco/postgres/logs";
-      datadir = "/home/eelco/postgres/jira-data-1";
+      logdir  = "/home/postgres/logs";
+      datadir = "/home/postgres/jira-data-2";
     };
 }
