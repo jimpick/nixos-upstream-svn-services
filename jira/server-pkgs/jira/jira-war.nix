@@ -6,8 +6,8 @@ let {
       name = "jira-instance";
       builder = ./jirawar-builder.sh;
 
-      src = ./atlassian-jira-professional-3.0.3.tar.gz;
-      version = "3.0.3";
+      src = ./atlassian-jira-professional-3.1.1.tar.gz;
+      version = "3.1.1";
 
       inherit ant unzip postgresql;
       extrajars = jirajarsjetty;

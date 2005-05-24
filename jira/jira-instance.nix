@@ -21,7 +21,8 @@ rec {
     (import ./server-pkgs/jira/jira-war.nix) {
       dbaccount = import ./database-account.nix;
 
-      inherit (pkgs) stdenv fetchurl unzip postgresql;
+      inherit (pkgs) stdenv fetchurl unzip;
+      postgresql = pkgs.postgresql_jdbc;
       ant = pkgs.apacheAntBlackdown14;
     };
 
