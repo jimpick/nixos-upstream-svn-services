@@ -58,5 +58,8 @@ let {
     inherit adminAddr canonicalName;
 
     notificationSender = "svn@svn.cs.uu.nl";
+
+    # We use Berkeley DB repos.
+    fsType = "bdb";
   };
 }

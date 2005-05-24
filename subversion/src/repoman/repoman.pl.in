@@ -429,7 +429,9 @@ elsif ($action eq "create" && defined($repo)) {
 	end();
     }
 
-    system($svndir . "/bin/svnadmin", "create", $repodir . "/" . $repo);
+    system($svndir . "/bin/svnadmin", "create",
+	   "--fs-type", "@fsType@",
+	   $repodir . "/" . $repo);
 
     if ($? != 0) {
 

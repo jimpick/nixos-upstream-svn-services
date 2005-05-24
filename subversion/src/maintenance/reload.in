@@ -8,7 +8,7 @@ print "reloading $reponame\n";
 
 if (! -d $repopath) {
     print "creating repo\n";
-    system "@subversion@/bin/svnadmin create $repopath";
+    system "@subversion@/bin/svnadmin create --fs-type @fsType@ $repopath";
     die "svnadmin create" if ($?);
 } else {
     print "repo already exists\n";

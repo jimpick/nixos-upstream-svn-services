@@ -3,6 +3,7 @@
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
 , adminAddr, notificationSender
+, fsType ? "fsfs"
 }:
 
 let {
@@ -44,7 +45,7 @@ let {
     ];
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
-      adminAddr notificationSender subversion authModules viewcvs;
+      adminAddr notificationSender fsType subversion authModules viewcvs;
     inherit perl perlBerkeleyDB
       python apacheHttpd libxslt
       enscript db4 substituter;
