@@ -17,16 +17,16 @@
 7. Setup the database.
 
    Initialize the database cluster:
-   > ./server-profiles/profile/bin/pg_cluster_init
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_init
 
    Start the database server:
-   > ./server-profiles/profile/bin/pg_cluster_ctl start -w
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl start -w
 
    Initialize the database:
-   > ./server-profiles/profile/bin/init-database
+   > /nix/var/nix/profiles/jira-server/bin/init-database
 
    Stop the database server:
-   > ./server-profiles/profile/bin/pg_cluster_ctl stop -w
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl stop -w
 
 PostgreSQL, Jetty and JIRA have now been installed!
 
@@ -34,13 +34,13 @@ PostgreSQL, Jetty and JIRA have now been installed!
 Start JIRA:
 
 1. Start the PostgreSQL server:
-   > ./server-profiles/profile/bin/pg_cluster_ctl start -w
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl start -w
 
 2. Start Jetty:
-   > ./server-profiles/profile/bin/start-jetty
+   > /nix/var/nix/profiles/jira-server/bin/start-jetty
 
 3. You can now visit JIRA at:
-   https://localhost:8443/jira
+   https://127.0.0.1/jira
 
 4. Import the data of your previous JIRA installation (the file in the
    form should be a file in the file-system of the server) or
@@ -53,7 +53,7 @@ Start JIRA:
 Stop JIRA:
 
 1. Stop Jetty:
-   > ./server-profiles/profile/bin/stop-jetty
+   > /nix/var/nix/profiles/jira-server/bin/stop-jetty
 
 2. Stop PostgreSQL:
-   > ./server-profiles/profile/bin/pg_cluster_ctl stop
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl stop
