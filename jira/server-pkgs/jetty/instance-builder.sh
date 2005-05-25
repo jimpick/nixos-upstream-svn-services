@@ -16,7 +16,7 @@ export LANG="en_US"
 
 logfile=$logdir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
 
-\$JAVA_HOME/bin/java -Xmx256M -server -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME -jar \$JETTY_HOME/start.jar $out/etc/server.xml >>\$logfile 2>&1 &
+\$JAVA_HOME/bin/java -Xms$initHeapSize -Xmx$maxHeapSize -server -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME -jar \$JETTY_HOME/start.jar $out/etc/server.xml >>\$logfile 2>&1 &
 EOF
 
 cat >> $out/bin/stop-jetty <<EOF
