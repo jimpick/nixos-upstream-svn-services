@@ -53,13 +53,14 @@ cat > edit-webapp/WEB-INF/classes/entityengine.xml <<EOF
   <datasource name="defaultDS"
     schema-name="public" 
     helper-class="org.ofbiz.core.entity.GenericHelperDAO"
-    field-type-name="postgres72"
     check-on-start="true"
     use-foreign-keys="false"
     use-foreign-key-indices="false"
     check-fks-on-start="false"
     check-fk-indices-on-start="false"
-    add-missing-on-start="true">
+    add-missing-on-start="true"
+    check-indices-on-start="true"
+    field-type-name="postgres72">
     <inline-jdbc
       jdbc-driver="org.postgresql.Driver"
       jdbc-uri="jdbc:postgresql://$host:$port/$database"
