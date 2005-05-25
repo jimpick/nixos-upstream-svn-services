@@ -2,6 +2,9 @@ rec {
   pkgs =
     import pkgs/system/i686-linux.nix;
 
+  j2sdk = pkgs.blackdown;
+  ant   = pkgs.apacheAntBlackdown14;
+
   jetty =
     (import ./server-pkgs/jetty/instance.nix) {
       webapps = [
@@ -9,11 +12,11 @@ rec {
         ];
 
       sslKey = dummykey;    
-      # sslSupport = false;
-      port   = 443;
+      sslSupport = true;
+      port   = 5443;
       logdir = "/var/log/jetty";
 
-      j2sdk  = pkgs.blackdown;
+      inherit j2sdk;
       inherit (pkgs) stdenv jetty;
     };
 
@@ -22,8 +25,8 @@ rec {
       dbaccount = import ./database-account.nix;
 
       inherit (pkgs) stdenv fetchurl unzip;
+      inherit ant;
       postgresql = pkgs.postgresql_jdbc;
-      ant = pkgs.apacheAntBlackdown14;
     };
 
   dummykey =
@@ -36,6 +39,6 @@ rec {
         };
       storepass = "dummypass";
       inherit (pkgs) stdenv;
-      j2sdk = pkgs.blackdown;
+      inherit j2sdk;
     };
 }

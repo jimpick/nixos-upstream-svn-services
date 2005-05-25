@@ -6,8 +6,8 @@ let {
     (import ./server-pkgs/postgresql/cluster.nix) {
       inherit (pkgs) stdenv postgresql;
       port    = (import ./database-account.nix).port;
-      serveruser = (import ./database-account.nix).username;
+      serveruser = "postgres";
       logdir  = "/home/postgres/logs";
-      datadir = "/home/postgres/jira-data-2";
+      datadir = "/home/postgres/jira-data-3";
     };
 }
