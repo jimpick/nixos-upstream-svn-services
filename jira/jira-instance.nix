@@ -2,7 +2,7 @@ rec {
   pkgs =
     import pkgs/system/i686-linux.nix;
 
-  j2sdk = pkgs.blackdown;
+  j2re  = pkgs.j2re;
   ant   = pkgs.apacheAntBlackdown14;
 
   jetty =
@@ -16,7 +16,7 @@ rec {
       port   = 5443;
       logdir = "/var/log/jetty";
 
-      inherit j2sdk;
+      inherit j2re;
       inherit (pkgs) stdenv jetty;
     };
 
@@ -39,6 +39,6 @@ rec {
         };
       storepass = "dummypass";
       inherit (pkgs) stdenv;
-      inherit j2sdk;
+      inherit j2re;
     };
 }

@@ -1,5 +1,5 @@
 { stdenv
-, j2sdk
+, j2re
 , jetty
 , webapps
 , logdir
@@ -20,7 +20,7 @@ stdenv.mkDerivation ({
   paths = map (webapp : webapp.path) webapps;
   wars  = map (webapp : webapp.war)  webapps;
 
-  inherit j2sdk jetty;                
+  inherit j2re jetty;                
   inherit sslSupport logdir port stopport minThreads maxThreads initHeapSize maxHeapSize;
 
 } // (if sslSupport then

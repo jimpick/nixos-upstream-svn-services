@@ -11,7 +11,7 @@ cat >> $out/bin/start-jetty <<EOF
 
 export CLASSPATH=
 export JETTY_HOME=$jetty
-export JAVA_HOME=$j2sdk
+export JAVA_HOME=$j2re
 export LANG="en_US"
 
 logfile=$logdir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
@@ -24,7 +24,7 @@ cat >> $out/bin/stop-jetty <<EOF
 
 export CLASSPATH=
 export JETTY_HOME=$jetty
-export JAVA_HOME=$j2sdk
+export JAVA_HOME=$j2re
 export LANG="en_US"
 
 \$JAVA_HOME/bin/java -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME -jar \$JETTY_HOME/stop.jar
