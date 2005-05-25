@@ -13,7 +13,7 @@ rec {
 
       sslKey = dummykey;    
       sslSupport = true;
-      port   = 5443;
+      port   = 443;
       logdir = "/var/log/jetty";
 
       inherit j2re;
