@@ -2,7 +2,7 @@ rec {
   pkgs =
     import pkgs/system/i686-linux.nix;
 
-  j2re  = pkgs.j2re;
+  j2re  = pkgs.blackdown;
   ant   = pkgs.apacheAntBlackdown14;
 
   jetty =
@@ -27,6 +27,14 @@ rec {
       inherit (pkgs) stdenv fetchurl unzip;
       inherit ant;
       postgresql = pkgs.postgresql_jdbc;
+      plugins = [  
+        subversion_plugin
+      ];
+    };
+
+  subversion_plugin =
+    (import ./server-pkgs/jira/subversion) {
+      inherit (pkgs) stdenv fetchurl unzip;
     };
 
   dummykey =

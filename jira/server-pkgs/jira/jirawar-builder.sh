@@ -5,10 +5,20 @@ set -e
 tar zxvf  $src
 cd atlassian-*
 
+# todo: make this a plugin that installs the libraries an manipulates the entityengine datasource?
 echo "postgresql: $postgresql"
-
 cp $postgresql/share/java/postgresql.jar webapp/WEB-INF/lib
+
+#todo: this should definitly be a plugin
 cp $extrajars/*.jar webapp/WEB-INF/lib
+
+i=0
+while [ "$i" -lt "${#plugins[*]}" ]
+do
+  plugin=${plugins[i]}
+  . ${plugin_installers[i]}
+  i=`expr $i + 1`
+done
 
 cat > edit-webapp/WEB-INF/classes/entityengine.xml <<EOF
 <?xml version="1.0" encoding="UTF-8" ?>

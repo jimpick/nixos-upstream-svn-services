@@ -1,4 +1,4 @@
-{stdenv, fetchurl, unzip, ant, postgresql, dbaccount}:
+{stdenv, fetchurl, unzip, ant, postgresql, dbaccount, plugins ? []}:
 
 let {
   body =
@@ -13,6 +13,9 @@ let {
       extrajars = jirajarsjetty;
 
       inherit (dbaccount) database host port username password;
+
+      inherit plugins;
+      plugin_installers = map (plugin : plugin.installer) plugins;
     };
 
   jirajarsjetty =
