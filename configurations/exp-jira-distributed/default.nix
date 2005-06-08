@@ -13,7 +13,7 @@ let {
   # Build a Postgres server on FreeBSD.
   postgresService = 
     (import ../../jira/server-pkgs/postgresql/cluster.nix) {
-      inherit (pkgsFreeBSD) stdenv postgresql;
+      inherit (pkgsLinux) stdenv postgresql;
       port = postgresPort;
       logdir = "/home/eelco/postgres/logs";
       datadir = "/home/eelco/postgres/jira-data-1";
@@ -22,7 +22,7 @@ let {
 
   # Build a Jetty container with Jira on Linux
   jettyService =
-    (import ../../jira/server-pkgs/jetty/instance.nix) {
+    (import ../../jira/server-pkgs/jetty) {
       webapps = [
         { path = "/jira"; war = jiraService ~ "/lib/atlassian-jira.war"; }
       ];
@@ -53,6 +53,13 @@ let {
       };
     };
 
-    
-  body = [postgresService jettyService];
+
+  # The top-level server runner.
+  serviceRunner = (import ../../runner) {
+    inherit (pkgsLinux) stdenv substituter;
+    services = [postgresService jettyService];
+  };
+
+  
+  body = serviceRunner;
 }

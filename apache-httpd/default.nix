@@ -42,7 +42,7 @@ stdenv.mkDerivation {
   name = "apache-httpd-service";
   builder = ./builder.sh;
 
-  scripts = [ ./ctl.in ];
+  scripts = [ "=>/bin" ./control.in ];
 
   defaultPath = [
     (coreutils ~ "/bin")

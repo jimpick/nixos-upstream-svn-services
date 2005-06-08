@@ -1,12 +1,9 @@
-set -e
-
 . $stdenv/setup
 
-mkdir $out
-mkdir $out/bin
-mkdir $out/etc
+ensureDir $out/bin
+ensureDir $out/etc
 
-cat >> $out/bin/start-jetty <<EOF
+cat >> $out/bin/control <<EOF
 #! /bin/sh
 
 export CLASSPATH=
@@ -16,22 +13,22 @@ export LANG="en_US"
 
 logfile=$logdir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
 
-\$JAVA_HOME/bin/java -Xms$initHeapSize -Xmx$maxHeapSize -server -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME -jar \$JETTY_HOME/start.jar $out/etc/server.xml >>\$logfile 2>&1 &
+if test "\$1" = start; then
+
+    \$JAVA_HOME/bin/java -Xms$initHeapSize -Xmx$maxHeapSize -server \
+        -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME \
+        -jar \$JETTY_HOME/start.jar $out/etc/server.xml >>\$logfile 2>&1 &
+
+elif test "\$1" = stop; then
+
+    \$JAVA_HOME/bin/java -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME \
+        -jar \$JETTY_HOME/stop.jar
+
+fi
+        
 EOF
 
-cat >> $out/bin/stop-jetty <<EOF
-#! /bin/sh
-
-export CLASSPATH=
-export JETTY_HOME=$jetty
-export JAVA_HOME=$j2re
-export LANG="en_US"
-
-\$JAVA_HOME/bin/java -DSTOP.PORT=$stopport -Djetty.home=\$JETTY_HOME -jar \$JETTY_HOME/stop.jar
-EOF
-
-chmod a+x $out/bin/start-jetty
-chmod a+x $out/bin/stop-jetty
+chmod a+x $out/bin/control
 
 cat >> $out/etc/server.xml <<EOF
 <?xml version="1.0"?>

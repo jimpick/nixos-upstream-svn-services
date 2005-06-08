@@ -15,7 +15,7 @@
 
 stdenv.mkDerivation ({
   name = "jetty-instance";
-  builder = ./instance-builder.sh;
+  builder = ./builder.sh;
 
   paths = map (webapp : webapp.path) webapps;
   wars  = map (webapp : webapp.war)  webapps;
