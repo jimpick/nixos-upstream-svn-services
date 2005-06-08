@@ -12,9 +12,11 @@ cp $postgresql/share/java/postgresql.jar webapp/WEB-INF/lib
 #todo: this should definitly be a plugin
 cp $extrajars/*.jar webapp/WEB-INF/lib
 
+plugins=($plugins)
 i=0
 while [ "$i" -lt "${#plugins[*]}" ]
 do
+  echo FOO $i "${#plugins[*]}"
   plugin=${plugins[i]}
   . ${plugin_installers[i]}
   i=`expr $i + 1`
