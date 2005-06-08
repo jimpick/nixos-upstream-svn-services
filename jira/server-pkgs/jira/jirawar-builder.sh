@@ -76,13 +76,12 @@ EOF
 echo $ant
 $ant/bin/ant
 
-mkdir -p $out
-mkdir -p $out/bin
-mkdir -p $out/lib
+ensureDir $out/bin
+ensureDir $out/lib
 cp dist-generic/atlassian-jira-$version.war $out/lib/atlassian-jira.war
 
 cat > $out/bin/init-database <<EOF
-#! /bin/sh
+#! $SHELL
 echo "Checking for user $username."
 echo "If a password is required, then you must enter the password \"$password\" for the database user $username"
 if $postgresql/bin/psql -U $username -l
@@ -105,7 +104,16 @@ else
 fi
 EOF
 
-chmod a+x $out/bin/init-database
+cat > $out/bin/control <<EOF
+#! $SHELL
 
+if test "\$1" = jira-init; then
 
+    createuser --no-createdb --no-adduser -p $port owner
+    createdb -p $port -O owner jira
 
+fi
+
+EOF
+
+chmod +x $out/bin/*

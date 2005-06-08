@@ -12,15 +12,16 @@ let {
   
   # Build a Postgres server on FreeBSD.
   postgresService = 
-    (import ../../jira/server-pkgs/postgresql/cluster.nix) {
+    (import ../../postgresql) {
       inherit (pkgsLinux) stdenv postgresql;
       port = postgresPort;
-      logdir = "/home/eelco/postgres/logs";
-      datadir = "/home/eelco/postgres/jira-data-1";
+      logDir = "/home/eelco/postgres/logs";
+      dataDir = "/home/eelco/postgres/jira-data-1";
+      subServices = [jiraService];
     };
 
 
-  # Build a Jetty container with Jira on Linux
+  # Build a Jetty container on Linux.
   jettyService =
     (import ../../jira/server-pkgs/jetty) {
       webapps = [
@@ -34,24 +35,24 @@ let {
       inherit (pkgsLinux) stdenv jetty;
       j2re = pkgsLinux.blackdown;
     };
-  
-  jiraService =
-    (import ../../jira/server-pkgs/jira/jira-war.nix) {
-      inherit (pkgsLinux) stdenv fetchurl unzip;
-      ant = pkgsLinux.apacheAntBlackdown14;
-      postgresql = pkgsLinux.postgresql_jdbc;
-      plugins = [  
-#        subversion_plugin
-      ];
 
-      dbaccount = {
-        database = "jira";
-        host = "131.211.84.77";
-        port = postgresPort;
-        username = "eelco";
-        password = "changethis";
-      };
+  # Build a JIRA service.  
+  jiraService = import ../../jira/server-pkgs/jira/jira-war.nix {
+    inherit (pkgsLinux) stdenv fetchurl unzip;
+    ant = pkgsLinux.apacheAntBlackdown14;
+    postgresql = pkgsLinux.postgresql_jdbc;
+    plugins = [  
+#      subversion_plugin
+    ];
+
+    dbaccount = {
+      database = "jira";
+      host = "localhost";
+      port = postgresPort;
+      username = "eelco";
+      password = "changethis";
     };
+  };
 
 
   # The top-level server runner.

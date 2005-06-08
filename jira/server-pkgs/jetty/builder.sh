@@ -4,7 +4,7 @@ ensureDir $out/bin
 ensureDir $out/etc
 
 cat >> $out/bin/control <<EOF
-#! /bin/sh
+#! $SHELL
 
 export CLASSPATH=
 export JETTY_HOME=$jetty
@@ -12,6 +12,8 @@ export JAVA_HOME=$j2re
 export LANG="en_US"
 
 logfile=$logdir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
+
+mkdir -p \$(dirname \$logfile)
 
 if test "\$1" = start; then
 
@@ -25,7 +27,7 @@ elif test "\$1" = stop; then
         -jar \$JETTY_HOME/stop.jar
 
 fi
-        
+
 EOF
 
 chmod a+x $out/bin/control
