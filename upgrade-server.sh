@@ -27,22 +27,22 @@ nix-env -K -p $profiles/$profileName -f "$nixExpr" \
 echo "creating start and stop scripts"
 cat > start-$profileName <<EOF
 #! /bin/sh
-$profiles/$profileName/ctl -k start
+$profiles/$profileName/bin/control start
 EOF
 chmod +x start-$profileName
 
 cat > stop-$profileName <<EOF
 #! /bin/sh
-$profiles/$profileName/ctl -k stop
+$profiles/$profileName/bin/control stop
 EOF
 chmod +x stop-$profileName
 
 # Stop the old server.
 if test -n "$oldServer"; then
     echo "stopping old server..."
-    $oldServer/ctl -k stop || true
+    $oldServer/bin/control stop || true
 fi
 
 # Start the new server.
 echo "starting new server..."
-$profiles/$profileName/ctl -k start
+$profiles/$profileName/bin/control start

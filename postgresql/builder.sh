@@ -44,7 +44,7 @@ elif test "\$1" = init; then
     for i in $subServices; do
         echo Subservice \$i...
         if test -f \$i/bin/control; then
-            PATH=$postgresql/bin:\$PATH \$i/bin/control jira-init || true
+            PATH=$postgresql/bin:\$PATH \$i/bin/control postgres-init || true
         fi
     done
 

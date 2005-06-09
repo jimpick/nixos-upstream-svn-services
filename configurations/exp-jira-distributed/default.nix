@@ -7,10 +7,10 @@ let {
 
   # Build a Postgres server on FreeBSD.
   postgresService = import ../../postgresql {
-    inherit (pkgsLinux) stdenv postgresql;
+    inherit (pkgsFreeBSD) stdenv postgresql;
 
-#    host = "losser.labs.cs.uu.nl";
-    port = 5433;
+    host = "losser.labs.cs.uu.nl";
+    port = 5432;
     logDir = "/home/eelco/postgres/logs";
     dataDir = "/home/eelco/postgres/jira-data-1";
     
@@ -20,9 +20,10 @@ let {
 
   # Build a Jetty container on Linux.
   jettyService = import ../../jetty {
-    inherit (pkgsLinux) stdenv jetty;
-    j2re = pkgsLinux.blackdown;
+    inherit (pkgsFreeBSD) stdenv jetty;
+    j2re = pkgsFreeBSD.blackdown;
 
+    host = "itchy.labs.cs.uu.nl";
     port = 8080;
     sslSupport = false;
     logDir = "/home/eelco/jetty";
@@ -41,8 +42,7 @@ let {
 
     dbaccount = {
       database = "jira";
-      host = "localhost";
-      port = postgresService.port;
+      inherit (postgresService) host port;
       username = "eelco";
       password = "changethis";
     };

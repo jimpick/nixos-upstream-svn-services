@@ -107,7 +107,7 @@ EOF
 cat > $out/bin/control <<EOF
 #! $SHELL
 
-if test "\$1" = jira-init; then
+if test "\$1" = postgres-init; then
 
     createuser --no-createdb --no-adduser -p $port owner
     createdb -p $port -O owner jira

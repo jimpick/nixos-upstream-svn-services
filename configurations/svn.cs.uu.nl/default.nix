@@ -4,32 +4,28 @@
 
 let {
 
-#  body = twikiService;
   body = webServer;
 
-  pkgs = import pkgs/system/all-packages.nix {system = __currentSystem;};
+  pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
 
-  adminAddr = "eelco@cs.uu.nl";
 
-  httpPort = if productionServer then "12080" else "12081";
-  httpsPort = if productionServer then "12443" else "12444";
+  rootDir = "/home/eelco/subversion";
 
-  hostName = "svn.cs.uu.nl";
+  logDir = rootDir + "/" +
+     (if productionServer then "logs" else "test-logs");
+     
   
-  canonicalName = "https://" + hostName + ":" + httpsPort;
-
-  instanceRootDir = "/data/subversion";
-
-  logDir = instanceRootDir + "/" + 
-    (if productionServer then "logs" else "test-logs");
-
-  stateDir = logDir;
-
-  
-  webServer = import ./apache-httpd {
+  webServer = import ../../apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
 
-    inherit hostName httpPort httpsPort adminAddr logDir stateDir;
+    hostName = "svn.cs.uu.nl";
+    httpPort = if productionServer then "12080" else "12081";
+    httpsPort = if productionServer then "12443" else "12444";
+
+    adminAddr = "eelco@cs.uu.nl";
+
+    inherit logDir;
+    stateDir = logDir;
 
     subServices = [
       subversionService
@@ -40,22 +36,25 @@ let {
     sslServerKey = "/home/svn/ssl/server.key";
   };
 
-  subversionService = import ./subversion {
+  
+  subversionService = import ../../subversion {
     inherit (pkgs) stdenv fetchurl
       substituter apacheHttpd openssl db4 expat swig zlib
       perl perlBerkeleyDB python libxslt enscript;
 
-    reposDir = instanceRootDir + "/repos";
-    dbDir = instanceRootDir + "/db";
-    distsDir = instanceRootDir + "/dist";
-    backupsDir = instanceRootDir + "/backup";
-    tmpDir = instanceRootDir + "/tmp";
-    inherit logDir;
+    reposDir = rootDir + "/repos";
+    dbDir = rootDir + "/db";
+    distsDir = rootDir + "/dist";
+    backupsDir = rootDir + "/backup";
+    tmpDir = rootDir + "/tmp";
 
-    # Evaluation semantics should be lazier.
-    # inherit (webServer) canonicalName adminAddr;
+    inherit (webServer) logDir adminAddr;
 
-    inherit adminAddr canonicalName;
+    canonicalName =
+      if webServer.enableSSL then
+        "https://" + webServer.hostName + ":" + webServer.httpsPort
+      else
+        "http://" + webServer.hostName + ":" + webServer.httpPort;
 
     notificationSender = "svn@svn.cs.uu.nl";
 
