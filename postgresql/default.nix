@@ -4,10 +4,11 @@
 , logDir
 , dataDir
 , subServices ? []
+, allowedHosts ? []
 }:
 
 stdenv.mkDerivation {
   name = "postgresql-cluster";
   builder = ./builder.sh;
-  inherit postgresql port serverUser logDir dataDir subServices;
+  inherit postgresql port serverUser logDir dataDir subServices allowedHosts;
 }

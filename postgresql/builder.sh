@@ -19,12 +19,12 @@ fi
 
 start()
 {
-    env -i LANG=en_US PGPORT="$port" $postgresql/bin/pg_ctl -D $dataDir \$EXTRAOPTS -w start
+    env -i LANG=C PGPORT="$port" $postgresql/bin/pg_ctl -D $dataDir \$EXTRAOPTS -w start
 }
 
 stop()
 {
-    env -i LANG=en_US PGPORT="$port" $postgresql/bin/pg_ctl -D $dataDir \$EXTRAOPTS -w stop
+    env -i LANG=C PGPORT="$port" $postgresql/bin/pg_ctl -D $dataDir \$EXTRAOPTS -w stop
 }
 
 if test "\$1" = start; then
@@ -37,14 +37,25 @@ elif test "\$1" = stop; then
 
 elif test "\$1" = init; then
 
-    env -i LANG=en_US $postgresql/bin/initdb -D $dataDir
+    env -i LANG=C $postgresql/bin/initdb -D $dataDir
+
+    echo -n > $dataDir/pg_hba.conf
+    echo "local all all trust" >> $dataDir/pg_hba.conf
+    for i in $allowedHosts; do
+        # !!! hack
+        ip=\$(host \$i | sed 's/.* has address //')
+        echo "host all all \$ip/32 trust" >> $dataDir/pg_hba.conf
+    done
     
     start
     
     for i in $subServices; do
         echo Subservice \$i...
         if test -f \$i/bin/control; then
-            PATH=$postgresql/bin:\$PATH \$i/bin/control postgres-init || true
+            # !!! use of $SHELL here is a hack; in multi-machine
+            # configurations the actual shell of the \$i/bin/control script
+            # might be wrong.
+            PATH=$postgresql/bin:\$PATH $SHELL \$i/bin/control postgres-init || true
         fi
     done
 
