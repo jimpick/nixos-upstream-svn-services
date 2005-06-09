@@ -11,7 +11,7 @@ export JETTY_HOME=$jetty
 export JAVA_HOME=$j2re
 export LANG="en_US"
 
-logfile=$logdir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
+logfile=$logDir/jetty-\`date +"%Y-%m-%d-%H-%M-%S"\`
 
 mkdir -p \$(dirname \$logfile)
 

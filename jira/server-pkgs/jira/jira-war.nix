@@ -16,6 +16,8 @@ let {
 
       inherit plugins;
       plugin_installers = map (plugin : plugin.installer) plugins;
+
+      warPath = "/lib/atlassian-jira.war";
     };
 
   jirajarsjetty =

@@ -1,8 +1,8 @@
 { stdenv
 , j2re
 , jetty
-, webapps
-, logdir
+, subServices
+, logDir
 , port ? 8080
 , initHeapSize ? "100m"
 , maxHeapSize  ? "300m"
@@ -17,11 +17,11 @@ stdenv.mkDerivation ({
   name = "jetty-instance";
   builder = ./builder.sh;
 
-  paths = map (webapp : webapp.path) webapps;
-  wars  = map (webapp : webapp.war)  webapps;
+  paths = map (subService : subService.path) subServices;
+  wars  = map (subService : subService.war ~ subService.war.warPath)  subServices;
 
   inherit j2re jetty;                
-  inherit sslSupport logdir port stopport minThreads maxThreads initHeapSize maxHeapSize;
+  inherit sslSupport logDir port stopport minThreads maxThreads initHeapSize maxHeapSize;
 
 } // (if sslSupport then
        {inherit (sslKey) store storepass keypass;}
