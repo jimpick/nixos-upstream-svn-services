@@ -4,7 +4,7 @@ serverName=$1
 nixExpr=$2
 type=$3
 if test "$type" != "test" -a "$type" != "production"; then
-    echo "syntax: $0 TYPE NIX-EXPR {test | production}"
+    echo "syntax: $0 NAME NIX-EXPR {test | production}"
     exit 1
 fi
 
