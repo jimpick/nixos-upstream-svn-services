@@ -8,9 +8,9 @@ let {
 
   pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
 
-  baseDir = "/home/visser/test-server" ;
+  baseDir = "/home/visser/server" ;
 
-  rootDir = baseDir + "/server";
+  rootDir = baseDir + "/admin";
 
   svnDir = baseDir + "/subversion";
 
