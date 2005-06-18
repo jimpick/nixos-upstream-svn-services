@@ -1,4 +1,4 @@
-# This is the server configuration for svn.cs.uu.nl.
+# This is the server configuration for subversion at Eelco Visser's laptop.
 
 {productionServer}:
 
@@ -7,7 +7,6 @@ let {
   body = webServer;
 
   pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
-
 
   rootDir = "/home/visser/subversion";
 
