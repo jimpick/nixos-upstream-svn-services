@@ -18,7 +18,7 @@ let {
   webServer = import ../../apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
 
-    hostName = "localhost.localdomain";
+    hostName = "10.0.0.151";
     httpPort = if productionServer then "12080" else "12081";
     httpsPort = if productionServer then "12443" else "12444";
 
@@ -56,7 +56,7 @@ let {
       else
         "http://" + webServer.hostName + ":" + webServer.httpPort;
 
-    notificationSender = "svn@svn.cs.uu.nl";
+    notificationSender = "eelco-visser@xs4all.nl";
 
     # We use Berkeley DB repos.
     fsType = "bdb";
