@@ -4,6 +4,7 @@
 , canonicalName
 , adminAddr, notificationSender
 , fsType ? "fsfs"
+, autoVersioning ? false
 }:
 
 let {
@@ -43,6 +44,8 @@ let {
       "=>/types/apache-httpd/root/xsl"
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
+
+    autoVersioning = if autoVersioning then "on" else "off";
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
       adminAddr notificationSender fsType subversion authModules viewcvs;

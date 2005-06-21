@@ -28,6 +28,7 @@ doSub() {
         --subst-var-by perlFlags "-I$perlBerkeleyDB/lib/site_perl" \
         --subst-var defaultPath \
 	--subst-var fsType \
+	--subst-var autoVersioning \
         # end
 }
 

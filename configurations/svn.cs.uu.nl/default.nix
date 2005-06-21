@@ -9,7 +9,7 @@ let {
   pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
 
 
-  rootDir = "/home/eelco/subversion";
+  rootDir = "/data/subversion";
 
   logDir = rootDir + "/" +
      (if productionServer then "logs" else "test-logs");
@@ -60,5 +60,8 @@ let {
 
     # We use Berkeley DB repos.
     fsType = "bdb";
+
+    # Athur wants WebDAV autoversioning support.
+    autoVersioning = true;
   };
 }
