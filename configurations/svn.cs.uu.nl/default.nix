@@ -61,7 +61,7 @@ let {
     # We use Berkeley DB repos.
     fsType = "bdb";
 
-    # Athur wants WebDAV autoversioning support.
+    # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
   };
 }
