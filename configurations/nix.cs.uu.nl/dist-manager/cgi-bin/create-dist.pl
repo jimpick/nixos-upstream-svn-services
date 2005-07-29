@@ -9,6 +9,7 @@ use File::stat;
 my $conf = "@out@/directories.conf";
 my $baseURL = "@canonicalName@@distPrefix@";
 my $scripts = "@out@/scripts";
+$ENV{"PATH"} = "@defaultPath@";
 
 umask 0002;
 
