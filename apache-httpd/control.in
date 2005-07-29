@@ -28,6 +28,6 @@ fi
 # be overriden in httpd.conf using SetEnv!  So try not to set anything
 # here.
 if test "$1" = "start" -o "$1" = "stop"; then
-    env - \
+    env - PATH=/no-such-path HOME=/homeless-shelter \
         @apacheHttpd@/bin/apachectl -f @out@/conf/httpd.conf $sslFlag -k "$1"
 fi
