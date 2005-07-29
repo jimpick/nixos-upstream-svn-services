@@ -52,7 +52,7 @@
 	<col width="70"/>
       </colgroup>
       <colgroup span="1" width="50"/>
-      <colgroup span="{3 + count($rpm-systems)}" width="80"/>
+      <colgroup span="{4 + count($rpm-systems)}" width="80"/>
       <thead>
 	<tr>
 	  <th>pkg</th>
@@ -60,7 +60,8 @@
 	  <th>rev</th>
 	  <th bgcolor="#E0E0E0">all</th>
 	  <th>source</th>
-	  <th>Nix i686</th>
+	  <th>Nix/Linux</th>
+	  <th>Nix/Darwin</th>
 	  <xsl:for-each select="$rpm-systems">
 	    <th>
 	      <xsl:value-of select="current()"/>
@@ -75,12 +76,13 @@
 	    <th align="right"></th>
 	    <th align="right"></th>
 	    <td align="center">-</td>
-	    <td bgcolor="#E0E0E0"></td>
-	    <td bgcolor="#E0E0E0"></td>
+	    <td bgcolor="#E0E0E0"></td> <!-- source -->
+	    <td bgcolor="#E0E0E0"></td> <!-- linux -->
+	    <td bgcolor="#E0E0E0"></td> <!-- darwin -->
 	    <xsl:for-each select="$rpm-systems">
 	      <td bgcolor="#E0E0E0"></td>
 	    </xsl:for-each>
-	    <td bgcolor="#E0E0E0"></td>
+	    <td bgcolor="#E0E0E0"></td> <!-- nodist -->
 	  </tr>
       </tbody>
       <tbody>
@@ -127,6 +129,10 @@
 
       <td align="center">
 	<xsl:apply-templates select="product[@type='nix' and @system='i686-linux']" mode="product-cell"/>
+      </td>
+
+      <td align="center">
+	<xsl:apply-templates select="product[@type='nix' and @system='powerpc-darwin']" mode="product-cell"/>
       </td>
 
       <xsl:for-each select="$rpm-systems">
