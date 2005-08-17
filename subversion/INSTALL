@@ -1,50 +1,85 @@
-To install the Subversion server.
-
-1. Grab the latest Nixpkgs:
-
-     svn co https://svn.cs.uu.nl:12443/repos/trace/nixpkgs/trunk/pkgs
-
-   (Or create a symlink `pkgs' to the `pkgs' subdirectory of some
-   Nixpkgs installation you already have.)
-
-2. To speed up building of the server:
-
-     nix-pull http://catamaran.labs.cs.uu.nl/dist/nix/channels-v3/nixpkgs-unstable/MANIFEST
-
-3. Modify `svn-server-conf.nix' to set site-specific settings.  To set
-   up a https server, create a server certificate and key (see ssl/README).
-
-4. Build the test instance of the server:
-
-     ./upgrade-server test
-
-   If succesful, the server will run on port 12081 by default.
-
-5. Set a password for the `root' user:
-
-     /nix/var/nix/profiles/svn-test-server/bin/resetpw.pl root PASSWORD
-
-6. If the test server works, build the production instance:
-
-     ./upgrade-server production
-
-   The production instance will run op port 12080 by default.
+Prerequisites: the Subversion service is tested on Linux (i686-linux).
+Nix itself also supports other platforms, but some packages may not
+build or work properly.
 
 
-Anytime you make a configuration change, you should first upgrade the
-test server instance, then the production server instance
-(`./upgrade-server (test|production)').
+Steps to get a running Subversion service (see http://svn.cs.uu.nl/
+for an example):
 
+- Install the latest Nix release, e.g.,
 
-To stop the server:
+    http://nix.cs.uu.nl/dist/nix/nix-0.9pre3364/
 
-  /nix/var/nix/profiles/svn-(test|production)-server/bin/ctl stop
+  Nix should be installed in /nix (the default prefix), otherwise
+  pre-built binaries cannot be used.
 
-To start the server:
+- Grab the services and Nixpkgs from our Subversion repository:
 
-  /nix/var/nix/profiles/svn-(test|production)-server/bin/ctl start
+    $ svn co https://svn.cs.uu.nl:12443/repos/trace/services/trunk services
+    $ svn co https://svn.cs.uu.nl:12443/repos/trace/nixpkgs/trunk nixpkgs
 
-(This is done automatically by `./upgrade-server'.)
+- Make sure that the services can find Subversion:
+
+    $ cd services
+    $ ln -s ../nixpkgs/pkgs/ .
+
+- To speed up building of the server (optional but recommended):
+
+    $ nix-pull http://nix.cs.uu.nl/dist/nix/channels-v3/nixpkgs-unstable/MANIFEST
+
+- Customise:
+  
+    $ cd configurations/svn-template
+
+  Edit ./default.nix, in particular `rootDir' (specify the directory
+  where you want to store the log files, repositories, user DB, etc.),
+  `hostName', `httpPort', `adminAddr', and `notificationSender'.
+
+  You'll probably also want to change the UU logo to something else.
+  Just replace subversion/root/UU_merk.gif.
+
+  (You may want to make a copy of svn-template for your local
+  changes.)
+
+- Start the test server (running on port 12081 by default):
+
+    $ ../../upgrade-server.sh svn ./default.nix test
+
+  This will build the server and all dependencies.  (If you've done a
+  nix-pull, it will download pre-build binaries for most stuff, though
+  not Apache itself since that's being pre-built yet.)  It may seem
+  that a lot is being built/downloaded (it is!), but this is to ensure
+  that the dependencies are exactly right.
+
+  It will then start the server.  So make sure that it works
+  (http://localhost:12081/).  In particular
+
+    * Check that you can create users.
+    * Check that you can create repositories.
+    * Check that checkouts works.
+    * Check that ViewCVS works.
+
+  Every time you make a change to the configuration of the server,
+  re-run the command above to rebuild and restart the service.
+
+- Set a password for the `root' user:
+
+    $ /nix/var/nix/profiles/svn-test-server/bin/resetpw.pl root PASSWORD
+
+- Start the production server (running on port 12080 by default):
+
+    $ ../../upgrade-server.sh svn ./default.nix production
+
+  It is usually a good idea to upgrade the test server before
+  upgrading the production server.
+
+- To stop either server:
+
+    $  /nix/var/nix/profiles/svn-(test|production)-server/bin/control stop
+
+- To start either server:
+
+    $ /nix/var/nix/profiles/svn-(test|production)-server/bin/control start
 
 
 There are some utility commands in
