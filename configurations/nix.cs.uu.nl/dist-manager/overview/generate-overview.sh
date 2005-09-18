@@ -1,4 +1,4 @@
-#! @shell@ -e 
+#! @shell@ -ex
 
 PATH=@defaultPath@:@libxslt@/bin
 
@@ -14,3 +14,4 @@ xsltproc --param out \'$out\' releases-for-each-package.xsl $src
 cp success.gif $out
 cp failure.gif $out
 cp menuback.png $out
+chmod 644 $out/*.gif $out/*.png
