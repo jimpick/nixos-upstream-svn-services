@@ -9,6 +9,8 @@
 
   <xsl:output method='html' />
 
+  <xsl:key name="paths" match="path" use="." />
+  
   <xsl:template match="/log">
 
     <html>
@@ -19,26 +21,15 @@
       </head>
 
       <body>
+
+
         <h1>Top committers</h1>
 
         <xsl:variable name="authors"
                       select="sets:distinct(logentry/author)" />
 
-        <!--
-        <ul>
-          <xsl:for-each select="$authors">
-            <xsl:sort />
-            <li>
-              Name: <xsl:value-of select="." />
-              Commits: <xsl:value-of select="count(/log/logentry[author = current()])" />
-            </li>
-          </xsl:for-each>
-        </ul>
-        -->
-
         <xsl:variable name="authorsWithCount">
           <xsl:for-each select="$authors">
-            <xsl:sort />
             <author xmlns="">
               <name><xsl:value-of select="." /></name>
               <count>
@@ -92,6 +83,43 @@
 
         </table>
 
+
+        <h1>Most frequently modified paths</h1>
+
+        <xsl:variable name="pathsWithCount">
+          <xsl:for-each select="//path[count(. | key('paths', .)[1]) = 1]"> 
+            <path xmlns="">
+              <name><xsl:value-of select="." /></name>
+              <count><xsl:value-of select="count(key('paths', .))" /></count>
+            </path>
+          </xsl:for-each>
+        </xsl:variable>
+          
+        <xsl:variable name="pathsWithCountSorted">
+          <xsl:for-each select="exsl:node-set($pathsWithCount)/path">
+            <xsl:sort select="count" data-type="number" order="descending" />
+            <xsl:copy-of select="." />
+          </xsl:for-each>
+        </xsl:variable>
+
+        <table border="1">
+          <tr>
+            <th>Path</th>
+            <th># of changes</th>
+          </tr>
+
+          <xsl:for-each select="exsl:node-set($pathsWithCountSorted)/path[position() &lt; 100]">
+            <tr>
+              <xsl:if test="position() mod 2 != 1">
+                <xsl:attribute name="class">odd</xsl:attribute>
+              </xsl:if>
+              <td><xsl:value-of select="name" /></td>
+              <td class="commitCount"><xsl:value-of select="count" /></td>
+            </tr>
+          </xsl:for-each>
+
+        </table>
+        
       </body>
       
     </html>
