@@ -37,9 +37,7 @@
               </count>
               <commits>
                 <xsl:for-each select="/log/logentry[author = current()]">
-                  <commit>
-                    <xsl:value-of select="@revision" />
-                  </commit>
+                  <xsl:copy-of select="." />
                 </xsl:for-each>
               </commits>
             </author>
@@ -64,17 +62,24 @@
               <td class="recentCommits">
                 <!-- Sort the commits for this author in descending order. -->
                 <xsl:variable name="commitsSorted">
-                  <xsl:for-each select="commits/commit">
-                    <xsl:sort data-type="number" order="descending" />
+                  <xsl:for-each select="commits">
+                    <xsl:sort data-type="number" order="descending" select="logentry/@revision" />
                     <xsl:copy-of select="." />
                   </xsl:for-each>
                 </xsl:variable>
-                
+
                 <!-- Take the N most recent commits. -->
-                <xsl:for-each select="exsl:node-set($commitsSorted)/commit[position() &lt;= 10]">
-                  <a href="https://svn.cs.uu.nl:12443/viewcvs/StrategoXT?rev={.}&amp;view=rev">
-                    <xsl:value-of select="." />
-                  </a>
+                <xsl:for-each select="exsl:node-set($commitsSorted)/commits/logentry[position() &lt;= 10]">
+                  <span class="commit">
+                      <span class="commitPopup">
+                        <span class="commitDate"><xsl:value-of select="date" /></span>
+                        <hr />
+                        <pre class="commitMsg"><xsl:value-of select="msg" /></pre>
+                      </span>
+                      <a href="https://svn.cs.uu.nl:12443/viewcvs/StrategoXT?rev={@revision}&amp;view=rev">
+                        <xsl:value-of select="@revision" />
+                      </a>
+                  </span>
                   <xsl:text> </xsl:text>
                 </xsl:for-each>
               </td>
@@ -84,6 +89,8 @@
         </table>
 
 
+        <xsl:if test="false">
+          
         <h1>Most frequently modified paths</h1>
 
         <xsl:variable name="pathsWithCount">
@@ -119,6 +126,7 @@
           </xsl:for-each>
 
         </table>
+        </xsl:if>
         
       </body>
       
