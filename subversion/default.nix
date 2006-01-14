@@ -56,7 +56,7 @@ let {
 
 
   # Build a Subversion instance with Apache modules and Swig/Python bindings.
-  subversion = import ../pkgs/applications/version-management/subversion-1.2.x {
+  subversion = import ../pkgs/applications/version-management/subversion-1.3.x {
     inherit stdenv fetchurl openssl db4 expat swig zlib;
     localServer = true;
     httpServer = true;
