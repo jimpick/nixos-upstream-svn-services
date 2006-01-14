@@ -5,6 +5,7 @@ use BerkeleyDB;
 
 my $svndir = "@subversion@";
 my $repodir = "@reposDir@";
+my $backupdir = "@backupsDir@";
 my $userdb = "@dbDir@/svn-users";
 my $ownerdb = "@dbDir@/svn-owners";
 my $readerdb = "@dbDir@/svn-readers";
@@ -39,4 +40,9 @@ foreach my $repo (@ARGV) {
 
     system "mv $repodir/$repo $deldir";
     die "cannot move $repodir/$repo" if ($? != 0);
+
+    if (-e "$backupdir/$repo") {
+	system "mv $backupdir/$repo $deldir/BACKUP-$repo";
+	die "cannot move $backupdir/$repo" if ($? != 0);
+    }
 }
