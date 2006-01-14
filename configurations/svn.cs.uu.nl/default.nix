@@ -58,9 +58,6 @@ let {
 
     notificationSender = "svn@svn.cs.uu.nl";
 
-    # We use Berkeley DB repos.
-    fsType = "bdb";
-
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
   };
