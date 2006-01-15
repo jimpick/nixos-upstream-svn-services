@@ -18,6 +18,7 @@ doSub() {
         --subst-var tmpDir \
         --subst-var backupsDir \
         --subst-var apacheHttpd \
+        --subst-var mod_python \
         --subst-var authModules \
         --subst-var viewcvs \
         --subst-var db4 \
@@ -69,3 +70,7 @@ done
 
 # !!! hack
 ln -s $out/hooks/post-commit $out/bin/post-commit-hook
+
+# mod_python's own Python modules must be in the initial Python path,
+# they cannot be set through the PythonPath directive.
+echo "PYTHONPATH=$mod_python/lib/python2.4/site-packages" > $serviceDir/extra-env

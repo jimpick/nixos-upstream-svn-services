@@ -20,6 +20,14 @@ if test "$1" = "start"; then
 
 fi
 
+extraEnv=
+for i in @subServices@; do
+    fn=$i/types/apache-httpd/extra-env
+    if test -f "$fn"; then
+        extraEnv="$extraEnv $(cat $fn)"
+    fi
+done
+
 if test "@enableSSL@" = "1"; then
     sslFlag="-DSSL"
 fi
@@ -28,6 +36,7 @@ fi
 # be overriden in httpd.conf using SetEnv!  So try not to set anything
 # here.
 if test "$1" = "start" -o "$1" = "stop"; then
-    env - PATH=/no-such-path HOME=/homeless-shelter \
+    # PATH=/no-such-path 
+    env - HOME=/homeless-shelter $extraEnv \
         @apacheHttpd@/bin/apachectl -f @out@/conf/httpd.conf $sslFlag -k "$1"
 fi

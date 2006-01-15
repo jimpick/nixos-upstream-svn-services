@@ -1,6 +1,6 @@
 # This is the server configuration for svn.cs.uu.nl.
 
-{productionServer}:
+{productionServer ? true}:
 
 let {
 
@@ -18,10 +18,11 @@ let {
   webServer = import ../../apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
 
-    hostName = "svn.example.org";
+    hostName = "localhost";
     httpPort = if productionServer then "12080" else "12081";
+    httpsPort = if productionServer then "12443" else "12444";
 
-    adminAddr = "admin@example.org";
+    adminAddr = "eelco@cs.uu.nl";
 
     inherit logDir;
     stateDir = logDir;
@@ -29,13 +30,17 @@ let {
     subServices = [
       subversionService
     ];
+
+    enableSSL = false;
+    sslServerCert = "/home/svn/ssl/server.crt";
+    sslServerKey = "/home/svn/ssl/server.key";
   };
 
   
   subversionService = import ../../subversion {
     inherit (pkgs) stdenv fetchurl
-      substituter apacheHttpd openssl db4 expat swig zlib
-      perl perlBerkeleyDB python libxslt enscript;
+      substituter apacheHttpd mod_python openssl db4 expat swig
+      zlib perl perlBerkeleyDB python libxslt enscript;
 
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";
@@ -51,10 +56,7 @@ let {
       else
         "http://" + webServer.hostName + ":" + webServer.httpPort;
 
-    notificationSender = "svn@example.org";
-
-    # We use Berkeley DB repos.
-    fsType = "bdb";
+    notificationSender = "svn@localhost";
 
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;

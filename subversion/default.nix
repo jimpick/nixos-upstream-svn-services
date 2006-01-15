@@ -1,5 +1,5 @@
-{ stdenv, fetchurl, substituter, apacheHttpd, openssl, db4, expat, swig, zlib
-, perl, perlBerkeleyDB, python, libxslt, enscript
+{ stdenv, fetchurl, substituter, apacheHttpd, mod_python, openssl, db4, expat, swig
+, zlib, perl, perlBerkeleyDB, python, libxslt, enscript
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
 , adminAddr, notificationSender
@@ -49,9 +49,8 @@ let {
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
       adminAddr notificationSender fsType subversion authModules viewcvs;
-    inherit perl perlBerkeleyDB
-      python apacheHttpd libxslt
-      enscript db4 substituter;
+    inherit perl perlBerkeleyDB python apacheHttpd mod_python
+      libxslt enscript db4 substituter;
   };
 
 
