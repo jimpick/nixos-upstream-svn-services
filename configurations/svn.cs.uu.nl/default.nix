@@ -1,12 +1,12 @@
 # This is the server configuration for svn.cs.uu.nl.
 
-{productionServer}:
+{productionServer ? true}:
 
 let {
 
   body = webServer;
 
-  pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
+  pkgs = import ../../pkgs/system/all-packages.nix {};
 
 
   rootDir = "/data/subversion";
@@ -39,8 +39,8 @@ let {
   
   subversionService = import ../../subversion {
     inherit (pkgs) stdenv fetchurl
-      substituter apacheHttpd openssl db4 expat swig zlib
-      perl perlBerkeleyDB python libxslt enscript;
+      substituter apacheHttpd mod_python openssl db4 expat swig
+      zlib perl perlBerkeleyDB python libxslt enscript;
 
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";
