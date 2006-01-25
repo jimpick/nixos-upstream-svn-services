@@ -15,7 +15,7 @@ let {
     modules = [
       pkgs.xorg.xf86inputmouse
       pkgs.xorg.xf86inputkeyboard
-      pkgs.xorg.xf86videoi810
+      pkgs.xorg.xf86videovesa
     ];
   };
 
