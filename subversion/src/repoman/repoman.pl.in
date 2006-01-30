@@ -12,6 +12,7 @@ $ENV{'PATH'} = "@defaultPath@";
 my $admin = '@adminAddr@';
 my $svndir = "@subversion@";
 my $repodir = "@reposDir@";
+my $backupsdir = "@backupsDir@";
 my $repobase = "/repos";
 my $dbdir = "@dbDir@";
 
@@ -427,6 +428,15 @@ elsif ($action eq "create" && defined($repo)) {
     if (-d $repodir . "/" . $repo) {
 	print p, "The repository ", $repoesc, " already exists.";
 	end();
+    }
+
+    my $backup = "$backupsdir/$repo";
+    if (! -e "$backup") {
+	if (! mkdir $backup, 0700) {
+	    print h1("Error!");
+	    print p, "Cannot create backup directory for ", $repoesc, ".";
+	    end();
+	}
     }
 
     system($svndir . "/bin/svnadmin", "create",
