@@ -205,4 +205,137 @@
       <xsl:sort select="@date" order="descending"/>
     </xsl:apply-templates>
   </xsl:template>
+
+
+  <!-- Make a nice table of all releases. -->
+  
+  <xsl:template name="makeIndex">
+    <xsl:param name="specificPackage" />
+
+    <html>
+      
+      <head>
+        <title>Release Index</title>
+	<link rel="stylesheet" href="../css/releases.css" type="text/css" />
+        <link rel="alternate" href="index.rss" type="application/rss+xml"
+              title="Latest Releases" />
+      </head>
+
+      <body>
+        <h1>Release Index</h1>
+
+        <!-- 
+        <p><a href='./overviews.xhtml'>Overviews of all recent
+        releases</a> are available.</p>
+        -->
+
+        <table border="1">
+
+          <tr><th>Name</th><th>Type</th><th>Release</th><th>Date</th></tr>
+
+          <xsl:for-each select="//release[count(. | key('packagesByPkgName', @packageName)[1]) = 1 and ($specificPackage = '' or @packageName = $specificPackage)]">
+
+            <tr><td class="pkgname" colspan="4"><xsl:value-of select="@packageName" /></td></tr>
+
+            <xsl:call-template name="showReleases">
+              <xsl:with-param name="type">Stable</xsl:with-param>
+              <xsl:with-param
+                  name="releases"
+                  select="key('packagesByPkgName', @packageName)[
+                          not(contains(@releaseName, 'pre')) and
+                          count(./product[@failed = '1']) = 0]" />
+            </xsl:call-template>
+
+            <xsl:call-template name="showReleases">
+              <xsl:with-param name="type">Unstable</xsl:with-param>
+              <xsl:with-param
+                  name="releases"
+                  select="key('packagesByPkgName', @packageName)[
+                          contains(@releaseName, 'pre') and
+                          count(./product[@failed = '1']) = 0]" />
+            </xsl:call-template>
+
+            <xsl:call-template name="showReleases">
+              <xsl:with-param name="type">Failed</xsl:with-param>
+              <xsl:with-param
+                  name="releases"
+                  select="key('packagesByPkgName', @packageName)[./product[@failed = '1']]" />
+            </xsl:call-template>
+
+          </xsl:for-each>
+            
+        </table>
+
+      </body>
+
+    </html>
+
+  </xsl:template>
+
+
+  <!-- Print table elements for the releases of a given type,
+       optionally eliding some of them. -->
+  
+  <xsl:template name="showReleases">
+    <xsl:param name="type" />
+    <xsl:param name="releases" />
+
+    <xsl:variable name="releases2"
+                  select="$releases[$shortIndex = 0 or $type = 'Stable' or position() &lt;= 1]" />
+    
+    <xsl:for-each select="$releases2">
+      <xsl:sort select="@date" order="descending" />
+      <tr>
+        <xsl:choose>
+          <xsl:when test="position() = 1">
+            <td />
+            <td class="reltype" id="{$type}"><xsl:value-of select="$type" /></td>
+          </xsl:when>
+          <xsl:otherwise>
+            <td colspan="2" />
+          </xsl:otherwise>
+        </xsl:choose>
+        <td class="relname">
+          <a href="{@distURL}">
+            <xsl:value-of select="@releaseName" />
+          </a>
+        </td>
+        <td class="date">
+          <xsl:value-of select="@date" />
+        </td>
+      </tr>
+    </xsl:for-each>
+    
+    <xsl:if test="count($releases) = 0">
+      <tr>
+        <td />
+        <td class="reltype"><xsl:value-of select="$type" /></td>
+        <td colspan="2"><em>none</em></td>
+      </tr>
+    </xsl:if>
+
+    <xsl:if test="$shortIndex = 1 and count($releases) > 0 and count($releases) != count($releases2)">
+      <tr>
+        <td colspan="2" />
+        <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.html#{$type}">all
+        <xsl:call-template name="toLowercase">
+          <xsl:with-param name="string" select="$type" />
+        </xsl:call-template>
+        releases...</a></em></td>
+      </tr>
+    </xsl:if>
+    
+  </xsl:template>
+
+
+  <!-- Convert a string to lowercase. -->
+  
+  <xsl:template name="toLowercase">
+    <xsl:param name="string" />
+    <xsl:variable name="lcletters">abcdefghijklmnopqrstuvwxyz</xsl:variable>
+    <xsl:variable name="ucletters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
+    <xsl:value-of select="translate($string, $ucletters, $lcletters)" />
+  </xsl:template>
+  
+  
 </xsl:transform>

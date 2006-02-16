@@ -12,16 +12,30 @@
   <xsl:import href="nix-release-lib.xsl" />
   
   <xsl:param name="separatePages">0</xsl:param>
-  <xsl:param name="shortIndex">1</xsl:param>
+  <xsl:param name="shortIndex">0</xsl:param>
   
   <xsl:output method='html' />
 
   <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
-
+  
   <xsl:template match="releases">
-    <xsl:call-template name="makeIndex" />
+
+    <!-- For each unique package name, generate a file showing all the
+         releases for that package. -->
+    
+    <xsl:for-each select="release[count(. | key('packagesByPkgName', @packageName)[1]) = 1]">
+
+      <exsl:document href="./out/full-index-{@packageName}.html">
+
+        <xsl:call-template name="makeIndex">
+          <xsl:with-param name="specificPackage" select="@packageName" />
+        </xsl:call-template>
+        
+      </exsl:document>
+      
+    </xsl:for-each>
+      
   </xsl:template>
-  
-  
+
 </xsl:transform>

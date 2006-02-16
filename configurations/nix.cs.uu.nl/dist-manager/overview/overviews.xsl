@@ -15,7 +15,7 @@
      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
 
   <xsl:template match="releases">
-    <html >
+    <html>
       <head>
         <title>Nix Buildfarm Overviews</title>
 	<link rel="stylesheet" href="../css/releases.css" type="text/css" />
