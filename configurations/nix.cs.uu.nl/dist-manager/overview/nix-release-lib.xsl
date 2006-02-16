@@ -63,7 +63,7 @@
 	<col width="70"/>
       </colgroup>
       <colgroup span="1" width="50"/>
-      <colgroup span="{4 + count($rpm-systems)}" width="80"/>
+      <colgroup span="{6 + count($rpm-systems)}" width="80"/>
       <thead>
 	<tr>
 	  <th>Package</th>
@@ -71,14 +71,16 @@
 	  <th>Rev</th>
 	  <th bgcolor="#E0E0E0">All</th>
 	  <th>Source tarball</th>
-	  <th>Nix/Linux</th>
-	  <th>Nix/Darwin</th>
+	  <th>Nix Linux</th>
+	  <th>Nix FreeBSD</th>
+	  <th>Nix Darwin</th>
 	  <xsl:for-each select="$rpm-systems">
 	    <th>
 	      <xsl:value-of select="current()"/>
 	    </th>
 	  </xsl:for-each>
 	  <th>Check</th>
+	  <th>Coverage</th>
 	</tr>
       </thead>
       <tbody>
@@ -140,6 +142,10 @@
       </td>
 
       <td align="center">
+	<xsl:apply-templates select="product[@type='nix' and @system='i686-freebsd']" mode="product-cell"/>
+      </td>
+
+      <td align="center">
 	<xsl:apply-templates select="product[@type='nix' and @system='powerpc-darwin']" mode="product-cell"/>
       </td>
 
@@ -151,6 +157,10 @@
 
       <td align="left">
 	<xsl:apply-templates select="product[@type='nodist']" mode="product-cell"/>
+      </td>
+
+      <td align="left">
+	<xsl:apply-templates select="product[@type='coverage']" mode="product-cell"/>
       </td>
     </tr>
   </xsl:template>
