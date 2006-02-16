@@ -11,6 +11,7 @@ xsltproc -o $out/index.html main-index.xsl $src
 xsltproc --param out \'$out\' full-indices-per-package.xsl $src
 
 xsltproc -o $out/quick-view.html quick-view.xsl $src 
+xsltproc --param sortByDate 1 -o $out/quick-view-by-date.html quick-view.xsl $src 
 xsltproc --param out \'$out\' full-status-per-package.xsl $src
 
 cp success.gif $out
