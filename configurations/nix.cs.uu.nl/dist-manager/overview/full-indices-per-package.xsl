@@ -13,6 +13,7 @@
   
   <xsl:param name="separatePages">0</xsl:param>
   <xsl:param name="shortIndex">0</xsl:param>
+  <xsl:param name="out">.</xsl:param>
   
   <xsl:output method='html' />
 
@@ -26,7 +27,7 @@
     
     <xsl:for-each select="release[count(. | key('packagesByPkgName', @packageName)[1]) = 1]">
 
-      <exsl:document href="./out/full-index-{@packageName}.html">
+      <exsl:document href="{$out}/full-index-{@packageName}.html">
 
         <xsl:call-template name="makeIndex">
           <xsl:with-param name="specificPackage" select="@packageName" />

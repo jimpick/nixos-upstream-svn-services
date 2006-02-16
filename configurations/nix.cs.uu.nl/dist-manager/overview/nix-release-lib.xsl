@@ -93,6 +93,23 @@
     </table>
     
   </xsl:template>
+
+
+  <!-- Print a picture showing the build status for the entire
+       release. -->
+  
+  <xsl:template name="statusPictureForRelease">
+    <xsl:param name="release" />
+    <xsl:choose>
+      <xsl:when test="$release/product[@failed = '1']">
+        <img src="failure.gif"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <img src="success.gif"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+    
   
   <xsl:template match="release" mode="release-row">
     <xsl:param name="rpm-systems"/>
@@ -113,14 +130,9 @@
 	<xsl:value-of select="@svnRevision"/>
       </th>
       <td align="center" bgcolor="#E0E0E0">
-	<xsl:choose>
-	  <xsl:when test="product/@failed = '1'">
-	    <img style="border-style: none;" src="failure.gif"/>
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <img style="border-style: none;" src="success.gif"/>
-	  </xsl:otherwise>
-	</xsl:choose>
+        <xsl:call-template name="statusPictureForRelease">
+          <xsl:with-param name="release" select="." />
+        </xsl:call-template>
       </td>
 
       <td align="center">
@@ -229,20 +241,50 @@
         releases</a> are available.</p>
         -->
 
+        <p>Note: the icon after each package’s name indicates its
+        current status in our build farm; that is, whether the latest
+        build for that package succeeded (<img src="success.gif"/>) or
+        failed (<img src="failure.gif"/>).</p>
+
         <table border="1">
 
           <tr><th>Name</th><th>Type</th><th>Release</th><th>Date</th></tr>
 
           <xsl:for-each select="//release[count(. | key('packagesByPkgName', @packageName)[1]) = 1 and ($specificPackage = '' or @packageName = $specificPackage)]">
+            <xsl:sort select="@packageName" />
 
-            <tr><td class="pkgname" colspan="4"><xsl:value-of select="@packageName" /></td></tr>
+            <xsl:variable name="releasesSorted">
+              <list xmlns="">
+                <xsl:for-each select="key('packagesByPkgName', @packageName)">
+                  <xsl:sort select="@date" order="descending" />
+                  <xsl:copy-of select="." />
+                </xsl:for-each>
+              </list>
+            </xsl:variable>
+
+            <tr><td class="pkgname" colspan="4">
+
+              <table width="100%">
+                <tr>
+                  <td class="pkgname" width="100%"><xsl:value-of select="@packageName" /></td>
+                  <td>
+                    <a href="{exsl:node-set($releasesSorted)/list/release[1]/@distURL}">
+                      <xsl:call-template name="statusPictureForRelease">
+                        <xsl:with-param name="release" select="exsl:node-set($releasesSorted)/list/release[1]" />
+                      </xsl:call-template>
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              
+            </td></tr>
 
             <xsl:call-template name="showReleases">
               <xsl:with-param name="type">Stable</xsl:with-param>
               <xsl:with-param
                   name="releases"
                   select="key('packagesByPkgName', @packageName)[
-                          not(contains(@releaseName, 'pre')) and
+                          not(contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
 
@@ -251,7 +293,7 @@
               <xsl:with-param
                   name="releases"
                   select="key('packagesByPkgName', @packageName)[
-                          contains(@releaseName, 'pre') and
+                          (contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
 
@@ -279,12 +321,20 @@
   <xsl:template name="showReleases">
     <xsl:param name="type" />
     <xsl:param name="releases" />
-
-    <xsl:variable name="releases2"
-                  select="$releases[$shortIndex = 0 or $type = 'Stable' or position() &lt;= 1]" />
     
-    <xsl:for-each select="$releases2">
-      <xsl:sort select="@date" order="descending" />
+    <xsl:variable name="releasesSorted">
+      <list xmlns="">
+        <xsl:for-each select="$releases">
+          <xsl:sort select="@date" order="descending" />
+          <xsl:copy-of select="." />
+        </xsl:for-each>
+      </list>
+    </xsl:variable>
+
+    <xsl:variable name="mostRecent"
+                  select="exsl:node-set($releasesSorted)/list/release[$shortIndex = 0 or $type = 'Stable' or position() &lt;= 1]" />
+    
+    <xsl:for-each select="exsl:node-set($mostRecent)">
       <tr>
         <xsl:choose>
           <xsl:when test="position() = 1">
@@ -314,7 +364,7 @@
       </tr>
     </xsl:if>
 
-    <xsl:if test="$shortIndex = 1 and count($releases) > 0 and count($releases) != count($releases2)">
+    <xsl:if test="$shortIndex = 1 and count($releases) > 0 and count($releases) != count($mostRecent)">
       <tr>
         <td colspan="2" />
         <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.html#{$type}">all
@@ -324,7 +374,7 @@
         releases...</a></em></td>
       </tr>
     </xsl:if>
-    
+
   </xsl:template>
 
 
