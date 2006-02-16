@@ -20,7 +20,15 @@
 
 
   <xsl:template match="releases">
-    <xsl:call-template name="makeIndex" />
+
+    <xsl:variable name="packages">
+      <xsl:call-template name="groupReleases" />
+    </xsl:variable>
+
+    <xsl:call-template name="makeIndex">
+      <xsl:with-param name="packages" select="exsl:node-set($packages)" />
+    </xsl:call-template>
+          
   </xsl:template>
   
   

@@ -8,12 +8,10 @@ out=$2
 mkdir -p $out
 
 xsltproc -o $out/index.html main-index.xsl $src 
-xsltproc --param out \'$out\' full-indices-per-package.xsl $src 
+xsltproc --param out \'$out\' full-indices-per-package.xsl $src
 
-#xsltproc -o $out/latest100.xhtml releases2latest100.xsl $src 
-#xsltproc -o $out/latest.xhtml releases-of-packages.xsl $src 
-#xsltproc -o $out/overviews.xhtml overviews.xsl $src 
-#xsltproc --param out \'$out\' releases-for-each-package.xsl $src
+xsltproc -o $out/quick-view.html quick-view.xsl $src 
+xsltproc --param out \'$out\' full-status-per-package.xsl $src
 
 cp success.gif $out
 cp failure.gif $out

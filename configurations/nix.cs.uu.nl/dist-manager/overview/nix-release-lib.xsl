@@ -8,6 +8,13 @@
   xmlns:exsl="http://exslt.org/common"
   >
 
+
+  <!-- Default CSS stylesheet. -->
+  <xsl:template name="defaultCSS">
+    <link rel="stylesheet" href="../css/releases.css" type="text/css" />
+  </xsl:template>
+  
+
   <xsl:template name="popup-style">
     <style type="text/css">
       *.popup {
@@ -40,12 +47,16 @@
     </style>
   </xsl:template>
 
-  <xsl:template name="release-table">
+
+  <!-- Show detailed build farm results, with icons to indicate
+       whether each release "product" succeeded. -->
+
+  <xsl:template name="releaseTable">
     <xsl:param name="releases"/>
 
     <xsl:variable name="rpm-systems" select="sets:distinct($releases//product[@type='rpm']/@fullName)"/>
 
-    <table cellpadding="3" border="1" rules="groups" frame="void">
+    <table cellpadding="3" border="1" rules="groups">
       <colgroup>
 	<col width="100"/>
 	<col width="100"/>
@@ -55,11 +66,11 @@
       <colgroup span="{4 + count($rpm-systems)}" width="80"/>
       <thead>
 	<tr>
-	  <th>pkg</th>
-	  <th>release</th>
-	  <th>rev</th>
-	  <th bgcolor="#E0E0E0">all</th>
-	  <th>source</th>
+	  <th>Package</th>
+	  <th>Release</th>
+	  <th>Rev</th>
+	  <th bgcolor="#E0E0E0">All</th>
+	  <th>Source tarball</th>
 	  <th>Nix/Linux</th>
 	  <th>Nix/Darwin</th>
 	  <xsl:for-each select="$rpm-systems">
@@ -67,24 +78,9 @@
 	      <xsl:value-of select="current()"/>
 	    </th>
 	  </xsl:for-each>
-	  <th>nodist</th>
+	  <th>Check</th>
 	</tr>
       </thead>
-      <tbody>
-	  <tr bgcolor="#E0E0E0">
-	    <th align="right"></th>
-	    <th align="right"></th>
-	    <th align="right"></th>
-	    <td align="center">-</td>
-	    <td bgcolor="#E0E0E0"></td> <!-- source -->
-	    <td bgcolor="#E0E0E0"></td> <!-- linux -->
-	    <td bgcolor="#E0E0E0"></td> <!-- darwin -->
-	    <xsl:for-each select="$rpm-systems">
-	      <td bgcolor="#E0E0E0"></td>
-	    </xsl:for-each>
-	    <td bgcolor="#E0E0E0"></td> <!-- nodist -->
-	  </tr>
-      </tbody>
       <tbody>
 	<xsl:apply-templates select="$releases" mode="release-row">
 	  <xsl:with-param name="rpm-systems" select="$rpm-systems"/>
@@ -116,19 +112,19 @@
     <xsl:variable name="release" select="current()"/>
 
     <tr>
-      <th align="right">
-	<a href="releases-{@packageName}.xhtml">
+      <td align="right">
+	<a href="full-status-{@packageName}.html">
 	  <xsl:value-of select="@packageName"/>
 	</a>
-      </th>
-      <th align="right" style="color: #A0A0A0;">
+      </td>
+      <td align="right" style="color: #A0A0A0;">
 	<a href="{@distURL}">
 	  <xsl:value-of select="substring(@releaseName, string-length(@packageName) + 2)"/>
 	</a>
-      </th>
-      <th align="center" style="color: #A0A0A0;">
+      </td>
+      <td align="center" style="color: #A0A0A0;">
 	<xsl:value-of select="@svnRevision"/>
-      </th>
+      </td>
       <td align="center" bgcolor="#E0E0E0">
         <xsl:call-template name="statusPictureForRelease">
           <xsl:with-param name="release" select="." />
@@ -191,44 +187,29 @@
     </table>
   </xsl:template>
 
-  <xsl:template match="release" mode="copy">
-    <xsl:copy-of select="."/>
-  </xsl:template>
 
-  <xsl:template name="latest-release-of-package">
-    <xsl:param name="name"/>
-    <xsl:param name="releases"/>
+  <!-- Group releases into packages using Muenchian grouping so that
+       we can process them more efficiently. -->
 
-    <xsl:variable name="package-releases">
-      <xsl:call-template name="releases-of-package">
-	<xsl:with-param name="name" select="$name"/>
-	<xsl:with-param name="releases" select="$releases"/>
-      </xsl:call-template>
-    </xsl:variable>
-
-    <xsl:copy-of select="exsl:node-set($package-releases)//release[count(preceding::release) = 0]"/>
-  </xsl:template>
-
-  <xsl:template name="releases-of-package">
-    <xsl:param name="name"/>
-    <xsl:param name="releases"/>
-
-    <xsl:apply-templates select="$releases[@packageName = $name]" mode="copy">
-      <xsl:sort select="@date" order="descending"/>
-    </xsl:apply-templates>
+  <xsl:template name="groupReleases">
+    <xsl:for-each select="//release[count(. | key('packagesByPkgName', @packageName)[1]) = 1]">
+      <package xmlns="" name="{@packageName}">
+        <xsl:copy-of select="key('packagesByPkgName', @packageName)" />
+      </package>
+    </xsl:for-each>
   </xsl:template>
 
 
   <!-- Make a nice table of all releases. -->
   
   <xsl:template name="makeIndex">
-    <xsl:param name="specificPackage" />
+    <xsl:param name="packages" />
 
     <html>
       
       <head>
         <title>Release Index</title>
-	<link rel="stylesheet" href="../css/releases.css" type="text/css" />
+        <xsl:call-template name="defaultCSS" />
         <link rel="alternate" href="index.rss" type="application/rss+xml"
               title="Latest Releases" />
       </head>
@@ -236,26 +217,23 @@
       <body>
         <h1>Release Index</h1>
 
-        <!-- 
-        <p><a href='./overviews.xhtml'>Overviews of all recent
-        releases</a> are available.</p>
-        -->
-
         <p>Note: the icon after each package’s name indicates its
         current status in our build farm; that is, whether the latest
         build for that package succeeded (<img src="success.gif"/>) or
-        failed (<img src="failure.gif"/>).</p>
+        failed (<img src="failure.gif"/>).  You can also view the
+        build farm status <a href="quick-view.html">at a
+        glance</a>.</p>
 
         <table border="1">
 
           <tr><th>Name</th><th>Type</th><th>Release</th><th>Date</th></tr>
 
-          <xsl:for-each select="//release[count(. | key('packagesByPkgName', @packageName)[1]) = 1 and ($specificPackage = '' or @packageName = $specificPackage)]">
-            <xsl:sort select="@packageName" />
+          <xsl:for-each select="$packages/package">
+            <xsl:sort select="@name" />
 
             <xsl:variable name="releasesSorted">
               <list xmlns="">
-                <xsl:for-each select="key('packagesByPkgName', @packageName)">
+                <xsl:for-each select="release">
                   <xsl:sort select="@date" order="descending" />
                   <xsl:copy-of select="." />
                 </xsl:for-each>
@@ -266,7 +244,7 @@
 
               <table width="100%">
                 <tr>
-                  <td class="pkgname" width="100%"><xsl:value-of select="@packageName" /></td>
+                  <td class="pkgname" width="100%"><xsl:value-of select="@name" /></td>
                   <td>
                     <a href="{exsl:node-set($releasesSorted)/list/release[1]/@distURL}">
                       <xsl:call-template name="statusPictureForRelease">
@@ -283,7 +261,7 @@
               <xsl:with-param name="type">Stable</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="key('packagesByPkgName', @packageName)[
+                  select="release[
                           not(contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
@@ -292,7 +270,7 @@
               <xsl:with-param name="type">Unstable</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="key('packagesByPkgName', @packageName)[
+                  select="release[
                           (contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
@@ -301,7 +279,7 @@
               <xsl:with-param name="type">Failed</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="key('packagesByPkgName', @packageName)[./product[@failed = '1']]" />
+                  select="release[./product[@failed = '1']]" />
             </xsl:call-template>
 
           </xsl:for-each>
