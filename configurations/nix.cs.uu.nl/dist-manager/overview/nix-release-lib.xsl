@@ -156,7 +156,7 @@
   </xsl:template>
 
   <xsl:template match="product" mode="product-cell">
-    <a href="{../@distURL}">
+    <a href="{../@distURL}/{log[position() = last()]/@formatted}">
       <xsl:choose>
 	<xsl:when test="@failed = '1'">
 	  <img style="border-style: none;" src="failure.gif"/>
