@@ -18,11 +18,11 @@ stdenv.mkDerivation {
     "=>/scripts"
     ./overview/compose-release-info.sh
     ./overview/generate-overview.sh
-    ./overview/overviews.xsl
-    ./overview/releases2latest100.xsl
-    ./overview/releases-for-each-package.xsl
-    ./overview/releases-of-packages.xsl
-    ./overview/nix-release-lib.xsl
+    ./overview/full-indices-per-package.xsl 
+    ./overview/full-status-per-package.xsl  
+    ./overview/main-index.xsl  
+    ./overview/nix-release-lib.xsl  
+    ./overview/quick-view.xsl
     ./overview/success.gif
     ./overview/failure.gif
     ./overview/menuback.png

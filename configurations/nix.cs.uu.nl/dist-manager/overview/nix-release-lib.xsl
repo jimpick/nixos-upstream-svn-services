@@ -227,7 +227,7 @@
       <body>
         <h1>Release Index</h1>
 
-        <p>Note: the icon after each package’s name indicates its
+        <p>Note: the icon after each package's name indicates its
         current status in our build farm; that is, whether the latest
         build for that package succeeded (<img src="success.gif"/>) or
         failed (<img src="failure.gif"/>).  You can also view the
