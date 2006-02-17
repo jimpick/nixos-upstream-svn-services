@@ -23,6 +23,7 @@ stdenv.mkDerivation {
     ./overview/main-index.xsl  
     ./overview/nix-release-lib.xsl  
     ./overview/quick-view.xsl
+    ./overview/rss-feed.xsl
     ./overview/success.gif
     ./overview/failure.gif
     ./overview/menuback.png
