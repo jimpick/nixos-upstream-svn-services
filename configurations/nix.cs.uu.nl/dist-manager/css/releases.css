@@ -111,6 +111,10 @@ a {
     text-decoration: none; 
 }
 
+a:hover, a:visited:hover {
+    text-decoration: underline;
+}
+
 img {
     border-style: none;
 }

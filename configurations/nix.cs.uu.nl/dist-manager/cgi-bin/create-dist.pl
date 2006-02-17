@@ -189,51 +189,6 @@ sub generateMainIndex {
         }
     }
 
-    my $rssItems = "";
-    my $rssItemList = "";
-
-    my @sortedByDate = sort {-cmpDates()} (keys %relNames);
-    foreach my $relName (@sortedByDate[0..19]) {
-        next unless defined $relName;
-        my $url = "$baseURL/$project/$relName";
-        $rssItemList .=
-            "<rdf:li rdf:resource=\"$url\" />\n";
-        $rssItems .= <<EOF;
-<item rdf:about="$url">
-  <title>$relName</title>
-  <link>$url</link>
-  <description>$relName</description>
-</item>
-EOF
-    }
-
-    open RSS, ">$root/index.rss" or die "$!";
-
-    print RSS <<EOF;
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<rdf:RDF
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns="http://purl.org/rss/1.0/"
-  xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
->
-  <channel rdf:about="$baseURL/$project/">
-    <title>Release Index</title>
-    <link>$baseURL/$project/</link>
-    <description>List of releases produced by the Nix build farm</description>
-    <syn:updatePeriod>hourly</syn:updatePeriod>
-    <syn:updateFrequency>1</syn:updateFrequency>
-    <items>
-      <rdf:Seq>
-        $rssItemList
-      </rdf:Seq>
-    </items>
-  </channel>
-  $rssItems
-</rdf:RDF>
-EOF
-
-    close RSS;
-
     # Also generate links to the most recent stable and unstable releases.
     # !!! sort order is bogus.
 
@@ -253,12 +208,24 @@ EOF
         linkLatest("unstable", $unstable{$pkgName});
     }
 
+    # Generate indices for this project.
     system("$scripts/compose-release-info.sh " .
-           "$root $root/composed.xml > /dev/null 2>&1") == 0
+           "$root $root/composed.xml 1 > /dev/null 2>&1") == 0
            or die "compose-release-info.sh failed: $?";
     
     system("cd $scripts && ./generate-overview.sh " .
-           "$root/composed.xml $root > /dev/null 2>&1") == 0
+           "$root/composed.xml $root '$baseURL/$project' > /dev/null 2>&1") == 0
+           or die "generate-overview.sh failed: $?";
+
+    # Generate indices for the entire build farm.
+    # !!! hard-coded path, ugly!
+    my $allRoot = "/data/webserver/dist";
+    system("$scripts/compose-release-info.sh " .
+           "$allRoot $allRoot/composed.xml 2 > /dev/null 2>&1") == 0
+           or die "compose-release-info.sh failed: $?";
+    
+    system("cd $scripts && ./generate-overview.sh " .
+           "$allRoot/composed.xml $allRoot '$baseURL' > /dev/null 2>&1") == 0
            or die "generate-overview.sh failed: $?";
 }
 
