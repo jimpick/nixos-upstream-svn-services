@@ -14,11 +14,12 @@ tar zxf $src
 mkdir -p $out
 
 echo "Copying bin,lib and templates ... "
-mv twiki/bin $out/bin
-mv twiki/lib $out/lib
-mv twiki/templates $out/templates
+mv bin $out/bin
+mv lib $out/lib
+mv templates $out/templates
+mv locale $out/locale
 
-patch $out/lib/TWiki/UI/View.pm $viewModulePatch
+#patch $out/lib/TWiki/UI/View.pm $viewModulePatch
 
 for skin in $skins
 do
@@ -38,20 +39,23 @@ echo "Removing unnecessary scripts ..."
 
 echo "Patching Perl interpreter path ..."
 for i in $out/bin/*; do
+  if test -f $i 
+  then
     sed "s^/usr/bin/perl^$perl/bin/perl^" < $i > $i.tmp
     mv $i.tmp $i
+  fi
 done    
 
 
 echo "Installing htaccess files ..."
-cp ./twiki/subdir-htaccess.txt $out/lib/.htaccess
-cp ./twiki/subdir-htaccess.txt $out/templates/.htaccess
+cp ./subdir-htaccess.txt $out/lib/.htaccess
+cp ./subdir-htaccess.txt $out/templates/.htaccess
 
 echo "Copying initial files ..."
 ensureDir $out/init
-cp ./twiki/subdir-htaccess.txt $out/init/
-cp -R ./twiki/data $out/init/data
-cp -R ./twiki/pub $out/init/pub
+cp ./subdir-htaccess.txt $out/init/
+cp -R ./data $out/init/data
+cp -R ./pub $out/init/pub
 
 echo "Patching RCS locks ..."
 for file in `find $out/init/data -name \*.txt,v`
@@ -63,11 +67,11 @@ done
 
 cp $htpasswd $out/init/data/.htpasswd
 
-echo "Patching initial files ..."
-if test "x$pubDataPatch" != "x"
-then
-  (cd $out/init; patch -p1 < $pubDataPatch)
-fi
+#echo "Patching initial files ..."
+#if test "x$pubDataPatch" != "x"
+#then
+#  (cd $out/init; patch -p1 < $pubDataPatch)
+#fi
 
 echo "Creating .htaccess file"
 cat > $out/bin/.htaccess <<EOF
@@ -98,79 +102,96 @@ chmod uga-x $out/bin/*
 
 # Except for the known scripts.
 chmod 755 \
-  $out/bin/attach \
-  $out/bin/changes \
-  $out/bin/edit \
-  $out/bin/geturl \
-  $out/bin/installpasswd \
-  $out/bin/mailnotify \
-  $out/bin/manage \
-  $out/bin/oops \
-  $out/bin/passwd \
-  $out/bin/preview \
-  $out/bin/rdiff \
-  $out/bin/rdiffauth \
-  $out/bin/register \
-  $out/bin/rename \
-  $out/bin/save \
-  $out/bin/search \
-  $out/bin/statistics \
-  $out/bin/testenv \
-  $out/bin/upload \
-  $out/bin/view \
-  $out/bin/viewauth \
-  $out/bin/viewfile
+  $out/bin/attach       \
+  $out/bin/changes      \
+  $out/bin/configure    \
+  $out/bin/edit         \
+  $out/bin/login        \
+  $out/bin/logon        \
+  $out/bin/manage       \
+  $out/bin/oops         \
+  $out/bin/passwd       \
+  $out/bin/preview      \
+  $out/bin/rdiff        \
+  $out/bin/rdiffauth    \
+  $out/bin/register     \
+  $out/bin/rename       \
+  $out/bin/resetpasswd  \
+  $out/bin/rest         \
+  $out/bin/save         \
+  $out/bin/search       \
+  $out/bin/statistics   \
+  $out/bin/twiki        \
+  $out/bin/upload       \
+  $out/bin/view         \
+  $out/bin/viewauth     \
+  $out/bin/viewfile  \
+  $out/bin/logos
 
 echo "Constructing config files ..."
-# Generate config file $out/bin/setlib.cfg
-cat > $out/bin/setlib.cfg <<EOF
-#    Path to lib directory containing TWiki.pm.
+
+# Generate config file $out/bin/LocalLib.cfg
+
+echo "perlDigestSHA1 = $perlDigestSHA1"
+echo "perlCGISession = $perlCGISession"
+
+cat > $out/bin/LocalLib.cfg <<EOF
+use vars qw( \$twikiLibPath \$CPANBASE \$cgiSessionPath \$digestSHA1Path );
 \$twikiLibPath = '$twikiroot/lib';
+\$cgiSessionPath = '$perlCGISession/lib/site_perl/5.8.6/';
+\$digestSHA1Path = '$perlDigestSHA1/lib/site_perl/5.8.6/i686-linux';
 
 # Prepend to @INC, the Perl search path for modules
 unshift @INC, \$twikiLibPath;
+unshift @INC, \$cgiSessionPath;
+unshift @INC, \$digestSHA1Path;
 unshift @INC, \$localPerlLibPath if \$localPerlLibPath;
 
-1; # Return success for module loading
+1; # Required for successful module loading
 EOF
 
-# Generate config file $out/lib/TWiki.cfg
+echo $out/bin/LocalLib.cfg
+
+# Generate config file $out/lib/LocalSite.cfg
 # Comments have been removed. Consult the original cfg file for a description
 # todo: of course the paths should refer to Nix packages in a Nix installation.
-cat > $out/lib/TWiki.cfg <<EOF
-\$defaultUrlHost    = "$defaultUrlHost";
-\$scriptUrlPath     = "$scriptUrlPath";
-\$dispScriptUrlPath = "$dispScriptUrlPath";
-\$dispViewPath      = "$dispViewPath";
-\$pubUrlPath        = "$dispPubUrlPath";
-\$pubDir            = "$pubdir";
-\$templateDir       = "$twikiroot/templates";
-\$dataDir           = "$datadir";
-\$logDir            = "$datadir";
 
-\$OS                = 'UNIX';
-\$scriptSuffix      = "";
-\$uploadFilter      = "^(\.htaccess|.*\.(?:php[0-9s]?|phtm[l]?|pl|py|cgi))\\$";
-\$safeEnvPath       = "$(dirname $(type -tP grep))";
-\$mailProgram       = "false";
-\$noSpamPadding     = "";
-\$mimeTypesFilename = "\$dataDir/mime.types";
+cat > $out/lib/LocalSite.cfg <<EOF
+\$cfg{DefaultUrlHost}    = "$defaultUrlHost";
+\$cfg{ScriptUrlPath}     = "$scriptUrlPath";
+\$cfg{dispScriptUrlPath} = "$dispScriptUrlPath";
+\$cfg{dispViewPath}      = "$dispViewPath";
+\$cfg{PubUrlPath}        = "$dispPubUrlPath";
+\$cfg{PubDir}            = "$pubdir";
+\$cfg{TemplateDir}       = "$twikiroot/templates";
+\$cfg{LocalesDir}        = "$twikiroot/locale";
+\$cfg{DataDir}           = "$datadir";
+\$cfg{LogDir}            = "\$cfg{DataDir}";
 
-\$rcsDir            = '$rcs/bin';
-\$rcsArg            = "";
-\$nullDev           = '/dev/null';
-\$useRcsDir         = "0";
-\$endRcsCmd         = " 2>&1";
-\$cmdQuote          = "'";
-\$storeTopicImpl    = "RcsWrap"; 
-\$lsCmd             = "$(type -tP ls)";
-\$egrepCmd          = "$(type -tP egrep)";
-\$fgrepCmd          = "$(type -tP fgrep)";
-\$displayTimeValues = "gmtime";
+\$cfg{OS}                = 'UNIX';
+\$cfg{scriptSuffix}      = "";
+\$cfg{uploadFilter}      = "^(\.htaccess|.*\.(?:php[0-9s]?|phtm[l]?|pl|py|cgi))\\$";
+\$cfg{safeEnvPath}       = "$(dirname $(type -tP grep))";
+\$cfg{mailProgram}       = "false";
+\$cfg{noSpamPadding}     = "";
+\$cfg{mimeTypesFilename} = "\$cfg{dataDir}/mime.types";
 
+\$cfg{rcsDir}            = '$rcs/bin';
+\$cfg{rcsArg}            = "";
+\$cfg{nullDev}           = '/dev/null';
+\$cfg{useRcsDir}         = "0";
+\$cfg{endRcsCmd}         = " 2>&1";
+\$cfg{cmdQuote}          = "'";
+\$cfg{storeTopicImpl}    = "RcsWrap"; 
+\$cfg{lsCmd}             = "$(type -tP ls)";
+\$cfg{egrepCmd}          = "$(type -tP egrep)";
+\$cfg{fgrepCmd}          = "$(type -tP fgrep)";
+\$cfg{displayTimeValues} = "gmtime";
+1; # Required for successful module loading
 EOF
 
-cat $staticTWikiCfg >> $out/lib/TWiki.cfg
+# the following is no longer needed since LocalLib updates TWiki.cfg
+#cat $staticTWikiCfg >> $out/lib/TWiki.cfg
 
 
 echo "Creating Apache httpd.conf fragment ..."

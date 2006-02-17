@@ -12,6 +12,9 @@ rec {
       perl = pkgs.perl;
       sed = pkgs.gnused;
 
+      perlCGISession = pkgs.perlCGISession;
+      perlDigestSHA1 = pkgs.perlDigestSHA1;
+
       skins = [
         plugins.BlueBoxSkin
         plugins.FlexPatternSkin

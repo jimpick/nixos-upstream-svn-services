@@ -5,7 +5,7 @@ let {
 #  body = twikiService;
   body = webServer;
 
-  pkgs = import pkgs/system/all-packages.nix {system = __currentSystem;};
+  pkgs = import ../../pkgs/system/all-packages.nix {system = __currentSystem;};
 
   instanceRootDir = "/home/visser/web-server";
 
@@ -18,7 +18,7 @@ let {
   canonicalName = "http://" + hostName + ":" + httpPort;
 
   
-  webServer = import ./apache-httpd {
+  webServer = import ../../apache-httpd {
     inherit (pkgs) stdenv substituter apacheHttpd coreutils;
     
     logDir = instanceRootDir + "/log";
@@ -36,7 +36,7 @@ let {
     ];
   };
 
-  visserWiki = (import ./twiki/twiki-instance.nix).twiki {
+  visserWiki = (import ../../twiki/twiki-instance.nix).twiki {
 
     defaultUrlHost = canonicalName;
 
