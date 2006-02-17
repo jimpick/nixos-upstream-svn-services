@@ -12,6 +12,8 @@
   <!-- Default CSS stylesheet. -->
   <xsl:template name="defaultCSS">
     <link rel="stylesheet" href="../css/releases.css" type="text/css" />
+    <link rel="alternate" href="index.rss" type="application/rss+xml"
+          title="Latest Nix Build Farm Results" />
   </xsl:template>
   
 
@@ -33,16 +35,6 @@
 
       *.popup:hover {
         display: none;
-      }
-
-      a {
-        color : inherit;
-        text-decoration : none;
-      }
-
-      a:hover, a:visited:hover {
-        color : blue;
-        text-decoration  : underline;
       }
     </style>
   </xsl:template>
@@ -210,6 +202,48 @@
   </xsl:template>
 
 
+  <!-- Get the latest release for each package, sorted either by date
+       or by package name. -->
+
+  <xsl:template name="getLatestReleases">
+    
+    <xsl:variable name="packages">
+      <xsl:call-template name="groupReleases" />
+    </xsl:variable>
+
+    <xsl:variable name="latestReleases">
+      <xsl:for-each select="exsl:node-set($packages)/package">
+        <xsl:variable name="releases">
+          <list xmlns="">
+            <xsl:for-each select="release">
+              <xsl:sort select="@date" order="descending" />
+              <xsl:copy-of select="." />
+            </xsl:for-each>
+          </list>
+        </xsl:variable>
+        <xsl:copy-of select="exsl:node-set($releases)/list/release[1]" />
+      </xsl:for-each>
+    </xsl:variable>
+
+    <xsl:choose>
+      <xsl:when test="$sortByDate = 1">
+        <xsl:for-each select="exsl:node-set($latestReleases)/release">
+          <xsl:sort select="@date" order="descending" />
+          <xsl:copy-of select="." />
+        </xsl:for-each>
+      </xsl:when>
+            
+      <xsl:otherwise>
+        <xsl:for-each select="exsl:node-set($latestReleases)/release">
+          <xsl:sort select="@packageName" />
+          <xsl:copy-of select="." />
+          </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
+
+  </xsl:template>
+
+        
   <!-- Make a nice table of all releases. -->
   
   <xsl:template name="makeIndex">
@@ -220,8 +254,6 @@
       <head>
         <title>Release Index</title>
         <xsl:call-template name="defaultCSS" />
-        <link rel="alternate" href="index.rss" type="application/rss+xml"
-              title="Latest Releases" />
       </head>
 
       <body>

@@ -36,44 +36,13 @@
         <xsl:choose><xsl:when test="$sortByDate = 1"><a
         href="quick-view.html">package
         name</a></xsl:when><xsl:otherwise><a
-        href="quick-view-by-date.html">date</a></xsl:otherwise></xsl:choose>.</p>
-
-        <xsl:variable name="packages">
-          <xsl:call-template name="groupReleases" />
-        </xsl:variable>
-
-        <xsl:variable name="latestReleases">
-          <xsl:for-each select="exsl:node-set($packages)/package">
-            <xsl:variable name="releases">
-              <list xmlns="">
-                <xsl:for-each select="release">
-                  <xsl:sort select="@date" order="descending" />
-                  <xsl:copy-of select="." />
-                </xsl:for-each>
-              </list>
-            </xsl:variable>
-            <xsl:copy-of select="exsl:node-set($releases)/list/release[1]" />
-          </xsl:for-each>
-        </xsl:variable>
+        href="quick-view-by-date.html">date</a></xsl:otherwise></xsl:choose>.
+        Finally, an <a href="index.rss">RSS feed</a> is available.</p>
 
         <xsl:variable name="latestReleasesSorted">
-          <xsl:choose>
-            <xsl:when test="$sortByDate = 1">
-              <xsl:for-each select="exsl:node-set($latestReleases)/release">
-                <xsl:sort select="@date" order="descending" />
-                <xsl:copy-of select="." />
-              </xsl:for-each>
-            </xsl:when>
-            
-            <xsl:otherwise>
-              <xsl:for-each select="exsl:node-set($latestReleases)/release">
-                <xsl:sort select="@packageName" />
-                <xsl:copy-of select="." />
-              </xsl:for-each>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>              
-        
+          <xsl:call-template name="getLatestReleases" />
+        </xsl:variable>
+
 	<xsl:call-template name="releaseTable">
 	  <xsl:with-param name="releases" select="exsl:node-set($latestReleasesSorted)"/>
 	</xsl:call-template>
