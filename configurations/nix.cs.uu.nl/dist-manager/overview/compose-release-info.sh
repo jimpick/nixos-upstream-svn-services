@@ -12,7 +12,7 @@ cat > $out <<EOF
 <releases>
 EOF
 
-find $dir/ -name release-info.xml -maxdepth $depth \
+find $dir \( -name "tmp-*" -prune \) -o \( -name release-info.xml -maxdepth $depth -print \) \
     | xargs cat >> $out
 
 cat >> $out <<EOF
