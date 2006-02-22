@@ -147,12 +147,23 @@
 	</td>
       </xsl:for-each>
 
-      <td align="left">
+      <td align="center">
 	<xsl:apply-templates select="product[@type='nodist']" mode="product-cell"/>
       </td>
 
-      <td align="left">
-	<xsl:apply-templates select="product[@type='coverage']" mode="product-cell"/>
+      <td align="center">
+        <xsl:if test="product[@type='coverage']">
+          <xsl:choose>
+            <xsl:when test="product[@type='coverage']/@failed = 1 or not(coverage/@percentage)">
+              <xsl:apply-templates select="product[@type='coverage']" mode="product-cell"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <a href="{./@distURL}/{coverage/@file}">
+                <xsl:value-of select="coverage/@percentage" />%
+              </a>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:if>
       </td>
     </tr>
   </xsl:template>
