@@ -40,8 +40,8 @@
         <syn:updateFrequency>1</syn:updateFrequency>
         <items>
           <rdf:Seq>
+	    <rdf:li resource="overview" />
             <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">
-              <rdf:li resource="overview" />
               <rdf:li resource="{@distURL}" />
             </xsl:for-each>
           </rdf:Seq>
