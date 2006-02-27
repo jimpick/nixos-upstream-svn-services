@@ -49,7 +49,7 @@
 
     <xsl:variable name="rpm-systems" select="sets:distinct($releases//product[@type='rpm']/@fullName)"/>
 
-    <table cellpadding="3" border="1" rules="groups">
+    <table class="buildfarmResults" cellpadding="3" border="1" rules="groups">
       <colgroup>
 	<col width="100"/>
 	<col width="100"/>

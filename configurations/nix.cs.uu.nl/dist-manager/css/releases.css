@@ -134,6 +134,11 @@ img {
     border-style: none;
 }
 
+table.buildfarmResults td, table.buildfarmResults th {
+    border: none;
+}
+
 td.buildfarmMainColumn {
     background-color: #E0E0E0;
+    border: solid;
 }
