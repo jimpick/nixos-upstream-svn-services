@@ -6,6 +6,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:sets="http://exslt.org/sets"
   xmlns:exsl="http://exslt.org/common"
+  extension-element-prefixes="exsl sets"
   >
 
 
@@ -61,7 +62,7 @@
 	  <th>Package</th>
 	  <th>Release</th>
 	  <th>Rev</th>
-	  <th bgcolor="#E0E0E0">All</th>
+	  <th>All</th>
 	  <th>Source tarball</th>
 	  <th>Nix Linux</th>
 	  <th>Nix FreeBSD</th>
@@ -92,10 +93,10 @@
     <xsl:param name="release" />
     <xsl:choose>
       <xsl:when test="$release/product[@failed = '1']">
-        <img src="failure.gif"/>
+        <img src="failure.gif" alt="Failure" />
       </xsl:when>
       <xsl:otherwise>
-        <img src="success.gif"/>
+        <img src="success.gif" alt="Success" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -119,7 +120,7 @@
       <td align="center" style="color: #A0A0A0;">
 	<xsl:value-of select="@svnRevision"/>
       </td>
-      <td align="center" bgcolor="#E0E0E0">
+      <td align="center" class="buildfarmMainColumn">
         <xsl:call-template name="statusPictureForRelease">
           <xsl:with-param name="release" select="." />
         </xsl:call-template>
@@ -172,14 +173,14 @@
     <a href="{../@distURL}/{log[position() = last()]/@formatted}">
       <xsl:choose>
 	<xsl:when test="@failed = '1'">
-	  <img style="border-style: none;" src="failure.gif"/>
+	  <img src="failure.gif" alt="Failure" />
 	</xsl:when>
 	<xsl:otherwise>
-	  <img style="border-style: none;" src="success.gif"/>
+	  <img src="success.gif" alt="Success" />
 	</xsl:otherwise>
 	</xsl:choose>
     </a>
-    <xsl:apply-templates select="." mode="popup"/>
+    <!-- <xsl:apply-templates select="." mode="popup"/> -->
   </xsl:template>
 
   <xsl:template match="product" mode="popup">
@@ -272,8 +273,8 @@
 
         <p>Note: the icon after each package's name indicates its
         current status in our build farm; that is, whether the latest
-        build for that package succeeded (<img src="success.gif"/>) or
-        failed (<img src="failure.gif"/>).  You can also view the
+        build for that package succeeded (<img src="success.gif" alt="Success"/>) or
+        failed (<img src="failure.gif" alt="Failure"/>).  You can also view the
         build farm status <a href="quick-view.html">at a
         glance</a>.</p>
 
@@ -297,7 +298,7 @@
 
               <table width="100%">
                 <tr>
-                  <td class="pkgname" width="100%"><xsl:value-of select="@name" /></td>
+                  <td class="pkgname"><xsl:value-of select="@name" /></td>
                   <td>
                     <a href="{exsl:node-set($releasesSorted)/list/release[1]/@distURL}">
                       <xsl:call-template name="statusPictureForRelease">
@@ -370,7 +371,9 @@
         <xsl:choose>
           <xsl:when test="position() = 1">
             <td />
-            <td class="reltype" id="{$type}"><xsl:value-of select="$type" /></td>
+            <td class="reltype" id="{@packageName}-{$type}">
+              <xsl:value-of select="$type" />
+            </td>
           </xsl:when>
           <xsl:otherwise>
             <td colspan="2" />
@@ -398,7 +401,7 @@
     <xsl:if test="$shortIndex = 1 and count($releases) > 0 and count($releases) != count($mostRecent)">
       <tr>
         <td colspan="2" />
-        <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.html#{$type}">all
+        <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.html#{$releases[1]/@packageName}-{$type}">all
         <xsl:call-template name="toLowercase">
           <xsl:with-param name="string" select="$type" />
         </xsl:call-template>

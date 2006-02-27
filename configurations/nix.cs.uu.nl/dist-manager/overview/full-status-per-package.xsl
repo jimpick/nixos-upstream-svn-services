@@ -6,8 +6,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:exsl="http://exslt.org/common"
   xmlns:sets="http://exslt.org/sets"
-  xmlns:regexp="http://exslt.org/regular-expressions"
-  extension-element-prefixes="exsl sets regexp">
+  extension-element-prefixes="exsl sets">
 
   <xsl:import href="nix-release-lib.xsl" />
   
@@ -15,8 +14,6 @@
   <xsl:param name="shortIndex">0</xsl:param>
   <xsl:param name="out">.</xsl:param>
   
-  <xsl:output method='html' />
-
   <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
   
@@ -32,7 +29,9 @@
     
     <xsl:for-each select="exsl:node-set($packages)/package">
 
-      <exsl:document href="{$out}/full-status-{@name}.html" encoding="UTF-8">
+      <exsl:document href="{$out}/full-status-{@name}.html" encoding="UTF-8"
+                     doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+                     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
         <xsl:variable name="title">
           Build Farm Results for Package <xsl:value-of select="@name" />

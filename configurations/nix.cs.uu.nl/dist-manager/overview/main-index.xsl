@@ -14,10 +14,11 @@
   <xsl:param name="separatePages">0</xsl:param>
   <xsl:param name="shortIndex">1</xsl:param>
   
-  <xsl:output method='html' />
-
   <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
+  <xsl:output method='xml' encoding="UTF-8"
+              doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+              doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" /> 
 
   <xsl:template match="releases">
 

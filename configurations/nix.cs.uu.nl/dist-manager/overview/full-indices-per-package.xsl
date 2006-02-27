@@ -15,8 +15,6 @@
   <xsl:param name="shortIndex">0</xsl:param>
   <xsl:param name="out">.</xsl:param>
   
-  <xsl:output method='html' />
-
   <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
   
@@ -31,10 +29,12 @@
     
     <xsl:for-each select="exsl:node-set($packages)/package">
 
-      <exsl:document href="{$out}/full-index-{@name}.html" encoding="UTF-8">
+      <exsl:document href="{$out}/full-index-{@name}.html" encoding="UTF-8" 
+                     doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+                     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
         <xsl:variable name="justThis">
-          <package xmlns=""><xsl:copy-of select="release" /></package>
+          <package xmlns="" name="{@name}"><xsl:copy-of select="release" /></package>
         </xsl:variable>
 
         <xsl:call-template name="makeIndex">
