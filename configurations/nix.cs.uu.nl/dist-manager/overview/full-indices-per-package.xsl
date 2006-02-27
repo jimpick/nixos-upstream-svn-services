@@ -29,7 +29,7 @@
     
     <xsl:for-each select="exsl:node-set($packages)/package">
 
-      <exsl:document href="{$out}/full-index-{@name}.html" encoding="UTF-8" 
+      <exsl:document href="{$out}/full-index-{@name}.xhtml" encoding="UTF-8" 
                      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
                      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 

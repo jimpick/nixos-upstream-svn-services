@@ -50,7 +50,7 @@
 
       <item rdf:about="overview">
         <title>Overview</title>
-        <link><xsl:value-of select="$baseURL" />/quick-view-by-date.html</link>
+        <link><xsl:value-of select="$baseURL" />/quick-view-by-date.xhtml</link>
       </item>
 
       <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">

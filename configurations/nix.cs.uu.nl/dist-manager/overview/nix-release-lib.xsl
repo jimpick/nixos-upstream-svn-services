@@ -108,7 +108,7 @@
 
     <tr>
       <td align="right">
-	<a href="full-status-{@packageName}.html">
+	<a href="full-status-{@packageName}.xhtml">
 	  <xsl:value-of select="@packageName"/>
 	</a>
       </td>
@@ -275,7 +275,7 @@
         current status in our build farm; that is, whether the latest
         build for that package succeeded (<img src="success.gif" alt="Success"/>) or
         failed (<img src="failure.gif" alt="Failure"/>).  You can also view the
-        build farm status <a href="quick-view.html">at a
+        build farm status <a href="quick-view.xhtml">at a
         glance</a>.</p>
 
         <table border="1">
@@ -401,7 +401,7 @@
     <xsl:if test="$shortIndex = 1 and count($releases) > 0 and count($releases) != count($mostRecent)">
       <tr>
         <td colspan="2" />
-        <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.html#{$releases[1]/@packageName}-{$type}">all
+        <td colspan="2"><em><a href="full-index-{$releases[1]/@packageName}.xhtml#{$releases[1]/@packageName}-{$type}">all
         <xsl:call-template name="toLowercase">
           <xsl:with-param name="string" select="$type" />
         </xsl:call-template>

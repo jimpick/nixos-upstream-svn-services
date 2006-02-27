@@ -31,14 +31,14 @@
 
         <h1>Latest Build Farm Results</h1>
         
-        <p>Note: there is also a more <a href="index.html">end-user
+        <p>Note: there is also a more <a href="index.xhtml">end-user
         centric overview of the releases</a>.  Clicking on the
         left-most column will show the build farm results for each
         release of a package.  You can also see this list sorted by
         <xsl:choose><xsl:when test="$sortByDate = 1"><a
-        href="quick-view.html">package
+        href="quick-view.xhtml">package
         name</a></xsl:when><xsl:otherwise><a
-        href="quick-view-by-date.html">date</a></xsl:otherwise></xsl:choose>.
+        href="quick-view-by-date.xhtml">date</a></xsl:otherwise></xsl:choose>.
         Finally, an <a href="index.rss">RSS feed</a> is available.</p>
 
         <xsl:variable name="latestReleasesSorted">
