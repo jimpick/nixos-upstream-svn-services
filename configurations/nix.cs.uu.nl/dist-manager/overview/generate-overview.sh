@@ -1,6 +1,6 @@
 #! /bin/sh -ex
 
-PATH=@defaultPath@:@libxslt@/bin
+#PATH=@defaultPath@:@libxslt@/bin
 
 src="$1"
 out="$2"

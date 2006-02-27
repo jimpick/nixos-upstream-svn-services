@@ -41,12 +41,17 @@
         <items>
           <rdf:Seq>
             <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">
+              <rdf:li resource="overview" />
               <rdf:li resource="{@distURL}" />
             </xsl:for-each>
-            $rssItemList
           </rdf:Seq>
         </items>
       </channel>
+
+      <item rdf:about="overview">
+        <title>Overview</title>
+        <link><xsl:value-of select="$baseURL" />/quick-view-by-date.html</link>
+      </item>
 
       <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">
         
