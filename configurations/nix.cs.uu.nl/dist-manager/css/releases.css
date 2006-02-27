@@ -23,6 +23,7 @@ h3 {
 }
 
 table {
+    empty-cells: show;
     border-collapse: collapse;
     border-spacing: 0px;
 }
@@ -34,6 +35,7 @@ th {
 
 td, th {
     padding: 2px 5px;
+    border: solid black 1px;
 }
 
 th {
@@ -41,10 +43,23 @@ th {
 }
 
 td.pkgname {
-    font-size: 180%;
+    font-size: 140%;
     font-weight: bold;
     color: #005aa0;
     background: #ffffe0;
+}
+
+td.pkgname table {
+    border: none;
+    border-spacing: 0px;
+}
+
+td.pkgname table td {
+    border: none;
+}
+
+td.pkgname td.pkgname {
+    width: 100%;
 }
 
 td.reltype {
@@ -117,4 +132,8 @@ a:hover, a:visited:hover {
 
 img {
     border-style: none;
+}
+
+td.buildfarmMainColumn {
+    background-color: #E0E0E0;
 }
