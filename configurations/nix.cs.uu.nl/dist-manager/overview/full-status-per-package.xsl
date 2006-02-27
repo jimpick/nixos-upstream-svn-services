@@ -29,7 +29,7 @@
     
     <xsl:for-each select="exsl:node-set($packages)/package">
 
-      <exsl:document href="{$out}/full-status-{@name}.xhtml" encoding="UTF-8"
+      <exsl:document href="{$out}/full-status-{@name}.html" encoding="UTF-8"
                      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
                      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -49,7 +49,7 @@
             <h1><xsl:copy-of select="$title" /></h1>
 
             <p>Note: there is also a <a
-            href="quick-view.xhtml">overview of the latest build
+            href="quick-view.html">overview of the latest build
             results per package</a>.</p>
 
             <xsl:variable name="sorted">
