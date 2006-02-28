@@ -41,6 +41,7 @@ chmod +x stop-$profileName
 if test -n "$oldServer"; then
     echo "stopping old server..."
     $oldServer/bin/control stop || true
+    sleep 2 # Hack!
 fi
 
 # Start the new server.
