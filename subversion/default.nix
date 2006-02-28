@@ -74,7 +74,7 @@ let {
   
   # Build ViewVC.
   viewvc = import ./src/viewvc {
-    inherit stdenv fetchurl python substituter reposDir adminAddr;
+    inherit stdenv fetchurl python substituter reposDir adminAddr subversion;
   };
 
 }

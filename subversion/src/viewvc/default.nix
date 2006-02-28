@@ -1,4 +1,4 @@
-{stdenv, fetchurl, python, substituter, reposDir, adminAddr}:
+{stdenv, fetchurl, python, substituter, reposDir, adminAddr, subversion}:
 
 stdenv.mkDerivation {
   name = "viewvc-20060228";
@@ -13,5 +13,5 @@ stdenv.mkDerivation {
   patches = [./css.patch];
 
   buildInputs = [python];
-  inherit substituter reposDir adminAddr;
+  inherit substituter reposDir adminAddr subversion;
 }

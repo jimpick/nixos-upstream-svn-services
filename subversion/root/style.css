@@ -62,5 +62,9 @@ table.listData td.odd {
 /* Overrides of ViewVC's stylesheet. */
 
 .vc_navheader {
-  background-color: #eef2ff;
+    background-color: #eef2ff;
+}
+
+.vc_blame_line, .vc_blame_author, .vc_blame_rev, .vc_blame_text {
+    font-size: 100%;
 }
