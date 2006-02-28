@@ -23,7 +23,9 @@ h3 {
 }
 
 table {
+    empty-cells: show;
     border-collapse: collapse;
+    border-spacing: 0px;
 }
 
 th {
@@ -33,14 +35,23 @@ th {
 
 td, th {
     padding: 2px 5px;
+    border: solid black 1px;
 }
 
 th {
     background: #ffffc0;
 }
 
-a img {
-    border: 0;
+a {
+    text-decoration: none; 
+}
+
+a:hover, a:visited:hover {
+    text-decoration: underline;
+}
+
+img {
+    border-style: none;
 }
 
 td.odd {
