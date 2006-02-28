@@ -120,7 +120,8 @@ static int dyn_check_auth(request_rec * r)
         w = ap_getword_white(r->pool, &t);
  
         if (strcmp(w, "repo-reader") == 0 || 
-            strcmp(w, "repo-writer") == 0) {
+            strcmp(w, "repo-writer") == 0)
+        {
             ap_log_rerror(APLOG_MARK, APLOG_DEBUG, 0, r,
                 "checking repo access");
 
@@ -170,6 +171,13 @@ static int dyn_check_auth(request_rec * r)
               return OK;
             }
 
+            /* Access is permitted if:
+               - "all" is in the ACL and the access type is read
+                 access (so universal write access is not possible);
+                 or 
+               - the name of the user is known (i.e., hasn't been set
+                 to NULL by mod_authn_noauth) and is in the ACL.
+            */
             while (*users && (u = ap_getword(r->pool, &users, ','))) {
                 if ((strcmp(u, "all") == 0 && strcmp(w, "repo-reader") == 0)
                     || (user && strcmp(u, user) == 0))
