@@ -166,10 +166,10 @@ sub printRepoInfo {
     print "although typically you'll want to do a checkout of just a subdirectory ";
     print "(e.g., the ", tt("trunk/"), "). ";
 
-    my $viewurl = "/viewcvs/" . $repo . "/";
+    my $viewurl = "/viewvc/" . $repo . "/";
     my $xmlurl = "/repos-xml/" . $repo . "/";
     print p, "You can also browse the ", a({href => $viewurl}, "repository's history"), 
-        " using ViewCVS, or browse the repository in ", a({href => $xmlurl}, "XML format"), ".";
+        " using ViewVC, or browse the repository in ", a({href => $xmlurl}, "XML format"), ".";
 
     my $tardirs = getDB($tardb, $repo);
     if (defined $tardirs && $tardirs =~ /\w/) {
@@ -346,7 +346,7 @@ if ($action eq "list" or $action eq "listdetails") {
     }
     closedir(DIR);
 
-    print table({-border=>undef},
+    print table({class => "listData"},
 		"",
 		Tr(\@rows));
 
@@ -379,7 +379,7 @@ if ($action eq "list" or $action eq "listdetails") {
 	$isOdd = !$isOdd;
     }
 
-    print table({-border=>undef},
+    print table({class => "listData"},
 		"",
 		Tr(\@rows));
 }

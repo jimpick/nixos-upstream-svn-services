@@ -48,7 +48,7 @@ let {
     autoVersioning = if autoVersioning then "on" else "off";
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
-      adminAddr notificationSender fsType subversion authModules viewcvs;
+      adminAddr notificationSender fsType subversion authModules viewvc;
     inherit perl perlBerkeleyDB python apacheHttpd mod_python
       libxslt enscript db4 substituter;
   };
@@ -72,9 +72,9 @@ let {
   };
 
   
-  # Build ViewCVS.
-  viewcvs = import ./src/viewcvs {
-    inherit stdenv python substituter reposDir adminAddr;
+  # Build ViewVC.
+  viewvc = import ./src/viewvc {
+    inherit stdenv fetchurl python substituter reposDir adminAddr;
   };
 
 }

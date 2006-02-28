@@ -22,23 +22,23 @@ h3 {
     font-size: 100%;
 }
 
-table {
+table.listData {
     empty-cells: show;
     border-collapse: collapse;
     border-spacing: 0px;
 }
 
-th {
+table.listData th {
     text-align: center;
     font-weight: bold;
 }
 
-td, th {
+table.listData td, table.listData th {
     padding: 2px 5px;
     border: solid black 1px;
 }
 
-th {
+table.listData th {
     background: #ffffc0;
 }
 
@@ -54,6 +54,13 @@ img {
     border-style: none;
 }
 
-td.odd {
+table.listData td.odd {
     background: #f0f0f0;
+}
+
+
+/* Overrides of ViewVC's stylesheet. */
+
+.vc_navheader {
+  background-color: #eef2ff;
 }

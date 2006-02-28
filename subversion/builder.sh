@@ -20,7 +20,7 @@ doSub() {
         --subst-var apacheHttpd \
         --subst-var mod_python \
         --subst-var authModules \
-        --subst-var viewcvs \
+        --subst-var viewvc \
         --subst-var db4 \
         --subst-var libxslt \
         --subst-var subversion \

@@ -1,0 +1,127 @@
+diff -rc viewvc-2006-02-28-orig/lib/viewcvs.py viewvc-2006-02-28/lib/viewcvs.py
+*** viewvc-2006-02-28-orig/lib/viewcvs.py	2006-02-27 15:07:07.000000000 +0100
+--- viewvc-2006-02-28/lib/viewcvs.py	2006-02-28 16:27:20.000000000 +0100
+***************
+*** 3543,3556 ****
+      cvsroot = os.path.exists(os.path.join(pp, "CVSROOT", "config"))
+  
+      for subpath in subpaths:
+-       if os.path.exists(os.path.join(pp, subpath)):
+          if (repo_type == 'cvs'
+              and (os.path.exists(os.path.join(pp, subpath, "CVSROOT", "config"))
+                   or (cvsroot and (subpath != 'CVSROOT'
+                                    or not cfg.options.hide_cvsroot)))):
+            cfg.general.cvs_roots[subpath] = os.path.join(pp, subpath)
+!         elif repo_type == 'svn' and \
+!              os.path.exists(os.path.join(pp, subpath, "format")):
+            cfg.general.svn_roots[subpath] = os.path.join(pp, subpath)
+  
+    debug.t_end('load-config')
+--- 3543,3554 ----
+      cvsroot = os.path.exists(os.path.join(pp, "CVSROOT", "config"))
+  
+      for subpath in subpaths:
+          if (repo_type == 'cvs'
+              and (os.path.exists(os.path.join(pp, subpath, "CVSROOT", "config"))
+                   or (cvsroot and (subpath != 'CVSROOT'
+                                    or not cfg.options.hide_cvsroot)))):
+            cfg.general.cvs_roots[subpath] = os.path.join(pp, subpath)
+!         elif repo_type == 'svn':
+            cfg.general.svn_roots[subpath] = os.path.join(pp, subpath)
+  
+    debug.t_end('load-config')
+diff -rc viewvc-2006-02-28-orig/templates/docroot/help.css viewvc-2006-02-28/templates/docroot/help.css
+*** viewvc-2006-02-28-orig/templates/docroot/help.css	2005-12-17 18:19:28.000000000 +0100
+--- viewvc-2006-02-28/templates/docroot/help.css	2006-02-28 16:09:42.000000000 +0100
+***************
+*** 2,7 ****
+--- 2,9 ----
+  /***  ViewVC Help CSS Stylesheet ***/
+  /************************************/
+  
++ @import url("/style.css");
++ 
+  /*** Standard Tags ***/
+  body {
+    margin: 0.5em;
+diff -rc viewvc-2006-02-28-orig/templates/include/header.ezt viewvc-2006-02-28/templates/include/header.ezt
+*** viewvc-2006-02-28-orig/templates/include/header.ezt	2006-02-01 01:40:33.000000000 +0100
+--- viewvc-2006-02-28/templates/include/header.ezt	2006-02-28 16:28:33.000000000 +0100
+***************
+*** 7,19 ****
+    <title>[if-any rootname][[][rootname]][else]ViewVC[end] [page_title]</title>
+    <meta name="generator" content="ViewVC [vsn]" />
+    <link rel="stylesheet" href="[docroot]/styles.css" type="text/css" />
+    [if-any rss_href]<link rel="alternate" type="application/rss+xml" title="RSS [[][rootname]][where]" HREF="[rss_href]">[end]
+  </head>
+  <body>
+  <div class="vc_navheader">
+- [if-any roots]
+-   <form method="get" action="[change_root_action]">
+- [end]
+  <table style="padding:0.1em;">
+  <tr>
+    <td>
+--- 7,17 ----
+    <title>[if-any rootname][[][rootname]][else]ViewVC[end] [page_title]</title>
+    <meta name="generator" content="ViewVC [vsn]" />
+    <link rel="stylesheet" href="[docroot]/styles.css" type="text/css" />
++   <link rel="stylesheet" href="/style.css" type="text/css" />
+    [if-any rss_href]<link rel="alternate" type="application/rss+xml" title="RSS [[][rootname]][where]" HREF="[rss_href]">[end]
+  </head>
+  <body>
+  <div class="vc_navheader">
+  <table style="padding:0.1em;">
+  <tr>
+    <td>
+***************
+*** 29,76 ****
+    [end]
+    </td>
+    <td style="text-align:right;">
+-   [if-any roots]
+-     [change_root_hidden_values]
+-       <strong>Repository:</strong>
+-       <select name="root" onchange="submit()">
+-         [define cvs_root_options][end]
+-         [define svn_root_options][end]
+-         <option value="*viewroots*"[is view "roots"] selected="selected"[else][end]>Repository Listing</option>
+-         [for roots]
+-           [define root_option][end]
+-           [is roots.name rootname]
+-             [define root_option]<option selected="selected">[roots.name]</option>[end]
+-           [else]
+-             [define root_option]<option>[roots.name]</option>[end]
+-           [end]
+-           [is roots.type "cvs"]
+-             [define cvs_root_options][cvs_root_options][root_option][end]
+-           [else]
+-             [is roots.type "svn"]
+-               [define svn_root_options][svn_root_options][root_option][end]
+-             [end]
+-           [end]
+-         [end]
+-         [is cvs_root_options ""][else]
+-           <optgroup label="CVS Repositories">[cvs_root_options]</optgroup>
+-         [end]
+-         [is svn_root_options ""][else]
+-           <optgroup label="Subversion Repositories">[svn_root_options]</optgroup>
+-         [end]
+-       </select>
+-       <input type="submit" value="Go" />
+-   [else]
+      &nbsp;
+-   [end]
+    </td>
+  </tr>
+  </table>
+- [if-any roots]
+- </form>
+- [end]
+  </div>
+  
+- <div style="float: right; padding: 5px;"><a href="http://www.viewvc.org/"><img src="[docroot]/images/logo.png" alt="ViewVC logotype" width="128" height="48" /></a></div>
+  <h1>[page_title]</h1>
+  
+  
+--- 27,38 ----

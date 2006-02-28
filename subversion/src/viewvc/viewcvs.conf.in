@@ -377,7 +377,7 @@ template_dir = templates
 # will be served by the ViewCVS script (at a likely performance
 # penalty, and from the "docroot" subdirectory of the directory
 # specified by the "template_dir" option).
-docroot = /viewcvs-doc
+docroot = /viewvc-doc
  
 # Show last changelog message for sub directories
 # The current implementation makes many assumptions and may show the
