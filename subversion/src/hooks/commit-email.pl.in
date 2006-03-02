@@ -334,11 +334,17 @@ my $dirlist = join(' ', @dirschanged);
 ######################################################################
 # Assembly of log message.
 
+my $repo = `basename $repos`;
+chomp $repo;
+
 # Put together the body of the log message.
 my @body;
 push(@body, "Author: $author\n");
 push(@body, "Date: $date\n");
 push(@body, "New Revision: $rev\n");
+push(@body, "\n");
+push(@body, "You can view the changes in this commit at:\n");
+push(@body, "   @canonicalName@/viewvc/$repo?rev=$rev&view=rev\n");
 push(@body, "\n");
 if (@adds)
   {
@@ -358,6 +364,7 @@ if (@mods)
     push(@body, "Modified:\n");
     push(@body, map { "   $_\n" } @mods);
   }
+push(@body, "\n");
 push(@body, "Log:\n");
 push(@body, @log);
 # Eelco: don't show diffs, too big.
@@ -411,9 +418,6 @@ foreach my $project (@project_settings_list)
       {
         $mail_sender = "$mail_sender\@$hostname";
       }
-
-    my $repo = `basename $repos`;
-    chomp $repo;
 
     my $userlist = getDB("@dbDir@/svn-watchers", $repo);
 
