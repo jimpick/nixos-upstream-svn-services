@@ -13,7 +13,7 @@ xorgMakeWrapper() {
     --suffix-each XORG_MODULE_PATH ',' "$(filterExisting $(addSuffix /lib/xorg/modules/fonts $modules))" \
     --suffix-each XORG_MODULE_PATH ',' "$(filterExisting $(addSuffix /lib/xorg/modules/extensions $modules))" \
     --suffix-each XORG_MODULE_PATH ',' "$(filterExisting $(addSuffix /lib/xorg/modules/input $modules))" \
-    --suffix-each XORG_FONT_PATH   ',' "$(filterExisting $fonts)" \
+    --suffix-each XORG_FONT_PATH   ',' "$fonts" \
     --suffix-each LD_LIBRARY_PATH  ':' "$(filterExisting $(addSuffix /lib $xorgserverbuildInputs))" \
     --suffix-each PATH ':' "$xorgserver/bin" "$(filterExisting $(addSuffix /bin $xorgserverBuildInputs))"
 }

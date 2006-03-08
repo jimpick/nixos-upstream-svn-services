@@ -37,6 +37,7 @@
         fonts = [
           "/usr/X11R6/lib/X11/fonts/misc:unscaled"
           "/usr/X11R6/lib/X11/fonts/local"
+          "/usr/X11R6/lib/X11/fonts/encodings"
           "/usr/X11R6/lib/X11/fonts/75dpi:unscaled"
           "/usr/X11R6/lib/X11/fonts/100dpi:unscaled"
           "/usr/X11R6/lib/X11/fonts/Type1"
