@@ -2,38 +2,29 @@
   all = let {
     body = rec {
       xorgUU =
-        (import ../../xorg-alt/config) {
-          name    = "xorg-uu";
-          control = "startx-uu";
-          init = "/opt/kde3/bin/startkde";
+        xorgCommon {
+          name     = "xorg-uu";
+          control  = "startx-uu";
           xorgConf = ./xorg-uu.conf;
-          server = xorgWrapper;
-          terminal = 7;
-          display = 0;
-          inherit stdenv;
         };
 
       xorgHome =
-        (import ../../xorg-alt/config) {
-          name    = "xorg-home";
-          control = "startx-home";
-          init = "/opt/kde3/bin/startkde";
+        xorgCommon {
+          name     = "xorg-home";
+          control  = "startx-home";
           xorgConf = ./xorg-home.conf;
-          server = xorgWrapper;
-          terminal = 7;
-          display = 0;
-          inherit stdenv;
         };
     };
 
-    pkgs = 
-      (import ../../pkgs/system/all-packages.nix) { system = "i686-linux"; };
-
-    xorg =
-      pkgs.xorg;
-
-    stdenv =
-      pkgs.stdenv;
+    xorgCommon = config :
+      (import ../../xorg-alt/config) ({
+        user = "martin";
+        init = "/opt/kde3/bin/startkde";
+        server = xorgWrapper;
+        terminal = 7;
+        display = 0;
+        inherit stdenv;
+      } // config);
 
     xorgWrapper =
       (import ../../xorg-alt/wrapper) {
@@ -62,5 +53,15 @@
           "/opt/kde3/share/fonts"
         ];
       };
+
+    pkgs = 
+      (import ../../pkgs/system/all-packages.nix) { system = "i686-linux"; };
+
+    xorg =
+      pkgs.xorg;
+
+    stdenv =
+      pkgs.stdenv;
+
   };
 }
