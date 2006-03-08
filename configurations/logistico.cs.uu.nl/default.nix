@@ -8,8 +8,20 @@
           init = "/opt/kde3/bin/startkde";
           xorgConf = ./xorg-uu.conf;
           server = xorgWrapper;
-          terminal = 8;
-          display = 1;
+          terminal = 7;
+          display = 0;
+          inherit stdenv;
+        };
+
+      xorgHome =
+        (import ../../xorg-alt/config) {
+          name    = "xorg-home";
+          control = "startx-home";
+          init = "/opt/kde3/bin/startkde";
+          xorgConf = ./xorg-home.conf;
+          server = xorgWrapper;
+          terminal = 7;
+          display = 0;
           inherit stdenv;
         };
     };
