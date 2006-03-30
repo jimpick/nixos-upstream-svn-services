@@ -14,6 +14,20 @@
           control  = "startx-home";
           xorgConf = ./xorg-home.conf;
         };
+
+      xorgLaptop =
+        xorgCommon {
+          name     = "xorg-laptop";
+          control  = "startx-laptop";
+          xorgConf = ./xorg-laptop.conf;
+        };
+
+      xorgBeamer =
+        xorgCommon {
+          name     = "xorg-beamer";
+          control  = "startx-beamer";
+          xorgConf = ./xorg-beamer.conf;
+        };
     };
 
     xorgCommon = config :
@@ -55,7 +69,7 @@
       };
 
     pkgs = 
-      (import ../../pkgs/system/all-packages.nix) { system = "i686-linux"; };
+      (import ../../pkgs/top-level/all-packages.nix) { system = "i686-linux"; };
 
     xorg =
       pkgs.xorg;
