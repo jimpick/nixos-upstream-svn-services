@@ -340,7 +340,7 @@ if ($action eq "list" or $action eq "listdetails") {
 	push(@rows, td({class => $isOdd ? "odd" : "even"},
             [ a({href => $base . "/info/" . escape($n)}, tt($n))
             , $owner
-            , $description
+            , escapeHTML($description)
             ]));
 	$isOdd = !$isOdd;
     }
