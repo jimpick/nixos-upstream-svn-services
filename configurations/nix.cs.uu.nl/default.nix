@@ -6,7 +6,7 @@ let {
 
   body = webServer;
 
-  pkgs = import ../../pkgs/system/all-packages.nix {};
+  pkgs = import ../../pkgs/top-level/all-packages.nix {};
 
 
   rootDir = "/data/webserver";
