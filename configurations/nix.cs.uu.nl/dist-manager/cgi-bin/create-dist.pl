@@ -3,6 +3,7 @@
 use strict;
 use POSIX qw(strftime);
 use File::stat;
+use File::Basename;
 
 
 # Global settings.
@@ -218,8 +219,7 @@ sub generateMainIndex {
            or die "generate-overview.sh failed: $?";
 
     # Generate indices for the entire build farm.
-    # !!! hard-coded path, ugly!
-    my $allRoot = "/data/webserver/dist";
+    my $allRoot = dirname $root;
     system("$scripts/compose-release-info.sh " .
            "$allRoot $allRoot/composed.xml 2 > /dev/null 2>&1") == 0
            or die "compose-release-info.sh failed: $?";
@@ -396,6 +396,7 @@ elsif ($command eq "put-link") {
     my $target = $1;
 
     my $fullPath = "$root/$path";
+    system "mkdir -p -- \$(dirname -- $fullPath)";
     
     $target =~ s/^\///;
 
