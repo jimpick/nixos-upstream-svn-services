@@ -48,6 +48,7 @@
     <xsl:param name="releases"/>
 
     <xsl:variable name="rpm-systems" select="sets:distinct($releases//product[@type='rpm']/@fullName)"/>
+    <xsl:variable name="nix-systems" select="sets:distinct($releases//product[@type='nix']/@system)"/>
 
     <table class="buildfarmResults" cellpadding="3" border="1" rules="groups">
       <colgroup>
@@ -64,9 +65,17 @@
 	  <th>Rev</th>
 	  <th>All</th>
 	  <th>Source tarball</th>
+          <!--
 	  <th>Nix Linux</th>
 	  <th>Nix FreeBSD</th>
+	  <th>Nix Cygwin</th>
 	  <th>Nix Darwin</th>
+          -->
+	  <xsl:for-each select="$nix-systems">
+	    <th>
+	      <xsl:value-of select="current()"/>
+	    </th>
+	  </xsl:for-each>
 	  <xsl:for-each select="$rpm-systems">
 	    <th>
 	      <xsl:value-of select="current()"/>
@@ -78,6 +87,7 @@
       </thead>
       <tbody>
 	<xsl:apply-templates select="$releases" mode="release-row">
+	  <xsl:with-param name="nix-systems" select="$nix-systems"/>
 	  <xsl:with-param name="rpm-systems" select="$rpm-systems"/>
 	</xsl:apply-templates>
       </tbody>
@@ -103,6 +113,7 @@
     
   
   <xsl:template match="release" mode="release-row">
+    <xsl:param name="nix-systems"/>
     <xsl:param name="rpm-systems"/>
     <xsl:variable name="release" select="current()"/>
 
@@ -130,17 +141,11 @@
 	<xsl:apply-templates select="product[@type='source']" mode="product-cell"/>
       </td>
 
-      <td align="center">
-	<xsl:apply-templates select="product[@type='nix' and @system='i686-linux']" mode="product-cell"/>
-      </td>
-
-      <td align="center">
-	<xsl:apply-templates select="product[@type='nix' and @system='i686-freebsd']" mode="product-cell"/>
-      </td>
-
-      <td align="center">
-	<xsl:apply-templates select="product[@type='nix' and @system='powerpc-darwin']" mode="product-cell"/>
-      </td>
+      <xsl:for-each select="$nix-systems">
+	<td align="center">
+	  <xsl:apply-templates select="$release/product[@type='nix' and @system=current()] " mode="product-cell"/>
+	</td>
+      </xsl:for-each>
 
       <xsl:for-each select="$rpm-systems">
 	<td align="center">
