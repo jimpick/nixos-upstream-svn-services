@@ -1,0 +1,35 @@
+To add a distribution directory to /dist:
+
+- Create the directory:
+
+  $ mkdir /data/webserver/dist/FOO
+
+  $ chown nobody.nobody /data/webserver/dist/FOO
+
+- Edit
+  ~/services/configurations/nix.cs.uu.nl/dist-manager/directories.conf,
+  add a line like
+
+    FOO @distDir@/FOO FOO-upload
+
+  where FOO-upload is the username used for uploading releases through
+  HTTP PUT requests.
+
+  If necessary also add FOO-upload to the list of users for nix-cache.
+
+- Add the username/password to
+  /data/webserver/dist-conf/upload_passwords:
+
+  $ htpasswd -b /data/webserver/dist-conf/upload_passwords FOO-upload PASSWORD
+
+- Restart the server:
+
+  $ cd ~/services/configurations/nix.cs.uu.nl/
+
+  $ ../../upgrade-server.sh webserver ./default.nix production
+
+- Check that authentication works:
+
+  $ curl -u FOO-upload:PASSWORD \
+      http://nix.cs.uu.nl/dist/FOO/create-dist/exists/bla
+  no
