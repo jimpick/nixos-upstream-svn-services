@@ -37,7 +37,7 @@ let {
     siteConf = ./site.conf;
   };
 
-  distManager = import ./dist-manager {
+  distManager = import ../../dist-manager {
     inherit (pkgs) stdenv substituter perl libxslt;
     inherit distDir distPrefix distConfDir;
     canonicalName = "http://" + webServer.hostName + 
