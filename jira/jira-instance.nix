@@ -8,7 +8,7 @@ rec {
   jetty =
     (import ./server-pkgs/jetty/instance.nix) {
       webapps = [
-          { path = "/jira"; war=jira ~ "/lib/atlassian-jira.war"; }
+          { path = "/jira"; war= jira + "/lib/atlassian-jira.war"; }
         ];
 
       sslKey = dummykey;    

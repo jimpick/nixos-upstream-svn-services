@@ -45,7 +45,7 @@ stdenv.mkDerivation {
   scripts = [ "=>/bin" ./control.in ];
 
   defaultPath = [
-    (coreutils ~ "/bin")
+    (coreutils + "/bin")
   ];
 
   substFiles = [

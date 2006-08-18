@@ -18,7 +18,7 @@ stdenv.mkDerivation ({
   builder = ./builder.sh;
 
   paths = map (subService : subService.path) subServices;
-  wars  = map (subService : subService.war ~ subService.war.warPath)  subServices;
+  wars  = map (subService : subService.war + subService.war.warPath)  subServices;
 
   inherit j2re jetty;                
   inherit sslSupport logDir port stopport minThreads maxThreads initHeapSize maxHeapSize;
