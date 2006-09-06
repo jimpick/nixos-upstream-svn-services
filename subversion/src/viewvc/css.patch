@@ -1,8 +1,8 @@
-diff -rc viewvc-2006-02-28-orig/lib/viewcvs.py viewvc-2006-02-28/lib/viewcvs.py
-*** viewvc-2006-02-28-orig/lib/viewcvs.py	2006-02-27 15:07:07.000000000 +0100
---- viewvc-2006-02-28/lib/viewcvs.py	2006-02-28 16:27:20.000000000 +0100
+diff -rc viewvc-1.0.1-orig/lib/viewvc.py viewvc-1.0.1/lib/viewvc.py
+*** viewvc-1.0.1-orig/lib/viewvc.py	2006-07-21 00:11:36.000000000 +0200
+--- viewvc-1.0.1/lib/viewvc.py	2006-09-06 17:23:53.000000000 +0200
 ***************
-*** 3543,3556 ****
+*** 3580,3593 ****
       cvsroot = os.path.exists(os.path.join(pp, "CVSROOT", "config"))
   
       for subpath in subpaths:
@@ -17,7 +17,7 @@ diff -rc viewvc-2006-02-28-orig/lib/viewcvs.py viewvc-2006-02-28/lib/viewcvs.py
             cfg.general.svn_roots[subpath] = os.path.join(pp, subpath)
   
     debug.t_end('load-config')
---- 3543,3554 ----
+--- 3580,3591 ----
       cvsroot = os.path.exists(os.path.join(pp, "CVSROOT", "config"))
   
       for subpath in subpaths:
@@ -30,9 +30,9 @@ diff -rc viewvc-2006-02-28-orig/lib/viewcvs.py viewvc-2006-02-28/lib/viewcvs.py
             cfg.general.svn_roots[subpath] = os.path.join(pp, subpath)
   
     debug.t_end('load-config')
-diff -rc viewvc-2006-02-28-orig/templates/docroot/help.css viewvc-2006-02-28/templates/docroot/help.css
-*** viewvc-2006-02-28-orig/templates/docroot/help.css	2005-12-17 18:19:28.000000000 +0100
---- viewvc-2006-02-28/templates/docroot/help.css	2006-02-28 16:09:42.000000000 +0100
+diff -rc viewvc-1.0.1-orig/templates/docroot/help.css viewvc-1.0.1/templates/docroot/help.css
+*** viewvc-1.0.1-orig/templates/docroot/help.css	2005-12-17 18:19:28.000000000 +0100
+--- viewvc-1.0.1/templates/docroot/help.css	2006-09-06 17:23:30.000000000 +0200
 ***************
 *** 2,7 ****
 --- 2,9 ----
@@ -44,11 +44,11 @@ diff -rc viewvc-2006-02-28-orig/templates/docroot/help.css viewvc-2006-02-28/tem
   /*** Standard Tags ***/
   body {
     margin: 0.5em;
-diff -rc viewvc-2006-02-28-orig/templates/include/header.ezt viewvc-2006-02-28/templates/include/header.ezt
-*** viewvc-2006-02-28-orig/templates/include/header.ezt	2006-02-01 01:40:33.000000000 +0100
---- viewvc-2006-02-28/templates/include/header.ezt	2006-02-28 16:28:33.000000000 +0100
+diff -rc viewvc-1.0.1-orig/templates/include/header.ezt viewvc-1.0.1/templates/include/header.ezt
+*** viewvc-1.0.1-orig/templates/include/header.ezt	2006-03-06 21:01:11.000000000 +0100
+--- viewvc-1.0.1/templates/include/header.ezt	2006-09-06 17:23:30.000000000 +0200
 ***************
-*** 7,19 ****
+*** 6,18 ****
     <title>[if-any rootname][[][rootname]][else]ViewVC[end] [page_title]</title>
     <meta name="generator" content="ViewVC [vsn]" />
     <link rel="stylesheet" href="[docroot]/styles.css" type="text/css" />
@@ -62,7 +62,7 @@ diff -rc viewvc-2006-02-28-orig/templates/include/header.ezt viewvc-2006-02-28/t
   <table style="padding:0.1em;">
   <tr>
     <td>
---- 7,17 ----
+--- 6,16 ----
     <title>[if-any rootname][[][rootname]][else]ViewVC[end] [page_title]</title>
     <meta name="generator" content="ViewVC [vsn]" />
     <link rel="stylesheet" href="[docroot]/styles.css" type="text/css" />
@@ -75,7 +75,7 @@ diff -rc viewvc-2006-02-28-orig/templates/include/header.ezt viewvc-2006-02-28/t
   <tr>
     <td>
 ***************
-*** 29,76 ****
+*** 28,75 ****
     [end]
     </td>
     <td style="text-align:right;">
@@ -124,4 +124,4 @@ diff -rc viewvc-2006-02-28-orig/templates/include/header.ezt viewvc-2006-02-28/t
   <h1>[page_title]</h1>
   
   
---- 27,38 ----
+--- 26,37 ----

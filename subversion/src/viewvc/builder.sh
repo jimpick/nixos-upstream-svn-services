@@ -9,12 +9,12 @@ buildPhase() {
 installPhase=installPhase
 installPhase() {
     ensureDir $out/viewvc
-    cp $conf viewcvs.conf.dist
-    substituteInPlace viewcvs.conf.dist \
+    cp $conf viewvc.conf.dist
+    substituteInPlace viewvc.conf.dist \
       --subst-var reposDir \
       --subst-var adminAddr \
       --subst-var subversion
-    (echo $out/viewvc; echo) | ./viewcvs-install
+    (echo $out/viewvc; echo) | ./viewvc-install
 }
 
 genericBuild

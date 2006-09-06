@@ -1,14 +1,14 @@
 {stdenv, fetchurl, python, substituter, reposDir, adminAddr, subversion}:
 
 stdenv.mkDerivation {
-  name = "viewvc-20060228";
+  name = "viewvc-1.0.1";
   builder = ./builder.sh;
   
   src = fetchurl {
-    url = http://www.viewvc.org/nightly/viewvc-2006-02-28.tar.gz;
-    md5 = "532fcb4e51de304fc23fcd5cc1111cfc";
+    url = http://viewvc.tigris.org/files/documents/3330/33320/viewvc-1.0.1.tar.gz;
+    md5 = "2e14b2aeadd4e9ddd6b3876ffd184e61";
   };
-  conf = ./viewcvs.conf.in;
+  conf = ./viewvc.conf.in;
 
   patches = [./css.patch];
 
