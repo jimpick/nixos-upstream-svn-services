@@ -40,7 +40,8 @@ let {
   subversionService = import ../../subversion {
     inherit (pkgs) stdenv fetchurl
       substituter apacheHttpd mod_python openssl db4 expat swig
-      zlib perl perlBerkeleyDB python libxslt enscript;
+      zlib perl perlBerkeleyDB python libxslt enscript
+      apr aprutil neon;
 
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";

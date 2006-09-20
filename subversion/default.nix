@@ -1,5 +1,5 @@
 { stdenv, fetchurl, substituter, apacheHttpd, mod_python, openssl, db4, expat, swig
-, zlib, perl, perlBerkeleyDB, python, libxslt, enscript
+, zlib, perl, perlBerkeleyDB, python, libxslt, enscript, apr, aprutil, neon
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
 , adminAddr, notificationSender
@@ -55,9 +55,9 @@ let {
 
 
   # Build a Subversion instance with Apache modules and Swig/Python bindings.
-  subversion = import ../pkgs/applications/version-management/subversion-1.3.x {
-    inherit stdenv fetchurl openssl db4 expat swig zlib;
-    localServer = true;
+  subversion = import ../pkgs/applications/version-management/subversion-1.4.x {
+    inherit fetchurl stdenv apr aprutil neon expat swig zlib;
+    bdbSupport = true;
     httpServer = true;
     sslSupport = true;
     compressionSupport = true;
