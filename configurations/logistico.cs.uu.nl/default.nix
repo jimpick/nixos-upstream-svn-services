@@ -1,6 +1,13 @@
 {
   all = let {
     body = rec {
+      xorgTUD =
+        xorgCommon {
+          name     = "xorg-tud";
+          control  = "startx-tud";
+          xorgConf = ./xorg-tud.conf;
+        };
+
       xorgUU =
         xorgCommon {
           name     = "xorg-uu";
@@ -78,4 +85,4 @@
       pkgs.stdenv;
 
   };
-}
+}.all
