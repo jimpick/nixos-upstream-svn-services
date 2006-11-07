@@ -11,8 +11,8 @@ let {
 
   rootDir = "/data/webserver";
 
-  logDir = rootDir + "/" +
-     (if productionServer then "logs" else "test-logs");
+  logDir = "/var/log/www" +
+     (if productionServer then "" else "/test");
 
   distDir = rootDir + "/dist";
   distPrefix = "/dist";
