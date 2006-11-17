@@ -220,13 +220,13 @@ sub generateMainIndex {
 
     # Generate indices for the entire build farm.
     my $allRoot = dirname $root;
-    system("$scripts/compose-release-info.sh " .
-           "$allRoot $allRoot/composed.xml 2 > /dev/null 2>&1") == 0
-           or die "compose-release-info.sh failed: $?";
+    #system("$scripts/compose-release-info.sh " .
+    #       "$allRoot $allRoot/composed.xml 2 > /dev/null 2>&1") == 0
+    #       or die "compose-release-info.sh failed: $?";
     
-    system("cd $scripts && ./generate-overview.sh " .
-           "$allRoot/composed.xml $allRoot '$baseURL' > /dev/null 2>&1") == 0
-           or die "generate-overview.sh failed: $?";
+    #system("cd $scripts && ./generate-overview.sh " .
+    #       "$allRoot/composed.xml $allRoot '$baseURL' > /dev/null 2>&1") == 0
+    #       or die "generate-overview.sh failed: $?";
 }
 
 
