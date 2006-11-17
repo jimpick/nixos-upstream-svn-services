@@ -1,3 +1,5 @@
 mkdir -p "@distDir@"
 mkdir -p "@distConfDir@"
-touch "@distConfDir@/upload_passwords"
+if ! test -e "@distConfDir@/upload_passwords"; then
+    touch "@distConfDir@/upload_passwords"
+fi
