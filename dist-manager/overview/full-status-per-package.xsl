@@ -48,7 +48,7 @@
 
             <h1><xsl:copy-of select="$title" /></h1>
 
-            <p>Note: there is also a <a
+            <p>Note: there is also an <a
             href="quick-view.html">overview of the latest build
             results per package</a>.</p>
 
