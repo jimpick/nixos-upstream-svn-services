@@ -8,7 +8,7 @@ for an example):
 
 - Install the latest Nix release, e.g.,
 
-    http://nix.cs.uu.nl/dist/nix/nix-0.9pre3364/
+    http://nix.cs.uu.nl/dist/nix/nix-0.10.1/
 
   Nix should be installed in /nix (the default prefix), otherwise
   pre-built binaries cannot be used.
@@ -18,7 +18,7 @@ for an example):
     $ svn co https://svn.cs.uu.nl:12443/repos/trace/services/trunk services
     $ svn co https://svn.cs.uu.nl:12443/repos/trace/nixpkgs/trunk nixpkgs
 
-- Make sure that the services can find Subversion:
+- Make sure that the services can find Nixpkgs:
 
     $ cd services
     $ ln -s ../nixpkgs/pkgs/ .
@@ -75,11 +75,20 @@ for an example):
 
 - To stop either server:
 
-    $  /nix/var/nix/profiles/svn-(test|production)-server/bin/control stop
+    $ /nix/var/nix/profiles/svn-(test|production)-server/bin/control stop
 
 - To start either server:
 
     $ /nix/var/nix/profiles/svn-(test|production)-server/bin/control start
+
+- To roll back:
+
+    $ /nix/var/nix/profiles/svn-(test|production)-server/bin/control stop
+    $ nix-env -p /nix/var/nix/profiles/svn-(test|production)-server --rollback 
+    $ /nix/var/nix/profiles/svn-(test|production)-server/bin/control start
+
+  (Or use --switch-generation instead of --rollback to go to a
+  specific generation.)
 
 
 There are some utility commands in
@@ -93,3 +102,21 @@ There are some utility commands in
 * `delete-user.pl USERNAME' deletes a user, after checking that the
   user no longer is the owner of any repository and does not occur in
   any ACL.
+
+
+Some operations don't have a utility, but can be accomplished by
+editing the database tables directly:
+
+* To change the owner of a repository:
+
+    $ db_load -t hash -T .../repodb/svn-owners
+    REPONAME
+    OWNER
+
+* To make a repository hidden from the index:
+
+    $ db_load -t  hash -T .../repodb/svn-hidden-repos
+    REPONAME
+    1
+
+  (Or "" instead of "1" to make it visible again.)
