@@ -25,6 +25,7 @@ my $tardb = "$dbdir/svn-tarballs";
 my $descrdb = "$dbdir/svn-descriptions";
 my $contactdb = "$dbdir/svn-contact";
 my $fullnamedb = "$dbdir/svn-fullnames";
+my $hiddenreposdb = "$dbdir/svn-hidden-repos";
 
 my $base = script_name();
 
@@ -335,6 +336,7 @@ if ($action eq "list" or $action eq "listdetails") {
     foreach my $n (sort {uc($a) cmp uc($b)} readdir(DIR)) {
 	next if ($n eq "." || $n eq "..");
 	next unless (-d ($repodir . "/" . $n));
+	next if !$listDetails && getDB($hiddenreposdb, $n) ne "";
 	my $description = $descriptions{$n} || "";
 	my $owner = $owners{$n} || "";
 	push(@rows, td({class => $isOdd ? "odd" : "even"},
