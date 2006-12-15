@@ -1,36 +1,11 @@
 . $stdenv/setup
-. $substituter
 
 
 doSub() {
     local src=$1
     local dst=$2
     ensureDir $(dirname $dst)
-    substitute $src $dst \
-        --subst-var out \
-        --subst-var canonicalName \
-        --subst-var adminAddr \
-        --subst-var notificationSender \
-        --subst-var logDir \
-        --subst-var reposDir \
-        --subst-var dbDir \
-        --subst-var distsDir \
-        --subst-var tmpDir \
-        --subst-var backupsDir \
-        --subst-var apacheHttpd \
-        --subst-var mod_python \
-        --subst-var authModules \
-        --subst-var viewvc \
-        --subst-var db4 \
-        --subst-var libxslt \
-        --subst-var subversion \
-        --subst-var SHELL \
-        --subst-var-by perl "$perl/bin/perl" \
-        --subst-var-by perlFlags "-I$perlBerkeleyDB/lib/site_perl" \
-        --subst-var defaultPath \
-	--subst-var fsType \
-	--subst-var autoVersioning \
-        # end
+    substituteAll $src $dst
 }
 
 

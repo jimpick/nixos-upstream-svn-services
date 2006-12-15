@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, substituter, apacheHttpd, mod_python, openssl, db4, expat, swig
+{ stdenv, fetchurl, apacheHttpd, mod_python, openssl, db4, expat, swig
 , zlib, perl, perlBerkeleyDB, python, libxslt, enscript, apr, aprutil, neon
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
@@ -19,6 +19,8 @@ let {
     
     conf = ./subversion.conf;
     confPre = ./subversion-pre.conf;
+
+    defaultPath = "/fnord";
     
     scripts = [
       "=>/types/apache-httpd"
@@ -49,8 +51,10 @@ let {
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
       adminAddr notificationSender fsType subversion authModules viewvc;
-    inherit perl perlBerkeleyDB python apacheHttpd mod_python
-      libxslt enscript db4 substituter;
+    inherit perlBerkeleyDB python apacheHttpd mod_python
+      libxslt enscript db4;
+    perl = perl + "/bin/perl";
+    perlFlags = "-I${perlBerkeleyDB}/lib/site_perl";
   };
 
 
@@ -74,7 +78,7 @@ let {
   
   # Build ViewVC.
   viewvc = import ./src/viewvc {
-    inherit stdenv fetchurl python substituter reposDir adminAddr subversion;
+    inherit stdenv fetchurl python reposDir adminAddr subversion;
   };
 
 }

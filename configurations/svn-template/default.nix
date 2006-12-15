@@ -16,7 +16,8 @@ let {
      
   
   webServer = import ../../apache-httpd {
-    inherit (pkgs) stdenv substituter apacheHttpd coreutils;
+    inherit (pkgs) apacheHttpd coreutils;
+    stdenv = pkgs.stdenvNew;
 
     hostName = "localhost";
     httpPort = if productionServer then "12080" else "12081";
@@ -38,10 +39,11 @@ let {
 
   
   subversionService = import ../../subversion {
-    inherit (pkgs) stdenv fetchurl
-      substituter apacheHttpd mod_python openssl db4 expat swig
+    inherit (pkgs) fetchurl
+      apacheHttpd mod_python openssl db4 expat swig
       zlib perl perlBerkeleyDB python libxslt enscript
       apr aprutil neon;
+    stdenv = pkgs.stdenvNew;
 
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";

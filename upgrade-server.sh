@@ -22,20 +22,7 @@ oldServer=$(readlink -f $profiles/$profileName || true)
 
 echo "building new server..."
 nix-env -K -p $profiles/$profileName -f "$nixExpr" \
-    -i -E "f: f {productionServer = $isProduction;}"
-
-echo "creating start and stop scripts"
-cat > start-$profileName <<EOF
-#! /bin/sh
-$profiles/$profileName/bin/control start
-EOF
-chmod +x start-$profileName
-
-cat > stop-$profileName <<EOF
-#! /bin/sh
-$profiles/$profileName/bin/control stop
-EOF
-chmod +x stop-$profileName
+    --set --arg productionServer "$isProduction" \*
 
 # Stop the old server.
 if test -n "$oldServer"; then

@@ -1,4 +1,4 @@
-{ stdenv, substituter, apacheHttpd, coreutils
+{ stdenv, apacheHttpd, coreutils
 
 # Directory where Apache will store its log files.
 , logDir
@@ -58,7 +58,7 @@ stdenv.mkDerivation {
   defaultPort = if defaultPort != null then defaultPort else httpPort;
 
   inherit
-    substituter apacheHttpd
+    apacheHttpd
     logDir stateDir
     adminAddr hostName httpPort enableSSL httpsPort
     sslServerCert sslServerKey

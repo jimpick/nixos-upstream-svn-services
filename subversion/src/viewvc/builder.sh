@@ -1,5 +1,4 @@
 . $stdenv/setup
-. $substituter
 
 buildPhase=buildPhase
 buildPhase() {

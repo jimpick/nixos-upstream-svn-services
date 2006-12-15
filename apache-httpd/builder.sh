@@ -1,28 +1,11 @@
 . $stdenv/setup
-. $substituter
 
 
 doSub() {
     local src=$1
     local dst=$2
     ensureDir $(dirname $dst)
-    substitute $src $dst \
-        --subst-var out \
-        --subst-var hostName \
-        --subst-var httpPort \
-        --subst-var httpsPort \
-        --subst-var defaultPort \
-        --subst-var adminAddr  \
-        --subst-var logDir \
-        --subst-var stateDir \
-        --subst-var apacheHttpd \
-        --subst-var SHELL \
-        --subst-var defaultPath \
-        --subst-var enableSSL \
-        --subst-var sslServerCert \
-        --subst-var sslServerKey \
-        --subst-var subServices \
-        # end
+    substituteAll $src $dst
 }
 
 

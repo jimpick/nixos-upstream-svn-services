@@ -1,4 +1,4 @@
-#! @SHELL@ -e
+#! @shell@ -e
 
 # Make sure that the environment is deterministic.
 export PATH=@defaultPath@
@@ -14,7 +14,7 @@ if test "$1" = "start"; then
         fn=$i/types/apache-httpd/startup-hook.sh
         if test -f "$fn"; then
             echo "running $fn..."
-            @SHELL@ -e $fn
+            @shell@ -e $fn
         fi
     done
 
