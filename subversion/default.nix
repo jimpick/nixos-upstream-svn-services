@@ -1,5 +1,4 @@
-{ stdenv, fetchurl, apacheHttpd, mod_python, openssl, db4, expat, swig
-, zlib, perl, perlBerkeleyDB, python, libxslt, enscript, apr, aprutil, neon
+{ pkgs
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
 , adminAddr, notificationSender
@@ -7,13 +6,10 @@
 , autoVersioning ? false
 }:
 
-let {
-
-  body = svnserver;
-  
+let
 
   # Build the Subversion service.
-  svnserver = stdenv.mkDerivation {
+  svnServer = pkgs.stdenvNew.mkDerivation {
     name = "svn-server";
     builder = ./builder.sh;
     
@@ -50,35 +46,48 @@ let {
     autoVersioning = if autoVersioning then "on" else "off";
       
     inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
-      adminAddr notificationSender fsType subversion authModules viewvc;
-    inherit perlBerkeleyDB python apacheHttpd mod_python
+      adminAddr notificationSender fsType subversion authModules
+      viewvc websvn;
+    inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
       libxslt enscript db4;
-    perl = perl + "/bin/perl";
-    perlFlags = "-I${perlBerkeleyDB}/lib/site_perl";
+    perl = pkgs.perl + "/bin/perl";
+    perlFlags = "-I${pkgs.perlBerkeleyDB}/lib/site_perl";
   };
 
 
   # Build a Subversion instance with Apache modules and Swig/Python bindings.
   subversion = import ../pkgs/applications/version-management/subversion-1.4.x {
-    inherit fetchurl stdenv apr aprutil neon expat swig zlib;
+    inherit (pkgs) fetchurl stdenv apr aprutil neon expat swig zlib;
     bdbSupport = true;
     httpServer = true;
     sslSupport = true;
     compressionSupport = true;
     pythonBindings = true;
-    httpd = apacheHttpd;
+    httpd = pkgs.apacheHttpd;
   };
 
   
   # Build our custom authentication modules.
   authModules = import ./src/auth {
-    inherit stdenv apacheHttpd;
+    inherit (pkgs) stdenv apacheHttpd;
   };
 
   
   # Build ViewVC.
   viewvc = import ./src/viewvc {
-    inherit stdenv fetchurl python reposDir adminAddr subversion;
+    stdenv = pkgs.stdenvNew;
+    inherit (pkgs) fetchurl python;
+    inherit reposDir adminAddr subversion;
   };
 
-}
+
+  # Build WebSVN.
+  websvn = import ./src/websvn {
+    stdenv = pkgs.stdenvNew;
+    inherit (pkgs) fetchurl writeText enscript gnused;
+    inherit reposDir subversion;
+    cacheDir = tmpDir;
+  };
+
+  
+in svnServer

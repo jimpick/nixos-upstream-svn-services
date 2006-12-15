@@ -39,12 +39,6 @@ let {
 
   
   subversionService = import ../../subversion {
-    inherit (pkgs) fetchurl
-      apacheHttpd mod_python openssl db4 expat swig
-      zlib perl perlBerkeleyDB python libxslt enscript
-      apr aprutil neon;
-    stdenv = pkgs.stdenvNew;
-
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";
     distsDir = rootDir + "/dist";
@@ -63,5 +57,7 @@ let {
 
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
+
+    inherit pkgs;
   };
 }
