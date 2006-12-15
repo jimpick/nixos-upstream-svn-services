@@ -20,7 +20,7 @@ let {
     conf = ./subversion.conf;
     confPre = ./subversion-pre.conf;
 
-    defaultPath = "/fnord";
+    defaultPath = "/no-path";
     
     scripts = [
       "=>/types/apache-httpd"
