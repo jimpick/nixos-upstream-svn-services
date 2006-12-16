@@ -16,7 +16,8 @@ let {
      
   
   webServer = import ../../apache-httpd {
-    inherit (pkgs) stdenv substituter apacheHttpd coreutils;
+    inherit (pkgs) apacheHttpd coreutils;
+    stdenv = pkgs.stdenvNew;
 
     hostName = "svn.cs.uu.nl";
     httpPort = if productionServer then "12080" else "12081";
@@ -38,11 +39,6 @@ let {
 
   
   subversionService = import ../../subversion {
-    inherit (pkgs) stdenv fetchurl
-      substituter apacheHttpd mod_python openssl db4 expat swig
-      zlib perl perlBerkeleyDB python libxslt enscript
-      apr aprutil neon;
-
     reposDir = rootDir + "/repos";
     dbDir = rootDir + "/db";
     distsDir = rootDir + "/dist";
@@ -61,5 +57,7 @@ let {
 
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
+
+    inherit pkgs;
   };
 }
