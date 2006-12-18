@@ -3,7 +3,7 @@
 # Make sure that the environment is deterministic.
 export PATH=@defaultPath@
 
-if test "$1" = "start"; then
+if test "$1" = "start" -o "$1" = "prepare"; then
 
     # Create necessary directories.
     mkdir -p @logDir@
@@ -39,4 +39,9 @@ if test "$1" = "start" -o "$1" = "stop"; then
     # PATH=/no-such-path 
     env - HOME=/homeless-shelter $extraEnv \
         @apacheHttpd@/bin/apachectl -f @out@/conf/httpd.conf $sslFlag -k "$1"
+fi
+
+if test "$1" = "run"; then
+    exec env - HOME=/homeless-shelter $extraEnv \
+        @apacheHttpd@/bin/httpd -f @out@/conf/httpd.conf -DNO_DETACH $sslFlag
 fi
