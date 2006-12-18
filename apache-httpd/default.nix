@@ -1,38 +1,43 @@
 { stdenv, apacheHttpd, coreutils
 
-# Directory where Apache will store its log files.
-, logDir
+, # Directory where Apache will store its log files.
+  logDir
 
-# Directory where Apache will keep state (e.g., the pid file).
-, stateDir
+, # Directory where Apache will keep state (e.g., the pid file).
+  stateDir
 
-# E-mail address of the administrator
-, adminAddr 
+, # E-mail address of the administrator
+  adminAddr 
 
-# The canonical hostname.
-, hostName
+, # The canonical hostname.
+  hostName
 
-# The HTTP port.
-, httpPort ? 8080
+, # The HTTP port.
+  httpPort ? 8080
 
-# Whether to enable SSL support
-, enableSSL ? false
+, # Whether to enable SSL support
+  enableSSL ? false
 
-# The HTTPS port
-, httpsPort ? 8443
+, # The HTTPS port
+  httpsPort ? 8443
 
-# The default port for constructing self-references.
-, defaultPort ? null
+, # The default port for constructing self-references.
+  defaultPort ? null
 
-# SSL certificate and key.
-, sslServerCert ? ""
+, # The user/group under which the server will run.
+  user ? "nobody"
+
+, group ? "nobody"
+
+, # SSL certificate and key.
+  sslServerCert ? ""
 , sslServerKey ? ""
 
-# Subservices.  This is what it's all about.
-, subServices ? []
+, # Subservices.  This is what it's all about.
+  subServices ? []
 
-# Site-local extensions to httpd.conf.
-, siteConf ? ""
+, # Site-local extensions to httpd.conf.
+  siteConf ? ""
 
 }:
 
@@ -59,8 +64,6 @@ stdenv.mkDerivation {
 
   inherit
     apacheHttpd
-    logDir stateDir
-    adminAddr hostName httpPort enableSSL httpsPort
-    sslServerCert sslServerKey
-    subServices siteConf;
+    logDir stateDir adminAddr hostName httpPort enableSSL httpsPort
+    user group sslServerCert sslServerKey subServices siteConf;
 }
