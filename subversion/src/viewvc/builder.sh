@@ -1,4 +1,4 @@
-. $stdenv/setup
+source $stdenv/setup
 
 buildPhase=buildPhase
 buildPhase() {
@@ -13,7 +13,7 @@ installPhase() {
       --subst-var reposDir \
       --subst-var adminAddr \
       --subst-var subversion
-    (echo $out/viewvc; echo) | ./viewvc-install
+    (echo $out/viewvc; echo) | python viewvc-install
 }
 
 genericBuild
