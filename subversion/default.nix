@@ -1,4 +1,5 @@
 { pkgs
+, user, group
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
 , adminAddr, notificationSender
@@ -45,9 +46,9 @@ let
 
     autoVersioning = if autoVersioning then "on" else "off";
       
-    inherit reposDir dbDir logDir distsDir backupsDir tmpDir canonicalName
-      adminAddr notificationSender fsType subversion authModules
-      viewvc websvn;
+    inherit user group reposDir dbDir logDir distsDir backupsDir
+      tmpDir canonicalName adminAddr notificationSender fsType
+      subversion authModules viewvc websvn;
     inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
       libxslt enscript db4;
     perl = pkgs.perl + "/bin/perl";
