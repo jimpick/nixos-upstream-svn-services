@@ -10,7 +10,7 @@
 let
 
   # Build the Subversion service.
-  svnServer = pkgs.stdenvNew.mkDerivation {
+  svnServer = pkgs.stdenv.mkDerivation {
     name = "svn-server";
     builder = ./builder.sh;
     
@@ -76,16 +76,14 @@ let
   
   # Build ViewVC.
   viewvc = import ./src/viewvc {
-    stdenv = pkgs.stdenvNew;
-    inherit (pkgs) fetchurl python;
+    inherit (pkgs) fetchurl stdenv python;
     inherit reposDir adminAddr subversion;
   };
 
 
   # Build WebSVN.
   websvn = import ./src/websvn {
-    stdenv = pkgs.stdenvNew;
-    inherit (pkgs) fetchurl writeText enscript gnused;
+    inherit (pkgs) fetchurl stdenv writeText enscript gnused;
     inherit reposDir subversion;
     cacheDir = tmpDir;
   };

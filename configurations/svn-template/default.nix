@@ -16,8 +16,7 @@ let {
      
   
   webServer = import ../../apache-httpd {
-    inherit (pkgs) apacheHttpd coreutils;
-    stdenv = pkgs.stdenvNew;
+    inherit (pkgs) stdenv apacheHttpd coreutils;
 
     hostName = "localhost";
     httpPort = if productionServer then "12080" else "12081";
@@ -45,7 +44,7 @@ let {
     backupsDir = rootDir + "/backup";
     tmpDir = rootDir + "/tmp";
 
-    inherit (webServer) logDir adminAddr;
+    inherit (webServer) logDir adminAddr user group;
 
     canonicalName =
       if webServer.enableSSL then
