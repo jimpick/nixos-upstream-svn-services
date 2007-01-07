@@ -2,6 +2,10 @@
 
 PATH=@defaultPath@:@saxon8@/bin
 
+# Give Java some more breathing space on memory-constrained machines
+# (such as nix.cs.uu.nl).
+export JAVA_TOOL_OPTIONS=-Xmx160m
+
 src="$1"
 out="$2"
 baseURL="$3"

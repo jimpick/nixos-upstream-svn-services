@@ -1,4 +1,4 @@
-{ stdenv, substituter, perl, libxslt
+{ stdenv, perl, saxon8
 , distDir, distPrefix, distConfDir, canonicalName
 }:
 
@@ -34,6 +34,7 @@ stdenv.mkDerivation {
     ./css/releases.css
   ];
 
-  inherit substituter perl libxslt 
+  perl = perl + "/bin/perl";
+  inherit saxon8
     distDir distPrefix distConfDir canonicalName;
 }

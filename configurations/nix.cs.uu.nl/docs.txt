@@ -41,3 +41,8 @@ To remotely remove a release:
 
 $ curl -u FOO-upload:PASSWORD http://nix.cs.uu.nl/dist/FOO/create-dist/remove/RELEASE
 
+
+To remotely force the index to be rebuilt:
+
+$ curl -u FOO-upload:PASSWORD http://nix.cs.uu.nl/dist/FOO/create-dist/index/
+

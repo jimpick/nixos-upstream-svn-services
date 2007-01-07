@@ -1,26 +1,15 @@
-. $stdenv/setup
-. $substituter
+source $stdenv/setup
 
 
 doSub() {
     local src=$1
     local dst=$2
     ensureDir $(dirname $dst)
-    substitute $src $dst \
-        --subst-var-by perl "$perl/bin/perl" \
-        --subst-var libxslt \
-        --subst-var-by shell "$SHELL" \
-        --subst-var out \
-        --subst-var distDir \
-        --subst-var distPrefix \
-        --subst-var distConfDir \
-        --subst-var canonicalName \
-        --subst-var defaultPath \
-        # end
+    substituteAll $src $dst
 }
 
 
-defaultPath=
+export defaultPath=
 for i in ls tar gzip bzip2 diff sed find; do
     defaultPath="$defaultPath:$(dirname $(type -tP $i))"
 done

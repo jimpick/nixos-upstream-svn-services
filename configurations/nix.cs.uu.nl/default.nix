@@ -20,7 +20,7 @@ let {
      
   
   webServer = import ../../apache-httpd {
-    inherit (pkgs) stdenv substituter apacheHttpd coreutils;
+    inherit (pkgs) stdenv apacheHttpd coreutils;
 
     hostName = "nix.cs.uu.nl";
     httpPort = if productionServer then "80" else "8080";
@@ -38,7 +38,8 @@ let {
   };
 
   distManager = import ../../dist-manager {
-    inherit (pkgs) stdenv substituter perl libxslt;
+    inherit (pkgs) stdenv perl;
+    saxon8 = pkgs.saxonb;
     inherit distDir distPrefix distConfDir;
     canonicalName = "http://" + webServer.hostName + 
       (if webServer.httpPort == "80" then "" else ":" + webServer.httpPort);
