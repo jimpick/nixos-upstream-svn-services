@@ -1,6 +1,6 @@
 #! /bin/sh -ex
 
-PATH=@defaultPath@:@libxslt@/bin
+PATH=@defaultPath@:@saxon8@/bin
 
 src="$1"
 out="$2"
@@ -13,13 +13,12 @@ cp failure.gif $out
 cp menuback.png $out
 chmod 644 $out/*.gif $out/*.png
 
-xsltproc -o $out/index.html main-index.xsl $src 
-xsltproc --stringparam out "$out" full-indices-per-package.xsl $src
+saxon8 -o $out/index.html $src main-index.xsl
+saxon8 $src full-indices-per-package.xsl out="$out"
 
-xsltproc -o $out/quick-view.html quick-view.xsl $src 
-xsltproc --stringparam sortByDate 1 -o $out/quick-view-by-date.html quick-view.xsl $src 
-xsltproc --stringparam out "$out" full-status-per-package.xsl $src
+saxon8 -o $out/quick-view.html $src quick-view.xsl
+saxon8 -o $out/quick-view-by-date.html $src quick-view.xsl sortByDate=1
+saxon8 $src full-status-per-package.xsl out="$out"
 
-xsltproc --stringparam baseURL "$baseURL" --stringparam sortByDate 1 \
-    -o $out/index.rss rss-feed.xsl $src
-
+saxon8 -o $out/index.rss $src rss-feed.xsl \
+    baseURL="$baseURL" sortByDate=1

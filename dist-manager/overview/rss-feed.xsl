@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 
 <xsl:transform
-  version="1.0"
+  version="2.0"
   xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:sets="http://exslt.org/sets"
-  xmlns:exsl="http://exslt.org/common"
-  extension-element-prefixes="exsl sets">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="nix-release-lib.xsl"/>
 
@@ -14,8 +11,6 @@
   <xsl:param name="baseURL">http://nix.cs.uu.nl/</xsl:param>
 
   <xsl:output method='xml' encoding="UTF-8" />
-
-  <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
   
   <xsl:template match="releases">
@@ -41,7 +36,7 @@
         <items>
           <rdf:Seq>
 	    <rdf:li resource="overview" />
-            <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">
+            <xsl:for-each select="$latestReleasesSorted/release">
               <rdf:li resource="{@distURL}" />
             </xsl:for-each>
           </rdf:Seq>
@@ -53,7 +48,7 @@
         <link><xsl:value-of select="$baseURL" />/quick-view-by-date.html</link>
       </item>
 
-      <xsl:for-each select="exsl:node-set($latestReleasesSorted)/release">
+      <xsl:for-each select="$latestReleasesSorted/release">
         
         <item rdf:about="{@distURL}">
           <title>

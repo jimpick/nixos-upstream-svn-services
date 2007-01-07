@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
 
 <xsl:transform
-  version="1.0"
+  version="2.0"
   xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:sets="http://exslt.org/sets"
-  xmlns:exsl="http://exslt.org/common"
-  extension-element-prefixes="exsl sets">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="nix-release-lib.xsl"/>
 
   <xsl:param name="sortByDate">0</xsl:param>
-
-  <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
 
   <xsl:output method='xml' encoding="UTF-8"
               doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -46,7 +41,7 @@
         </xsl:variable>
 
 	<xsl:call-template name="releaseTable">
-	  <xsl:with-param name="releases" select="exsl:node-set($latestReleasesSorted)"/>
+	  <xsl:with-param name="releases" select="$latestReleasesSorted"/>
 	</xsl:call-template>
         
       </body>

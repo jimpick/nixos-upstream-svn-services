@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 
 <xsl:transform
-  version="1.0"
+  version="2.0"
   xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:sets="http://exslt.org/sets"
-  xmlns:exsl="http://exslt.org/common"
-  extension-element-prefixes="exsl sets"
-  >
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:param name="sortByDate">0</xsl:param>
+  <xsl:param name="shortIndex">1</xsl:param>
+  
 
   <!-- Default CSS stylesheet. -->
   <xsl:template name="defaultCSS">
@@ -47,8 +46,8 @@
   <xsl:template name="releaseTable">
     <xsl:param name="releases"/>
 
-    <xsl:variable name="rpm-systems" select="sets:distinct($releases//product[@type='rpm']/@fullName)"/>
-    <xsl:variable name="nix-systems" select="sets:distinct($releases//product[@type='nix']/@system)"/>
+    <xsl:variable name="rpm-systems" select="distinct-values($releases//product[@type='rpm']/@fullName)"/>
+    <xsl:variable name="nix-systems" select="distinct-values($releases//product[@type='nix']/@system)"/>
 
     <table class="buildfarmResults" cellpadding="3" border="1" rules="groups">
       <colgroup>
@@ -207,51 +206,35 @@
   </xsl:template>
 
 
-  <!-- Group releases into packages using Muenchian grouping so that
-       we can process them more efficiently. -->
-
-  <xsl:template name="groupReleases">
-    <xsl:for-each select="//release[count(. | key('packagesByPkgName', @packageName)[1]) = 1]">
-      <package xmlns="" name="{@packageName}">
-        <xsl:copy-of select="key('packagesByPkgName', @packageName)" />
-      </package>
-    </xsl:for-each>
-  </xsl:template>
-
-
   <!-- Get the latest release for each package, sorted either by date
        or by package name. -->
 
   <xsl:template name="getLatestReleases">
     
-    <xsl:variable name="packages">
-      <xsl:call-template name="groupReleases" />
-    </xsl:variable>
-
     <xsl:variable name="latestReleases">
-      <xsl:for-each select="exsl:node-set($packages)/package">
+      <xsl:for-each-group select="/releases/release" group-by="@packageName">
         <xsl:variable name="releases">
           <list xmlns="">
-            <xsl:for-each select="release">
+            <xsl:for-each select="current-group()">
               <xsl:sort select="@date" order="descending" />
               <xsl:copy-of select="." />
             </xsl:for-each>
           </list>
         </xsl:variable>
-        <xsl:copy-of select="exsl:node-set($releases)/list/release[1]" />
-      </xsl:for-each>
+        <xsl:copy-of select="$releases/list/release[1]" />
+      </xsl:for-each-group>
     </xsl:variable>
 
     <xsl:choose>
       <xsl:when test="$sortByDate = 1">
-        <xsl:for-each select="exsl:node-set($latestReleases)/release">
+        <xsl:for-each select="$latestReleases/release">
           <xsl:sort select="@date" order="descending" />
           <xsl:copy-of select="." />
         </xsl:for-each>
       </xsl:when>
             
       <xsl:otherwise>
-        <xsl:for-each select="exsl:node-set($latestReleases)/release">
+        <xsl:for-each select="$latestReleases/release">
           <xsl:sort select="@packageName" />
           <xsl:copy-of select="." />
           </xsl:for-each>
@@ -264,8 +247,8 @@
   <!-- Make a nice table of all releases. -->
   
   <xsl:template name="makeIndex">
-    <xsl:param name="packages" />
-
+    <xsl:param name="releases"/>
+    
     <html>
       
       <head>
@@ -287,12 +270,12 @@
 
           <tr><th>Name</th><th>Type</th><th>Release</th><th>Date</th></tr>
 
-          <xsl:for-each select="$packages/package">
-            <xsl:sort select="@name" />
+          <xsl:for-each-group select="$releases" group-by="@packageName">
+            <xsl:sort select="current-grouping-key()" />
 
             <xsl:variable name="releasesSorted">
               <list xmlns="">
-                <xsl:for-each select="release">
+                <xsl:for-each select="current-group()">
                   <xsl:sort select="@date" order="descending" />
                   <xsl:copy-of select="." />
                 </xsl:for-each>
@@ -303,11 +286,11 @@
 
               <table width="100%">
                 <tr>
-                  <td class="pkgname"><xsl:value-of select="@name" /></td>
+                  <td class="pkgname"><xsl:value-of select="current-grouping-key()" /></td>
                   <td>
-                    <a href="{exsl:node-set($releasesSorted)/list/release[1]/@distURL}">
+                    <a href="{$releasesSorted/list/release[1]/@distURL}">
                       <xsl:call-template name="statusPictureForRelease">
-                        <xsl:with-param name="release" select="exsl:node-set($releasesSorted)/list/release[1]" />
+                        <xsl:with-param name="release" select="$releasesSorted/list/release[1]" />
                       </xsl:call-template>
                     </a>
                   </td>
@@ -320,7 +303,7 @@
               <xsl:with-param name="type">Stable</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="release[
+                  select="current-group()[
                           not(contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
@@ -329,7 +312,7 @@
               <xsl:with-param name="type">Unstable</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="release[
+                  select="current-group()[
                           (contains(@releaseName, 'pre') or contains(@releaseName, '-docs-')) and
                           count(./product[@failed = '1']) = 0]" />
             </xsl:call-template>
@@ -338,10 +321,10 @@
               <xsl:with-param name="type">Failed</xsl:with-param>
               <xsl:with-param
                   name="releases"
-                  select="release[./product[@failed = '1']]" />
+                  select="current-group()[./product[@failed = '1']]" />
             </xsl:call-template>
 
-          </xsl:for-each>
+          </xsl:for-each-group>
             
         </table>
 
@@ -369,9 +352,9 @@
     </xsl:variable>
 
     <xsl:variable name="mostRecent"
-                  select="exsl:node-set($releasesSorted)/list/release[$shortIndex = 0 or $type = 'Stable' or position() &lt;= 1]" />
+                  select="$releasesSorted/list/release[$shortIndex = 0 or $type = 'Stable' or position() &lt;= 1]" />
     
-    <xsl:for-each select="exsl:node-set($mostRecent)">
+    <xsl:for-each select="$mostRecent">
       <tr>
         <xsl:choose>
           <xsl:when test="position() = 1">

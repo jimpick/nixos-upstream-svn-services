@@ -1,13 +1,9 @@
 <?xml version="1.0"?>
 
 <xsl:transform
-  version="1.0"
+  version="2.0"
   xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:exsl="http://exslt.org/common"
-  xmlns:sets="http://exslt.org/sets"
-  xmlns:regexp="http://exslt.org/regular-expressions"
-  extension-element-prefixes="exsl sets regexp">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="nix-release-lib.xsl" />
   
@@ -15,35 +11,25 @@
   <xsl:param name="shortIndex">0</xsl:param>
   <xsl:param name="out">.</xsl:param>
   
-  <xsl:key name="packagesByPkgName" match="release" use="@packageName" />
-
   
   <xsl:template match="releases">
 
-    <xsl:variable name="packages">
-      <xsl:call-template name="groupReleases" />
-    </xsl:variable>
-    
     <!-- For each unique package name, generate a file showing all the
          releases for that package. -->
     
-    <xsl:for-each select="exsl:node-set($packages)/package">
+    <xsl:for-each-group select="/releases/release" group-by="@packageName">
 
-      <exsl:document href="{$out}/full-index-{@name}.html" encoding="UTF-8" 
-                     doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-                     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-        <xsl:variable name="justThis">
-          <package xmlns="" name="{@name}"><xsl:copy-of select="release" /></package>
-        </xsl:variable>
+      <xsl:result-document href="{$out}/full-index-{current-grouping-key()}.html" encoding="UTF-8" 
+                           doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+                           doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
         <xsl:call-template name="makeIndex">
-          <xsl:with-param name="packages" select="exsl:node-set($justThis)" />
+          <xsl:with-param name="releases" select="current-group()" />
         </xsl:call-template>
-        
-      </exsl:document>
-      
-    </xsl:for-each>
+
+      </xsl:result-document>
+
+    </xsl:for-each-group>
       
   </xsl:template>
 
