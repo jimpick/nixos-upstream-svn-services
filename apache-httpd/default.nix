@@ -39,6 +39,9 @@
 , # Site-local extensions to httpd.conf.
   siteConf ? ""
 
+, # Use an explicit document root instead of synthesizing one.
+  documentRoot ? ""
+
 }:
 
 assert enableSSL -> sslServerCert != "" && sslServerKey != "" && httpsPort != 0;
@@ -65,5 +68,6 @@ stdenv.mkDerivation {
   inherit
     apacheHttpd
     logDir stateDir adminAddr hostName httpPort enableSSL httpsPort
-    user group sslServerCert sslServerKey subServices siteConf;
+    user group sslServerCert sslServerKey subServices siteConf
+    documentRoot;
 }

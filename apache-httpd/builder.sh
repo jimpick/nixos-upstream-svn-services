@@ -1,4 +1,7 @@
-. $stdenv/setup
+source $stdenv/setup
+
+
+if test -z "$documentRoot"; then export documentRoot=$out/root; fi
 
 
 doSub() {
