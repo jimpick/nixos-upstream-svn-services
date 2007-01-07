@@ -235,7 +235,7 @@
             
       <xsl:otherwise>
         <xsl:for-each select="$latestReleases/release">
-          <xsl:sort select="@packageName" />
+          <xsl:sort select="lower-case(@packageName)" />
           <xsl:copy-of select="." />
           </xsl:for-each>
       </xsl:otherwise>
@@ -271,7 +271,7 @@
           <tr><th>Name</th><th>Type</th><th>Release</th><th>Date</th></tr>
 
           <xsl:for-each-group select="$releases" group-by="@packageName">
-            <xsl:sort select="current-grouping-key()" />
+            <xsl:sort select="lower-case(current-grouping-key())" />
 
             <xsl:variable name="releasesSorted">
               <list xmlns="">
