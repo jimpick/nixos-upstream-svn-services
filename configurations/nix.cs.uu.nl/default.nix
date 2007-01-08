@@ -35,6 +35,8 @@ let {
     ];
 
     siteConf = ./site.conf;
+
+    documentRoot = "/data/webserver/docroot";
   };
 
   distManager = import ../../dist-manager {
