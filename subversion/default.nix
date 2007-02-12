@@ -2,7 +2,7 @@
 , user, group
 , reposDir, dbDir, logDir, distsDir, backupsDir, tmpDir
 , canonicalName
-, adminAddr, notificationSender
+, adminAddr, notificationSender, userCreationDomain
 , fsType ? "fsfs"
 , autoVersioning ? false
 }:
@@ -47,7 +47,7 @@ let
     autoVersioning = if autoVersioning then "on" else "off";
       
     inherit user group reposDir dbDir logDir distsDir backupsDir
-      tmpDir canonicalName adminAddr notificationSender fsType
+      tmpDir canonicalName adminAddr notificationSender userCreationDomain fsType
       subversion authModules viewvc websvn;
     inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
       libxslt enscript db4;

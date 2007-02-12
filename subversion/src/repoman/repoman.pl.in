@@ -302,7 +302,7 @@ if ($action eq "list" or $action eq "listdetails") {
     print start_li;
     print "You can ";
     print a({href => $base . "/adduser"}, "add a new user"), 
-        " (only within the ", tt("cs.uu.nl"), " domain).";
+        " (only within the ", tt("@userCreationDomain@"), " domain).";
     print end_li;
     print start_li;
     print "You can ";
