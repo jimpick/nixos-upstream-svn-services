@@ -211,21 +211,21 @@ sub generateMainIndex {
 
     # Generate indices for this project.
     system("$scripts/compose-release-info.sh " .
-           "$root $root/composed.xml 1 > /dev/null 2>&1") == 0
+           "$root $root/composed.xml 1") == 0
            or die "compose-release-info.sh failed: $?";
     
     system("cd $scripts && ./generate-overview.sh " .
-           "$root/composed.xml $root '$baseURL/$project' > /dev/null 2>&1") == 0
+           "$root/composed.xml $root '$baseURL/$project'") == 0
            or die "generate-overview.sh failed: $?";
 
     # Generate indices for the entire build farm.
     my $allRoot = dirname $root;
     system("$scripts/compose-release-info.sh " .
-           "$allRoot $allRoot/composed.xml 2 > /dev/null 2>&1") == 0
+           "$allRoot $allRoot/composed.xml 2") == 0
            or die "compose-release-info.sh failed: $?";
     
     system("cd $scripts && ./generate-overview.sh " .
-           "$allRoot/composed.xml $allRoot '$baseURL' > /dev/null 2>&1") == 0
+           "$allRoot/composed.xml $allRoot '$baseURL'") == 0
            or die "generate-overview.sh failed: $?";
 }
 

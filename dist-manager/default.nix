@@ -1,5 +1,6 @@
 { stdenv, perl, saxon8
 , distDir, distPrefix, distConfDir, canonicalName
+, directories ? ./directories.conf
 }:
 
 stdenv.mkDerivation {
@@ -14,7 +15,7 @@ stdenv.mkDerivation {
     "=>/cgi-bin"
     ./cgi-bin/create-dist.pl
     "=>/"
-    ./directories.conf
+    directories
     "=>/scripts"
     ./overview/compose-release-info.sh
     ./overview/generate-overview.sh
