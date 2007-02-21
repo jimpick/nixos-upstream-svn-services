@@ -51,8 +51,8 @@ sub begin {
         -title => "Subversion Repoman",
         -style => {'src' => "/style.css"});
 
-    print a({href => "http://www.cs.uu.nl/"},
-	    img{src => "/UU_merk.gif", alt => "UU Logo"});
+    print a({href => "@orgUrl@"},
+	    img{src => "/@orgLogoUrl@", alt => "@orgName@ Logo"});
 }
 
 

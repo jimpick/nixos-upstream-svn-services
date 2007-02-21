@@ -5,6 +5,9 @@
 , adminAddr, notificationSender, userCreationDomain
 , fsType ? "fsfs"
 , autoVersioning ? false
+, orgName ? "Universiteit Utrecht"
+, orgLogoFile ? ./root/UU_merk.gif
+, orgUrl ? "http://www.cs.uu.nl/"
 }:
 
 let
@@ -39,7 +42,7 @@ let
 
     staticPages = [
       "=>/types/apache-httpd/root"
-      ./root/favicon.ico ./root/robots.txt ./root/style.css ./root/UU_merk.gif
+      ./root/favicon.ico ./root/robots.txt ./root/style.css logo
       "=>/types/apache-httpd/root/xsl"
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
@@ -48,7 +51,8 @@ let
       
     inherit user group reposDir dbDir logDir distsDir backupsDir
       tmpDir canonicalName adminAddr notificationSender userCreationDomain fsType
-      subversion authModules viewvc websvn;
+      subversion authModules viewvc websvn
+      orgLogoFile orgUrl orgName;
     inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
       libxslt enscript db4;
     perl = pkgs.perl + "/bin/perl";
