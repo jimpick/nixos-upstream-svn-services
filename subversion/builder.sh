@@ -22,7 +22,7 @@ ensureDir $serviceDir
 doSub $conf $serviceDir/conf/subversion.conf
 doSub $confPre $serviceDir/conf-pre/subversion.conf
 
-orgLogoUrl=$((stripHash $orgLogoFile; echo $strippedName)
+orgLogoUrl=$(stripHash $orgLogoFile; echo $strippedName)
 
 subDir=/
 for i in $scripts; do

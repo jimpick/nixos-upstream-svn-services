@@ -42,7 +42,7 @@ let
 
     staticPages = [
       "=>/types/apache-httpd/root"
-      ./root/favicon.ico ./root/robots.txt ./root/style.css logo
+      ./root/favicon.ico ./root/robots.txt ./root/style.css orgLogoFile
       "=>/types/apache-httpd/root/xsl"
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
@@ -53,6 +53,8 @@ let
       tmpDir canonicalName adminAddr notificationSender userCreationDomain fsType
       subversion authModules viewvc websvn
       orgLogoFile orgUrl orgName;
+    orgLogoUrl = orgUrl; # !!! hack to convince substiteAll to replace this.
+
     inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
       libxslt enscript db4;
     perl = pkgs.perl + "/bin/perl";
