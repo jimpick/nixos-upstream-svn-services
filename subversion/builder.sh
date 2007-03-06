@@ -40,8 +40,8 @@ for i in $staticPages; do
     if test "$(echo $i | cut -c1-2)" = "=>"; then
         subDir=$(echo $i | cut -c3-)
     else
-        ensureDir $out/$subDir/
-        cp $i $out/$subDir/$(stripHash $i; echo $strippedName)
+        ensureDir $out/static-pages/$subDir/
+        cp $i $out/static-pages/$subDir/$(stripHash $i; echo $strippedName)
     fi
 done
 

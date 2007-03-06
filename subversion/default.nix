@@ -8,6 +8,9 @@
 , orgName ? "Universiteit Utrecht"
 , orgLogoFile ? ./root/UU_merk.gif
 , orgUrl ? "http://www.cs.uu.nl/"
+
+  # warning: this default will *not* install the robots.txt 
+  # file in the right place.
 , staticPrefix ? "/repoman-files"
 }:
 
@@ -42,11 +45,10 @@ let
     ];
 
     inherit staticPrefix;
-    staticPagesDir = "static";
     staticPages = [
-      "=>/static"
+      "=>/"
       ./root/favicon.ico ./root/robots.txt ./root/style.css orgLogoFile
-      "=>/static/xsl"
+      "=>/xsl"
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
 
