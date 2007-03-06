@@ -8,6 +8,7 @@
 , orgName ? "Universiteit Utrecht"
 , orgLogoFile ? ./root/UU_merk.gif
 , orgUrl ? "http://www.cs.uu.nl/"
+, staticPrefix ? "/repoman-files"
 }:
 
 let
@@ -40,10 +41,12 @@ let
       ./src/hooks/query-head-revision.xsl # !!! not actually an executable
     ];
 
+    inherit staticPrefix;
+    staticPagesDir = "static";
     staticPages = [
-      "=>/types/apache-httpd/root"
+      "=>/static"
       ./root/favicon.ico ./root/robots.txt ./root/style.css orgLogoFile
-      "=>/types/apache-httpd/root/xsl"
+      "=>/static/xsl"
       ./root/xsl/svnindex.xsl ./root/xsl/svnindex.css 
     ];
 
