@@ -13,7 +13,7 @@ let {
 
   logDir = rootDir + "/" +
      (if productionServer then "logs" else "test-logs");
-     
+
   
   webServer = import ../../apache-httpd {
     inherit (pkgs) stdenv apacheHttpd coreutils;
@@ -34,6 +34,10 @@ let {
     enableSSL = true;
     sslServerCert = "/home/svn/ssl/server.crt";
     sslServerKey = "/home/svn/ssl/server.key";
+
+    siteConf = pkgs.writeText "site.conf" "
+      RedirectMatch ^/$ ${subversionService.canonicalName}/repoman
+    ";
   };
 
   
@@ -53,6 +57,8 @@ let {
         "http://" + webServer.hostName + ":" + webServer.httpPort;
 
     notificationSender = "svn@svn.cs.uu.nl";
+
+    userCreationDomain = "cs.uu.nl";
 
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
