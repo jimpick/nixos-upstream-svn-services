@@ -2,7 +2,9 @@ echo "creating missing files / tables..."
 
 needDir() {
     mkdir -p "$1"
-    chown @user@.@group@ "$1"
+    if test "$(id -u)" = 0; then
+	chown @user@.@group@ "$1"
+    fi
     chmod 750 "$1"
 }
 
@@ -24,4 +26,6 @@ echo | @db4@/bin/db_load -t hash -T "@dbDir@/svn-users"
 (echo root; echo "*") | @db4@/bin/db_load -n -t hash -T "@dbDir@/svn-users" 2> /dev/null || true
 (echo root; echo "Subversion Server Admin") | @db4@/bin/db_load -n -t hash -T "@dbDir@/svn-fullnames" 2> /dev/null || true
 
-chown @user@.@group@ @dbDir@/*
+if test "$(id -u)" = 0; then
+    chown @user@.@group@ @dbDir@/*
+fi
