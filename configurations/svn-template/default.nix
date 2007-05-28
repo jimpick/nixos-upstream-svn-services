@@ -24,6 +24,7 @@ let {
 
     adminAddr = "eelco@cs.uu.nl";
 
+
     inherit logDir;
     stateDir = logDir;
 
@@ -43,6 +44,8 @@ let {
     distsDir = rootDir + "/dist";
     backupsDir = rootDir + "/backup";
     tmpDir = rootDir + "/tmp";
+
+    userCreationDomain = "localhost";
 
     inherit (webServer) logDir adminAddr user group;
 

@@ -17,8 +17,9 @@ stdenv.mkDerivation {
   name = "xorg-server-config";
   builder = ./builder.sh;
 
-  xorgConf = ./xorg.conf;
+  xorgConf = ./xorg.conf; 
   control = ./control.in;
 
   inherit substituter xorgserver modules logDir stateDir;
 }
+

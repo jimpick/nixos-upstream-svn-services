@@ -28,3 +28,4 @@ substitute $xorgConf $out/conf/xorg.conf \
     --subst-var modulePath \
     --subst-var xorgserver \
     --subst-var out
+
