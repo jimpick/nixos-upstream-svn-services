@@ -297,11 +297,12 @@ if ($action eq "list" or $action eq "listdetails") {
     print start_ul;
     print start_li;
     print "You can ";
-    print a({href => $base . "/create"}, "create a new repository"), ".";
+    print a({href => $base . "/adduser"}, "add a new user"),
+        " (only within the ", tt("@userCreationDomain@"), " domain).";
     print end_li;
     print start_li;
     print "You can ";
-    print a({href => $base . "/adduser"}, "add a new user"), 
+    print a({href => $base . "/create"}, "create a new repository"),
         " (only within the ", tt("@userCreationDomain@"), " domain).";
     print end_li;
     print start_li;

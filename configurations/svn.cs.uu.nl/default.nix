@@ -58,7 +58,7 @@ let {
 
     notificationSender = "svn@svn.cs.uu.nl";
 
-    userCreationDomain = "cs.uu.nl";
+    userCreationDomain = "131.211.80.0/23";
 
     # Arthur wants WebDAV autoversioning support.
     autoVersioning = true;
