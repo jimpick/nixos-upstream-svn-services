@@ -42,6 +42,13 @@
 , # Use an explicit document root instead of synthesizing one.
   documentRoot ? ""
 
+, # Prevent users from publishing public_html directories 
+  # as /~user on server.
+  noUserDir ? true
+
+, # Verbatim chunk of config to go immediately after 
+  # default directory aliases and directory entries.
+  extraDirectories ? ""
 }:
 
 assert enableSSL -> sslServerCert != "" && sslServerKey != "" && httpsPort != 0;
@@ -64,6 +71,10 @@ stdenv.mkDerivation {
   ];
 
   defaultPort = if defaultPort != null then defaultPort else httpPort;
+ 
+  noUserDir = if noUserDir then "#" else "";
+
+  extraDirectories = extraDirectories;
 
   inherit
     apacheHttpd
