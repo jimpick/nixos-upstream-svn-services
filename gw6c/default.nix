@@ -1,7 +1,9 @@
-{ stdenv, gw6c, coreutils, procps, upstart, nettools,
+{ stdenv, gw6c, coreutils, procps, upstart, 
+	gnused, iputils, gnugrep,
 	username ? "",
 	password ? "",
-	server ? "anon.freenet6.net"
+	server ? "anon.freenet6.net",
+	keepAlive ? "30"
 } :
 
 stdenv.mkDerivation {
@@ -9,11 +11,12 @@ stdenv.mkDerivation {
 	scripts = ["=>/bin" ./control.in ];
 	substFiles = ["=>/conf" ./gw6c.conf];
 	inherit gw6c coreutils procps upstart 
-		nettools;
+		iputils gnused gnugrep;
 
 	username = username;
 	password = password;
 	gw6server = server;
+	keepAlive = keepAlive;
 	authMethod = (if (username == "") then "anonymous" else "any");
 	gw6dir = gw6c;
 

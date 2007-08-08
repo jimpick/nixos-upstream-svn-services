@@ -1,0 +1,13 @@
+#! @shell@ -e
+
+# Make sure that the environment is deterministic.
+export PATH=@coreutils@/bin
+
+if test "$1" = "start"; then
+	rm -rf /home/ircd
+	mkdir -p /home/ircd
+	chown ircd: /home/ircd
+	cd /home/ircd
+    env - HOME=/homeless-shelter $extraEnv \
+        @su@/bin/su ircd --shell=/bin/sh -c ' @ircdHybrid@/bin/ircd -configfile @out@/conf/ircd.conf </dev/null -logfile /home/ircd/ircd.log' 2>&1 >/var/log/ircd-hybrid.out
+fi

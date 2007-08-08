@@ -6,11 +6,13 @@ export PATH=@coreutils@/bin
 if test "$1" = "start"; then
     env - HOME=/homeless-shelter $extraEnv \
         @gw6c@/bin/gw6c -f @out@/conf/gw6c.conf </dev/null 2>&1 >/var/log/gw6c.out
-    if test -f /etc/event.d/httpd; then
-	    @upstart@/sbin/stop httpd;
-	    @upstart@/sbin/start httpd;
-    fi;
-    while @procps@/bin/pgrep gw6c; do sleep 3; done;
+    while @procps@/bin/pgrep gw6c; do 
+	sleep @keepAlive@; 
+	@iputils@/sbin/traceroute6 $( @coreutils@/bin/cat /var/log/gw6c.log  |
+		 @gnugrep@/bin/grep peer |
+		 @gnused@/bin/sed -e 's/.*with //; s/ .*//' |
+		 @coreutils@/bin/head -1);
+    done;
 fi
 
 if test "$1" = "stop"; then
