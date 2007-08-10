@@ -1,4 +1,5 @@
 { stdenv, ircdHybrid, coreutils, su,
+	iproute, gw6cEnabled,
 	serverName ? "hades.arpa", 
 	sid ? "0NL",
 	description ? "Hybrid-7",
@@ -15,7 +16,11 @@ stdenv.mkDerivation {
 	name = "ircd-hybrid-service";
 	scripts = ["=>/bin" ./control.in ];
 	substFiles = ["=>/conf" ./ircd.conf];
-	inherit ircdHybrid coreutils su;
+	inherit ircdHybrid coreutils su
+		iproute;
+
+	gw6cEnabled = if gw6cEnabled then 
+		"true" else "false";
 
 	inherit serverName sid description adminEmail
 		extraPort;
