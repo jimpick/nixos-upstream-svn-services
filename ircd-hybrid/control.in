@@ -5,7 +5,9 @@ export PATH=@coreutils@/bin
 
 if test "$1" = "start"; then
 	if @gw6cEnabled@; then 
-		while ! @iproute@/sbin/ip addr | grep inet6 | grep global; do
+		while ! @iproute@/sbin/ip addr | 
+			@gnugrep@/bin/grep inet6 | 
+			@gnugrep@/bin/grep global; do
 			sleep 1;
 		done;
 	fi;
