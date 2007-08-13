@@ -1,5 +1,5 @@
 { stdenv, ircdHybrid, coreutils, su,
-	iproute, gnugrep,
+	iproute, gnugrep, procps,
 	 gw6cEnabled,
 	serverName ? "hades.arpa", 
 	sid ? "0NL",
@@ -18,7 +18,7 @@ stdenv.mkDerivation {
 	scripts = ["=>/bin" ./control.in ];
 	substFiles = ["=>/conf" ./ircd.conf];
 	inherit ircdHybrid coreutils su
-		iproute gnugrep;
+		iproute gnugrep procps;
 
 	gw6cEnabled = if gw6cEnabled then 
 		"true" else "false";
