@@ -1,4 +1,6 @@
-{ stdenv, apacheHttpd, coreutils
+{ stdenv, apacheHttpd, coreutils, 
+
+  php ? null
 
 , # Directory where Apache will store its log files.
   logDir
@@ -81,4 +83,6 @@ stdenv.mkDerivation {
     logDir stateDir adminAddr hostName httpPort enableSSL httpsPort
     user group sslServerCert sslServerKey subServices siteConf
     documentRoot;
+  
+  phpClause=if php != null then "LoadModule php5_module ${php}/modules/libphp5.so" else "";
 }
