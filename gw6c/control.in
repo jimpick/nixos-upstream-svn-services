@@ -3,6 +3,8 @@
 # Make sure that the environment is deterministic.
 export PATH=@coreutils@/bin
 
+ln -s /dev/net/tun /dev/tun || true;
+
 if test "$1" = "start"; then
     env - HOME=/homeless-shelter $extraEnv \
         @gw6c@/bin/gw6c -f @out@/conf/gw6c.conf </dev/null 2>&1 >/var/log/gw6c.out
