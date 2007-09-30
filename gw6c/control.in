@@ -9,12 +9,14 @@ if test "$1" = "start"; then
     env - HOME=/homeless-shelter $extraEnv \
         @gw6c@/bin/gw6c -f @out@/conf/gw6c.conf </dev/null 2>&1 >/var/log/gw6c.out
     while @procps@/bin/pgrep gw6c; do 
-	sleep @keepAlive@; 
+	sleep @everPing@; 
 	@iputils@/sbin/traceroute6 $( @coreutils@/bin/cat /var/log/gw6c.log  |
 		 @gnugrep@/bin/grep peer |
 		 @gnused@/bin/sed -e 's/.*with //; s/ .*//' |
 		 @coreutils@/bin/head -1);
     done;
+	pkill gw6c; 
+	exit
 fi
 
 if test "$1" = "stop"; then
