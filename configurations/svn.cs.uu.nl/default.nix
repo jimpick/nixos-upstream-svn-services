@@ -58,6 +58,8 @@ let {
 
     notificationSender = "svn@svn.cs.uu.nl";
 
+    smtpHost = "mail.cs.uu.nl";
+
     userCreationDomain = "131.211.80.0/23";
 
     # Arthur wants WebDAV autoversioning support.

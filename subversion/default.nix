@@ -8,6 +8,7 @@
 , orgName ? "Universiteit Utrecht"
 , orgLogoFile ? ./root/UU_merk.gif
 , orgUrl ? "http://www.cs.uu.nl/"
+, smtpHost ? "localhost"
 
   # warning: this default will *not* install the robots.txt 
   # file in the right place.
@@ -30,6 +31,7 @@ let
       "=>/types/apache-httpd"
       ./startup-hook.sh
       "=>/bin"
+      ./src/maintenance/create-user.pl.in
       ./src/maintenance/delete-repo.pl.in 
       ./src/maintenance/delete-user.pl.in 
       ./src/maintenance/reload.in 
@@ -57,13 +59,15 @@ let
     inherit user group reposDir dbDir logDir distsDir backupsDir
       tmpDir canonicalName adminAddr notificationSender userCreationDomain fsType
       subversion authModules viewvc websvn
-      orgLogoFile orgUrl orgName;
+      orgLogoFile orgUrl orgName smtpHost;
     orgLogoUrl = orgUrl; # !!! hack to convince substiteAll to replace this.
 
-    inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python php
+    inherit (pkgs) perlBerkeleyDB python apacheHttpd mod_python
       libxslt enscript db4;
+    php = pkgs.phpOld;
     perl = pkgs.perl + "/bin/perl";
-    perlFlags = "-I${pkgs.perlBerkeleyDB}/lib/site_perl";
+    # Urgh, most of these are dependencies of Email::Send, should figure them out automatically.
+    perlFlags = "-I${pkgs.perlBerkeleyDB}/lib/site_perl -I${pkgs.perlEmailSend}/lib/site_perl -I${pkgs.perlEmailSimple}/lib/site_perl -I${pkgs.perlModulePluggable}/lib/site_perl -I${pkgs.perlReturnValue}/lib/site_perl -I${pkgs.perlEmailAddress}/lib/site_perl";
   };
 
 
