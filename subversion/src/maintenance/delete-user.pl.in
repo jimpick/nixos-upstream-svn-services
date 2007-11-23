@@ -10,6 +10,7 @@ my $ownerdb = "$dbdir/svn-owners";
 my $readerdb = "$dbdir/svn-readers";
 my $writerdb = "$dbdir/svn-writers";
 my $contactdb = "$dbdir/svn-contact";
+my $fullnamedb = "$dbdir/svn-fullnames";
 
 my $user = shift @ARGV;
 defined $user or die "syntax: delete-user.pl USER";
@@ -96,3 +97,4 @@ untie %db;
 # Remove the user.
 del_db $userdb, $user;
 del_db $contactdb, $user;
+del_db $fullnamedb, $user;
