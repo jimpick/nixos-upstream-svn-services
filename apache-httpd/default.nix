@@ -2,6 +2,8 @@
 
 , php ? null
 
+, tomcat_connectors ? null
+
 , # Directory where Apache will store its log files.
   logDir
 
@@ -50,7 +52,10 @@
 
 , # Verbatim chunk of config to go immediately after 
   # default directory aliases and directory entries.
-  extraDirectories ? ""
+  extraDirectories ? "",
+  
+  # List with Java webapplications to map to a Java Servlet container (JBoss/Tomcat)
+  applicationMappings
 }:
 
 assert enableSSL -> sslServerCert != "" && sslServerKey != "" && httpsPort != 0;
@@ -70,8 +75,10 @@ stdenv.mkDerivation {
     ./httpd-basics.conf
     ./languages.conf
     ./icons.conf
-  ];
-
+  ]
+  ++
+  (if tomcat_connectors != null then [ ./jk/mod_jk.conf ./jk/workers.properties ] else []);
+  
   defaultPort = if defaultPort != null then defaultPort else httpPort;
  
   noUserDir = if noUserDir then "#" else "";
@@ -82,7 +89,8 @@ stdenv.mkDerivation {
     apacheHttpd
     logDir stateDir adminAddr hostName httpPort enableSSL httpsPort
     user group sslServerCert sslServerKey subServices siteConf
-    documentRoot;
+    documentRoot tomcat_connectors applicationMappings;
   
   phpClause = if php != null then "LoadModule php5_module ${php}/modules/libphp5.so" else "";
+  jkClause = if tomcat_connectors != null then "Include mod_jk.conf" else "";
 }

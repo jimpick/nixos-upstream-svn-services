@@ -69,3 +69,11 @@ done
 if test -n "$siteConf"; then
     echo "Include $siteConf" >> $out/conf/subservices.conf
 fi
+
+if ! test jkClause = ""; then
+  for i in $applicationMappings
+  do
+    echo "/$i=loadbalancer" >> $out/conf/uriworkermap.properties
+    echo "/$i/*=loadbalancer" >> $out/conf/uriworkermap.properties
+  done
+fi
