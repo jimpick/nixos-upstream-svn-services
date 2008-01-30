@@ -21,6 +21,20 @@ if test "\$1" = start
 then
   trap stop 15
   
+  if ! test "$deployFrom" = ""
+  then
+    rm -rf $baseDir/webapps
+    mkdir -p $baseDir/webapps
+    for i in $deployFrom/*
+    do
+      ln -s \$i $baseDir/webapps/\`basename \$i\`
+    done
+    
+    chown -R $user $baseDir
+  else
+    mkdir -p $baseDir/webapps
+  fi
+    
   start
 elif test "\$1" = stop
 then
@@ -37,7 +51,7 @@ then
   
   rm -rf $baseDir
   mkdir -p $baseDir
-  cp -av $tomcat6/{conf,webapps,temp,logs} $baseDir
+  cp -av $tomcat6/{conf,temp,logs} $baseDir
   
   # Make files accessible for the server user
   
