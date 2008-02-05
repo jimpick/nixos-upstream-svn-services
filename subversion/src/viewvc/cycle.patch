@@ -1,0 +1,20 @@
+diff -rc viewvc-1.0.4-orig/bin/mod_python/handler.py viewvc-1.0.4/bin/mod_python/handler.py
+*** viewvc-1.0.4-orig/bin/mod_python/handler.py	2006-03-18 03:07:36.000000000 +0100
+--- viewvc-1.0.4/bin/mod_python/handler.py	2008-02-05 16:07:10.000000000 +0100
+***************
+*** 21,27 ****
+    path, module_name = os.path.split(req.filename)
+    module_name, module_ext = os.path.splitext(module_name)
+    try:
+!     module = apache.import_module(module_name, path=[path])
+    except ImportError:
+      raise apache.SERVER_RETURN, apache.HTTP_NOT_FOUND
+  
+--- 21,27 ----
+    path, module_name = os.path.split(req.filename)
+    module_name, module_ext = os.path.splitext(module_name)
+    try:
+!     module = apache.import_module(module_name, path)
+    except ImportError:
+      raise apache.SERVER_RETURN, apache.HTTP_NOT_FOUND
+  

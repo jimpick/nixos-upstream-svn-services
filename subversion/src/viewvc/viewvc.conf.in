@@ -69,7 +69,7 @@
 # names to them. Each root should be given by a "name: path" value. Multiple
 # roots should be separated by commas and can be placed on separate lines.
 #
-cvs_roots = cvs: /home/cvsroot
+#cvs_roots = cvs: /home/cvsroot
 
 #
 # This setting specifies each of the Subversion roots (repositories)
@@ -327,7 +327,7 @@ diff_format = h
 # hide_cvsroot: Don't show the CVSROOT directory
 #   1      Hide CVSROOT directory
 #   0      Show CVSROOT directory
-hide_cvsroot = 0
+hide_cvsroot = 1
 
 # set to 1 to make lines break at spaces,
 # set to 0 to make no-break lines,
@@ -380,7 +380,7 @@ template_dir = templates
 # will be served by the ViewCVS script (at a likely performance
 # penalty, and from the "docroot" subdirectory of the directory
 # specified by the "template_dir" option).
-docroot = /viewvc-doc
+docroot = @urlPrefix@/viewvc-doc
  
 # Show last changelog message for sub directories
 # The current implementation makes many assumptions and may show the
@@ -429,8 +429,7 @@ use_enscript = 1
 #
 # if the enscript program is not on the path, set this value
 #
-enscript_path =
-# enscript_path = /usr/bin/
+enscript_path = @enscript@/bin
 
 # use php to colorize .php and .inc files?
 use_php = 0

@@ -1,9 +1,9 @@
-diff -rc websvn-2.0rc4-orig/include/configclass.inc websvn-2.0rc4/include/configclass.inc
-*** websvn-2.0rc4-orig/include/configclass.inc	2006-05-13 00:45:46.000000000 +0200
---- websvn-2.0rc4/include/configclass.inc	2006-12-16 00:17:23.000000000 +0100
+diff -rc websvn-2.0-orig/include/configclass.php websvn-2.0/include/configclass.php
+*** websvn-2.0-orig/include/configclass.php	2007-08-13 08:51:09.000000000 +0200
+--- websvn-2.0/include/configclass.php	2008-02-05 16:26:01.000000000 +0100
 ***************
-*** 459,464 ****
---- 459,465 ----
+*** 505,510 ****
+--- 505,511 ----
      var $spaces = 8;
      var $bugtraq = false;
      var $auth = "";
@@ -12,11 +12,12 @@ diff -rc websvn-2.0rc4-orig/include/configclass.inc websvn-2.0rc4/include/config
      var $templatePath = "./templates/Standard/";
   
 ***************
-*** 919,924 ****
---- 920,937 ----
-        return $this->templatePath;
+*** 1251,1255 ****
+--- 1252,1269 ----
      }
   
+     // }}}
++ 
 +    // Cache directory
 + 
 +    function setCacheDir($path)
@@ -28,15 +29,14 @@ diff -rc websvn-2.0rc4-orig/include/configclass.inc websvn-2.0rc4/include/config
 +    {
 +       return $this->cacheDir;
 +    }
-+ 
-     // parentPath
-     //
-     // Automatically set up the repositories based on a parent path
-diff -rc websvn-2.0rc4-orig/rss.php websvn-2.0rc4/rss.php
-*** websvn-2.0rc4-orig/rss.php	2006-05-13 00:42:10.000000000 +0200
---- websvn-2.0rc4/rss.php	2006-12-16 00:18:45.000000000 +0100
++    
+  }
+  ?>
+diff -rc websvn-2.0-orig/rss.php websvn-2.0/rss.php
+*** websvn-2.0-orig/rss.php	2007-05-02 08:47:03.000000000 +0200
+--- websvn-2.0/rss.php	2008-02-05 16:24:19.000000000 +0100
 ***************
-*** 72,78 ****
+*** 67,73 ****
   
   // Cachename reflecting full path to and rev for rssfeed. Must end with xml to work
   $cachename = strtr(getFullURL($listurl), ":/\\?", "____");
@@ -44,7 +44,7 @@ diff -rc websvn-2.0rc4-orig/rss.php websvn-2.0rc4/rss.php
   
   $rss = new UniversalFeedCreator();
   $rss->useCached("RSS2.0", $cachename);
---- 72,80 ----
+--- 67,75 ----
   
   // Cachename reflecting full path to and rev for rssfeed. Must end with xml to work
   $cachename = strtr(getFullURL($listurl), ":/\\?", "____");
