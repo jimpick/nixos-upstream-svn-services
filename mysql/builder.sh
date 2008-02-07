@@ -7,13 +7,13 @@ mkdir -p $out/bin
 cat > $out/bin/control <<EOF
 start()
 {
-  $mysql/bin/mysqld_safe --port=$port --user=$user --datadir=$datadir --log-error=$log_error --pid-file=$pid_file
+  $mysql/bin/mysqld_safe --port=$port --user=$user --datadir=$dataDir --log-error=$logError --pid-file=$pidFile
 }
 
 stop()
 {
   ps ax | grep "$mysql/bin/mysqld_safe" | grep -v "grep" | cut -d\  -f2 | xargs kill
-  kill \`cat $pid_file\`
+  kill \`cat $pidFile\`
 }
 
 if test "\$1" = start
@@ -30,11 +30,11 @@ then
   read
   if ! test "\$REPLY" = yes; then exit 1; fi
 
-  rm -rf $datadir
-  mkdir -p $datadir
-  chown -R $user $datadir
+  rm -rf $dataDir
+  mkdir -p $dataDir
+  chown -R $user $dataDir
 
-  $mysql/bin/mysql_install_db --port=$port --user=$user --datadir=$datadir --log-error=$log_error --pid-file=$pid_file
+  $mysql/bin/mysql_install_db --port=$port --user=$user --datadir=$dataDir --log-error=$logError --pid-file=$pidFile
 fi
 EOF
 
