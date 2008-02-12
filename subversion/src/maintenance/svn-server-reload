@@ -23,7 +23,7 @@ die "removing hooks" if ($?);
 my $hookName = "$repopath/hooks/post-commit";
 open HOOK, ">$hookName";
 print HOOK "#! /bin/sh -e\n";
-print HOOK "exec /nix/var/nix/profiles/svn-production-server/bin/post-commit-hook \$*\n"; # !!! ugly
+print HOOK "exec @postCommitHook@ \"\$@\"\n"; # !!! ugly
 close HOOK;
 chmod 0755, $hookName or die;
 

@@ -1,9 +1,0 @@
-#! @shell@
-
-cd @reposDir@
-
-for i in $(ls); do
-  echo $i
-  @subversion@/bin/db_checkpoint -1 -h $i/db
-  rm -fv `@subversion@/bin/svnadmin list-unused-dblogs $i`
-done
