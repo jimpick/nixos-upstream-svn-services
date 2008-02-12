@@ -13,7 +13,7 @@ my $contactdb = "$dbdir/svn-contact";
 my $fullnamedb = "$dbdir/svn-fullnames";
 
 my $user = shift @ARGV;
-defined $user or die "syntax: delete-user.pl USER";
+defined $user or die "syntax: $0 USER";
 
 
 # !!! cut and pasted from repoman.pl.in - share this.

@@ -10,7 +10,7 @@ my $userdb = "$dbdir/svn-users";
 
 my $user = shift @ARGV;
 my $newpw = shift @ARGV;
-($user && $newpw) || die "syntax: resetpw.pl USER PASSWORD";
+($user && $newpw) || die "syntax: $0 USER PASSWORD";
 
 
 # !!! cut and pasted from repoman.pl.in - share this.

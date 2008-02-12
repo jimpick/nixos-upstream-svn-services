@@ -5,6 +5,7 @@ use BerkeleyDB;
 use Email::Send;
 use Email::Simple;
 use Crypt::PasswdMD5;
+use String::MkPasswd qw(mkpasswd);
 
 my $svndir = "@subversion@";
 my $dbdir = "@dbDir@";
@@ -12,7 +13,7 @@ my $userdb = "$dbdir/svn-users";
 my $contactdb = "$dbdir/svn-contact";
 my $fullnamedb = "$dbdir/svn-fullnames";
 
-die "syntax: create-user.pl USER MAIL-ADDRESS \"FULLNAME\"\n" if scalar @ARGV != 3;
+die "syntax: $0 USER MAIL-ADDRESS \"FULLNAME\"\n" if scalar @ARGV != 3;
 my $userName = shift @ARGV;
 my $address = shift @ARGV;
 my $fullName = shift @ARGV;
@@ -68,8 +69,7 @@ die "user `$userName' already exists" if defined $oldpwhash;
 
 
 # Generate a password.
-my $password = `mkpasswd` or die;
-chomp $password;
+my $password = mkpasswd();
 my $crypted = apache_md5_crypt($password);
 print "Password is $password ($crypted)\n";
 
@@ -87,14 +87,14 @@ my $msg = <<EOF;
 Hi,
 
 An account has been created for you on the Subversion server
-at @canonicalName@/.
+at @canonicalName@@urlPrefix@/.
 
 Your user name is: $userName
 Your password is: $password
 
 You can change your account information at
 
-  @canonicalName@/repoman/edituser
+  @canonicalName@@urlPrefix@/repoman/edituser
 
 Regards,
 
