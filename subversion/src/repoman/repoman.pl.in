@@ -6,6 +6,7 @@ use IO::Handle;
 use strict;
 use CGI qw(:standard :html3 escape escapeHTML self_uri *ul *li);
 use BerkeleyDB;
+use Crypt::PasswdMD5;
 
 $ENV{'PATH'} = "@defaultPath@";
 
@@ -13,7 +14,7 @@ my $admin = '@adminAddr@';
 my $svndir = "@subversion@";
 my $repodir = "@reposDir@";
 my $backupsdir = "@backupsDir@";
-my $repobase = "/repos";
+my $repoBase = "@urlPrefix@/repos";
 my $dbdir = "@dbDir@";
 
 my $userdb = "$dbdir/svn-users";
@@ -37,7 +38,7 @@ my $repoesc;
 
 my $in_html = 0;
 
-my $username = remote_user();
+my $userName = remote_user();
 
 
 # Print page header, if we haven't done so before (i.e., it may be
@@ -49,10 +50,10 @@ sub begin {
 
     print start_html(
         -title => "Subversion Repoman",
-        -style => {'src' => "@staticPrefix@/style.css"});
+        -style => {'src' => "@urlPrefix@/style.css"});
 
     print a({href => "@orgUrl@"},
-	    img{src => "@staticPrefix@/@orgLogoUrl@", alt => "@orgName@ Logo"});
+	    img{src => "@orgLogoUrl@", alt => "@orgName@ Logo"});
 }
 
 
@@ -158,7 +159,7 @@ sub checkDescription {
 # $repo.
 sub printRepoInfo {
     my $root = "@canonicalName@";
-    my $url = $root . $repobase . "/" . $repo . "/";
+    my $url = $root . $repoBase . "/" . $repo . "/";
 
     print p, "The URL of the repository is ";
     print a({href => $url}, escapeHTML($url)), ". ";
@@ -167,14 +168,16 @@ sub printRepoInfo {
     print "although typically you'll want to do a checkout of just a subdirectory ";
     print "(e.g., the ", tt("trunk/"), "). ";
 
-    my $viewurl = "/viewvc/" . $repo . "/";
-    my $xmlurl = "/repos-xml/" . $repo . "/";
-    print p, "You can also browse the ", a({href => $viewurl}, "repository's history"), 
-        " using ViewVC, or browse the repository in ", a({href => $xmlurl}, "XML format"), ".";
+    my $viewvcUrl = "@urlPrefix@/viewvc/" . $repo . "/";
+    my $websvnUrl = "@urlPrefix@/websvn/" . $repo . "/";
+    my $xmlUrl = "@urlPrefix@/repos-xml/" . $repo . "/";
+    print p, "You can also browse the repository's history using ",
+        a({href => $viewvcUrl}, "ViewVC"), " or ", a({href => $websvnUrl}, "WebSVN"),
+        ", or browse the repository in ", a({href => $xmlUrl}, "XML format"), ".";
 
     my $tardirs = getDB($tardb, $repo);
     if (defined $tardirs && $tardirs =~ /\w/) {
-	my $disturl = $root . "/dist/" . $repo . "/";
+	my $disturl = "@urlPrefix@/dist/" . $repo . "/";
 	print p, "Distributions (in .tar.bz2 format) of the head revision ",
 	    "of the repository are ",
             a({href => $disturl}, "generated automatically"), ".";
@@ -254,12 +257,12 @@ sub editUserInfo {
     }
 
     if ($password ne "") {
-	my $crypted = crypt $password, "sv";
-	setDB($userdb, $username, $crypted);
+	my $crypted = apache_md5_crypt($password);
+	setDB($userdb, $userName, $crypted);
     }
 
-    setDB($contactdb, $username, $address);
-    setDB($fullnamedb, $username, $fullname);
+    setDB($contactdb, $userName, $address);
+    setDB($fullnamedb, $userName, $fullname);
 }
 
 
@@ -286,7 +289,7 @@ if ($action eq "list" or $action eq "listdetails") {
 
     my $listDetails = $action eq "listdetails";
 
-    if ($listDetails && $username ne "root") {
+    if ($listDetails && $userName ne "root") {
 	print p, "Only root can do this.";
 	end();
     }
@@ -337,7 +340,8 @@ if ($action eq "list" or $action eq "listdetails") {
     foreach my $n (sort {uc($a) cmp uc($b)} readdir(DIR)) {
 	next if ($n eq "." || $n eq "..");
 	next unless (-d ($repodir . "/" . $n));
-	next if !$listDetails && getDB($hiddenreposdb, $n) ne "";
+        my $isHidden = getDB($hiddenreposdb, $n);
+	next if !$listDetails && defined $isHidden && $isHidden ne "";
 	my $description = $descriptions{$n} || "";
 	my $owner = $owners{$n} || "";
 	push(@rows, td({class => $isOdd ? "odd" : "even"},
@@ -402,6 +406,8 @@ elsif ($action eq "info") {
 
 elsif ($action eq "create" && !defined($repo)) {
 
+    die unless defined $userName;
+
     print h1("Create a Repository");
 
     print start_form("post", $base . "/create");
@@ -422,6 +428,8 @@ elsif ($action eq "create" && !defined($repo)) {
 
 
 elsif ($action eq "create" && defined($repo)) {
+
+    die unless defined $userName;
 
     checkRepo();
 
@@ -458,15 +466,15 @@ elsif ($action eq "create" && defined($repo)) {
 	my $hookName = "$repodir/$repo/hooks/post-commit";
 	open HOOK, ">$hookName";
 	print HOOK "#! /bin/sh -e\n";
-	print HOOK "exec /nix/var/nix/profiles/svn-production-server/bin/post-commit-hook \$*\n"; # !!! ugly
+	print HOOK "exec @postCommitHook@ \"\$@\"\n"; # !!! ugly
 	close HOOK;
 	chmod 0755, $hookName or die;
 
 	# By default, allow read/write access to the owner and 
 	# nobody else.
-	setDB($ownerdb, $repo, $username);
-	setDB($readerdb, $repo, $username);
-	setDB($writerdb, $repo, $username);
+	setDB($ownerdb, $repo, $userName);
+	setDB($readerdb, $repo, $userName);
+	setDB($writerdb, $repo, $userName);
 	setDB($watcherdb, $repo, "");
 	setDB($descrdb, $repo, $description);
 
@@ -481,11 +489,13 @@ elsif ($action eq "create" && defined($repo)) {
 
 elsif ($action eq "update" && defined(param("readers"))) {
 
+    die unless defined $userName;
+
     checkRepo();
     repoExists();
 
     my $owner = getDB($ownerdb, $repo);
-    if ($owner ne $username && $username ne "root") {
+    if ($owner ne $userName && $userName ne "root") {
 	print p, "You are not authorised to update this repository.";
 	end();
     }
@@ -557,14 +567,14 @@ elsif ($action eq "adduser" && !defined(param("username"))) {
 
 elsif ($action eq "adduser" && defined(param("username"))) {
 
-    $username = param("username");
+    $userName = param("username");
 
-    unless ($username =~ /^\w+$/ && !($username eq "all")) {
+    unless ($userName =~ /^\w+$/ && !($userName eq "all")) {
 	print p, "Invalid user name.";
 	end();
     }
 
-    if (defined(getDB($userdb, $username))) {
+    if (defined(getDB($userdb, $userName))) {
 	print p, "User already exists.";
 	end();
     }
@@ -572,31 +582,33 @@ elsif ($action eq "adduser" && defined(param("username"))) {
     editUserInfo(1);
 
     print h1("User added!");
-    print p, "The user ", tt($username), " has been added succesfully.";
+    print p, "The user ", tt($userName), " has been added succesfully.";
 }
 
 
 elsif ($action eq "edituser" && !defined(param("password"))) {
 
+    die unless defined $userName;
+
     print h1("Edit User Information");
 
     # Root is allowed to change other users.
-    if ($username eq "root" && defined(param("username"))) {
-	$username = param("username");
+    if ($userName eq "root" && defined(param("username"))) {
+	$userName = param("username");
     }
 
-    print p, "You are about to edit user ", tt($username), ".";
+    print p, "You are about to edit user ", tt($userName), ".";
     print start_form("post", $base . "/edituser");
     print p, "E-mail address: ", textfield({
-        -default => getDB($contactdb, $username, ""), 
+        -default => getDB($contactdb, $userName, ""), 
 	-override => 1, -name => "address"});
     print p, "Full name: ", textfield({
-        -default => getDB($fullnamedb, $username, ""), 
+        -default => getDB($fullnamedb, $userName, ""), 
 	-override => 1, -name => "fullname"});
     print p, "Leave the password fields empty to leave your password unchanged.";
     print p, "Password: ", password_field("password", "");
     print p, "Password (again): ", password_field("password_again", "");
-    print hidden(-name => "username", -default => "$username");
+    print hidden(-name => "username", -default => "$userName");
     print p, submit(-label => 'Change!');
     print end_form;
 }
@@ -604,11 +616,11 @@ elsif ($action eq "edituser" && !defined(param("password"))) {
 
 elsif ($action eq "edituser" && defined(param("password"))) {
 
-    if ($username eq "root" && defined(param("username"))) {
-	$username = param("username");
+    if ($userName eq "root" && defined(param("username"))) {
+	$userName = param("username");
     }
 
-    if (!defined(getDB($userdb, $username))) {
+    if (!defined(getDB($userdb, $userName))) {
 	print p, "You don't exist, go away.";
 	end();
     }
@@ -616,7 +628,7 @@ elsif ($action eq "edituser" && defined(param("password"))) {
     editUserInfo(0);
 
     print h1("User Information Edited!");
-    print p, "Information for user ", tt($username), 
+    print p, "Information for user ", tt($userName), 
         " has been changed succesfully.";
 }
 

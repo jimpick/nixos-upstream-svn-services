@@ -2,6 +2,7 @@
 
 use strict;
 use BerkeleyDB;
+use Crypt::PasswdMD5;
 
 my $svndir = "@subversion@";
 my $dbdir = "@dbDir@";
@@ -53,7 +54,7 @@ die "unknown user `$user'" unless defined $oldpwhash;
 
 print "old password hash: $oldpwhash\n";
 
-my $newpwhash = crypt $newpw, "sv";
+my $newpwhash = apache_md5_crypt($password);
 
 print "new password hash: $newpwhash\n";
 

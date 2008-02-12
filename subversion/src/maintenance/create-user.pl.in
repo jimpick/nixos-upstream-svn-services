@@ -4,6 +4,7 @@ use strict;
 use BerkeleyDB;
 use Email::Send;
 use Email::Simple;
+use Crypt::PasswdMD5;
 
 my $svndir = "@subversion@";
 my $dbdir = "@dbDir@";
@@ -69,7 +70,7 @@ die "user `$userName' already exists" if defined $oldpwhash;
 # Generate a password.
 my $password = `mkpasswd` or die;
 chomp $password;
-my $crypted = crypt $password, "sv";
+my $crypted = apache_md5_crypt($password);
 print "Password is $password ($crypted)\n";
 
 
