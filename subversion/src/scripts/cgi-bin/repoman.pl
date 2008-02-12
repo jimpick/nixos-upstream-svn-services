@@ -8,7 +8,7 @@ use CGI qw(:standard :html3 escape escapeHTML self_uri *ul *li);
 use BerkeleyDB;
 use Crypt::PasswdMD5;
 
-$ENV{'PATH'} = "@defaultPath@";
+$ENV{'PATH'} = "/no-path";
 
 my $admin = '@adminAddr@';
 my $svndir = "@subversion@";

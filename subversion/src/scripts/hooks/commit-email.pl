@@ -62,7 +62,7 @@ sub getDB {
 # Configuration section.
 
 # Sendmail path.
-my $sendmail = "/usr/sbin/sendmail";
+my $sendmail = "@sendmail@";
 
 # Svnlook path.
 my $svnlook = "@subversion@/bin/svnlook";

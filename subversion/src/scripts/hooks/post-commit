@@ -17,7 +17,7 @@
 
 ERRLOG=@logDir@/post-commit
 
-export PATH=@defaultPath@
+export PATH=@coreutils@/bin:@bzip2@/bin
 
 export TZ=UTC
 
