@@ -11,7 +11,7 @@
 
   <!-- Default CSS stylesheet. -->
   <xsl:template name="defaultCSS">
-    <link rel="stylesheet" href="@distPrefix@/css/releases.css" type="text/css" />
+    <link rel="stylesheet" href="@urlPrefix@/css/releases.css" type="text/css" />
     <link rel="alternate" href="index.rss" type="application/rss+xml"
           title="Latest Nix Build Farm Results" />
   </xsl:template>

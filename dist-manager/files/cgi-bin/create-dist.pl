@@ -7,8 +7,8 @@ use File::Basename;
 
 
 # Global settings.
-my $conf = "@out@/directories.conf";
-my $baseURL = "@canonicalName@@distPrefix@";
+my $conf = "@directoriesConf@";
+my $baseURL = "@canonicalName@@urlPrefix@";
 my $scripts = "@out@/scripts";
 $ENV{"PATH"} = "@defaultPath@";
 
