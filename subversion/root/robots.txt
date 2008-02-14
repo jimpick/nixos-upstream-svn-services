@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /viewcvs/
-Disallow: /viewvc/
-Disallow: /websvn/
-Disallow: /repos-xml/

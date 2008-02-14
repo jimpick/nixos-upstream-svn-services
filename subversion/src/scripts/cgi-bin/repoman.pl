@@ -50,7 +50,7 @@ sub begin {
 
     print start_html(
         -title => "Subversion Repoman",
-        -style => {'src' => "@urlPrefix@/style.css"});
+        -style => {'src' => "@urlPrefix@/svn-files/style.css"});
 
     print a({href => "@orgUrl@"},
 	    img{src => "@orgLogoUrl@", alt => "@orgName@ Logo"});
