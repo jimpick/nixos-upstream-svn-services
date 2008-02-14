@@ -1,4 +1,4 @@
-#! @perl@ -w @perlFlags@
+#! @perl@ @perlFlags@
 
 use strict;
 use BerkeleyDB;
@@ -107,6 +107,6 @@ $email->header_set("Reply-To", '@adminAddr@');
 $email->header_set("To", $address);
 $email->header_set("Subject", "Subversion account created");
 
-my $sender = Email::Send->new({mailer => 'SMTP'});
-$sender->mailer_args([Host => "@smtpHost@"]) or die;
+my $sender = Email::Send->new({mailer => 'Sendmail'});
+$Email::Send::Sendmail::SENDMAIL = "@sendmail@";
 $sender->send($email) or die;
