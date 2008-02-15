@@ -4,8 +4,6 @@
 , substituter
 , rcs
 , perl
-, perlCGISession
-, perlDigestSHA1
 , twikiroot ? null
 , user ? ""
 , group ? ""
@@ -35,8 +33,8 @@ stdenv.mkDerivation {
 
   builder = ./twiki-builder.sh;
   src = fetchurl {
-    url = http://twiki.org/p/pub/Codev/Release/TWiki-4.0.1.tgz;
-    md5 = "bbfaa7fe279b374407a5bd7d946bbe7a";
+    url = http://twiki.org/swd/TWiki20040902.tar.gz;
+    md5 = "d04b2041d83dc6c97905faa1c6b9116d";
   };
 
   inherit substituter rcs perl;
@@ -46,7 +44,6 @@ stdenv.mkDerivation {
   inherit plugins;
   inherit sed;
   inherit htpasswd;
-  inherit perlCGISession perlDigestSHA1;
 
   conf = ./twiki.conf;
   preconf = ./twiki-pre.conf;
