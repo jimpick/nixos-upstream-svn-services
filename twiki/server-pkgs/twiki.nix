@@ -1,7 +1,6 @@
 { name
 , stdenv
 , fetchurl
-, substituter
 , rcs
 , perl
 , twikiroot ? null
@@ -33,11 +32,11 @@ stdenv.mkDerivation {
 
   builder = ./twiki-builder.sh;
   src = fetchurl {
-    url = http://twiki.org/swd/TWiki20040902.tar.gz;
-    md5 = "d04b2041d83dc6c97905faa1c6b9116d";
+    url = http://twiki.org/swd/TWiki20040904.tar.gz;
+    md5 = "1ee1fdf5309ee0300d29cafacc30b75c";
   };
 
-  inherit substituter rcs perl;
+  inherit rcs perl;
   inherit user group;
   inherit twikiroot datadir pubdir;
   inherit skins;

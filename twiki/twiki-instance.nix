@@ -2,11 +2,11 @@
 
 rec {
   pkgs =
-    import ../pkgs/system/i686-linux.nix;
+    import ../pkgs/top-level/all-packages.nix {};
 
   twiki = config :
     (import ./server-pkgs/twiki.nix) ({
-      inherit (pkgs) stdenv fetchurl substituter;
+      inherit (pkgs) stdenv fetchurl;
 
       rcs = pkgs.rcs;
       perl = pkgs.perl;

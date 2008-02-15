@@ -1,5 +1,4 @@
-. $stdenv/setup
-. $substituter
+source $stdenv/setup
 
 set -e
 

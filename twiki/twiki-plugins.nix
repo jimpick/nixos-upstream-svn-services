@@ -1,6 +1,6 @@
 rec {
   pkgs =
-    import ../pkgs/system/i686-linux.nix;
+    import ../pkgs/top-level/all-packages.nix {};
 
   BlueBoxSkin =
     (import ./server-pkgs/bluebox-skin.nix) {

@@ -51,6 +51,7 @@
 </Files>
 
 <Files "register*">
-	allow from @registrationDomain@
-        deny from all
+       Order deny,allow
+       Deny from all 
+       Allow from @registrationDomain@
 </Files>
