@@ -1,0 +1,59 @@
+1. Create a system user 'postgres'
+
+2. Download JIRA 2.6.1 to the directory server-pkgs/jira
+
+3. Create a symbolic link to the Nix 'pkgs' in this directory.
+
+4. Review the configuration in postgresql-instance.nix and
+   jira-instance.nix. Make sure that the log directories exist and are
+   writeable for the postgres and jetty users (logdir).
+
+5. Execute
+   > ./install-postgresql.sh
+
+6. Execute
+   > ./install-jira.sh
+
+7. Setup the database.
+
+   Initialize the database cluster:
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_init
+
+   Start the database server:
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl start -w
+
+   Initialize the database:
+   > /nix/var/nix/profiles/jira-server/bin/init-database
+
+   Stop the database server:
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl stop -w
+
+PostgreSQL, Jetty and JIRA have now been installed!
+
+--------------------------------------------------------
+Start JIRA:
+
+1. Start the PostgreSQL server:
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl start -w
+
+2. Start Jetty:
+   > /nix/var/nix/profiles/jira-server/bin/start-jetty
+
+3. You can now visit JIRA at:
+   https://127.0.0.1/jira
+
+4. Import the data of your previous JIRA installation (the file in the
+   form should be a file in the file-system of the server) or
+   configure a fresh JIRA.
+
+   The indexes directory should exist and will be used completely by
+   JIRA. So, don't use /tmp. I'm using /tmp/jira-indexes-?.
+
+--------------------------------------------------------
+Stop JIRA:
+
+1. Stop Jetty:
+   > /nix/var/nix/profiles/jira-server/bin/stop-jetty
+
+2. Stop PostgreSQL:
+   > /nix/var/nix/profiles/jira-server/bin/pg_cluster_ctl stop
