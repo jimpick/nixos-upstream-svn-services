@@ -12,7 +12,7 @@ rec {
 
       sslSupport = false;
       port   = 10080;
-      logdir = "/home/eelco/jetty";
+      logdir = "/var/log/jetty";
 
       inherit j2re;
       inherit (pkgs) stdenv jetty;

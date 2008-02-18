@@ -16,7 +16,6 @@
 , pubUrlPath ? "/twiki/pub"
 , dispPubUrlPath ? null      # defaults to pubUrlPath
 , twikiName ? "TWiki"
-, startWeb ? "Main/WebHome"
 , customRewriteRules ? ""
 , skins ? []
 , plugins ? []
@@ -43,9 +42,6 @@ stdenv.mkDerivation {
   inherit plugins;
   inherit sed;
   inherit htpasswd;
-
-  conf = ./twiki.conf;
-  preconf = ./twiki-pre.conf;
 
   startupHook = ./startup-hook.sh;
 

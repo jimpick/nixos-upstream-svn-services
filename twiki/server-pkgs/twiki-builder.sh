@@ -172,32 +172,6 @@ EOF
 cat $staticTWikiCfg >> $out/lib/TWiki.cfg
 
 
-echo "Creating Apache httpd.conf fragment ..."
-ensureDir $out/types/apache-httpd/conf
-substitute $conf $out/types/apache-httpd/conf/twiki.conf \
-    --subst-var twikiroot \
-    --subst-var pubdir \
-    --subst-var datadir \
-    --subst-var scriptUrlPath \
-    --subst-var pubUrlPath \
-    --subst-var dispScriptUrlPath \
-    --subst-var absHostPath \
-    --subst-var startWeb \
-    --subst-var customRewriteRules 
-
-echo "Creating Apache pre httpd.conf fragment ..."
-ensureDir $out/types/apache-httpd/conf-pre
-substitute $preconf $out/types/apache-httpd/conf-pre/twiki.conf \
-    --subst-var twikiroot \
-    --subst-var pubdir \
-    --subst-var datadir \
-    --subst-var scriptUrlPath \
-    --subst-var pubUrlPath \
-    --subst-var dispScriptUrlPath \
-    --subst-var absHostPath \
-    --subst-var startWeb \
-    --subst-var customRewriteRules 
-
 # dirty hack for allowing rewrite rules
 ensureDir $out/rewritestub
 
