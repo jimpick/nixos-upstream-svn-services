@@ -1,4 +1,6 @@
-echo "creating missing files / tables..."
+#! @shell@ -e
+
+echo "creating missing files / tables for the Subversion service..."
 
 needDir() {
     mkdir -p "$1"
