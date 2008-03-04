@@ -6,6 +6,10 @@
 	server ? "anon.freenet6.net",
 	keepAlive ? "30",
 	everPing ? "1000000"
+	, seccureKeys ? { 
+	  private = "/var/elliptic-keys/private"; 
+	  public = /var/elliptic-keys/private;
+	}
 } :
 
 stdenv.mkDerivation {
@@ -21,6 +25,9 @@ stdenv.mkDerivation {
 	inherit everPing;
 	authMethod = (if (username == "") then "anonymous" else "any");
 	gw6dir = gw6c;
+
+	pubkey = seccureKeys.public;
+	privkey = seccureKeys.private;
 
 	builder = ./builder.sh;
 

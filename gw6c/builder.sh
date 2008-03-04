@@ -9,6 +9,6 @@ touch conf/raw
 chmod 0700 conf/raw
 
 substituteAll $confFile conf/raw
-$seccureUser/bin/seccure-encrypt $(cat /var/elliptic-keys/public) -i conf/raw -o $out/conf/gw6c.conf
+$seccureUser/bin/seccure-encrypt $(cat $pubkey) -i conf/raw -o $out/conf/gw6c.conf
 substituteAll $controlScript $out/bin/control
 chmod a+x $out/bin/control
