@@ -1,31 +1,14 @@
 source $stdenv/setup
 
-doSub() {
-    local src=$1
-    local dst=$2
-    ensureDir $(dirname $dst)
-    substituteAll $src $dst
-}
-
-subDir=/
-for i in $scripts; do
-    if test "$(echo $i | cut -c1-2)" = "=>"; then
-        subDir=$(echo $i | cut -c3-)
-    else
-        dst=$out/$subDir/$((stripHash $i; echo $strippedName) | sed 's/\.in//')
-        doSub $i $dst
-        chmod +x $dst # !!!
-    fi
-done
-
-subDir=/
-for i in $substFiles; do
-    if test "$(echo $i | cut -c1-2)" = "=>"; then
-        subDir=$(echo $i | cut -c3-)
-    else
-        dst=$out/$subDir/$((stripHash $i; echo $strippedName) | sed 's/\.in//')
-        doSub $i $dst
-    fi
-done
-
 ensureDir $out/bin
+ensureDir $out/conf
+
+mkdir conf 
+chmod 0700 conf 
+touch conf/raw
+chmod 0700 conf/raw
+
+substituteAll $confFile conf/raw
+$seccureUser/bin/seccure-encrypt $(cat /var/elliptic-keys/public) -i conf/raw -o $out/conf/gw6c.conf
+substituteAll $controlScript $out/bin/control
+chmod a+x $out/bin/control
