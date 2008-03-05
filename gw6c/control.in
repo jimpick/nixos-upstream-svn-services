@@ -5,7 +5,7 @@ export PATH=@coreutils@/bin
 export PATH=@coreutils@/bin:@gnugrep@/bin:@gnused@/bin:@iputils@/bin:@iputils@/sbin:@procps@/bin:@seccureUser@/bin
 export BASEDIR=$(dirname $(dirname $0))
 
-	mkdir /tmp/.gw6c
+	mkdir /tmp/.gw6c || true
 	touch /tmp/.gw6c/gw6c.conf
 	chmod 0700 /tmp/.gw6c
 	chmod 0700 /tmp/.gw6c/gw6c.conf
