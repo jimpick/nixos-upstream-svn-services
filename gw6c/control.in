@@ -21,7 +21,7 @@ ln -s /dev/net/tun /dev/tun || true;
 if test "$1" = "start"; then
 	trap 'stop ; exit ' 15
 
-	if pingBefore; then while ! @iputils@/bin/ping @gw6server@ -c1 -w1 ; do sleep 1; done; fi
+	if test -n "@pingBefore@"; then while ! @iputils@/bin/ping @gw6server@ -c1 -w1 ; do sleep 1; done; fi
     env - HOME=/homeless-shelter $extraEnv \
         @gw6c@/bin/gw6c -f /tmp/.gw6c/gw6c.conf </dev/null 2>&1 >/var/log/gw6c.out
     while @procps@/bin/pgrep gw6c; do 
