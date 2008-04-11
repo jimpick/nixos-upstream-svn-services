@@ -31,7 +31,7 @@ let {
     stateDir = logDir;
 
     subServices = [
-      distManager
+      #distManager
     ];
 
     siteConf = ./site.conf;
