@@ -54,7 +54,7 @@ die "unknown user `$user'" unless defined $oldpwhash;
 
 print "old password hash: $oldpwhash\n";
 
-my $newpwhash = apache_md5_crypt($password);
+my $newpwhash = apache_md5_crypt($newpw);
 
 print "new password hash: $newpwhash\n";
 
