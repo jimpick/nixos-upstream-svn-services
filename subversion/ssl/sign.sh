@@ -43,9 +43,17 @@ certificate             = \$dir/ca.crt
 private_key             = \$dir/ca.key
 default_days            = 9999
 default_crl_days        = 30
-default_md              = md5
+default_md              = sha1
 preserve                = no
 policy                  = policy_anything
+x509_extensions         = usr_cert
+name_opt        = ca_default            # Subject Name options
+cert_opt        = ca_default            # Certificate field options
+copy_extensions = copy
+[ usr_cert ]
+basicConstraints        = CA:FALSE
+nsComment               = "OpenSSL Generated Certificate"
+
 [ policy_anything ]
 countryName             = optional
 stateOrProvinceName     = optional
