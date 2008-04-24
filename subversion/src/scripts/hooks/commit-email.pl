@@ -31,6 +31,7 @@
 use strict;
 use Carp;
 use BerkeleyDB;
+use Sys::Hostname;
 
 # !!! cut & paste from repoman.pl
 
@@ -410,8 +411,7 @@ foreach my $project (@project_settings_list)
         $subject = "$subject_prefix $subject";
       }
 #    my $mail_sender = $author;
-    my $myhostname = `hostname`;
-    chomp $myhostname;
+    my $myhostname = hostname;
     my $mail_sender = '"Subversion Server" <@notificationSender@>';
 
     if ($hostname =~ /\w/)
