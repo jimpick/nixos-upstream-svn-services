@@ -33,6 +33,8 @@ use Carp;
 use BerkeleyDB;
 use Sys::Hostname;
 
+my $maxDiffLines = 1000;
+
 # !!! cut & paste from repoman.pl
 
 # Open the specified database, return a hash object for it.
@@ -368,9 +370,13 @@ if (@mods)
 push(@body, "\n");
 push(@body, "Log:\n");
 push(@body, @log);
-# Eelco: don't show diffs, too big.
-#push(@body, "\n");
-#push(@body, map { /[\r\n]+$/ ? $_ : "$_\n" } @difflines);
+push(@body, "\n");
+push(@body, "Changes (first $maxDiffLines lines of the diffs):\n\n");
+push(@body, map { /[\r\n]+$/ ? $_ : "$_\n" } @difflines[0..($maxDiffLines - 1)]);
+if (scalar @difflines > $maxDiffLines) {
+    my $rest = scalar @difflines - $maxDiffLines;
+    push(@body, "\n($rest diff lines omitted)\n");
+}
 
 # Go through each project and see if there are any matches for this
 # project.  If so, send the log out.
