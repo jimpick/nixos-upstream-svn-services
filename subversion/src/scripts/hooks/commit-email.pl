@@ -371,8 +371,14 @@ push(@body, "\n");
 push(@body, "Log:\n");
 push(@body, @log);
 push(@body, "\n");
-push(@body, "Changes (first $maxDiffLines lines of the diffs):\n\n");
-push(@body, map { /[\r\n]+$/ ? $_ : "$_\n" } @difflines[0..($maxDiffLines - 1)]);
+if (@difflines <= $maxDiffLines) {
+    push(@body, "Changes:\n\n");
+} else {
+    push(@body, "Changes (first $maxDiffLines lines of the diffs):\n\n");
+}
+my @difflines2 = @difflines;
+splice @difflines2, $maxDiffLines;
+push(@body, map { /[\r\n]+$/ ? $_ : "$_\n" } @difflines2);
 if (scalar @difflines > $maxDiffLines) {
     my $rest = scalar @difflines - $maxDiffLines;
     push(@body, "\n($rest diff lines omitted)\n");
