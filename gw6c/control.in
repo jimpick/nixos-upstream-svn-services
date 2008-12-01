@@ -9,7 +9,7 @@ export BASEDIR=$(dirname $(dirname $0))
 	touch /tmp/.gw6c/gw6c.conf
 	chmod 0700 /tmp/.gw6c
 	chmod 0700 /tmp/.gw6c/gw6c.conf
-	seccure-decrypt -F @privkey@ -i $BASEDIR/conf/gw6c.conf >> /tmp/.gw6c/gw6c.conf
+	seccure-decrypt -F @privkey@ -i $BASEDIR/conf/gw6c.conf > /tmp/.gw6c/gw6c.conf
 
 stop ()
 {
